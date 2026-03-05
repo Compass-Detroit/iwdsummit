@@ -1,0 +1,296 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Theme color tokens ─── */
+/* Blue (default): ocean-forward palette */
+:root,
+[data-theme='blue'] {
+  --iwd-accent-50: 239 246 255;
+  --iwd-accent-100: 219 234 254;
+  --iwd-accent-200: 191 219 254;
+  --iwd-accent-300: 147 197 253;
+  --iwd-accent-400: 96 165 250;
+  --iwd-accent-500: 59 130 246;
+  --iwd-accent-600: 37 99 235;
+  --iwd-accent-700: 29 78 216;
+  --iwd-accent-800: 30 64 175;
+  --iwd-accent-900: 30 58 138;
+  --iwd-accent-950: 23 37 84;
+
+  --iwd-dark-50: 240 244 255;
+  --iwd-dark-100: 224 231 248;
+  --iwd-dark-200: 199 210 234;
+  --iwd-dark-300: 163 177 211;
+  --iwd-dark-400: 120 137 176;
+  --iwd-dark-500: 83 99 129;
+  --iwd-dark-600: 61 77 106;
+  --iwd-dark-700: 46 59 84;
+  --iwd-dark-800: 31 42 62;
+  --iwd-dark-900: 19 28 44;
+  --iwd-dark-950: 9 14 24;
+
+  --iwd-focus-ring: 30 58 138;
+}
+
+/* Purple: violet-forward palette */
+[data-theme='purple'] {
+  --iwd-accent-50: 250 245 255;
+  --iwd-accent-100: 243 232 255;
+  --iwd-accent-200: 233 213 255;
+  --iwd-accent-300: 216 180 254;
+  --iwd-accent-400: 192 132 252;
+  --iwd-accent-500: 168 85 247;
+  --iwd-accent-600: 147 51 234;
+  --iwd-accent-700: 126 34 206;
+  --iwd-accent-800: 107 33 168;
+  --iwd-accent-900: 88 28 135;
+  --iwd-accent-950: 59 7 100;
+
+  --iwd-dark-50: 250 247 255;
+  --iwd-dark-100: 243 240 249;
+  --iwd-dark-200: 232 227 241;
+  --iwd-dark-300: 209 203 219;
+  --iwd-dark-400: 166 159 181;
+  --iwd-dark-500: 122 115 139;
+  --iwd-dark-600: 92 85 107;
+  --iwd-dark-700: 68 61 83;
+  --iwd-dark-800: 45 39 60;
+  --iwd-dark-900: 28 23 40;
+  --iwd-dark-950: 13 10 22;
+
+  --iwd-focus-ring: 88 28 135;
+}
+
+/* Custom CSS using Tailwind's @layer directive */
+@layer utilities {
+  /* Navbar: mobile menu container when expanded */
+  /* --header-height is set by Navbar via ResizeObserver; fallback for initial paint */
+  .nav-menu-expanded {
+    max-height: calc(100vh - var(--header-height, 80px));
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* WCAG 1.4.10 Reflow: un-stick the header at extreme zoom / tiny viewports */
+  @media (max-width: 320px) and (max-height: 400px) {
+    .site-header {
+      position: absolute;
+      width: 100%;
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+    }
+  }
+
+  /* Hide scrollbar but allow scrolling */
+  .scrollbar-hide {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
+  }
+
+  /* Visible scrollbar styling */
+  .scrollbar-visible {
+    scrollbar-width: thin; /* Firefox */
+    scrollbar-color: rgb(var(--iwd-accent-400)) #1f2937;
+  }
+  .scrollbar-visible::-webkit-scrollbar {
+    height: 8px; /* Chrome, Safari and Opera */
+  }
+  .scrollbar-visible::-webkit-scrollbar-track {
+    background: #1f2937;
+    border-radius: 4px;
+  }
+  .scrollbar-visible::-webkit-scrollbar-thumb {
+    background: rgb(var(--iwd-accent-400));
+    border-radius: 4px;
+  }
+  .scrollbar-visible::-webkit-scrollbar-thumb:hover {
+    background: rgb(var(--iwd-accent-300));
+  }
+}
+
+/* Yoda 404 keyframes (@keyframes are not layer-aware) */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-8px) rotate(-2deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(0deg);
+  }
+  75% {
+    transform: translateY(-6px) rotate(2deg);
+  }
+}
+
+@keyframes floatVariation {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-10px) rotate(1.5deg);
+  }
+  66% {
+    transform: translateY(-14px) rotate(-1.5deg);
+  }
+}
+
+@keyframes floatVariation2 {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  20% {
+    transform: translateY(-6px) rotate(-1deg);
+  }
+  40% {
+    transform: translateY(-15px) rotate(0deg);
+  }
+  60% {
+    transform: translateY(-9px) rotate(1.5deg);
+  }
+  80% {
+    transform: translateY(-12px) rotate(-0.5deg);
+  }
+}
+
+@layer components {
+  /**
+   * Skip link: visually hidden until keyboard focus (focus-visible).
+   * Uses clip-path instead of off-screen positioning to avoid:
+   * - Links peeking into view at zoom/small viewports
+   * - Scrollbars or layout quirks from -9999px
+   * - Visibility on mouse click (focus vs focus-visible)
+   */
+  .skip-link {
+    position: absolute;
+    left: 6px;
+    z-index: 100;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
+    border-radius: 0.25rem;
+    background: white;
+    color: black;
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1);
+    transition: clip-path 0.15s ease;
+  }
+  .skip-link:focus-visible {
+    width: auto;
+    height: auto;
+    padding: 0.25rem 0.5rem;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+    clip-path: none;
+    top: 6px;
+    outline: none;
+    box-shadow: 0 0 0 2px #352215;
+  }
+  .dark .skip-link {
+    background: #1f2937;
+    color: white;
+  }
+  .dark .skip-link:focus-visible {
+    box-shadow: 0 0 0 2px rgb(var(--iwd-accent-400));
+  }
+
+  /* Yoda 404 animation classes */
+  .yoda-float {
+    animation: float 4s ease-in-out infinite;
+  }
+
+  .yoda-float-variation {
+    animation: floatVariation 5s ease-in-out infinite;
+  }
+
+  .yoda-float-variation2 {
+    animation: floatVariation2 6s ease-in-out infinite;
+  }
+}
+
+@layer base {
+  /* Reset and base styles */
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-padding-top: var(--header-height, 80px);
+    width: 100%;
+    max-width: 100%;
+  }
+
+  body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  :root {
+    font-family: Montserrat, 'Open Sans', Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 500;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    margin: 0;
+    min-width: 320px;
+    min-height: 100vh;
+  }
+}
+
+/* Orbitron Variable Font */
+@font-face {
+  font-family: 'Orbitron';
+  src: url('./assets/fonts/orbitron-variablefont_wght-webfont.woff2')
+    format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Asimovian Font */
+@font-face {
+  font-family: 'Asimovian';
+  src: url('./assets/fonts/asimovian-regular-webfont.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Montserrat Variable Font */
+@font-face {
+  font-family: 'Montserrat';
+  src: url('./assets/fonts/Montserrat-VariableFont_wght.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* BioRhyme Font */
+@font-face {
+  font-family: 'BioRhyme';
+  src: url('./assets/fonts/BioRhyme-ExtraBold.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
