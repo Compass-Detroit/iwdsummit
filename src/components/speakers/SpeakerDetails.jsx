@@ -287,7 +287,7 @@ function SpeakerDetails({
     : sessionDescription
 
   return (
-    <div className="relative max-h-[90vh] w-full max-w-4xl overflow-y-auto rounded-3xl bg-white shadow-2xl">
+    <div className="relative max-h-[90vh] w-full max-w-4xl overflow-y-auto rounded-3xl bg-iwd-black-950 shadow-2xl ring-1 ring-white/10">
       <div className="relative px-8 py-12 text-white" style={heroStyle}>
         <div className="absolute inset-0 bg-gradient-to-b from-white/20 via-white/10 to-transparent mix-blend-soft-light"></div>
         <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/20 to-transparent"></div>
@@ -426,7 +426,7 @@ function SpeakerDetails({
             {bio && (
               <h3
                 id={`speaker-modal-about-${id}`}
-                className="mb-4 text-2xl font-bold text-gray-900"
+                className="mb-4 text-2xl font-bold text-white"
               >
                 About {name.split(' ')[0]}
               </h3>
@@ -434,7 +434,7 @@ function SpeakerDetails({
 
             {bio && (
               <p
-                className="mb-6 whitespace-pre-line text-left leading-relaxed text-gray-700"
+                className="mb-6 whitespace-pre-line text-left leading-relaxed text-gray-300"
                 style={{ maxWidth: '65ch', lineHeight: '1.6' }}
               >
                 {bio}
@@ -443,7 +443,7 @@ function SpeakerDetails({
 
             {tags && tags.length > 0 && (
               <div className="mb-6">
-                <h4 className="mb-3 text-sm font-bold uppercase tracking-wide text-gray-500">
+                <h4 className="mb-3 text-sm font-bold uppercase tracking-wide text-gray-400">
                   Topics
                 </h4>
                 <div className="flex flex-wrap gap-2">
@@ -468,26 +468,26 @@ function SpeakerDetails({
           {sessionTitle && (
             <div className="lg:col-span-2">
               <div
-                className="rounded-2xl bg-gradient-to-br from-blue-50 to-sky-50 p-6"
+                className="rounded-2xl bg-iwd-black-900 p-6"
                 style={{ border: `3px solid ${trackTheme.focusColor}` }}
               >
-                <h4 className="mb-4 text-xl font-semibold uppercase text-iwd-neutral-900">
+                <h4 className="mb-4 text-xl font-semibold uppercase text-white">
                   Session
                 </h4>
 
-                <div className="mb-4 rounded-xl bg-white p-4 shadow-sm">
-                  <h3 className="text-base font-semibold leading-relaxed text-gray-900">
+                <div className="mb-4 rounded-xl bg-iwd-black-950 p-4 shadow-sm">
+                  <h3 className="text-base font-semibold leading-relaxed text-white">
                     {sessionTitle}
                   </h3>
                 </div>
 
                 {sessionDescription && (
-                  <div className="rounded-xl bg-white p-4 shadow-sm">
-                    <h5 className="mb-2 text-sm font-bold uppercase tracking-wide text-gray-500">
+                  <div className="rounded-xl bg-iwd-black-950 p-4 shadow-sm">
+                    <h5 className="mb-2 text-sm font-bold uppercase tracking-wide text-gray-400">
                       Description
                     </h5>
                     <p
-                      className="whitespace-pre-wrap text-left text-sm text-gray-700"
+                      className="whitespace-pre-wrap text-left text-sm text-gray-300"
                       style={{ maxWidth: '65ch', lineHeight: '1.6' }}
                     >
                       {showFullDescription
@@ -499,7 +499,7 @@ function SpeakerDetails({
                         onClick={() =>
                           setShowFullDescription(!showFullDescription)
                         }
-                        className="mt-3 text-sm font-bold text-sky-700 transition-colors hover:underline focus:outline-none focus:ring-2 focus:ring-offset-2"
+                        className="mt-3 text-sm font-bold text-iwd-gold-400 transition-colors hover:underline focus:outline-none focus:ring-2 focus:ring-offset-2"
                         style={{
                           ...interactiveFocusVars,
                         }}
@@ -519,40 +519,40 @@ function SpeakerDetails({
 
         <div className="mt-8 flex items-center justify-center space-x-6 text-sm text-gray-500">
           <div className="flex items-center space-x-2">
-            <kbd className="inline-flex items-center rounded bg-gray-100 px-2 py-1 text-xs font-bold text-gray-800">
+            <kbd className="inline-flex items-center rounded bg-iwd-black-900 px-2 py-1 text-xs font-bold text-gray-300">
               ←
             </kbd>
-            <span className="text-gray-800">Previous</span>
+            <span className="text-gray-400">Previous</span>
           </div>
           <div className="flex items-center space-x-2">
-            <kbd className="inline-flex items-center rounded bg-gray-100 px-2 py-1 text-xs font-bold text-gray-800">
+            <kbd className="inline-flex items-center rounded bg-iwd-black-900 px-2 py-1 text-xs font-bold text-gray-300">
               →
             </kbd>
-            <span className="text-gray-800">Next</span>
+            <span className="text-gray-400">Next</span>
           </div>
           <div className="flex items-center space-x-2">
-            <kbd className="inline-flex items-center rounded bg-gray-100 px-2 py-1 text-xs font-bold text-gray-800">
+            <kbd className="inline-flex items-center rounded bg-iwd-black-900 px-2 py-1 text-xs font-bold text-gray-300">
               Esc
             </kbd>
-            <span className="text-gray-800">Close</span>
+            <span className="text-gray-400">Close</span>
           </div>
         </div>
       </div>
 
       <button
         onClick={goToPreviousSpeaker}
-        className="absolute left-4 top-1/2 z-20 -translate-y-1/2 rounded-full bg-white p-3 shadow-lg transition-all hover:scale-110 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-focus-ring focus:ring-offset-2"
+        className="absolute left-4 top-1/2 z-20 -translate-y-1/2 rounded-full bg-iwd-black-950 p-3 shadow-lg ring-1 ring-white/10 transition-all hover:scale-110 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-focus-ring focus:ring-offset-2"
         aria-label="Previous speaker"
       >
-        <IoChevronBack className="size-6 text-gray-600" aria-hidden="true" />
+        <IoChevronBack className="size-6 text-gray-300" aria-hidden="true" />
       </button>
 
       <button
         onClick={goToNextSpeaker}
-        className="absolute right-4 top-1/2 z-20 -translate-y-1/2 rounded-full bg-white p-3 shadow-lg transition-all hover:scale-110 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-focus-ring focus:ring-offset-2"
+        className="absolute right-4 top-1/2 z-20 -translate-y-1/2 rounded-full bg-iwd-black-950 p-3 shadow-lg ring-1 ring-white/10 transition-all hover:scale-110 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-focus-ring focus:ring-offset-2"
         aria-label="Next speaker"
       >
-        <IoChevronForward className="size-6 text-gray-600" aria-hidden="true" />
+        <IoChevronForward className="size-6 text-gray-300" aria-hidden="true" />
       </button>
 
       <div className="sticky bottom-4 left-1/2 z-10 mx-auto w-fit -translate-x-1/2 rounded-full bg-gray-900/80 px-4 py-2 text-sm font-medium text-white backdrop-blur-sm">

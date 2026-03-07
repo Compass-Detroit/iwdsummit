@@ -1,6 +1,8 @@
 import { PageLayout } from '@/layouts/PageLayout'
 import TeamSection from '@/layouts/TeamSection'
 import LandingSection from '@/layouts/LandingSection'
+import InspirationalHero from '@/components/InspirationalHero'
+import AboutSection from '@/layouts/AboutSection'
 import LocationSection from '@/layouts/LocationSection'
 import MembersSection from '@/layouts/MembersSection'
 import PartnersSection from '@/layouts/PartnersSection'
@@ -21,12 +23,23 @@ function Home() {
         International Women&apos;s Day Innovation Summit {currentYear}
       </h1>
       <LandingSection />
+      <InspirationalHero />
+      <AboutSection />
       <AttendeeSection />
       <LocationSection />
       <SessionsSection
         year={currentYear}
         speakersData={Speakers2026}
-        tracks={[]}
+        tracks={[
+          'Build with AI',
+          'Innovation',
+          'Level Up',
+          'Leadership',
+          'AI Foundations',
+          'Careers',
+          'Breakout Sessions',
+          'Map',
+        ]}
       />
 
       <SpeakersSection year={currentYear} speakersData={Speakers2026} />

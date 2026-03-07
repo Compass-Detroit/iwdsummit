@@ -87,13 +87,13 @@ function CTAButton({
   // Define variant styles
   const variantStyles = {
     primary:
-      'bg-iwd-gold-300 text-iwd-neutral-950 px-20 shadow-xl font-semibold border-2 border-iwd-gold-950 hover:border-iwd-gold-500 hover:bg-iwd-gold-400 hover:shadow-xl',
+      'border border-iwd-gold-400/30 bg-iwd-gold-400/10 text-iwd-gold-300 px-12 shadow-lg font-semibold text-sm uppercase tracking-widest hover:border-iwd-gold-400/50 hover:bg-iwd-gold-400/20 hover:shadow-xl hover:shadow-iwd-gold-500/10',
     secondary:
-      'bg-iwd-gold-200 text-iwd-neutral-950 px-20 py-4 border-[4px] border-iwd-neutral-950 shadow-lg hover:bg-iwd-gold-50 hover:border-iwd-neutral-950 hover:text-iwd-neutral-950',
+      'border border-white/10 bg-white/[0.04] text-gray-200 px-12 py-4 shadow-lg font-semibold text-sm uppercase tracking-widest hover:border-white/20 hover:bg-white/[0.08] hover:text-white hover:shadow-xl',
   }
 
   const baseStyles =
-    'flex items-center justify-center rounded px-8 py-5 font-medium transition-all delay-75 duration-100 ease-in-out hover:-translate-y-1 hover:scale-105 hover:cursor-pointer focus:outline-none focus:ring-2 focus:ring-focus-ring focus:ring-offset-2 whitespace-nowrap'
+    'flex items-center justify-center rounded-lg px-8 py-4 font-medium transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:cursor-pointer focus:outline-none focus:ring-2 focus:ring-focus-ring focus:ring-offset-2 focus:ring-offset-black whitespace-nowrap'
 
   return (
     <a

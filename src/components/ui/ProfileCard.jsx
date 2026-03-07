@@ -41,7 +41,7 @@ const ProfileCard = ({
 
   const badgeColor = getBadgeColor(track)
 
-  const speakerDetailColors = `bg-white text-sky-800 border-[1px] border-sky-900 shadow-xl hover:bg-primary-400 hover:border-primary-900 hover:text-sky-900`
+  const speakerDetailColors = `border border-white/[0.08] bg-white/[0.04] text-iwd-gold-300 shadow-md backdrop-blur-sm hover:bg-iwd-gold-500 hover:border-iwd-gold-500 hover:text-black hover:shadow-lg hover:shadow-iwd-gold-500/20`
 
   // change these for the speaker wrapper gradients
   const getGradientColors = (bgColor) => {
@@ -71,9 +71,9 @@ const ProfileCard = ({
   }
 
   const renderBadge = track && (
-    <div className="absolute bottom-5 right-5 z-0">
+    <div className="absolute bottom-4 right-4 z-10">
       <span
-        className={`inline-flex items-center gap-2 rounded-xl ${badgeColor} px-3 py-1.5 text-sm font-bold uppercase tracking-wider text-white shadow-lg`}
+        className={`inline-flex items-center gap-2 rounded-xl border border-white/10 ${badgeColor} px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-white shadow-lg backdrop-blur-sm`}
       >
         {track}
         {isGDE && (
@@ -158,13 +158,13 @@ const ProfileCard = ({
   }
   const renderInfo = (
     <div className="ml-4 flex flex-col items-start justify-start">
-      <h3 className="mt-1 line-clamp-2 text-left text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
+      <h3 className="mt-1 line-clamp-2 text-left text-xl font-semibold tracking-tight text-white">
         {name}
       </h3>
-      <p className="mt-1 line-clamp-2 text-left text-base text-gray-600 dark:text-white">
+      <p className="mt-1 line-clamp-2 text-left text-sm text-gray-400">
         {organization || '\u00A0'}
       </p>
-      <p className="mt-1 line-clamp-2 text-left text-base text-gray-600 dark:text-white">
+      <p className="mt-0.5 line-clamp-2 text-left text-sm text-gray-500">
         {position || '\u00A0'}
       </p>
     </div>
@@ -172,7 +172,7 @@ const ProfileCard = ({
 
   const renderButton = onViewDetails && (
     <button
-      className={`my-3 inline-flex items-center whitespace-nowrap rounded-lg px-4 py-2 text-sm font-medium shadow-md transition-colors focus:outline-none focus:ring-2 focus:ring-focus-ring focus:ring-offset-2 dark:text-black ${speakerDetailColors}`}
+      className={`my-3 inline-flex items-center whitespace-nowrap rounded-lg px-4 py-2 text-sm font-medium shadow-md transition-colors focus:outline-none focus:ring-2 focus:ring-focus-ring focus:ring-offset-2 ${speakerDetailColors}`}
       onClick={onViewDetails}
       aria-label={`View details for ${name}`}
     >
@@ -182,27 +182,49 @@ const ProfileCard = ({
 
   const renderSpeakerCard = (
     <>
-      <div className="relative aspect-[16/15] w-full overflow-hidden rounded-t-2xl">
+      {/* Large portrait — aspect ratio for dramatic visual impact */}
+      <div className="relative aspect-[3/4] w-full overflow-hidden rounded-t-2xl">
         <img
           alt={`${name} avatar`}
           src={avatar}
-          className="size-full object-cover"
+          className="size-full object-cover transition-transform duration-700 group-hover:scale-105"
           loading="lazy"
         />
+        {/* Gradient overlay from bottom for text readability */}
+        <div
+          className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"
+          aria-hidden="true"
+        />
         {renderBadgeAndGradient}
-      </div>
-      <div className="mt-3 flex flex-col justify-between px-2">
-        {renderInfo}
-        <div className="m-4 mt-6 flex flex-wrap items-center justify-between gap-2">
-          {renderSocialLinks}
-          {renderButton}
+
+        {/* Name + info overlaid on image bottom */}
+        <div className="absolute inset-x-0 bottom-0 p-5">
+          <h3 className="text-xl font-bold tracking-tight text-white drop-shadow-lg sm:text-2xl">
+            {name}
+          </h3>
+          {organization && (
+            <p className="mt-1 text-sm font-medium text-gray-200/90 drop-shadow-md">
+              {organization}
+            </p>
+          )}
+          {position && (
+            <p className="mt-0.5 text-xs text-gray-300/80 drop-shadow-md">
+              {position}
+            </p>
+          )}
         </div>
+      </div>
+
+      {/* Bottom bar: socials + CTA */}
+      <div className="flex items-center justify-between gap-2 px-5 py-4">
+        {renderSocialLinks || <div />}
+        {renderButton}
       </div>
     </>
   )
 
   return (
-    <div className="relative rounded-2xl border border-gray-200 bg-white shadow-lg dark:border-gray-700 dark:bg-gray-800">
+    <div className="group relative rounded-2xl border border-white/[0.06] bg-white/[0.02] shadow-lg backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-white/[0.12] hover:bg-white/[0.04] hover:shadow-xl hover:shadow-black/20">
       {renderSpeakerCard}
     </div>
   )

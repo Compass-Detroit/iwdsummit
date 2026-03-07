@@ -9,14 +9,29 @@ const DevTeamSection = () => {
   return (
     <section
       id="devteam"
-      className="flex flex-wrap items-center justify-center bg-iwd-gold-50 p-8 sm:px-10 md:px-14 lg:px-16"
+      className="relative flex flex-wrap items-center justify-center overflow-hidden px-6 py-24 sm:px-10 md:px-14 lg:px-16"
     >
-      <div className="flex w-full justify-center pt-0">
-        <h2 className="mb-4 w-full text-center font-biorhyme text-5xl text-iwd-neutral-900 md:text-5xl lg:text-6xl">
-          Dev Team
+      {/* Accent glow */}
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background: `radial-gradient(ellipse 50% 40% at 60% 30%, rgb(var(--iwd-accent-800) / 0.08) 0%, transparent 60%)`,
+        }}
+        aria-hidden="true"
+      />
+      <div className="flex w-full flex-col items-center pt-0">
+        <p className="mb-4 font-montserrat text-xs font-medium uppercase tracking-[0.3em] text-iwd-gold-400/80">
+          Built With Love
+        </p>
+        <h2 className="mb-3 w-full text-center font-biorhyme text-4xl font-bold text-white sm:text-5xl lg:text-6xl">
+          Dev{' '}
+          <span className="bg-gradient-to-r from-iwd-gold-300 via-iwd-gold-400 to-iwd-gold-300 bg-clip-text text-transparent">
+            Team
+          </span>
         </h2>
+        <div className="mb-6 h-px w-24 bg-gradient-to-r from-transparent via-iwd-gold-400/50 to-transparent sm:w-32" />
       </div>
-      <div className="mt-32 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
+      <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
         {sortedDevTeamData.map((dev) => (
           <DevTeamCard
             key={`dev-${dev.id}`}

@@ -5,59 +5,83 @@ const MembersSection = () => {
   return (
     <section
       id="membership"
-      className="bg-iwd-gold-100 p-8 pb-24 pt-16 sm:px-10 md:px-14 lg:px-16"
+      className="relative overflow-hidden bg-iwd-black-950 px-6 py-24 sm:px-10 sm:py-32 md:px-14 lg:px-16"
     >
-      <div className="flex w-full justify-center pt-0">
-        <h2 className="my-4 w-full text-center font-biorhyme text-5xl text-iwd-neutral-900 md:text-5xl lg:text-6xl">
-          Membership
-        </h2>
+      {/* Background glows */}
+      <div className="pointer-events-none absolute inset-0" aria-hidden="true">
+        <div className="absolute left-1/2 top-0 size-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-iwd-gold-400/[0.03] blur-[120px]" />
       </div>
 
-      <div className="mx-auto max-w-4xl">
-        <p className="prose mt-6  text-lg leading-8 text-gray-600 [text-wrap:pretty]">
-          Join Compass Detroit and connect with STEAM learners and professionals
-          across the region. Membership is free and open to anyone who wants to
-          learn, share, and grow with the community.
-        </p>
+      <div className="relative mx-auto max-w-4xl">
+        {/* Section Header */}
+        <div className="mb-14 text-center sm:mb-16">
+          <p className="mb-4 font-montserrat text-xs font-medium uppercase tracking-[0.3em] text-iwd-gold-400/80">
+            Get Involved
+          </p>
+          <h2 className="mb-5 font-biorhyme text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
+            Join the{' '}
+            <span className="bg-gradient-to-r from-iwd-gold-300 via-iwd-gold-400 to-iwd-gold-300 bg-clip-text text-transparent">
+              Movement
+            </span>
+          </h2>
+          <div className="mx-auto mb-6 h-px w-24 bg-gradient-to-r from-transparent via-iwd-gold-400/50 to-transparent sm:w-32" />
+          <p className="mx-auto max-w-2xl font-montserrat text-base font-light leading-relaxed text-gray-400">
+            Join Compass Detroit and connect with STEAM learners and
+            professionals across the region. Membership is free and open to
+            anyone who wants to learn, share, and grow.
+          </p>
+        </div>
 
-        <div className="mt-6 grid w-full grid-cols-1 gap-8 md:grid-cols-3">
-          {/* Left column — 2/3 width on desktop: Why Join + bullet points */}
-          <div className="min-w-0 md:col-span-2">
-            <h3 className="mb-4 font-biorhyme text-4xl text-gray-900">
-              Why join?
-            </h3>
+        {/* Benefits Grid */}
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+          {[
+            {
+              title: 'Events & Workshops',
+              desc: 'Access to innovation summits, talks, workshops, and networking',
+            },
+            {
+              title: 'Community',
+              desc: 'Connect with local tech leaders, mentors, and peers',
+            },
+            {
+              title: 'Early Access',
+              desc: 'First dibs on event registration and volunteer opportunities',
+            },
+            {
+              title: 'Stay Connected',
+              desc: 'Compass Detroit news, updates, and community highlights',
+            },
+          ].map((item) => (
+            <div
+              key={item.title}
+              className="group rounded-2xl border border-white/[0.06] bg-white/[0.02] p-6 transition-all duration-500 hover:border-white/10 hover:bg-white/[0.04]"
+            >
+              <h3 className="mb-2 font-biorhyme text-lg font-bold text-iwd-gold-300">
+                {item.title}
+              </h3>
+              <p className="text-sm leading-relaxed text-gray-400">
+                {item.desc}
+              </p>
+            </div>
+          ))}
+        </div>
 
-            <ul className="list-inside list-disc space-y-2 text-base leading-relaxed text-gray-700">
-              <li>
-                Access to innovation summits, talks, workshops, and networking
-              </li>
-              <li>Connect with local tech leaders and peers</li>
-              <li>
-                Early access to event registration and volunteer opportunities
-              </li>
-              <li>
-                Stay in the loop on Compass Detroit news and community updates
-              </li>
-            </ul>
-          </div>
-
-          {/* Right column — 1/3 width on desktop: Ready to join + CTA */}
-          <div className="flex min-w-0 flex-col gap-4 md:col-span-1">
-            <p className="text-lg font-semibold text-gray-800">
-              Ready to join?
-            </p>
-            <CTAButton
-              href="https://bit.ly/compass2026"
-              label="Become a Member"
-              ariaLabel="Join Compass Detroit as a member - opens in new tab"
-              className="text-xl font-semibold text-iwd-neutral-900"
-              target="_blank"
-              rel="noreferrer"
-              variant="secondary"
-              icon={<FaEnvelope />}
-              iconPosition="left"
-            />
-          </div>
+        {/* CTA */}
+        <div className="mt-12 flex flex-col items-center gap-4 text-center sm:mt-14">
+          <p className="font-montserrat text-sm font-light text-gray-500">
+            Free membership &mdash; no catch, just community.
+          </p>
+          <CTAButton
+            href="https://bit.ly/compass2026"
+            label="Become a Member"
+            ariaLabel="Join Compass Detroit as a member - opens in new tab"
+            className="text-xl font-semibold text-white"
+            target="_blank"
+            rel="noreferrer"
+            variant="primary"
+            icon={<FaEnvelope />}
+            iconPosition="left"
+          />
         </div>
       </div>
     </section>

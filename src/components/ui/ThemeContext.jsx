@@ -1,35 +1,64 @@
-import { createContext, useContext, useEffect, useState } from 'react'
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+  useMemo,
+  useCallback,
+} from 'react'
 import PropTypes from 'prop-types'
 
 const ThemeContext = createContext(null)
 
+export const THEMES = [
+  { id: 'blue', label: 'Ocean', swatch: '#3b82f6' },
+  { id: 'purple', label: 'Violet', swatch: '#a855f7' },
+  { id: 'coral', label: 'Coral', swatch: '#f43f5e' },
+  { id: 'emerald', label: 'Emerald', swatch: '#10b981' },
+  { id: 'gold', label: 'Gold', swatch: '#eab308' },
+  { id: 'magenta', label: 'Magenta', swatch: '#d946ef' },
+]
+
+function readStorage(key, fallback) {
+  try {
+    return localStorage.getItem(key) || fallback
+  } catch {
+    return fallback
+  }
+}
+
+function writeStorage(key, value) {
+  try {
+    localStorage.setItem(key, value)
+  } catch {
+    /* private browsing */
+  }
+}
+
 export function ThemeProvider({ children }) {
-  const [theme, setTheme] = useState(() => {
-    try {
-      return localStorage.getItem('iwd-theme') || 'blue'
-    } catch {
-      return 'blue'
-    }
-  })
+  const [theme, setTheme] = useState(() => readStorage('iwd-theme', 'blue'))
+  const [mode, setMode] = useState(() => readStorage('iwd-mode', 'dark'))
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme)
-    try {
-      localStorage.setItem('iwd-theme', theme)
-    } catch {
-      // localStorage unavailable (private browsing, etc.)
-    }
+    writeStorage('iwd-theme', theme)
   }, [theme])
 
-  const toggleTheme = () => {
-    setTheme((prev) => (prev === 'purple' ? 'blue' : 'purple'))
-  }
+  useEffect(() => {
+    document.documentElement.setAttribute('data-mode', mode)
+    writeStorage('iwd-mode', mode)
+  }, [mode])
 
-  return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      {children}
-    </ThemeContext.Provider>
+  const toggleMode = useCallback(() => {
+    setMode((prev) => (prev === 'dark' ? 'light' : 'dark'))
+  }, [])
+
+  const value = useMemo(
+    () => ({ theme, setTheme, mode, toggleMode }),
+    [theme, mode, toggleMode]
   )
+
+  return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>
 }
 
 ThemeProvider.propTypes = {

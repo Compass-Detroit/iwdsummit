@@ -27,14 +27,14 @@ const TeamSection = ({ teamData, year }) => {
   }) */
 
   // Get ribbon color based on role
-  const getRibbonColor = (role) => {
+  const getRibbonColor = (teamRole) => {
     const colors = {
       compass: 'bg-green-700',
       facilitator: 'bg-green-700',
       devteam: 'bg-sky-700',
       marketing: 'bg-fuchsia-700',
     }
-    return colors[role] || 'bg-primary-700'
+    return colors[teamRole] || 'bg-primary-700'
   }
 
   // Handle Escape key to close modal
@@ -72,17 +72,17 @@ const TeamSection = ({ teamData, year }) => {
   return (
     <section
       id="leadership"
-      className="relative bg-iwd-gold-50 px-8 py-24 sm:px-10 md:px-14 lg:px-16"
+      className="relative bg-iwd-black-900 px-8 py-24 sm:px-10 md:px-14 lg:px-16"
     >
       <SectionSkipLink href="#page-footer">Skip to footer</SectionSkipLink>
       <div className="flex w-full justify-center pt-0">
-        <h2 className="mb-4 w-full text-center font-biorhyme text-5xl text-iwd-neutral-900 md:mb-6 md:text-5xl lg:text-6xl">
+        <h2 className="mb-4 w-full text-center font-biorhyme text-3xl font-bold text-white sm:text-4xl md:mb-6 lg:text-5xl">
           {year ? `${year} ` : ''}Leadership Team
         </h2>
       </div>
 
       <div className="mx-auto flex max-w-full justify-center lg:mx-0">
-        <p className="prose mt-6 max-w-4xl text-left text-lg/8 text-gray-600 [text-wrap:pretty]">
+        <p className="prose mt-6 max-w-4xl text-left text-base/7 text-gray-400 [text-wrap:pretty]">
           Our team of {teamCount} includes GDG organizers, session facilitators,
           and web developers — a mix of university students and industry
           professionals from companies like IBM, Little Caesars, and tech
@@ -97,31 +97,22 @@ const TeamSection = ({ teamData, year }) => {
             {teamData.map((dev) => {
               // Build ribbon class name - eslint-disable needed for dynamic class
 
-              const ribbonClass = `ribbon-${dev.devfest}`
+              const ribbonClass = `ribbon-${dev.team}`
               return (
                 <li
                   key={`dev-${dev.id}`}
-                  className="relative rounded-xl border border-gray-200 bg-white shadow-lg"
+                  className="relative rounded-xl border border-white/[0.06] bg-iwd-black-950 shadow-lg transition-all duration-300 hover:border-white/[0.12] hover:shadow-xl hover:shadow-iwd-gold-500/5"
                 >
                   {/* Content wrapper with overflow hidden for ribbon clipping */}
                   <div className="relative overflow-hidden rounded-xl p-4 pb-12">
-                    {/* Star Icon - behind ribbon */}
-                    {/* dev.star && (
-                      <img
-                        src={Star}
-                        alt=""
-                        className="absolute right-1 top-1 z-0 size-8 -rotate-45 opacity-80"
-                        aria-hidden="true"
-                      />
-                    ) */}
                     {/* Ribbon Label */}
                     <div
                       className={`${ribbonClass} absolute -right-10 top-6 z-[1] w-40 rotate-45 ${getRibbonColor(
-                        dev.devfest
+                        dev.team
                       )} py-1 text-center text-sm font-bold uppercase tracking-wide text-white shadow-md`}
-                      aria-label={`Role: ${dev.devfest}`}
+                      aria-label={`Team: ${dev.team}`}
                     >
-                      {dev.devfest}
+                      {dev.team}
                     </div>
                     <div className="flex flex-col items-center min-[401px]:flex-row min-[401px]:items-start">
                       <div className="flex shrink-0 flex-col items-center min-[401px]:w-24">
@@ -160,7 +151,7 @@ const TeamSection = ({ teamData, year }) => {
                                 aria-hidden="true"
                               />
                               <span
-                                className="text-xs"
+                                className="text-xs text-gray-400"
                                 aria-label={`This developer has made ${dev.commits.toLocaleString()} commits to this site`}
                               >
                                 &nbsp;Dev
@@ -170,18 +161,18 @@ const TeamSection = ({ teamData, year }) => {
                         </div>
                       </div>
                       <div className="mt-4 flex flex-col items-center gap-2 min-[401px]:ml-4 min-[401px]:mt-0 min-[401px]:items-start min-[401px]:justify-center">
-                        <h3 className="text-xl font-semibold tracking-tight text-gray-900 min-[401px]:mt-6">
+                        <h3 className="text-xl font-semibold tracking-tight text-white min-[401px]:mt-6">
                           {dev.name}
                         </h3>
-                        <p className="prose text-center text-sm/6 text-gray-600 [text-wrap:pretty] min-[401px]:text-left">
+                        <p className="prose text-center text-sm/6 text-gray-400 [text-wrap:pretty] min-[401px]:text-left">
                           {dev.organization}
                         </p>
                         {dev.university && (
-                          <p className="prose text-center text-sm/6 text-gray-600 [text-wrap:pretty] min-[401px]:text-left">
+                          <p className="prose text-center text-sm/6 text-gray-400 [text-wrap:pretty] min-[401px]:text-left">
                             {dev.university}
                           </p>
                         )}
-                        <p className="prose text-center text-sm/6 font-semibold text-gray-600 [text-wrap:pretty] min-[401px]:text-left">
+                        <p className="prose text-center text-sm/6 font-semibold text-gray-300 [text-wrap:pretty] min-[401px]:text-left">
                           {dev.role}
                         </p>
                       </div>
@@ -190,7 +181,7 @@ const TeamSection = ({ teamData, year }) => {
                   {/* Button positioned relative to card, outside overflow container */}
                   {dev.bio && (
                     <button
-                      className="absolute -bottom-3 left-1/2 -translate-x-1/2 rounded-full bg-primary-700 px-4 py-1.5 text-sm font-bold uppercase tracking-wide text-white shadow-md transition-colors hover:bg-primary-800 focus:outline-none focus:ring-2 focus:ring-focus-ring focus:ring-offset-2"
+                      className="absolute -bottom-3 left-1/2 -translate-x-1/2 rounded-full border border-iwd-gold-400/30 bg-iwd-black-950 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-iwd-gold-300 shadow-md transition-all duration-300 hover:border-iwd-gold-400/50 hover:bg-iwd-gold-400/10 hover:shadow-lg hover:shadow-iwd-gold-500/10 focus:outline-none focus:ring-2 focus:ring-focus-ring focus:ring-offset-2"
                       onClick={() =>
                         setSelectedBio({ name: dev.name, bio: dev.bio })
                       }
@@ -220,14 +211,14 @@ const TeamSection = ({ teamData, year }) => {
         >
           <div
             ref={modalRef}
-            className="relative max-w-lg rounded-lg bg-white p-6 shadow-xl"
+            className="relative max-w-lg rounded-lg bg-iwd-black-950 p-6 shadow-xl ring-1 ring-white/10"
             role="dialog"
             aria-modal="true"
             aria-labelledby="modal-title"
           >
             <button
               ref={closeButtonRef}
-              className="absolute right-4 top-4 text-gray-400 transition-colors hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-focus-ring focus:ring-offset-2"
+              className="absolute right-4 top-4 text-gray-500 transition-colors hover:text-gray-300 focus:outline-none focus:ring-2 focus:ring-focus-ring focus:ring-offset-2"
               onClick={() => setSelectedBio(null)}
               aria-label="Close dialog"
             >
@@ -248,11 +239,11 @@ const TeamSection = ({ teamData, year }) => {
             </button>
             <h3
               id="modal-title"
-              className="mb-4 pr-8 text-xl font-semibold text-gray-900"
+              className="mb-4 pr-8 text-xl font-semibold text-white"
             >
               {selectedBio.name}
             </h3>
-            <p className="prose text-left text-gray-700 [text-wrap:pretty]">
+            <p className="prose text-left text-gray-300 [text-wrap:pretty]">
               {selectedBio.bio}
             </p>
           </div>

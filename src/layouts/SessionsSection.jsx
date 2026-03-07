@@ -42,7 +42,7 @@ const trackDescriptions = {
     <>
       <h3
         id="build-with-ai-heading"
-        className="mx-auto mb-4 text-center text-3xl font-semibold text-iwd-neutral-800"
+        className="mx-auto mb-4 text-center text-xl font-semibold text-white sm:text-2xl"
       >
         <span className="font-bold">Build with AI Stage</span> is located in
         Service Building 120 (SB{'\u00A0'}120)
@@ -53,12 +53,12 @@ const trackDescriptions = {
     <>
       <h3
         id="innovation-heading"
-        className="mx-auto mb-4 text-center text-3xl font-semibold text-iwd-neutral-800"
+        className="mx-auto mb-4 text-center text-xl font-semibold text-white sm:text-2xl"
       >
         <span className="font-bold">Innovation Stage</span> is located on the
         1st floor of Walker Crisler Building (WCB), Room{'\u00A0'}103
       </h3>
-      <p className="mb-6 max-w-4xl text-pretty text-center text-2xl text-iwd-neutral-700">
+      <p className="mb-6 max-w-4xl text-pretty text-center text-base text-gray-400">
         Discover groundbreaking ideas and emerging technologies shaping the
         future.
       </p>
@@ -68,12 +68,12 @@ const trackDescriptions = {
     <>
       <h3
         id="level-up-heading"
-        className="mx-auto mb-4 text-center text-3xl font-semibold text-iwd-neutral-800"
+        className="mx-auto mb-4 text-center text-xl font-semibold text-white sm:text-2xl"
       >
         <span className="font-bold">Level Up Stage</span> is located in Town
         Square
       </h3>
-      <p className="mb-6 max-w-4xl text-pretty text-center text-2xl text-iwd-neutral-700">
+      <p className="mb-6 max-w-4xl text-pretty text-center text-base text-gray-400">
         Advance your career and personal growth. From mentorship to leadership,
         explore sessions that help you level up professionally and personally in
         tech.
@@ -84,14 +84,14 @@ const trackDescriptions = {
     <>
       <h3
         id="leadership-heading"
-        className="mx-auto mb-4 text-center text-3xl font-semibold text-iwd-neutral-800"
+        className="mx-auto mb-4 text-center text-xl font-semibold text-white sm:text-2xl"
       >
         <span className="font-bold">Leadership Stage</span> is located in Walker
         Crisler Building Floor 2 Rooms 275 and 278 (WCB{'\u00A0'}275{'\u00A0'}
         and
         {'\u00A0'}278)
       </h3>
-      <p className="mb-6 max-w-4xl text-pretty text-center text-2xl text-iwd-neutral-700">
+      <p className="mb-6 max-w-4xl text-pretty text-center text-base text-gray-400">
         Discover insights from founders and entrepreneurs building the next
         generation of tech companies.{' '}
       </p>
@@ -101,12 +101,12 @@ const trackDescriptions = {
     <>
       <h3
         id="ai-foundations-heading"
-        className="mx-auto mb-4 text-center text-3xl font-semibold text-iwd-neutral-800"
+        className="mx-auto mb-4 text-center text-xl font-semibold text-white sm:text-2xl"
       >
         <span className="font-bold">AI Foundations Stage</span> is located in
         Walker Crisler Building Floor 1 Room 105 (WCB{'\u00A0'}105)
       </h3>
-      <p className="mb-6 max-w-4xl text-pretty text-center text-2xl text-iwd-neutral-700">
+      <p className="mb-6 max-w-4xl text-pretty text-center text-base text-gray-400">
         Build your foundational knowledge of artificial intelligence.{' '}
       </p>
     </>
@@ -115,7 +115,7 @@ const trackDescriptions = {
     <>
       <h3
         id="careers-heading"
-        className="mx-auto mb-4 text-center text-3xl font-semibold text-iwd-neutral-800"
+        className="mx-auto mb-4 text-center text-xl font-semibold text-white sm:text-2xl"
       >
         <span className="font-bold">Careers Stage</span> is located in Walker
         Crisler Building Floor 1
@@ -126,12 +126,12 @@ const trackDescriptions = {
     <>
       <h3
         id="breakout-sessions-heading"
-        className="mx-auto mb-4 text-center text-3xl font-semibold text-iwd-neutral-800"
+        className="mx-auto mb-4 text-center text-xl font-semibold text-white sm:text-2xl"
       >
         <span className="font-bold">Breakout Sessions</span> is located on the
         2nd floor of Walker Crisler Building (WCB),{'\u00A0'}Room{'\u00A0'}255
       </h3>
-      <p className="mb-6 max-w-4xl text-pretty text-center text-2xl text-iwd-neutral-700">
+      <p className="mb-6 max-w-4xl text-pretty text-center text-base text-gray-400">
         Focused discussions and interactive sessions on specialized topics. Join
         conversations with experts and peers.
       </p>
@@ -141,13 +141,11 @@ const trackDescriptions = {
     <>
       <h3
         id="map-heading"
-        className="mx-auto mb-4 text-center text-3xl font-normal text-iwd-neutral-800"
+        className="mx-auto mb-4 text-center text-xl font-normal text-white sm:text-2xl"
       >
-        <span className="font-bold">
-          IWD Innovation Summit Venue Guide
-        </span>
+        <span className="font-bold">IWD Innovation Summit Venue Guide</span>
       </h3>
-      <p className="mb-6 max-w-4xl text-pretty text-center text-2xl text-iwd-neutral-700">
+      <p className="mb-6 max-w-4xl text-pretty text-center text-base text-gray-400">
         Use this guide to navigate the venue and find session locations.
       </p>
     </>
@@ -317,7 +315,7 @@ const SessionsSection = ({
       <a
         href="#membership"
         aria-label="Contact us about speaking at IWD Innovation Summit 2026"
-        className="flex items-center rounded bg-sky-900 px-8 py-5 text-iwd-gold-50 shadow-xl transition delay-75 duration-100 ease-in-out hover:-translate-y-1 hover:scale-110 hover:cursor-pointer focus:outline-none focus:ring-2 focus:ring-focus-ring focus:ring-offset-2"
+        className="flex items-center rounded-lg border border-iwd-gold-400/30 bg-iwd-gold-400/10 px-8 py-4 text-sm font-semibold uppercase tracking-widest text-iwd-gold-300 shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:cursor-pointer hover:border-iwd-gold-400/50 hover:bg-iwd-gold-400/20 hover:shadow-xl hover:shadow-iwd-gold-500/10 focus:outline-none focus:ring-2 focus:ring-focus-ring focus:ring-offset-2"
       >
         CONTACT US TO SPEAK
       </a>
@@ -333,7 +331,7 @@ const SessionsSection = ({
   return (
     <section
       id="schedule"
-      className="relative flex flex-col items-center justify-start bg-iwd-gold-50 p-4 pb-24 pt-16 sm:px-10 md:px-14 lg:px-16"
+      className="relative flex flex-col items-center justify-start bg-iwd-black-950 p-4 pb-24 pt-16 sm:px-10 md:px-14 lg:px-16"
     >
       <SectionSkipLink href="#membership">
         Skip sessions navigation
@@ -344,17 +342,26 @@ const SessionsSection = ({
             isExpanded ? `Collapse ${year} Sessions` : `Expand ${year} Sessions`
           }
           onClick={toggleExpanded}
-          className="absolute left-0 top-0 cursor-pointer items-center text-black transition-colors hover:text-gray-600"
+          className="absolute left-0 top-3 cursor-pointer items-center text-white transition-colors hover:text-gray-400 sm:top-4"
         >
           <IoChevronDown
-            className={`size-10 shrink-0 text-sky-900 sm:size-14 md:size-16 lg:size-20 ${
+            className={`size-6 shrink-0 text-iwd-gold-300 sm:size-7 md:size-8 lg:size-9 ${
               direction === DIRECTION.TOP && '-scale-y-100'
-            } transition-transform duration-100 ease-linear`}
+            } transition-transform duration-300 ease-out`}
           />
         </button>
-        <h2 className="my-8 text-center font-biorhyme text-5xl text-iwd-neutral-900 md:text-5xl lg:text-6xl">
-          {year} Schedule
-        </h2>
+        <div className="text-center">
+          <p className="mb-4 font-montserrat text-xs font-medium uppercase tracking-[0.3em] text-iwd-gold-400/80">
+            What&rsquo;s Happening
+          </p>
+          <h2 className="mb-5 font-biorhyme text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
+            {year}{' '}
+            <span className="bg-gradient-to-r from-iwd-gold-300 via-iwd-gold-400 to-iwd-gold-300 bg-clip-text text-transparent">
+              Schedule
+            </span>
+          </h2>
+          <div className="mx-auto h-px w-24 bg-gradient-to-r from-transparent via-iwd-gold-400/50 to-transparent sm:w-32" />
+        </div>
       </div>
 
       {/* Expandable content: tablist, track description, tabpanel */}
@@ -384,7 +391,7 @@ const SessionsSection = ({
               ref={navRef}
               role="tablist"
               id="sessions-nav"
-              className={`scrollbar-visible flex w-full flex-nowrap items-start justify-start gap-1 overflow-x-auto overflow-y-visible rounded-md bg-black py-3 pe-4 ps-4 md:px-6 2xl:items-center 2xl:justify-center ${
+              className={`scrollbar-visible flex w-full flex-nowrap items-start justify-start gap-2 overflow-x-auto overflow-y-visible rounded-xl border border-white/5 bg-iwd-black-950 py-3 pe-4 ps-4 md:px-6 2xl:items-center 2xl:justify-center ${
                 isExpanded ? 'max-h-none opacity-100' : 'max-h-0 opacity-0'
               }`}
             >
@@ -392,7 +399,7 @@ const SessionsSection = ({
                 <React.Fragment key={tab}>
                   {index !== 0 &&
                     ![activeTab, activeTab + 1].includes(index) && (
-                      <div className="hidden h-5 w-0 shrink-0 bg-primary-400 sm:w-0.5 md:mx-2 md:block md:w-1 lg:mx-3" />
+                      <div className="hidden h-5 w-0 shrink-0 bg-white/10 sm:w-px md:mx-2 md:block lg:mx-3" />
                     )}
 
                   <button
@@ -405,10 +412,10 @@ const SessionsSection = ({
                     aria-controls="sessions-tabpanel"
                     id={`session-tab-${index}`}
                     tabIndex={isExpanded ? 0 : -1}
-                    className={`relative shrink-0 whitespace-nowrap rounded-md p-2 text-sm font-black uppercase !leading-5 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-focus-ring focus:ring-offset-2 focus:ring-offset-black md:min-w-20 md:px-3 md:py-2 lg:min-w-36 lg:px-4 lg:text-lg ${
+                    className={`relative shrink-0 whitespace-nowrap rounded-md p-2 text-xs font-semibold uppercase tracking-wider transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-focus-ring focus:ring-offset-2 focus:ring-offset-black md:min-w-20 md:px-3 md:py-2 lg:min-w-36 lg:px-4 lg:text-sm ${
                       activeTab === index
-                        ? 'bg-primary-400 text-black after:absolute after:-bottom-3 after:left-1/2 after:block after:size-0 after:-translate-x-1/2 after:border-x-[12px] after:border-t-[12px] after:border-primary-400 after:border-x-transparent'
-                        : 'bg-gray-900 text-white hover:bg-gray-800'
+                        ? 'border border-iwd-gold-400/40 bg-iwd-gold-400/15 text-iwd-gold-300 shadow-lg shadow-iwd-gold-500/10 after:absolute after:-bottom-3 after:left-1/2 after:block after:size-0 after:-translate-x-1/2 after:border-x-[10px] after:border-t-[10px] after:border-iwd-gold-400/40 after:border-x-transparent'
+                        : 'border border-white/5 bg-white/[0.03] text-gray-400 hover:border-white/10 hover:bg-white/[0.06] hover:text-white'
                     }`}
                     onClick={() => activateTab(index, false)}
                     onFocus={(e) => scrollTabIntoView(e.currentTarget)}
@@ -444,7 +451,7 @@ const SessionsSection = ({
           {/* Scroll hint for mobile */}
           {(canScrollLeft || canScrollRight) && (
             <p
-              className={`mt-2 flex items-center gap-1 text-sm text-iwd-neutral-600 xl:hidden ${
+              className={`mt-2 flex items-center gap-1 text-sm text-gray-500 xl:hidden ${
                 canScrollRight ? 'justify-end' : 'justify-start'
               }`}
               aria-hidden="true"

@@ -59,7 +59,7 @@ function SessionCard({
    * Second column = minmax(0,1fr) to use remaining space; lg+ grid gets flex-1 to fill button
    */
   return (
-    <div className="rounded-xl border border-gray-200 bg-white shadow-lg transition duration-200 hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800">
+    <div className="group/card rounded-2xl border border-white/[0.06] bg-white/[0.02] shadow-lg backdrop-blur-sm transition-all duration-300 hover:border-white/[0.12] hover:bg-white/[0.04] hover:shadow-xl hover:shadow-black/20">
       <button
         onClick={() => sessionDesc && toggle()}
         aria-expanded={sessionDesc ? isExpanded : undefined}
@@ -73,7 +73,7 @@ function SessionCard({
             ? `Toggle session details for ${sessionTitle}`
             : `Session: ${sessionTitle}`
         }
-        className="flex w-full items-center justify-between p-3 md:px-8 lg:px-14"
+        className="flex w-full items-center justify-between p-4 md:px-8 lg:px-14"
       >
         <div
           style={
@@ -116,20 +116,27 @@ function SessionCard({
               }`}
             >
               {speakerAvatars.map((avatar, index) => (
-                <img
-                  key={index}
-                  src={
-                    !avatar
-                      ? `https://ui-avatars.com/api/?name=${speakers[index]}&background=random`
-                      : avatar
-                  }
-                  alt={`Headshot of ${speakers[index]}`}
-                  className={`border-4 border-iwd-gold-300/75 dark:border-iwd-gold-800 ${
-                    speakerAvatars?.length >= 3
-                      ? 'mx-3 my-1 size-[90px] rounded-full'
-                      : 'size-[90px] rounded-full md:size-[120px]'
-                  } object-cover`}
-                />
+                <div key={index} className="relative">
+                  <div
+                    className={`rounded-full bg-gradient-to-br from-iwd-gold-300/80 via-iwd-gold-500/60 to-iwd-gold-300/80 p-[3px] shadow-lg shadow-iwd-gold-500/20 ${
+                      speakerAvatars?.length >= 3 ? 'mx-3 my-1' : ''
+                    }`}
+                  >
+                    <img
+                      src={
+                        !avatar
+                          ? `https://ui-avatars.com/api/?name=${speakers[index]}&background=random`
+                          : avatar
+                      }
+                      alt={`Headshot of ${speakers[index]}`}
+                      className={`rounded-full ring-2 ring-iwd-black-950 ${
+                        speakerAvatars?.length >= 3
+                          ? 'size-[86px]'
+                          : 'size-[86px] md:size-[116px]'
+                      } object-cover`}
+                    />
+                  </div>
+                </div>
               ))}
             </div>
           )}
@@ -146,51 +153,67 @@ function SessionCard({
             }`}
           >
             {sessionTitle && (
-              <h3 className="text-base font-semibold text-gray-900 md:text-xl dark:text-white">
+              <h3 className="text-base font-semibold text-white md:text-xl">
                 {sessionTitle}
               </h3>
             )}
-            <p className="text-gray-700 dark:text-gray-300">
+            <p className="mt-1 text-sm text-gray-400">
               by {speakers.join(' & ')}
             </p>
             {hasSessionInfo && (
-              <div className="mt-2.5 flex flex-wrap items-center gap-3 text-sm sm:text-base">
+              <div className="mt-3 flex flex-wrap items-center gap-2 text-sm">
                 {hasTimeInfo && (
-                  <div className="flex items-center gap-2">
-                    <span className="text-gray-900 dark:text-gray-100">at</span>
-                    <span className="whitespace-nowrap font-bold text-iwd-neutral-700 sm:text-xl lg:text-2xl dark:text-iwd-neutral-200">
-                      {startTime} - {endTime}
+                  <span className="inline-flex items-center gap-1.5 rounded-lg border border-white/[0.06] bg-white/[0.04] px-3 py-1.5 font-medium text-iwd-gold-300 backdrop-blur-sm">
+                    <svg
+                      className="size-3.5 opacity-60"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                    >
+                      <circle cx="12" cy="12" r="10" />
+                      <polyline points="12 6 12 12 16 14" />
+                    </svg>
+                    <span className="whitespace-nowrap text-sm font-semibold sm:text-base">
+                      {startTime} – {endTime}
                     </span>
-                  </div>
+                  </span>
                 )}
                 {sessionRoom && (
-                  <div className="flex items-center gap-2">
-                    <span className="text-gray-900 dark:text-gray-100">in</span>
-                    <span className="whitespace-nowrap text-gray-900 dark:text-gray-100">
-                      {sessionRoom}
-                    </span>
-                  </div>
+                  <span className="inline-flex items-center gap-1.5 rounded-lg border border-white/[0.06] bg-white/[0.04] px-3 py-1.5 text-sm text-gray-300 backdrop-blur-sm">
+                    <svg
+                      className="size-3.5 opacity-60"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                    >
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                      <circle cx="12" cy="10" r="3" />
+                    </svg>
+                    {sessionRoom}
+                  </span>
                 )}
               </div>
             )}
           </div>
         </div>
         {sessionDesc && (
-          <IoChevronDown
-            className={`size-10 shrink-0 text-gray-900 transition-transform duration-100 ease-linear sm:size-14 md:size-16 lg:size-20 dark:text-gray-100 ${
-              direction === DIRECTION.TOP && '-scale-y-100'
-            }`}
-          />
+          <div className="ml-4 flex size-8 shrink-0 items-center justify-center rounded-full border border-white/[0.06] bg-white/[0.04] transition-colors duration-300 group-hover/card:border-white/10 md:size-9">
+            <IoChevronDown
+              className={`size-4 text-gray-400 transition-transform duration-300 ease-out md:size-5 ${
+                direction === DIRECTION.TOP && '-scale-y-100'
+              }`}
+            />
+          </div>
         )}
       </button>
       {isExpanded && sessionDesc && (
         <div
           id={`session-${sessionTitle.replace(/\s+/g, '-').toLowerCase()}`}
-          className="border-t border-gray-600 px-3 pb-10 pt-5 md:px-8 lg:px-14 dark:border-gray-600"
+          className="border-t border-white/[0.06] px-4 pb-10 pt-5 md:px-8 lg:px-14"
         >
-          <p className="whitespace-pre-wrap text-gray-900 dark:text-gray-100">
-            {sessionDesc}
-          </p>
+          <p className="whitespace-pre-wrap text-gray-300">{sessionDesc}</p>
         </div>
       )}
     </div>
