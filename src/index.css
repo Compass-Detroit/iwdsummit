@@ -226,6 +226,29 @@
   color: rgb(55 65 81);
 }
 
+/* Light mode: override white-based borders and backgrounds */
+[data-mode='light'] .border-white\/\[0\.06\] {
+  border-color: rgb(209 213 219 / 0.5);
+}
+[data-mode='light'] .border-white\/\[0\.08\] {
+  border-color: rgb(209 213 219 / 0.6);
+}
+[data-mode='light'] .border-white\/10 {
+  border-color: rgb(209 213 219 / 0.7);
+}
+[data-mode='light'] .border-white\/\[0\.12\] {
+  border-color: rgb(209 213 219 / 0.8);
+}
+[data-mode='light'] .bg-white\/\[0\.02\] {
+  background-color: rgb(249 250 251 / 0.6);
+}
+[data-mode='light'] .bg-white\/\[0\.04\] {
+  background-color: rgb(243 244 246 / 0.7);
+}
+[data-mode='light'] .bg-white\/\[0\.06\] {
+  background-color: rgb(243 244 246 / 0.8);
+}
+
 /* Light mode: logo halo + scrollbar track */
 .logo-halo {
   filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.5));

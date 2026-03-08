@@ -360,7 +360,7 @@ export const SpeakersData = [
     avatar: ZipporahAbla,
     bio: 'Zipporah is a robotics engineer working on autonomous vehicle perception systems. She holds 3 patents in sensor fusion technology.',
     linkedIn: 'https://www.linkedin.com/in/zipporahabla',
-    organization: 'Argo AI',
+    organization: 'May Mobility',
     position: 'Robotics Engineer',
     session: {
       title: 'The Future of Autonomous Mobility in Detroit',

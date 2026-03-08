@@ -9,15 +9,23 @@ function LandingSection() {
   useEffect(() => {
     const el = sectionRef.current
     if (!el) return
+    let rafId = null
     const handleMove = (e) => {
-      const rect = el.getBoundingClientRect()
-      setMousePos({
-        x: (e.clientX - rect.left) / rect.width,
-        y: (e.clientY - rect.top) / rect.height,
+      if (rafId) return
+      rafId = requestAnimationFrame(() => {
+        const rect = el.getBoundingClientRect()
+        setMousePos({
+          x: (e.clientX - rect.left) / rect.width,
+          y: (e.clientY - rect.top) / rect.height,
+        })
+        rafId = null
       })
     }
     el.addEventListener('mousemove', handleMove)
-    return () => el.removeEventListener('mousemove', handleMove)
+    return () => {
+      el.removeEventListener('mousemove', handleMove)
+      if (rafId) cancelAnimationFrame(rafId)
+    }
   }, [])
 
   return (

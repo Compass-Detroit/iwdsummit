@@ -153,23 +153,6 @@ const ProfileCard = ({
     </div>
   )
 
-  {
-    /* Show fields to maintain size */
-  }
-  const renderInfo = (
-    <div className="ml-4 flex flex-col items-start justify-start">
-      <h3 className="mt-1 line-clamp-2 text-left text-xl font-semibold tracking-tight text-white">
-        {name}
-      </h3>
-      <p className="mt-1 line-clamp-2 text-left text-sm text-gray-400">
-        {organization || '\u00A0'}
-      </p>
-      <p className="mt-0.5 line-clamp-2 text-left text-sm text-gray-500">
-        {position || '\u00A0'}
-      </p>
-    </div>
-  )
-
   const renderButton = onViewDetails && (
     <button
       className={`my-3 inline-flex items-center whitespace-nowrap rounded-lg px-4 py-2 text-sm font-medium shadow-md transition-colors focus:outline-none focus:ring-2 focus:ring-focus-ring focus:ring-offset-2 ${speakerDetailColors}`}

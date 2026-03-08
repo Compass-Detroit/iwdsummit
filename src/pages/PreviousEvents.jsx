@@ -124,6 +124,7 @@ const PreviousEvents = () => {
                 rel="noopener noreferrer"
                 className="group relative flex flex-col overflow-hidden rounded-2xl border border-white/[0.06] bg-white/[0.02] p-6 transition-all duration-500 hover:-translate-y-1 hover:border-white/10 hover:bg-white/[0.04] sm:p-8"
                 style={{
+                  animation: 'sectionFadeUp 0.6s ease-out both',
                   animationDelay: `${i * 100}ms`,
                 }}
               >

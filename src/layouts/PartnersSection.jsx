@@ -96,22 +96,24 @@ const PartnersSection = ({ partnersData = {}, year }) => {
                           {partner.desc}
                         </p>
                       )}
-                      <span className="mt-3 inline-flex items-center gap-1 text-xs font-medium uppercase tracking-widest text-iwd-gold-400/80">
-                        Visit Site
-                        <svg
-                          className="size-3"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                          strokeWidth={2}
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"
-                          />
-                        </svg>
-                      </span>
+                      {partner.url && (
+                        <span className="mt-3 inline-flex items-center gap-1 text-xs font-medium uppercase tracking-widest text-iwd-gold-400/80">
+                          Visit Site
+                          <svg
+                            className="size-3"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            strokeWidth={2}
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"
+                            />
+                          </svg>
+                        </span>
+                      )}
                     </div>
                   </div>
                 </button>
