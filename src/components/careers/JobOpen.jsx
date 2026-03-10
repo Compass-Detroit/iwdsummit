@@ -4,7 +4,7 @@ function JobOpen() {
       id="job-openings"
       className="flex flex-col justify-center bg-yellow-50 p-8 py-24 sm:px-10 md:px-14 lg:px-16"
     >
-      <h2 className="w-full text-center font-biorhyme text-5xl text-iwd-neutral-900 lg:text-6xl">
+      <h2 className="w-full text-center font-heading text-5xl text-iwd-neutral-900 lg:text-6xl">
         Job Openings
       </h2>
 

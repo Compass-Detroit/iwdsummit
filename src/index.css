@@ -226,6 +226,64 @@
   color: rgb(55 65 81);
 }
 
+/* Light mode: shift accent (gold) text to darker shades for contrast on light backgrounds */
+[data-mode='light'] .text-iwd-gold-100\/65 {
+  color: rgb(var(--iwd-accent-900) / 0.85);
+}
+[data-mode='light'] .text-iwd-gold-200 {
+  color: rgb(var(--iwd-accent-800));
+}
+[data-mode='light'] .text-iwd-gold-300 {
+  color: rgb(var(--iwd-accent-700));
+}
+[data-mode='light'] .text-iwd-gold-300\/50 {
+  color: rgb(var(--iwd-accent-800) / 0.7);
+}
+[data-mode='light'] .text-iwd-gold-300\/80 {
+  color: rgb(var(--iwd-accent-700) / 0.9);
+}
+[data-mode='light'] .text-iwd-gold-300\/90 {
+  color: rgb(var(--iwd-accent-700));
+}
+[data-mode='light'] .text-iwd-gold-400 {
+  color: rgb(var(--iwd-accent-700));
+}
+[data-mode='light'] .text-iwd-gold-400\/40 {
+  color: rgb(var(--iwd-accent-800) / 0.7);
+}
+[data-mode='light'] .text-iwd-gold-400\/45 {
+  color: rgb(var(--iwd-accent-800) / 0.7);
+}
+[data-mode='light'] .text-iwd-gold-400\/50 {
+  color: rgb(var(--iwd-accent-800) / 0.8);
+}
+[data-mode='light'] .text-iwd-gold-400\/70 {
+  color: rgb(var(--iwd-accent-700) / 0.9);
+}
+[data-mode='light'] .text-iwd-gold-400\/80 {
+  color: rgb(var(--iwd-accent-700));
+}
+
+/* Light mode: shift accent borders/backgrounds for visibility */
+[data-mode='light'] .border-iwd-gold-400\/30 {
+  border-color: rgb(var(--iwd-accent-600) / 0.4);
+}
+[data-mode='light'] .border-iwd-gold-400\/40 {
+  border-color: rgb(var(--iwd-accent-600) / 0.5);
+}
+[data-mode='light'] .border-iwd-gold-400\/50 {
+  border-color: rgb(var(--iwd-accent-600) / 0.6);
+}
+[data-mode='light'] .bg-iwd-gold-400\/10 {
+  background-color: rgb(var(--iwd-accent-600) / 0.08);
+}
+[data-mode='light'] .bg-iwd-gold-400\/15 {
+  background-color: rgb(var(--iwd-accent-600) / 0.1);
+}
+[data-mode='light'] .bg-iwd-gold-400\/20 {
+  background-color: rgb(var(--iwd-accent-600) / 0.12);
+}
+
 /* Light mode: override white-based borders and backgrounds */
 [data-mode='light'] .border-white\/\[0\.06\] {
   border-color: rgb(209 213 219 / 0.5);
@@ -796,7 +854,8 @@
   }
 
   :root {
-    font-family: Montserrat, 'Open Sans', Helvetica, Arial, sans-serif;
+    font-family: var(--iwd-font-body, 'Montserrat'), 'Open Sans', Helvetica,
+      Arial, sans-serif;
     line-height: 1.5;
     font-weight: 500;
     font-synthesis: none;
@@ -848,4 +907,36 @@
   font-weight: 800;
   font-style: normal;
   font-display: swap;
+}
+
+/* Russell Script Font */
+@font-face {
+  font-family: 'Russell';
+  src: url('./assets/fonts/RussellRg.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ─── Font switcher tokens ─── */
+:root,
+[data-font='classic'] {
+  --iwd-font-heading: 'BioRhyme', serif;
+  --iwd-font-body: 'Montserrat', sans-serif;
+}
+[data-font='editorial'] {
+  --iwd-font-heading: 'Asimovian', serif, Georgia, 'Times New Roman', serif;
+  --iwd-font-body: 'Montserrat', sans-serif;
+}
+[data-font='tech'] {
+  --iwd-font-heading: 'Orbitron', monospace;
+  --iwd-font-body: 'Montserrat', sans-serif;
+}
+[data-font='script'] {
+  --iwd-font-heading: 'Russell', cursive;
+  --iwd-font-body: 'Russell', cursive;
+}
+[data-font='modern'] {
+  --iwd-font-heading: 'Montserrat', sans-serif;
+  --iwd-font-body: 'Montserrat', sans-serif;
 }

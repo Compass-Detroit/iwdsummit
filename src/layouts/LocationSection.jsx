@@ -24,7 +24,7 @@ function LocationSection() {
         {/* Eyebrow */}
         <div className="flex items-center justify-center gap-4">
           <div className="h-px w-10 bg-gradient-to-r from-transparent to-iwd-gold-400/40 sm:w-14" />
-          <span className="font-montserrat text-[10px] font-semibold uppercase tracking-[0.4em] text-iwd-gold-400/50 sm:text-xs">
+          <span className="font-body text-[10px] font-semibold uppercase tracking-[0.4em] text-iwd-gold-400/50 sm:text-xs">
             Event Details
           </span>
           <div className="h-px w-10 bg-gradient-to-l from-transparent to-iwd-gold-400/40 sm:w-14" />
@@ -33,7 +33,7 @@ function LocationSection() {
         {/* Section heading */}
         <h2
           id="location-heading"
-          className="text-center font-biorhyme text-4xl font-bold text-white sm:text-5xl lg:text-6xl"
+          className="text-center font-heading text-4xl font-bold text-white sm:text-5xl lg:text-6xl"
         >
           When &{' '}
           <span className="bg-gradient-to-r from-iwd-gold-300 via-iwd-gold-400 to-iwd-gold-300 bg-clip-text text-transparent">

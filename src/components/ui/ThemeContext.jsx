@@ -11,12 +11,42 @@ import PropTypes from 'prop-types'
 const ThemeContext = createContext(null)
 
 export const THEMES = [
-  { id: 'blue', label: 'Ocean', swatch: '#3b82f6' },
-  { id: 'purple', label: 'Violet', swatch: '#a855f7' },
-  { id: 'coral', label: 'Coral', swatch: '#f43f5e' },
-  { id: 'emerald', label: 'Emerald', swatch: '#10b981' },
-  { id: 'gold', label: 'Gold', swatch: '#eab308' },
-  { id: 'magenta', label: 'Magenta', swatch: '#d946ef' },
+  {
+    id: 'blue',
+    label: 'Ocean',
+    swatch: '#3b82f6',
+    palette: ['#1B3A6C', '#3B82F6', '#0A1628', '#60A5FA', '#BFDBFE'],
+  },
+  {
+    id: 'purple',
+    label: 'Violet',
+    swatch: '#a855f7',
+    palette: ['#4A2C6E', '#A855F7', '#160E22', '#C084FC', '#E9D5FF'],
+  },
+  {
+    id: 'coral',
+    label: 'Coral',
+    swatch: '#f43f5e',
+    palette: ['#6B1A2A', '#F43F5E', '#1A0810', '#FB7185', '#FECDD3'],
+  },
+  {
+    id: 'emerald',
+    label: 'Emerald',
+    swatch: '#10b981',
+    palette: ['#1B4D3E', '#10B981', '#071F16', '#34D399', '#A7F3D0'],
+  },
+  {
+    id: 'gold',
+    label: 'Gold',
+    swatch: '#eab308',
+    palette: ['#5C4506', '#EAB308', '#1A1207', '#FBBF24', '#FEF3C7'],
+  },
+  {
+    id: 'magenta',
+    label: 'Magenta',
+    swatch: '#d946ef',
+    palette: ['#5E1A6B', '#D946EF', '#1A0A1E', '#E879F9', '#F5D0FE'],
+  },
 ]
 
 function readStorage(key, fallback) {

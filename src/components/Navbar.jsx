@@ -3,6 +3,7 @@ import { FaBars, FaXmark } from 'react-icons/fa6'
 import { Link, useLocation } from 'react-router-dom'
 import CompassDetroitLogo from './ui/CompassDetroitLogo'
 import ThemeSwitcher from './ui/ThemeSwitcher'
+import FontSwitcher from './ui/FontSwitcher'
 import { sections } from '@/data/2026/navigation'
 
 // Section links have id (anchor); route links have to (full page)
@@ -427,6 +428,7 @@ function Navbar() {
           <div className="hidden xl:block">{desktopNavList}</div>
 
           {/* Theme Switcher */}
+          <FontSwitcher />
           <ThemeSwitcher />
 
           {/* Mobile NavBar Hamburger Button */}

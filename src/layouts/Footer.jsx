@@ -44,7 +44,7 @@ function Footer() {
             </Link>
           ))}
         </div>
-        <p className="mt-4 pr-0 font-montserrat text-xs uppercase tracking-[0.15em] text-gray-600 md:mt-0 md:border-r md:border-white/[0.06] md:pr-4">
+        <p className="mt-4 pr-0 font-body text-xs uppercase tracking-[0.15em] text-gray-600 md:mt-0 md:border-r md:border-white/[0.06] md:pr-4">
           © {new Date().getFullYear()} Compass Detroit
         </p>
       </div>
@@ -67,7 +67,7 @@ function Footer() {
           {/* Eyebrow */}
           <div className="mb-10 flex items-center justify-center gap-4">
             <div className="h-px w-10 bg-gradient-to-r from-transparent to-iwd-gold-400/30 sm:w-14" />
-            <span className="font-montserrat text-[10px] font-semibold uppercase tracking-[0.4em] text-iwd-gold-400/40 sm:text-xs">
+            <span className="font-body text-[10px] font-semibold uppercase tracking-[0.4em] text-iwd-gold-400/40 sm:text-xs">
               Brought to You By
             </span>
             <div className="h-px w-10 bg-gradient-to-l from-transparent to-iwd-gold-400/30 sm:w-14" />

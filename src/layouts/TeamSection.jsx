@@ -76,7 +76,7 @@ const TeamSection = ({ teamData, year }) => {
     >
       <SectionSkipLink href="#page-footer">Skip to footer</SectionSkipLink>
       <div className="flex w-full justify-center pt-0">
-        <h2 className="mb-4 w-full text-center font-biorhyme text-3xl font-bold text-white sm:text-4xl md:mb-6 lg:text-5xl">
+        <h2 className="mb-4 w-full text-center font-heading text-3xl font-bold text-white sm:text-4xl md:mb-6 lg:text-5xl">
           {year ? `${year} ` : ''}Leadership Team
         </h2>
       </div>

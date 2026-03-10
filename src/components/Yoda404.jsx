@@ -27,7 +27,7 @@ const Yoda404 = () => {
     <div className="flex min-h-screen flex-col items-center justify-center gap-8 bg-gradient-to-br from-emerald-50 to-primary-100 p-8 text-center">
       {/* 404 Error Display */}
       <div className="mb-4">
-        <h1 className="font-biorhyme text-8xl font-bold text-emerald-800">
+        <h1 className="font-heading text-8xl font-bold text-emerald-800">
           404
         </h1>
         <h2 className="mt-2 text-5xl text-iwd-neutral-900 md:text-5xl lg:text-6xl">

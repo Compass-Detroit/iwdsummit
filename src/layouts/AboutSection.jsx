@@ -21,7 +21,7 @@ function AboutSection() {
         {/* Eyebrow */}
         <div className="mb-5 flex items-center justify-center gap-4">
           <div className="h-px w-10 bg-gradient-to-r from-transparent to-iwd-gold-400/40 sm:w-14" />
-          <span className="font-montserrat text-[10px] font-semibold uppercase tracking-[0.4em] text-iwd-gold-400/50 sm:text-xs">
+          <span className="font-body text-[10px] font-semibold uppercase tracking-[0.4em] text-iwd-gold-400/50 sm:text-xs">
             About the Summit
           </span>
           <div className="h-px w-10 bg-gradient-to-l from-transparent to-iwd-gold-400/40 sm:w-14" />
@@ -29,7 +29,7 @@ function AboutSection() {
 
         <h2
           id="about-heading"
-          className="mb-12 font-biorhyme text-3xl font-black leading-tight text-white sm:text-4xl lg:text-5xl"
+          className="mb-12 font-heading text-3xl font-black leading-tight text-white sm:text-4xl lg:text-5xl"
         >
           Where Innovation
           <br />

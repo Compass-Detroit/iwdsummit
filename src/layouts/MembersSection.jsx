@@ -15,17 +15,17 @@ const MembersSection = () => {
       <div className="relative mx-auto max-w-4xl">
         {/* Section Header */}
         <div className="mb-14 text-center sm:mb-16">
-          <p className="mb-4 font-montserrat text-xs font-medium uppercase tracking-[0.3em] text-iwd-gold-400/80">
+          <p className="mb-4 font-body text-xs font-medium uppercase tracking-[0.3em] text-iwd-gold-400/80">
             Get Involved
           </p>
-          <h2 className="mb-5 font-biorhyme text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
+          <h2 className="mb-5 font-heading text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
             Join the{' '}
             <span className="bg-gradient-to-r from-iwd-gold-300 via-iwd-gold-400 to-iwd-gold-300 bg-clip-text text-transparent">
               Movement
             </span>
           </h2>
           <div className="mx-auto mb-6 h-px w-24 bg-gradient-to-r from-transparent via-iwd-gold-400/50 to-transparent sm:w-32" />
-          <p className="mx-auto max-w-2xl font-montserrat text-base font-light leading-relaxed text-gray-400">
+          <p className="mx-auto max-w-2xl font-body text-base font-light leading-relaxed text-gray-400">
             Join Compass Detroit and connect with STEAM learners and
             professionals across the region. Membership is free and open to
             anyone who wants to learn, share, and grow.
@@ -56,7 +56,7 @@ const MembersSection = () => {
               key={item.title}
               className="group rounded-2xl border border-white/[0.06] bg-white/[0.02] p-6 transition-all duration-500 hover:border-white/10 hover:bg-white/[0.04]"
             >
-              <h3 className="mb-2 font-biorhyme text-lg font-bold text-iwd-gold-300">
+              <h3 className="mb-2 font-heading text-lg font-bold text-iwd-gold-300">
                 {item.title}
               </h3>
               <p className="text-sm leading-relaxed text-gray-400">
@@ -68,7 +68,7 @@ const MembersSection = () => {
 
         {/* CTA */}
         <div className="mt-12 flex flex-col items-center gap-4 text-center sm:mt-14">
-          <p className="font-montserrat text-sm font-light text-gray-500">
+          <p className="font-body text-sm font-light text-gray-500">
             Free membership &mdash; no catch, just community.
           </p>
           <CTAButton

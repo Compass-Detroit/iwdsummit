@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback, useMemo, useRef } from 'react'
 import { FaPlay, FaPause, FaChevronLeft, FaChevronRight } from 'react-icons/fa6'
 import { inspirationalQuotes } from '@/data/2026/inspirationalQuotes'
+import { useTheme, THEMES } from '@/components/ui/ThemeContext'
 
 /**
  * Cinematic color palettes per woman — 5 colors each:
@@ -146,6 +147,7 @@ function shuffleArray(arr) {
 }
 
 export default function InspirationalHero() {
+  const { theme } = useTheme()
   const [quotes] = useState(() => shuffleArray(inspirationalQuotes))
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isTransitioning, setIsTransitioning] = useState(false)
@@ -156,7 +158,13 @@ export default function InspirationalHero() {
 
   const total = quotes.length
   const quote = quotes[currentIndex]
-  const palette = muralPalettes[quote.name] || defaultPalette
+  // Per-person palette for text accents
+  const personPalette = muralPalettes[quote.name] || defaultPalette
+  // Theme palette for background layers
+  const themeObj = THEMES.find((t) => t.id === theme) || THEMES[0]
+  const bg = themeObj.palette
+  // Combined: background from theme, text accents from person
+  const palette = [bg[0], bg[1], bg[2], personPalette[3], personPalette[4]]
   const words = useMemo(() => extractWords(quote.quote), [quote.quote])
   const positions = useMemo(
     () => generateParticlePositions(words.length),
@@ -284,7 +292,7 @@ export default function InspirationalHero() {
         aria-hidden="true"
       >
         <span
-          className="select-none font-biorhyme font-black"
+          className="select-none font-heading font-black"
           style={{
             fontSize: 'clamp(14rem, 38vw, 42rem)',
             lineHeight: 0.8,
@@ -310,7 +318,7 @@ export default function InspirationalHero() {
           return (
             <span
               key={`${currentIndex}-${word}-${i}`}
-              className="word-particle absolute select-none font-montserrat font-black uppercase"
+              className="word-particle absolute select-none font-body font-black uppercase"
               style={{
                 left: pos.left,
                 top: pos.top,
@@ -335,8 +343,8 @@ export default function InspirationalHero() {
         className="pointer-events-none absolute inset-0"
         style={{
           background: `
-            radial-gradient(ellipse at center, transparent 20%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.8) 100%),
-            linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, transparent 15%, transparent 85%, rgba(0,0,0,0.45) 100%)
+            radial-gradient(ellipse at center, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.5) 55%, rgba(0,0,0,0.85) 100%),
+            linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.1) 15%, rgba(0,0,0,0.1) 85%, rgba(0,0,0,0.5) 100%)
           `,
         }}
         aria-hidden="true"
@@ -362,7 +370,7 @@ export default function InspirationalHero() {
           >
             <cite className="not-italic">
               <span
-                className="font-biorhyme font-black uppercase tracking-wider text-white"
+                className="font-heading font-black uppercase tracking-wider text-white"
                 style={{
                   fontSize: 'clamp(1.2rem, 3.5vw, 2.2rem)',
                   textShadow: `0 0 30px ${palette[3]}60, 0 2px 10px rgba(0,0,0,0.5)`,
@@ -373,7 +381,7 @@ export default function InspirationalHero() {
               </span>
             </cite>
             <span
-              className="font-montserrat text-xs font-light uppercase tracking-[0.25em] sm:text-sm"
+              className="font-body text-xs font-light uppercase tracking-[0.25em] sm:text-sm"
               style={{
                 color: `${palette[4]}cc`,
                 textShadow: `0 0 10px ${palette[3]}20`,
@@ -412,10 +420,10 @@ export default function InspirationalHero() {
                   key={i}
                   className={`inline ${
                     isAccent
-                      ? 'font-biorhyme font-extrabold'
+                      ? 'font-heading font-extrabold'
                       : isEmphasis
-                        ? 'font-montserrat font-semibold italic'
-                        : 'font-montserrat font-light'
+                        ? 'font-body font-semibold italic'
+                        : 'font-body font-light'
                   }`}
                   style={{
                     fontSize: isAccent
@@ -481,7 +489,7 @@ export default function InspirationalHero() {
                 </div>
               )}
               <span
-                className="mb-0 font-biorhyme font-black leading-none sm:mb-1"
+                className="mb-0 font-heading font-black leading-none sm:mb-1"
                 style={{
                   fontSize: 'clamp(3rem, 8vw, 7rem)',
                   background: `linear-gradient(135deg, ${palette[3]}, ${palette[4]}80)`,
@@ -512,7 +520,7 @@ export default function InspirationalHero() {
               {/* Text side */}
               <div className="flex flex-1 flex-col items-start text-left md:order-1">
                 <span
-                  className="mb-2 font-biorhyme font-black leading-none"
+                  className="mb-2 font-heading font-black leading-none"
                   style={{
                     fontSize: 'clamp(2.5rem, 6vw, 5rem)',
                     background: `linear-gradient(135deg, ${palette[3]}, ${palette[4]}80)`,
@@ -578,7 +586,7 @@ export default function InspirationalHero() {
             >
               {/* Giant opening quote */}
               <span
-                className="font-biorhyme font-black leading-none"
+                className="font-heading font-black leading-none"
                 style={{
                   fontSize: 'clamp(5rem, 14vw, 12rem)',
                   background: `linear-gradient(135deg, ${palette[3]}, ${palette[1]})`,
@@ -604,7 +612,7 @@ export default function InspirationalHero() {
                     return (
                       <span
                         key={i}
-                        className={`inline font-biorhyme ${
+                        className={`inline font-heading ${
                           isFirst || isLast
                             ? 'font-black'
                             : i % 2 === 0
@@ -634,7 +642,7 @@ export default function InspirationalHero() {
               </blockquote>
               {/* Closing quote */}
               <span
-                className="-mt-4 mb-4 font-biorhyme font-black leading-none"
+                className="-mt-4 mb-4 font-heading font-black leading-none"
                 style={{
                   fontSize: 'clamp(3rem, 8vw, 7rem)',
                   background: `linear-gradient(135deg, ${palette[4]}80, ${palette[3]})`,
@@ -691,7 +699,7 @@ export default function InspirationalHero() {
             {/* Text side */}
             <div className="flex flex-1 flex-col items-end text-right md:order-2">
               <span
-                className="mb-2 font-biorhyme font-black leading-none"
+                className="mb-2 font-heading font-black leading-none"
                 style={{
                   fontSize: 'clamp(2.5rem, 6vw, 5rem)',
                   background: `linear-gradient(135deg, ${palette[3]}, ${palette[4]}80)`,
@@ -717,10 +725,10 @@ export default function InspirationalHero() {
                         key={i}
                         className={`inline ${
                           isAccent
-                            ? 'font-biorhyme font-extrabold'
+                            ? 'font-heading font-extrabold'
                             : isEmphasis
-                              ? 'font-montserrat font-semibold italic'
-                              : 'font-montserrat font-light'
+                              ? 'font-body font-semibold italic'
+                              : 'font-body font-light'
                         }`}
                         style={{
                           fontSize: isAccent
@@ -866,7 +874,7 @@ export default function InspirationalHero() {
 
       {/* ─── Quote counter ─── */}
       <div
-        className="absolute bottom-6 right-4 z-20 font-montserrat text-xs tracking-widest sm:bottom-10 sm:right-8"
+        className="absolute bottom-6 right-4 z-20 font-body text-xs tracking-widest sm:bottom-10 sm:right-8"
         style={{ color: `${palette[4]}60` }}
         aria-hidden="true"
       >

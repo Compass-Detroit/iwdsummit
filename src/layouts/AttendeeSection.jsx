@@ -47,11 +47,11 @@ function AttendeeSection() {
 
       {/* Section Header */}
       <div className="relative mx-auto mb-16 max-w-4xl px-6 text-center sm:mb-20">
-        <p className="mb-4 font-montserrat text-xs font-medium uppercase tracking-[0.3em] text-iwd-gold-400/80">
+        <p className="mb-4 font-body text-xs font-medium uppercase tracking-[0.3em] text-iwd-gold-400/80">
           Our Community
         </p>
 
-        <h2 className="mb-5 font-biorhyme text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
+        <h2 className="mb-5 font-heading text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
           Companies That{' '}
           <span className="bg-gradient-to-r from-iwd-gold-300 via-iwd-gold-400 to-iwd-gold-300 bg-clip-text text-transparent">
             Show Up
@@ -60,17 +60,17 @@ function AttendeeSection() {
 
         <div className="mx-auto mb-6 h-px w-24 bg-gradient-to-r from-transparent via-iwd-gold-400/50 to-transparent sm:w-32" />
 
-        <p className="mx-auto max-w-2xl font-montserrat text-base font-light leading-relaxed text-gray-400">
+        <p className="mx-auto max-w-2xl font-body text-base font-light leading-relaxed text-gray-400">
           These organizations send their people to learn, connect, and grow with
           us. That&rsquo;s not just attendance&nbsp;&mdash; that&rsquo;s belief.
         </p>
 
         {imagePaths.length > 0 && (
           <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-1.5 backdrop-blur-sm">
-            <span className="font-biorhyme text-lg font-bold text-iwd-gold-300">
+            <span className="font-heading text-lg font-bold text-iwd-gold-300">
               {imagePaths.length}+
             </span>
-            <span className="font-montserrat text-xs uppercase tracking-widest text-gray-400">
+            <span className="font-body text-xs uppercase tracking-widest text-gray-400">
               Organizations Represented
             </span>
           </div>
@@ -109,7 +109,7 @@ function AttendeeSection() {
                 className="h-20 max-w-[180px] object-contain logo-halo transition-all duration-500 group-hover:scale-105 group-hover:drop-shadow-[0_0_20px_rgba(255,255,255,0.15)] sm:h-28 sm:max-w-[260px]"
               />
               <div className="absolute inset-x-0 bottom-0 flex items-center justify-center bg-gradient-to-t from-iwd-black-950/80 via-iwd-black-950/40 to-transparent px-3 pb-3 pt-8 opacity-0 transition-all duration-300 group-hover:opacity-100">
-                <span className="font-montserrat text-xs font-medium tracking-wide text-gray-200">
+                <span className="font-body text-xs font-medium tracking-wide text-gray-200">
                   {img.name}
                 </span>
               </div>
@@ -142,7 +142,7 @@ function AttendeeSection() {
                 className="h-20 max-w-[180px] object-contain logo-halo transition-all duration-500 group-hover:scale-105 group-hover:drop-shadow-[0_0_20px_rgba(255,255,255,0.15)] sm:h-28 sm:max-w-[260px]"
               />
               <div className="absolute inset-x-0 bottom-0 flex items-center justify-center bg-gradient-to-t from-iwd-black-950/80 via-iwd-black-950/40 to-transparent px-3 pb-3 pt-8 opacity-0 transition-all duration-300 group-hover:opacity-100">
-                <span className="font-montserrat text-xs font-medium tracking-wide text-gray-200">
+                <span className="font-body text-xs font-medium tracking-wide text-gray-200">
                   {img.name}
                 </span>
               </div>

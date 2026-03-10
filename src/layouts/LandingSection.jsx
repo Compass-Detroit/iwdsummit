@@ -42,38 +42,13 @@ function calcRemaining(target) {
 }
 
 function LandingSection() {
-  const [mousePos, setMousePos] = useState({ x: 0.5, y: 0.5 })
   const [countdown, setCountdown] = useState(() => calcRemaining(EVENT_DATE))
   const [taglineIdx, setTaglineIdx] = useState(0)
   const [taglineFading, setTaglineFading] = useState(false)
   const [statsVisible, setStatsVisible] = useState(false)
   const [animatedStats, setAnimatedStats] = useState(STATS.map(() => 0))
 
-  const sectionRef = useRef(null)
   const statsRef = useRef(null)
-
-  /* ── Mouse parallax (rAF-throttled) ── */
-  useEffect(() => {
-    const el = sectionRef.current
-    if (!el) return
-    let rafId = null
-    const handleMove = (e) => {
-      if (rafId) return
-      rafId = requestAnimationFrame(() => {
-        const rect = el.getBoundingClientRect()
-        setMousePos({
-          x: (e.clientX - rect.left) / rect.width,
-          y: (e.clientY - rect.top) / rect.height,
-        })
-        rafId = null
-      })
-    }
-    el.addEventListener('mousemove', handleMove)
-    return () => {
-      el.removeEventListener('mousemove', handleMove)
-      if (rafId) cancelAnimationFrame(rafId)
-    }
-  }, [])
 
   /* ── Countdown ── */
   useEffect(() => {
@@ -129,7 +104,6 @@ function LandingSection() {
 
   return (
     <section
-      ref={sectionRef}
       id="landing"
       className="relative flex min-h-screen items-center justify-center overflow-hidden pt-16"
     >
@@ -138,9 +112,7 @@ function LandingSection() {
         className="landing-gradient absolute inset-0"
         style={{
           background: `
-            radial-gradient(ellipse 120% 80% at ${mousePos.x * 100}% ${
-              mousePos.y * 100
-            }%, rgb(var(--iwd-accent-950)) 0%, transparent 70%),
+            radial-gradient(ellipse 120% 80% at 50% 50%, rgb(var(--iwd-accent-950)) 0%, transparent 70%),
             radial-gradient(ellipse 80% 100% at 80% 80%, rgb(var(--iwd-dark-950)) 0%, transparent 60%),
             radial-gradient(ellipse 100% 60% at 20% 20%, rgb(var(--iwd-accent-900) / 0.8) 0%, transparent 50%),
             rgb(var(--iwd-dark-950))
@@ -236,14 +208,14 @@ function LandingSection() {
           style={{ animationDelay: '0.15s' }}
         >
           <div className="h-px w-10 bg-gradient-to-r from-transparent to-iwd-gold-400/60 sm:w-16" />
-          <span className="font-montserrat text-[10px] font-semibold uppercase tracking-[0.4em] text-iwd-gold-400/80 sm:text-xs">
+          <span className="font-body text-[10px] font-semibold uppercase tracking-[0.4em] text-iwd-gold-400/80 sm:text-xs">
             Compass Detroit &middot; GDG Detroit &middot; Women Techmakers
           </span>
           <div className="h-px w-10 bg-gradient-to-l from-transparent to-iwd-gold-400/60 sm:w-16" />
         </div>
 
         {/* Hero title */}
-        <h1 className="mb-3 font-biorhyme font-black leading-[0.9] tracking-tight sm:mb-5">
+        <h1 className="mb-3 font-heading font-black leading-[0.9] tracking-tight sm:mb-5">
           <span
             className="hero-stagger block text-5xl text-white/95 sm:text-7xl lg:text-[5.5rem] xl:text-[7rem]"
             style={{
@@ -270,7 +242,7 @@ function LandingSection() {
 
         {/* Subtitle */}
         <p
-          className="hero-stagger mb-4 font-montserrat text-lg font-extralight uppercase tracking-[0.35em] text-iwd-gold-100/65 sm:mb-6 sm:text-xl lg:text-2xl"
+          className="hero-stagger mb-4 font-body text-lg font-extralight uppercase tracking-[0.35em] text-iwd-gold-100/65 sm:mb-6 sm:text-xl lg:text-2xl"
           style={{ animationDelay: '0.55s' }}
         >
           Innovation Summit
@@ -282,7 +254,7 @@ function LandingSection() {
           style={{ animationDelay: '0.65s' }}
         >
           <p
-            className={`font-montserrat text-xs font-medium tracking-[0.25em] text-iwd-gold-300/50 transition-opacity duration-400 sm:text-sm ${
+            className={`font-body text-xs font-medium tracking-[0.25em] text-iwd-gold-300/50 transition-opacity duration-400 sm:text-sm ${
               taglineFading ? 'opacity-0' : 'opacity-100'
             }`}
           >
@@ -323,7 +295,7 @@ function LandingSection() {
                 <div className="countdown-cell flex size-14 items-center justify-center rounded-xl border border-white/[0.08] bg-white/[0.03] font-orbitron text-xl font-bold tabular-nums text-white backdrop-blur-sm sm:size-[4.5rem] sm:text-2xl">
                   {String(val).padStart(2, '0')}
                 </div>
-                <span className="mt-1.5 font-montserrat text-[8px] font-semibold uppercase tracking-[0.25em] text-iwd-gold-400/45 sm:text-[9px]">
+                <span className="mt-1.5 font-body text-[8px] font-semibold uppercase tracking-[0.25em] text-iwd-gold-400/45 sm:text-[9px]">
                   {label}
                 </span>
               </div>
@@ -334,7 +306,7 @@ function LandingSection() {
             className="hero-stagger mb-8 sm:mb-10"
             style={{ animationDelay: '0.85s' }}
           >
-            <span className="inline-flex items-center gap-2 rounded-full border border-iwd-gold-400/30 bg-iwd-gold-400/10 px-6 py-2 font-montserrat text-sm font-semibold uppercase tracking-[0.2em] text-iwd-gold-300">
+            <span className="inline-flex items-center gap-2 rounded-full border border-iwd-gold-400/30 bg-iwd-gold-400/10 px-6 py-2 font-body text-sm font-semibold uppercase tracking-[0.2em] text-iwd-gold-300">
               <span className="size-2 animate-pulse rounded-full bg-iwd-gold-400" />
               Happening Now
             </span>
@@ -356,7 +328,7 @@ function LandingSection() {
                 {animatedStats[i]}
                 {stat.suffix}
               </span>
-              <span className="mt-1 font-montserrat text-[9px] font-semibold uppercase tracking-[0.2em] text-iwd-gold-400/50 sm:text-[10px]">
+              <span className="mt-1 font-body text-[9px] font-semibold uppercase tracking-[0.2em] text-iwd-gold-400/50 sm:text-[10px]">
                 {stat.label}
               </span>
             </div>
@@ -365,7 +337,7 @@ function LandingSection() {
 
         {/* Description */}
         <p
-          className="hero-stagger mb-10 max-w-xl font-montserrat text-[15px] font-light leading-[1.8] text-white/55 sm:mb-12 sm:text-base"
+          className="hero-stagger mb-10 max-w-xl font-body text-[15px] font-light leading-[1.8] text-white/55 sm:mb-12 sm:text-base"
           style={{ animationDelay: '1.05s' }}
         >
           A day of learning, building, connecting, and empowering women and
@@ -402,7 +374,7 @@ function LandingSection() {
             aria-label="Scroll to content"
             className="group flex flex-col items-center gap-2.5 text-white/20 transition-colors duration-500 hover:text-white/50"
           >
-            <span className="font-montserrat text-[9px] font-medium uppercase tracking-[0.4em]">
+            <span className="font-body text-[9px] font-medium uppercase tracking-[0.4em]">
               Scroll
             </span>
             <div className="relative flex items-center justify-center">

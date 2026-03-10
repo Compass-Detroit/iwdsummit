@@ -94,12 +94,12 @@ const PreviousEvents = () => {
         <div className="mx-auto max-w-6xl px-6 pb-24 sm:px-10">
           {/* Header */}
           <div className="mb-16 text-center sm:mb-20">
-            <p className="mb-4 font-montserrat text-xs font-medium uppercase tracking-[0.3em] text-iwd-gold-400/80">
+            <p className="mb-4 font-body text-xs font-medium uppercase tracking-[0.3em] text-iwd-gold-400/80">
               Our History
             </p>
             <h1
               id="main-heading"
-              className="mb-5 font-biorhyme text-3xl font-bold text-white sm:text-4xl lg:text-5xl"
+              className="mb-5 font-heading text-3xl font-bold text-white sm:text-4xl lg:text-5xl"
             >
               Past{' '}
               <span className="bg-gradient-to-r from-iwd-gold-300 via-iwd-gold-400 to-iwd-gold-300 bg-clip-text text-transparent">
@@ -107,7 +107,7 @@ const PreviousEvents = () => {
               </span>
             </h1>
             <div className="mx-auto mb-6 h-px w-24 bg-gradient-to-r from-transparent via-iwd-gold-400/50 to-transparent sm:w-32" />
-            <p className="mx-auto max-w-2xl font-montserrat text-base font-light leading-relaxed text-gray-400">
+            <p className="mx-auto max-w-2xl font-body text-base font-light leading-relaxed text-gray-400">
               Compass Detroit hosts three annual events connecting tech
               enthusiasts, professionals, and students. Here&rsquo;s what
               we&rsquo;ve built together.
@@ -131,16 +131,16 @@ const PreviousEvents = () => {
                 {/* Date badge */}
                 <div className="mb-4 inline-flex w-fit items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-1">
                   <div className="size-1.5 rounded-full bg-iwd-gold-400" />
-                  <span className="font-montserrat text-[10px] font-semibold uppercase tracking-widest text-iwd-gold-300">
+                  <span className="font-body text-[10px] font-semibold uppercase tracking-widest text-iwd-gold-300">
                     {event.date}
                   </span>
                 </div>
 
-                <h2 className="mb-2 font-biorhyme text-xl font-bold text-white group-hover:text-iwd-gold-200 sm:text-2xl">
+                <h2 className="mb-2 font-heading text-xl font-bold text-white group-hover:text-iwd-gold-200 sm:text-2xl">
                   {event.name}
                 </h2>
 
-                <p className="mb-1 font-montserrat text-xs font-medium uppercase tracking-wider text-iwd-gold-400/70">
+                <p className="mb-1 font-body text-xs font-medium uppercase tracking-wider text-iwd-gold-400/70">
                   {event.tagline}
                 </p>
 
@@ -155,7 +155,7 @@ const PreviousEvents = () => {
                   {event.highlights.map((stat) => (
                     <span
                       key={stat}
-                      className="rounded-md border border-white/[0.06] bg-white/[0.02] px-2.5 py-1 font-montserrat text-[10px] font-semibold uppercase tracking-wider text-gray-400"
+                      className="rounded-md border border-white/[0.06] bg-white/[0.02] px-2.5 py-1 font-body text-[10px] font-semibold uppercase tracking-wider text-gray-400"
                     >
                       {stat}
                     </span>
@@ -184,7 +184,7 @@ const PreviousEvents = () => {
 
           {/* CTA */}
           <div className="mt-16 text-center sm:mt-20">
-            <p className="mb-6 font-montserrat text-base font-light text-gray-400">
+            <p className="mb-6 font-body text-base font-light text-gray-400">
               Could be you on that stage next time.
             </p>
             <a
