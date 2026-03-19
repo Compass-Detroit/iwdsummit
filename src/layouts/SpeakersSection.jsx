@@ -20,7 +20,7 @@ SpeakersSection.propTypes = {
     PropTypes.shape({
       id: PropTypes.number.isRequired,
       name: PropTypes.string.isRequired,
-      avatar: PropTypes.string.isRequired,
+      avatar: PropTypes.string,
       session: PropTypes.shape({
         title: PropTypes.string,
         description: PropTypes.string,

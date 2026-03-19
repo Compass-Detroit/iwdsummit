@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react'
 import { FaPalette, FaSun, FaMoon } from 'react-icons/fa6'
-import { useTheme, THEMES } from './ThemeContext'
+import useTheme from '@/hooks/useTheme'
+import { THEMES } from '@/constants/ui'
 
 function ThemeSwitcher() {
   const { theme, setTheme, mode, toggleMode } = useTheme()
@@ -26,7 +27,7 @@ function ThemeSwitcher() {
         aria-label={
           mode === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'
         }
-        className="flex size-8 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] backdrop-blur-md transition-all duration-300 hover:border-white/20 hover:bg-white/[0.08] focus:outline-none focus:ring-2 focus:ring-iwd-accent-500 focus:ring-offset-2 focus:ring-offset-black active:scale-95"
+        className="flex size-8 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] backdrop-blur-md transition-all duration-300 hover:border-white/20 hover:bg-white/[0.08] focus:outline-none focus:ring-2 focus:ring-[rgb(var(--iwd-accent-500)/0.12)] focus:ring-offset-2 focus:ring-offset-black active:scale-95"
       >
         {mode === 'dark' ? (
           <FaSun className="size-3 text-iwd-gold-400" />
@@ -40,7 +41,7 @@ function ThemeSwitcher() {
         onClick={() => setOpen((o) => !o)}
         aria-label="Choose color theme"
         aria-expanded={open}
-        className="flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 backdrop-blur-md transition-all duration-300 hover:border-white/20 hover:bg-white/[0.08] focus:outline-none focus:ring-2 focus:ring-iwd-accent-500 focus:ring-offset-2 focus:ring-offset-black active:scale-95"
+        className="flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 backdrop-blur-md transition-all duration-300 hover:border-white/20 hover:bg-white/[0.08] focus:outline-none focus:ring-2 focus:ring-[rgb(var(--iwd-accent-500)/0.12)] focus:ring-offset-2 focus:ring-offset-black active:scale-95"
       >
         <div
           className="size-3 rounded-full shadow-sm"

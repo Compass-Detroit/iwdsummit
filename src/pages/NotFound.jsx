@@ -1,4 +1,4 @@
-import { PageLayout } from '@/layouts/PageLayout'
+import PageLayout from '@/layouts/PageLayout'
 import Yoda404 from '@/components/Yoda404'
 
 const NotFound = () => {

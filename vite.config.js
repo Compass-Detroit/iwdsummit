@@ -40,5 +40,6 @@ export default defineConfig({
     },
     chunkSizeWarningLimit: 600,
   },
+  assetsInclude: ['**/*.JPG', '**/*.jpg', '**/*.jpeg', '**/*.png', '**/*.webp'],
   base: './',
 })

@@ -1,45 +1,7 @@
-import { createContext, useContext, useEffect, useState, useMemo } from 'react'
+import { useEffect, useState, useMemo } from 'react'
 import PropTypes from 'prop-types'
-
-const FontContext = createContext(null)
-
-export const FONTS = [
-  {
-    id: 'classic',
-    label: 'Classic',
-    heading: 'font-biorhyme',
-    body: 'font-montserrat',
-    sample: 'BioRhyme',
-  },
-  {
-    id: 'editorial',
-    label: 'Editorial',
-    heading: 'font-asimovian',
-    body: 'font-montserrat',
-    sample: 'Asimovian',
-  },
-  {
-    id: 'tech',
-    label: 'Tech',
-    heading: 'font-orbitron',
-    body: 'font-montserrat',
-    sample: 'Orbitron',
-  },
-  {
-    id: 'script',
-    label: 'Script',
-    heading: 'font-russell',
-    body: 'font-russell',
-    sample: 'Russell',
-  },
-  {
-    id: 'modern',
-    label: 'Modern',
-    heading: 'font-montserrat',
-    body: 'font-montserrat',
-    sample: 'Montserrat',
-  },
-]
+import FontContext from '@/contexts/fontContextCore'
+import { FONTS } from '@/constants/ui'
 
 function readStorage(key, fallback) {
   try {
@@ -57,7 +19,7 @@ function writeStorage(key, value) {
   }
 }
 
-export function FontProvider({ children }) {
+export default function FontProvider({ children }) {
   const [font, setFont] = useState(() => readStorage('iwd-font', 'classic'))
 
   useEffect(() => {
@@ -82,10 +44,4 @@ FontProvider.propTypes = {
   children: PropTypes.node.isRequired,
 }
 
-export function useFont() {
-  const context = useContext(FontContext)
-  if (!context) {
-    throw new Error('useFont must be used within a FontProvider')
-  }
-  return context
-}
+// useFont hook moved to hooks/useFont.js to keep this file exporting only a component

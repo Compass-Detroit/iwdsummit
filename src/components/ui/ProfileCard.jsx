@@ -4,9 +4,11 @@ import InstagramHandle from '@/components/ui/InstagramHandle'
 import LinkedInHandle from '@/components/ui/LinkedInHandle'
 import MastodonHandle from '@/components/ui//MastadonHandle'
 import TwitterHandle from '@/components/ui/TwitterHandle'
+import { useState } from 'react'
 
 import GDEIcon from '@/assets/images/icons/gdge.svg'
 import WTMLogo from '@/assets/images/icons/wtm.svg'
+import PlaceholderAvatar from '@/assets/images/placeholder-avatar.svg'
 
 const ProfileCard = ({
   avatar,
@@ -23,6 +25,8 @@ const ProfileCard = ({
   track,
   twitter,
 }) => {
+  const [imgError, setImgError] = useState(false)
+
   const getBadgeColor = () => {
     const trackColors = {
       'Build with AI': 'bg-purple-800',
@@ -129,13 +133,6 @@ const ProfileCard = ({
     </>
   )
 
-  const renderBadgeAndGradient = track && (
-    <>
-      {renderImageGradient}
-      {renderBadge}
-    </>
-  )
-
   const renderSocialLinks = (linkedin || github || twitter || mastodon) && (
     <div className="inline-flex items-center gap-2">
       {github && <GithubHandle handle={github} absolute={false} />}
@@ -163,35 +160,67 @@ const ProfileCard = ({
     </button>
   )
 
+  const imageSrc = !imgError ? avatar || PlaceholderAvatar : null
+  const hasImage = Boolean(imageSrc)
+
   const renderSpeakerCard = (
-    <>
-      {/* Large portrait — aspect ratio for dramatic visual impact */}
-      <div className="relative aspect-[3/4] w-full overflow-hidden rounded-t-2xl">
-        <img
-          alt={`${name} avatar`}
-          src={avatar}
-          className="size-full object-cover transition-transform duration-700 group-hover:scale-105"
-          loading="lazy"
-        />
-        {/* Gradient overlay from bottom for text readability */}
+    <div className="group relative h-full overflow-hidden rounded-2xl border border-white/[0.06] bg-iwd-black-950 transition-all duration-500 hover:-translate-y-2 hover:border-iwd-gold-400/30 hover:shadow-[0_20px_50px_rgba(255,208,174,0.15)]">
+      {/* Animated Gradient Border (visible on hover) */}
+      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-iwd-gold-400/20 via-transparent to-iwd-gold-300/20 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+
+      {/* Large portrait */}
+      <div className="relative aspect-[3/4] w-full overflow-hidden">
+        {hasImage ? (
+          <img
+            alt={`${name} avatar`}
+            src={imageSrc}
+            className="size-full object-cover transition-all duration-1000 group-hover:rotate-1 group-hover:scale-110"
+            loading="lazy"
+            onError={() => setImgError(true)}
+          />
+        ) : (
+          <div className="flex size-full items-center justify-center bg-gradient-to-br from-iwd-black-900 via-iwd-black-950 to-iwd-black-900">
+            <div
+              className="absolute inset-0 opacity-20"
+              style={{
+                backgroundImage:
+                  'radial-gradient(circle at 50% 50%, rgb(var(--iwd-gold-400)) 0%, transparent 70%)',
+              }}
+            />
+            <span className="relative z-10 bg-gradient-to-br from-iwd-gold-200 via-iwd-gold-400 to-iwd-gold-200 bg-clip-text font-heading text-8xl font-black text-transparent opacity-40">
+              {name?.charAt(0).toUpperCase()}
+            </span>
+          </div>
+        )}
+
+        {/* Track-specific glow overlay */}
         <div
-          className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"
-          aria-hidden="true"
+          className={`absolute inset-0 bg-gradient-to-t opacity-0 transition-opacity duration-500 group-hover:opacity-30 ${getGradientColors(
+            badgeColor
+          ).replace('via-', 'to-')}`}
         />
-        {renderBadgeAndGradient}
+
+        {/* Soft bottom vignette */}
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-iwd-black-950 via-iwd-black-950/40 to-transparent" />
+
+        {renderImageGradient}
+        {renderBadge}
 
         {/* Name + info overlaid on image bottom */}
-        <div className="absolute inset-x-0 bottom-0 p-5">
-          <h3 className="text-xl font-bold tracking-tight text-white drop-shadow-lg sm:text-2xl">
+        <div className="absolute inset-x-0 bottom-0 p-6 transition-transform duration-500 group-hover:translate-y-[-4px]">
+          <h3 className="font-heading text-2xl font-black text-white drop-shadow-2xl">
             {name}
           </h3>
           {organization && (
-            <p className="mt-1 text-sm font-medium text-gray-200/90 drop-shadow-md">
-              {organization}
-            </p>
+            <div className="mt-1 flex items-center gap-2">
+              <div className="h-px w-4 bg-iwd-gold-400/50" />
+              <p className="text-xs font-bold uppercase tracking-widest text-iwd-gold-300/80">
+                {organization}
+              </p>
+            </div>
           )}
           {position && (
-            <p className="mt-0.5 text-xs text-gray-300/80 drop-shadow-md">
+            <p className="mt-2 line-clamp-1 text-xs font-medium text-white/50">
               {position}
             </p>
           )}
@@ -199,22 +228,18 @@ const ProfileCard = ({
       </div>
 
       {/* Bottom bar: socials + CTA */}
-      <div className="flex items-center justify-between gap-2 px-5 py-4">
+      <div className="flex items-center justify-between gap-2 border-t border-white/5 bg-white/[0.02] px-6 py-4">
         {renderSocialLinks || <div />}
         {renderButton}
       </div>
-    </>
-  )
-
-  return (
-    <div className="group relative rounded-2xl border border-white/[0.06] bg-white/[0.02] shadow-lg backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-white/[0.12] hover:bg-white/[0.04] hover:shadow-xl hover:shadow-black/20">
-      {renderSpeakerCard}
     </div>
   )
+
+  return <div className="relative h-full">{renderSpeakerCard}</div>
 }
 
 ProfileCard.propTypes = {
-  avatar: PropTypes.string.isRequired,
+  avatar: PropTypes.string,
   github: PropTypes.string,
   instagram: PropTypes.string,
   isGDE: PropTypes.bool,

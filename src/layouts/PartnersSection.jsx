@@ -59,11 +59,12 @@ const PartnersSection = ({ partnersData = {}, year }) => {
         {hasPartners ? (
           <>
             {/* Single Partners Grid */}
-            <div className="mx-auto mt-10 grid w-full max-w-6xl grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="mx-auto mt-12 grid w-full max-w-7xl grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">
               {allPartners.map((partner) => (
                 <button
                   key={partner.id}
-                  className="group perspective-[1000px] w-full"
+                  className="group w-full"
+                  style={{ perspective: '1000px' }}
                   onClick={() =>
                     partner.url && window.open(partner.url, '_blank')
                   }
@@ -72,27 +73,31 @@ const PartnersSection = ({ partnersData = {}, year }) => {
                 >
                   <div className="relative h-56 w-full transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
                     {/* ── Front: Large logo ── */}
-                    <div className="absolute inset-0 flex items-center justify-center rounded-2xl border border-white/[0.06] bg-white/[0.02] p-6 backdrop-blur-sm [backface-visibility:hidden]">
+                    <div className="absolute inset-0 flex items-center justify-center rounded-[2rem] border border-white/[0.08] bg-white/[0.03] p-10 shadow-2xl backdrop-blur-md [backface-visibility:hidden]">
                       {partner.logo ? (
-                        <img
-                          src={partner.logo}
-                          alt={partner.name}
-                          className="max-h-32 max-w-[80%] object-contain logo-halo transition-transform duration-500 group-hover:scale-105"
-                          loading="lazy"
-                        />
+                        <div className="relative flex size-full items-center justify-center">
+                          {/* Subtle glow/halo for dark backgrounds */}
+                          <div className="absolute inset-0 rounded-full bg-white/5 blur-3xl" />
+                          <img
+                            src={partner.logo}
+                            alt={partner.name}
+                            className="relative max-h-40 max-w-[85%] object-contain transition-transform duration-700 group-hover:scale-110"
+                            loading="lazy"
+                          />
+                        </div>
                       ) : (
-                        <p className="text-center text-2xl font-semibold text-gray-300">
+                        <p className="text-center text-3xl font-bold tracking-tight text-white/90">
                           {partner.name}
                         </p>
                       )}
                     </div>
                     {/* ── Back: Org info ── */}
-                    <div className="absolute inset-0 flex flex-col items-center justify-center rounded-2xl border border-white/[0.08] bg-gradient-to-br from-white/[0.06] to-white/[0.02] p-6 backdrop-blur-md [backface-visibility:hidden] [transform:rotateY(180deg)]">
-                      <h3 className="mb-2 text-lg font-bold text-white">
+                    <div className="from-iwd-dark-900 to-iwd-dark-950 absolute inset-0 flex flex-col items-center justify-center rounded-[2rem] border border-iwd-gold-400/20 bg-gradient-to-br p-8 backdrop-blur-xl [backface-visibility:hidden] [transform:rotateY(180deg)]">
+                      <h3 className="mb-4 text-2xl font-black tracking-tight text-white">
                         {partner.name}
                       </h3>
                       {partner.desc && (
-                        <p className="line-clamp-5 text-center text-sm leading-relaxed text-gray-300">
+                        <p className="line-clamp-6 text-center text-base leading-relaxed text-white/70">
                           {partner.desc}
                         </p>
                       )}

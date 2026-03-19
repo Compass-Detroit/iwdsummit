@@ -156,7 +156,7 @@ const SpeakerCard = ({
 }
 
 SpeakerCard.propTypes = {
-  avatar: PropTypes.string.isRequired,
+  avatar: PropTypes.string,
   bio: PropTypes.string,
   github: PropTypes.string,
   id: PropTypes.number.isRequired,

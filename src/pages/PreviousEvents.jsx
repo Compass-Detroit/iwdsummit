@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { PageLayout } from '@/layouts/PageLayout'
+import PageLayout from '@/layouts/PageLayout'
 
 const pastEvents = [
   {
@@ -35,7 +35,7 @@ const pastEvents = [
     tagline: 'Centering Black technologists and leaders',
     description:
       'Keynote talks, career-focused panels, and workforce-oriented workshops with a strong emphasis on mentorship and industry readiness. A celebration and a call to action.',
-    url: 'https://bhmtechsummit.com',
+    url: 'https://bhmsummit.com',
     highlights: ['4 tracks', '25+ speakers', '300+ attendees'],
   },
   {
@@ -71,7 +71,7 @@ const pastEvents = [
     tagline: 'Innovation through the lens of equity',
     description:
       'Strengthening pathways for emerging talent entering the tech ecosystem. Featured keynotes from Google, Ford, and Detroit startup founders.',
-    url: 'https://bhmtechsummit.com',
+    url: 'https://bhmsummit.com',
     highlights: ['3 tracks', '20+ speakers', '250+ attendees'],
   },
 ]
@@ -144,7 +144,7 @@ const PreviousEvents = () => {
                   {event.tagline}
                 </p>
 
-                <p className="mb-4 text-sm text-gray-500">{event.location}</p>
+                <p className="mb-4 text-sm text-gray-400">{event.location}</p>
 
                 <p className="mb-6 flex-1 text-sm leading-relaxed text-gray-400">
                   {event.description}
@@ -163,7 +163,7 @@ const PreviousEvents = () => {
                 </div>
 
                 {/* Hover arrow */}
-                <div className="absolute right-6 top-6 text-gray-600 transition-all duration-300 group-hover:text-iwd-gold-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5">
+                <div className="absolute right-6 top-6 text-gray-600 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-iwd-gold-300">
                   <svg
                     className="size-4"
                     fill="none"

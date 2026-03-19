@@ -1,7 +1,8 @@
 import { useState, useEffect, useCallback, useMemo, useRef } from 'react'
 import { FaPlay, FaPause, FaChevronLeft, FaChevronRight } from 'react-icons/fa6'
 import { inspirationalQuotes } from '@/data/2026/inspirationalQuotes'
-import { useTheme, THEMES } from '@/components/ui/ThemeContext'
+import useTheme from '@/hooks/useTheme'
+import { THEMES } from '@/constants/ui'
 
 /**
  * Cinematic color palettes per woman — 5 colors each:
@@ -256,7 +257,7 @@ export default function InspirationalHero() {
           style={{ background: `${palette[1]}44` }}
         />
         <div
-          className="paint-stroke-2 absolute bottom-[-5%] right-[-12%] h-[50%] w-3/5 rounded-[55%_45%_50%_50%/45%_55%_45%_55%]"
+          className="paint-stroke-2 absolute bottom-[-5%] right-[-12%] h-1/2 w-3/5 rounded-[55%_45%_50%_50%/45%_55%_45%_55%]"
           style={{ background: `${palette[0]}33` }}
         />
         <div
@@ -264,7 +265,7 @@ export default function InspirationalHero() {
           style={{ background: `${palette[3]}22` }}
         />
         <div
-          className="paint-stroke-2 absolute left-[20%] top-[-8%] h-2/5 w-[50%] rounded-[60%_40%_50%_50%/55%_45%_55%_45%]"
+          className="paint-stroke-2 absolute left-[20%] top-[-8%] h-2/5 w-1/2 rounded-[60%_40%_50%_50%/55%_45%_55%_45%]"
           style={{ background: `${palette[1]}1a`, animationDelay: '3s' }}
         />
         <div

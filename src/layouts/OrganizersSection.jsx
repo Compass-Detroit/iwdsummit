@@ -1,5 +1,7 @@
-import GenericCard from '@/components/ui/GenericCard'
-import { organizersData } from '@/data/organizers'
+import DevTeamCard from '@/components/dev/DevTeamCard'
+import { teamData } from '@/data/2026/team'
+
+const organizersData = teamData.filter((m) => m.team === 'compass')
 
 function OrganizersSection() {
   return (
@@ -26,14 +28,42 @@ function OrganizersSection() {
         </h2>
         <div className="mb-6 h-px w-24 bg-gradient-to-r from-transparent via-iwd-gold-400/50 to-transparent sm:w-32" />
       </div>
-      <div className="mt-10 grid grid-cols-1 place-items-center gap-8 sm:grid-cols-2">
+      <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
         {organizersData.map((organizer) => (
-          <GenericCard
-            key={organizer.id}
-            onOpen={() => window.open(organizer.url, '_blank')}
-            {...organizer}
+          <DevTeamCard
+            key={`org-${organizer.id}`}
+            id={organizer.id}
+            name={organizer.name}
+            avatar={organizer.avatar}
+            linkedin={organizer.linkedin}
+            github={organizer.github}
+            organization={organizer.organization}
+            position={organizer.role}
+            university={organizer.university}
+            badge={organizer.team === 'compass' ? 'Organizer' : organizer.team}
           />
         ))}
+      </div>
+
+      {/* Dev team immediately after organizers */}
+      <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+        {teamData
+          .filter((m) => m.team === 'devteam')
+          .sort((a, b) => a.name.localeCompare(b.name))
+          .map((dev) => (
+            <DevTeamCard
+              key={`dev-${dev.id}`}
+              id={dev.id}
+              name={dev.name}
+              avatar={dev.avatar}
+              linkedin={dev.linkedin}
+              github={dev.github}
+              organization={dev.organization}
+              position={dev.role}
+              university={dev.university}
+              badge={dev.team === 'devteam' ? 'Dev' : dev.team}
+            />
+          ))}
       </div>
     </section>
   )

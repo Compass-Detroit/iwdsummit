@@ -145,6 +145,15 @@ export default {
           },
         },
       },
+      keyframes: {
+        'bounce-subtle': {
+          '0%, 100%': { transform: 'translateY(-5%)' },
+          '50%': { transform: 'translateY(0)' },
+        },
+      },
+      animation: {
+        'bounce-subtle': 'bounce-subtle 3s ease-in-out infinite',
+      },
     },
   },
   plugins: [typography],

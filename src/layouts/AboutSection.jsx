@@ -17,7 +17,7 @@ function AboutSection() {
         aria-hidden="true"
       />
 
-      <div className="relative mx-auto max-w-4xl text-center">
+      <div className="relative mx-auto max-w-4xl rounded-3xl border border-white/5 bg-white/[0.01] p-8 text-center backdrop-blur-sm md:p-12">
         {/* Eyebrow */}
         <div className="mb-5 flex items-center justify-center gap-4">
           <div className="h-px w-10 bg-gradient-to-r from-transparent to-iwd-gold-400/40 sm:w-14" />
@@ -38,24 +38,22 @@ function AboutSection() {
           </span>
         </h2>
 
-        <p className="text-base font-light leading-[1.9] text-gray-400 md:text-lg">
+        <p className="text-base font-light leading-[1.9] text-white/70 md:text-lg">
           The International Women&apos;s Day Innovation Summit brings together
           technologists, creators, leaders, and allies for a day of learning,
           building, and empowering women across Detroit&apos;s tech ecosystem.
         </p>
-        <p className="mt-5 text-base font-light leading-[1.9] text-gray-400 md:text-lg">
+        <p className="mt-6 text-base font-light leading-[1.9] text-white/70 md:text-lg">
           Hosted by Compass Detroit in partnership with GDG Detroit and Women
           Techmakers, this summit features keynotes, hands-on workshops, career
           panels, and community-driven sessions designed to inspire the next
           generation of innovators.
         </p>
-        <p className="mt-5 text-base font-light leading-[1.9] text-gray-500 md:text-lg">
+        <p className="mt-6 text-base font-light leading-[1.9] text-white/80 md:text-lg">
           Whether you&apos;re a seasoned engineer, a student exploring your
           first hackathon, a founder building something bold, or an ally
           championing representation —{' '}
-          <span className="font-medium text-iwd-gold-300/90">
-            you belong here.
-          </span>
+          <span className="font-bold text-iwd-gold-300">you belong here.</span>
         </p>
       </div>
     </section>

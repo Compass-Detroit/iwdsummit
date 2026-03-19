@@ -63,20 +63,29 @@ const JobBoardSection = ({ year = new Date().getFullYear() }) => {
                     : `Visit ${company.name}'s careers page at ${company.website} (opens in a new tab)`
                 }
               >
-                <div className="flex h-full min-h-[100px] flex-col items-center gap-6 rounded-2xl border border-white/[0.06] bg-white/[0.02] p-8 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-white/[0.12] hover:bg-white/[0.04] hover:shadow-xl hover:shadow-black/20 active:scale-[0.98] sm:flex-row">
+                <div className="flex h-full min-h-[160px] flex-col items-center gap-8 rounded-3xl border border-white/[0.08] bg-white/[0.03] p-12 backdrop-blur-md transition-all duration-500 hover:-translate-y-2 hover:border-iwd-gold-400/20 hover:bg-white/[0.05] hover:shadow-2xl hover:shadow-black/40 active:scale-[0.98] sm:flex-row">
                   {/* Logo container */}
-                  <div className="flex size-24 shrink-0 items-center justify-center overflow-hidden rounded-2xl border border-white/[0.06] bg-white/[0.04] p-4 backdrop-blur-sm transition-all duration-300 group-hover:border-white/[0.1]">
-                    <img
-                      src={company.logo}
-                      alt={`${company.name} logo`}
-                      className="size-16 object-contain logo-halo"
-                      loading="lazy"
-                    />
+                  <div className="flex size-32 shrink-0 items-center justify-center overflow-hidden rounded-[2rem] border border-white/[0.08] bg-white/[0.05] p-6 backdrop-blur-sm transition-all duration-500 group-hover:border-iwd-gold-400/30 group-hover:shadow-lg group-hover:shadow-iwd-gold-500/10">
+                    <div className="relative flex size-full items-center justify-center">
+                      {/* Subtle glow/halo for dark backgrounds */}
+                      <div className="absolute inset-0 rounded-full bg-white/5 blur-2xl" />
+                      <img
+                        src={company.logo}
+                        alt={`${company.name} logo`}
+                        className="relative size-24 object-contain transition-transform duration-500 group-hover:scale-110"
+                        loading="lazy"
+                      />
+                    </div>
                   </div>
                   {/* Company name */}
-                  <h3 className="min-w-0 flex-1 pr-4 text-center text-base font-semibold text-gray-200 transition-colors duration-300 group-hover:text-white sm:text-left sm:text-lg">
-                    {company.name}
-                  </h3>
+                  <div className="flex flex-col">
+                    <h3 className="min-w-0 pr-4 text-center text-xl font-black tracking-tight text-white transition-colors duration-300 sm:text-left">
+                      {company.name}
+                    </h3>
+                    <span className="mt-1 text-center text-xs font-semibold uppercase tracking-widest text-iwd-gold-400/50 sm:text-left">
+                      Opportunities
+                    </span>
+                  </div>
                 </div>
               </a>
             ))}

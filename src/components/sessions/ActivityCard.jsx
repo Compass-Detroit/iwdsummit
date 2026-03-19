@@ -1,11 +1,22 @@
 import PropTypes from 'prop-types'
 import { format, parse } from 'date-fns'
+import useSchedule from '@/hooks/useSchedule'
 
 /**
  * Card for conference activities (check-in, breakfast, lunch, etc.)
  * that are not speaker sessions. Single column: time range + title.
  */
-function ActivityCard({ title, content, cta, time, timeEnd, room }) {
+function ActivityCard({
+  activityId,
+  title,
+  content,
+  cta,
+  time,
+  timeEnd,
+  room,
+}) {
+  const { isSessionSaved, toggleSession } = useSchedule()
+  const isSaved = activityId ? isSessionSaved(activityId) : false
   const formatTime = (t) => {
     if (!t) return ''
     try {
@@ -99,6 +110,38 @@ function ActivityCard({ title, content, cta, time, timeEnd, room }) {
               )}
             </div>
           </div>
+          {activityId && (
+            <div className="ml-4 flex items-center justify-center">
+              <button
+                onClick={(e) => {
+                  e.stopPropagation()
+                  toggleSession(activityId)
+                }}
+                aria-label={
+                  isSaved ? 'Remove from my schedule' : 'Add to my schedule'
+                }
+                className="flex size-8 shrink-0 items-center justify-center rounded-full transition-colors duration-300 hover:bg-white/10 md:size-9"
+              >
+                <svg
+                  className={`size-6 transition-transform ${
+                    isSaved
+                      ? 'scale-110 text-iwd-gold-400'
+                      : 'text-gray-400 hover:text-white'
+                  }`}
+                  fill={isSaved ? 'currentColor' : 'none'}
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  strokeWidth={isSaved ? 0 : 2}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"
+                  />
+                </svg>
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </div>
@@ -106,6 +149,7 @@ function ActivityCard({ title, content, cta, time, timeEnd, room }) {
 }
 
 ActivityCard.propTypes = {
+  activityId: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   title: PropTypes.string.isRequired,
   content: PropTypes.string,
   cta: PropTypes.shape({

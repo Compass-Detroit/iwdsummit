@@ -301,7 +301,7 @@ function Navbar() {
                 className={`relative px-2 py-4 pb-2 text-[13px] font-medium uppercase tracking-[0.12em] transition-colors duration-300 ${
                   isActive
                     ? 'text-white after:w-full after:opacity-100'
-                    : 'text-gray-400 hover:text-white after:w-0 after:opacity-0'
+                    : 'text-gray-300 after:w-0 after:opacity-0 hover:text-white'
                 } after:absolute after:bottom-0 after:left-0 after:h-px after:bg-gradient-to-r after:from-transparent after:via-iwd-gold-400 after:to-transparent after:transition-all after:duration-300 after:ease-in-out`}
               >
                 {section.text}
@@ -324,7 +324,7 @@ function Navbar() {
               className={`relative px-2 py-4 pb-2 text-[13px] font-medium uppercase tracking-[0.12em] transition-colors duration-300 ${
                 isActive
                   ? 'text-white after:w-full after:opacity-100'
-                  : 'text-gray-400 hover:text-white after:w-0 after:opacity-0'
+                  : 'text-gray-300 after:w-0 after:opacity-0 hover:text-white'
               } after:absolute after:bottom-0 after:left-0 after:h-px after:bg-gradient-to-r after:from-transparent after:via-iwd-gold-400 after:to-transparent after:transition-all after:duration-300 after:ease-in-out`}
             >
               {section.text}

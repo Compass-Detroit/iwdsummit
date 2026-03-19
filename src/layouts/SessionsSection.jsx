@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react'
 import PropTypes from 'prop-types'
 
+import useSchedule from '@/hooks/useSchedule'
 import ActivityCard from '@/components/sessions/ActivityCard'
 import SessionCard from '@/components/sessions/SessionCard'
 import SectionSkipLink from '@/components/ui/SectionSkipLink'
@@ -13,19 +14,24 @@ import { IoChevronDown, IoChevronForward, IoChevronBack } from 'react-icons/io5'
 const convertTo24Hour = (time) => {
   if (!time || typeof time !== 'string') return ''
 
-  const [hour, minute] = time.split(':').map(Number)
+  const parts = time.split(':')
+  if (parts.length < 2) return time // Return as is if no colon (e.g. "TBA")
+
+  const [hour, minute] = parts.map(Number)
+  if (isNaN(hour) || isNaN(minute)) return time
 
   if (hour === 12) {
-    return `12:${minute.toString().padStart(2, '0')}`
+    return `12:${String(minute).padStart(2, '0')}`
   }
   if (hour >= 1 && hour <= 5) {
-    return `${(hour + 12).toString().padStart(2, '0')}:${minute
-      .toString()
-      .padStart(2, '0')}`
+    return `${(hour + 12).toString().padStart(2, '0')}:${String(
+      minute
+    ).padStart(2, '0')}`
   }
-  return `${hour.toString().padStart(2, '0')}:${minute
-    .toString()
-    .padStart(2, '0')}`
+  return `${hour.toString().padStart(2, '0')}:${String(minute).padStart(
+    2,
+    '0'
+  )}`
 }
 
 /** Normalize time to HH:mm for consistent sort comparison */
@@ -168,8 +174,9 @@ const SessionsSection = ({
   const tabpanelRef = useRef(null)
   const [canScrollLeft, setCanScrollLeft] = useState(false)
   const [canScrollRight, setCanScrollRight] = useState(false)
+  const { savedSessionIds } = useSchedule()
 
-  const tabs = [...tracks]
+  const tabs = ['My Schedule', ...tracks]
   const currentSession = tabs[activeTab]
 
   const toggleExpanded = () => {
@@ -205,14 +212,24 @@ const SessionsSection = ({
   })
 
   // Get sessions for current track
-  const currentTrackSessions = combinedSpeakerData.filter(
-    (session) => session.track === currentSession
-  )
+  const currentTrackSessions =
+    currentSession === 'My Schedule'
+      ? combinedSpeakerData.filter((session) =>
+          savedSessionIds.includes(session.id)
+        )
+      : combinedSpeakerData.filter(
+          (session) => session.track === currentSession
+        )
 
   // Get conference activities for current track (check-in, breakfast, etc.)
-  const currentTrackActivities = conferenceActivities.filter(
-    (activity) => activity.track === currentSession
-  )
+  const currentTrackActivities =
+    currentSession === 'My Schedule'
+      ? conferenceActivities.filter((activity) =>
+          savedSessionIds.includes(activity.id)
+        )
+      : conferenceActivities.filter(
+          (activity) => activity.track === currentSession
+        )
 
   // Merge sessions and activities, sort by time
   const mergedTrackItems = [
@@ -391,8 +408,10 @@ const SessionsSection = ({
               ref={navRef}
               role="tablist"
               id="sessions-nav"
-              className={`scrollbar-visible flex w-full flex-nowrap items-start justify-start gap-2 overflow-x-auto overflow-y-visible rounded-xl border border-white/5 bg-iwd-black-950 py-3 pe-4 ps-4 md:px-6 2xl:items-center 2xl:justify-center ${
-                isExpanded ? 'max-h-none opacity-100' : 'max-h-0 opacity-0'
+              className={`scrollbar-hide flex w-full flex-nowrap items-center justify-start gap-3 overflow-x-auto overflow-y-visible rounded-2xl border border-white/5 bg-iwd-black-950/50 p-3 backdrop-blur-md md:justify-center md:px-6 ${
+                isExpanded
+                  ? 'max-h-none opacity-100'
+                  : 'max-h-0 opacity-0 transition-all'
               }`}
             >
               {tabs.map((tab, index) => (
@@ -421,7 +440,18 @@ const SessionsSection = ({
                     onFocus={(e) => scrollTabIntoView(e.currentTarget)}
                     onKeyDown={(e) => handleKeyDown(e, index)}
                   >
-                    {tab === 'Tech+Design' ? (
+                    {tab === 'My Schedule' ? (
+                      <>
+                        <svg
+                          className="mr-1.5 inline size-3 lg:size-4"
+                          fill="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2v16z" />
+                        </svg>
+                        My Schedule
+                      </>
+                    ) : tab === 'Tech+Design' ? (
                       <>Tech+Design</>
                     ) : tab === 'Level Up' ? (
                       <>Level Up</>
@@ -476,58 +506,139 @@ const SessionsSection = ({
           </div>
         )}
 
-        {/* Tabpanel: Map or session cards; max-w-6xl */}
-        <div
-          ref={tabpanelRef}
-          id="sessions-tabpanel"
-          role="tabpanel"
-          aria-labelledby={`session-tab-${activeTab}`}
-          aria-hidden={!isExpanded}
-          tabIndex={isExpanded ? 0 : -1}
-          className={`mx-auto flex w-full max-w-6xl ${
-            isExpanded ? 'max-h-none opacity-100' : 'max-h-0 opacity-0'
-          }             ${
-            hasContentForTrack ? 'justify-start' : 'justify-center'
-          }
-          `}
-        >
-          {currentSession === 'Map' ? (
-            <VenueMaps />
-          ) : hasContentForTrack ? (
-            <>
-              {/* Session cards + activity cards: single column; sorted by time */}
-              <ul className="grid w-full max-w-6xl grid-cols-1 gap-10 py-7 xl:max-w-none">
-                {mergedTrackItems.map((item) =>
-                  item.type === 'session' ? (
-                    <li key={item.id} className="w-full">
-                      <SessionCard
-                        speakers={item.speakers}
-                        speakerAvatars={item.speakerAvatars}
-                        sessionTitle={item.sessionTitle}
-                        sessionDesc={item.sessionDesc}
-                        sessionTime={item.sessionTime}
-                        sessionRoom={item.sessionRoom}
-                        sessionDuration={item.sessionDuration}
-                      />
-                    </li>
+        {/* Split-Pane Layout: Sidebar (Saved) + Main (Track) */}
+        <div className="mx-auto flex w-full max-w-7xl flex-col gap-8 lg:flex-row lg:items-start">
+          {/* Left Sidebar: My Schedule (Visible on Desktop when not already viewing My Schedule tab) */}
+          {isExpanded &&
+            currentSession !== 'My Schedule' &&
+            currentSession !== 'Map' && (
+              <aside className="hidden w-full shrink-0 flex-col gap-6 lg:flex lg:w-80">
+                <div className="sticky top-32 rounded-2xl border border-white/5 bg-white/[0.02] p-6 backdrop-blur-xl">
+                  <div className="mb-6 flex items-center justify-between border-b border-white/10 pb-4">
+                    <h4 className="font-heading text-lg font-black uppercase tracking-widest text-white">
+                      My Schedule
+                    </h4>
+                    <span className="rounded-full bg-iwd-gold-400/20 px-2 py-0.5 text-[10px] font-bold text-iwd-gold-300">
+                      {savedSessionIds.length}
+                    </span>
+                  </div>
+
+                  {savedSessionIds.length > 0 ? (
+                    <ul className="flex flex-col gap-4">
+                      {combinedSpeakerData
+                        .filter((s) => savedSessionIds.includes(s.id))
+                        .sort((a, b) =>
+                          normalizeSortTime(a.sessionTime) <
+                          normalizeSortTime(b.sessionTime)
+                            ? -1
+                            : 1
+                        )
+                        .slice(0, 5) // Preview top 5
+                        .map((s) => (
+                          <li
+                            key={s.id}
+                            className="group relative flex flex-col gap-1 border-l-2 border-iwd-gold-400/30 pl-4 transition-all hover:border-iwd-gold-400"
+                          >
+                            <span className="text-[10px] font-black uppercase tracking-wider text-iwd-gold-400/60">
+                              {s.sessionTime}
+                            </span>
+                            <span className="line-clamp-1 text-xs font-bold text-white transition-colors group-hover:text-iwd-gold-300">
+                              {s.sessionTitle}
+                            </span>
+                          </li>
+                        ))}
+                      {savedSessionIds.length > 5 && (
+                        <button
+                          onClick={() => activateTab(0)}
+                          className="mt-2 text-left text-[10px] font-black uppercase tracking-widest text-white/30 transition-colors hover:text-white"
+                        >
+                          + {savedSessionIds.length - 5} more in my schedule
+                        </button>
+                      )}
+                    </ul>
                   ) : (
-                    <li key={item.id} className="w-full">
-                      <ActivityCard
-                        title={item.title}
-                        content={item.content ?? null}
-                        cta={item.cta ?? null}
-                        time={item.time}
-                        timeEnd={item.timeEnd}
-                        room={item.room}
-                      />
-                    </li>
-                  )
-                )}
-              </ul>
-            </>
-          ) : (
-            renderNoSessionsOrSpeakersMessage()
-          )}
+                    <div className="flex flex-col items-center justify-center py-8 text-center text-white/20">
+                      <svg
+                        className="mb-3 size-8 opacity-20"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={1}
+                          d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+                        />
+                      </svg>
+                      <p className="text-[10px] font-bold uppercase tracking-widest">
+                        Empty
+                      </p>
+                    </div>
+                  )}
+
+                  <button
+                    onClick={() => activateTab(0)}
+                    className="mt-6 w-full rounded-lg border border-iwd-gold-400/20 bg-iwd-gold-400/5 py-3 text-[10px] font-black uppercase tracking-[0.2em] text-iwd-gold-400 transition-all hover:bg-iwd-gold-400 hover:text-iwd-black-950"
+                  >
+                    Manage Full Schedule
+                  </button>
+                </div>
+              </aside>
+            )}
+
+          {/* Main Area: Current Tabpanel Content */}
+          <div
+            ref={tabpanelRef}
+            id="sessions-tabpanel"
+            role="tabpanel"
+            aria-labelledby={`session-tab-${activeTab}`}
+            aria-hidden={!isExpanded}
+            tabIndex={isExpanded ? 0 : -1}
+            className={`min-w-0 flex-1 ${
+              isExpanded ? 'opacity-100' : 'max-h-0 opacity-0'
+            } transition-all duration-500`}
+          >
+            {currentSession === 'Map' ? (
+              <VenueMaps />
+            ) : hasContentForTrack ? (
+              <>
+                {/* Session cards + activity cards: single column; sorted by time */}
+                <ul className="grid w-full grid-cols-1 gap-8 py-7">
+                  {mergedTrackItems.map((item) =>
+                    item.type === 'session' ? (
+                      <li key={item.id} className="w-full">
+                        <SessionCard
+                          sessionId={item.id}
+                          speakers={item.speakers}
+                          speakerAvatars={item.speakerAvatars}
+                          sessionTitle={item.sessionTitle}
+                          sessionDesc={item.sessionDesc}
+                          sessionTime={item.sessionTime}
+                          sessionRoom={item.sessionRoom}
+                          sessionDuration={item.sessionDuration}
+                        />
+                      </li>
+                    ) : (
+                      <li key={item.id} className="w-full">
+                        <ActivityCard
+                          activityId={item.id}
+                          title={item.title}
+                          content={item.content ?? null}
+                          cta={item.cta ?? null}
+                          time={item.time}
+                          timeEnd={item.timeEnd}
+                          room={item.room}
+                        />
+                      </li>
+                    )
+                  )}
+                </ul>
+              </>
+            ) : (
+              renderNoSessionsOrSpeakersMessage()
+            )}
+          </div>
         </div>
       </div>
     </section>
@@ -539,7 +650,7 @@ SessionsSection.propTypes = {
     PropTypes.shape({
       id: PropTypes.number.isRequired,
       name: PropTypes.string.isRequired,
-      avatar: PropTypes.string.isRequired,
+      avatar: PropTypes.string,
       session: PropTypes.shape({
         title: PropTypes.string,
         description: PropTypes.string,

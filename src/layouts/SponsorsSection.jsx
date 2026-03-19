@@ -58,7 +58,7 @@ const SponsorsSection = ({
                       <img
                         src={sponsor.logo}
                         alt={`${sponsor.name} logo`}
-                        className="max-h-24 max-w-[160px] object-contain logo-halo transition-transform duration-300 group-hover:scale-105"
+                        className="logo-halo max-h-24 max-w-[160px] object-contain transition-transform duration-300 group-hover:scale-105"
                         loading="lazy"
                       />
                     </div>

@@ -1,7 +1,9 @@
 import DevTeamCard from '@/components/dev/DevTeamCard'
-import { devTeamData } from '@/data/dev'
+import { teamData } from '@/data/2026/team'
 
 const DevTeamSection = () => {
+  // Filter for only devteam members and sort
+  const devTeamData = teamData.filter((member) => member.team === 'devteam')
   const sortedDevTeamData = [...devTeamData].sort((a, b) =>
     a.name.localeCompare(b.name)
   )
@@ -41,7 +43,7 @@ const DevTeamSection = () => {
             linkedin={dev.linkedin}
             github={dev.github}
             organization={dev.organization}
-            position={dev.position}
+            position={dev.role}
             university={dev.university}
           />
         ))}

@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react'
 import { FaFont } from 'react-icons/fa6'
-import { useFont, FONTS } from './FontContext'
+import useFont from '@/hooks/useFont'
+import { FONTS } from '@/constants/ui'
 
 function FontSwitcher() {
   const { font, setFont } = useFont()
@@ -25,7 +26,7 @@ function FontSwitcher() {
         onClick={() => setOpen((o) => !o)}
         aria-label="Choose font style"
         aria-expanded={open}
-        className="flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 backdrop-blur-md transition-all duration-300 hover:border-white/20 hover:bg-white/[0.08] focus:outline-none focus:ring-2 focus:ring-iwd-accent-500 focus:ring-offset-2 focus:ring-offset-black active:scale-95"
+        className="flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 backdrop-blur-md transition-all duration-300 hover:border-white/20 hover:bg-white/[0.08] focus:outline-none focus:ring-2 focus:ring-[rgb(var(--iwd-accent-500)/0.12)] focus:ring-offset-2 focus:ring-offset-black active:scale-95"
       >
         <span className="text-xs font-medium text-gray-300">
           {currentFont?.label}

@@ -3,20 +3,118 @@
 @tailwind utilities;
 
 /* ─── Theme color tokens ─── */
-/* Blue (default): ocean-forward palette */
-:root,
+
+/* 2026 Default Palette (60/30/20: #000000, #1CE9B6, #0334AB) */
+:root {
+  --iwd-accent-50: 232 255 248;
+  --iwd-accent-100: 206 254 237;
+  --iwd-accent-200: 168 251 218;
+  --iwd-accent-300: 129 248 190;
+  --iwd-accent-400: 92 246 153;
+  --iwd-accent-500: 28 233 182; /* #1CE9B6: Mint Green */
+  --iwd-accent-600: 25 210 164;
+  --iwd-accent-700: 24 188 147;
+  --iwd-accent-800: 23 166 130;
+  --iwd-accent-900: 20 138 108;
+  --iwd-accent-950: 15 100 78;
+
+  --iwd-dark-50: 235 240 252;
+  --iwd-dark-100: 215 225 248;
+  --iwd-dark-200: 186 200 245;
+  --iwd-dark-300: 147 163 224;
+  --iwd-dark-400: 110 120 189;
+  --iwd-dark-500: 3 52 171; /* #0334AB: Dark Blue */
+  --iwd-dark-600: 2 42 140;
+  --iwd-dark-700: 1 31 105;
+  --iwd-dark-800: 1 21 70;
+  --iwd-dark-900: 0 10 35;
+  --iwd-dark-950: 0 0 0; /* #000000: Black */
+
+  --iwd-focus-ring: 28 233 182;
+}
+
+/* Team card ribbon styles */
+.team-ribbon {
+  pointer-events: none;
+}
+.team-ribbon .team-ribbon-bar {
+  border-radius: 6px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+  transform-origin: center;
+}
+.team-ribbon .team-ribbon-tail {
+  position: absolute;
+  right: 12%;
+  bottom: -10px;
+  width: 40px;
+  height: 12px;
+  border-radius: 3px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+}
+.team-ribbon .team-ribbon-bow {
+  position: absolute;
+  right: 8%;
+  top: -6px;
+  width: 28px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(-45deg);
+}
+
+/* 2023 Color Palette */
+[data-theme='2023'] {
+  --iwd-accent-500: 66 133 244; /* #4285f4 */
+  --iwd-accent-glow: 0 191 165; /* #00bfa5 */
+  --iwd-accent-bright: 28 233 182; /* #1ce9b6 */
+  --iwd-accent-light: 79 195 247; /* #4fc3f7 */
+  --iwd-dark-900: 66 66 66; /* #424242 */
+  --iwd-dark-700: 197 197 197; /* #c5c5c5 */
+  --iwd-white: 255 255 255; /* #ffffff */
+  --iwd-accent-coral: 255 115 112; /* #ff7370 */
+  --iwd-accent-peach: 255 208 174; /* #ffd0ae */
+  --iwd-accent-periwinkle: 127 144 244; /* #7f90f4 */
+
+  /* Map traditional accents */
+  --iwd-accent-400: 79 195 247;
+  --iwd-accent-600: 25 103 210;
+}
+
+/* 2025 Color Palette (Redefine Possible) */
+[data-theme='2025'] {
+  /* Blues */
+  --iwd-accent-50: 202 230 255; /* #CAE6FF */
+  --iwd-accent-200: 84 167 237; /* #54A7ED */
+  --iwd-accent-500: 36 128 240; /* #2480F0 */
+  --iwd-accent-800: 22 81 133; /* #165185 */
+  --iwd-accent-950: 32 52 75; /* #20344B */
+
+  /* Greens */
+  --iwd-green-50: 209 236 227; /* #D1ECE3 */
+  --iwd-green-500: 0 219 162; /* #00DBA2 */
+  --iwd-green-600: 0 182 152; /* #00B698 */
+  --iwd-green-800: 15 124 103; /* #0F7C67 */
+  --iwd-green-950: 26 62 56; /* #1A3E38 */
+
+  /* Supports */
+  --iwd-gold-400: 228 196 114; /* #E4C472 */
+  --iwd-dark-950: 32 33 36; /* #202124 */
+}
+
+/* Blue (Light Blue Google): Legacy WTM Blue */
 [data-theme='blue'] {
-  --iwd-accent-50: 239 246 255;
-  --iwd-accent-100: 219 234 254;
-  --iwd-accent-200: 191 219 254;
-  --iwd-accent-300: 147 197 253;
-  --iwd-accent-400: 96 165 250;
-  --iwd-accent-500: 59 130 246;
-  --iwd-accent-600: 37 99 235;
-  --iwd-accent-700: 29 78 216;
-  --iwd-accent-800: 30 64 175;
-  --iwd-accent-900: 30 58 138;
-  --iwd-accent-950: 23 37 84;
+  --iwd-accent-50: 232 240 254;
+  --iwd-accent-100: 210 227 252;
+  --iwd-accent-200: 174 203 250;
+  --iwd-accent-300: 138 180 248;
+  --iwd-accent-400: 102 157 246;
+  --iwd-accent-500: 66 133 244;
+  --iwd-accent-600: 26 115 232;
+  --iwd-accent-700: 25 103 210;
+  --iwd-accent-800: 24 90 188;
+  --iwd-accent-900: 23 78 166;
+  --iwd-accent-950: 23 58 138;
 
   --iwd-dark-50: 240 244 255;
   --iwd-dark-100: 224 231 248;
@@ -30,10 +128,39 @@
   --iwd-dark-900: 19 28 44;
   --iwd-dark-950: 9 14 24;
 
-  --iwd-focus-ring: 30 58 138;
+  --iwd-focus-ring: 26 115 232;
 }
 
-/* Purple: violet-forward palette */
+/* Green (Google/WTM Emerald) */
+[data-theme='green'] {
+  --iwd-accent-50: 230 244 234;
+  --iwd-accent-100: 206 234 214;
+  --iwd-accent-200: 168 218 181;
+  --iwd-accent-300: 129 201 149;
+  --iwd-accent-400: 92 184 92;
+  --iwd-accent-500: 15 157 88;
+  --iwd-accent-600: 13 101 45;
+  --iwd-accent-700: 11 81 36;
+  --iwd-accent-800: 10 61 27;
+  --iwd-accent-900: 8 41 18;
+  --iwd-accent-950: 6 31 14;
+
+  --iwd-dark-50: 240 253 248;
+  --iwd-dark-100: 225 247 237;
+  --iwd-dark-200: 200 237 218;
+  --iwd-dark-300: 163 215 190;
+  --iwd-dark-400: 120 182 153;
+  --iwd-dark-500: 83 137 112;
+  --iwd-dark-600: 61 106 86;
+  --iwd-dark-700: 46 80 65;
+  --iwd-dark-800: 31 55 44;
+  --iwd-dark-900: 19 36 28;
+  --iwd-dark-950: 9 18 14;
+
+  --iwd-focus-ring: 13 101 45;
+}
+
+/* Purple (IWD Violet) */
 [data-theme='purple'] {
   --iwd-accent-50: 250 245 255;
   --iwd-accent-100: 243 232 255;
@@ -62,76 +189,18 @@
   --iwd-focus-ring: 88 28 135;
 }
 
-/* Coral: warm rose palette (IWD's bold feminine energy) */
-[data-theme='coral'] {
-  --iwd-accent-50: 255 241 242;
-  --iwd-accent-100: 255 228 230;
-  --iwd-accent-200: 254 205 211;
-  --iwd-accent-300: 253 164 175;
-  --iwd-accent-400: 251 113 133;
-  --iwd-accent-500: 244 63 94;
-  --iwd-accent-600: 225 29 72;
-  --iwd-accent-700: 190 18 60;
-  --iwd-accent-800: 159 18 57;
-  --iwd-accent-900: 136 19 55;
-  --iwd-accent-950: 76 5 25;
-
-  --iwd-dark-50: 255 244 246;
-  --iwd-dark-100: 252 232 236;
-  --iwd-dark-200: 245 213 219;
-  --iwd-dark-300: 224 182 192;
-  --iwd-dark-400: 189 139 153;
-  --iwd-dark-500: 143 100 115;
-  --iwd-dark-600: 112 75 89;
-  --iwd-dark-700: 84 55 67;
-  --iwd-dark-800: 58 36 45;
-  --iwd-dark-900: 37 21 28;
-  --iwd-dark-950: 18 9 14;
-
-  --iwd-focus-ring: 136 19 55;
-}
-
-/* Emerald: lush green palette (growth / empowerment) */
-[data-theme='emerald'] {
-  --iwd-accent-50: 236 253 245;
-  --iwd-accent-100: 209 250 229;
-  --iwd-accent-200: 167 243 208;
-  --iwd-accent-300: 110 231 183;
-  --iwd-accent-400: 52 211 153;
-  --iwd-accent-500: 16 185 129;
-  --iwd-accent-600: 5 150 105;
-  --iwd-accent-700: 4 120 87;
-  --iwd-accent-800: 6 95 70;
-  --iwd-accent-900: 6 78 59;
-  --iwd-accent-950: 2 44 34;
-
-  --iwd-dark-50: 240 253 248;
-  --iwd-dark-100: 225 247 237;
-  --iwd-dark-200: 200 237 218;
-  --iwd-dark-300: 163 215 190;
-  --iwd-dark-400: 120 182 153;
-  --iwd-dark-500: 83 137 112;
-  --iwd-dark-600: 61 106 86;
-  --iwd-dark-700: 46 80 65;
-  --iwd-dark-800: 31 55 44;
-  --iwd-dark-900: 19 36 28;
-  --iwd-dark-950: 9 18 14;
-
-  --iwd-focus-ring: 6 78 59;
-}
-
-/* Gold: warm amber palette (celebration / achievement) */
+/* Gold (Google/WTM Yellow) */
 [data-theme='gold'] {
-  --iwd-accent-50: 254 252 232;
-  --iwd-accent-100: 254 249 195;
-  --iwd-accent-200: 254 240 138;
-  --iwd-accent-300: 253 224 71;
-  --iwd-accent-400: 250 204 21;
-  --iwd-accent-500: 234 179 8;
-  --iwd-accent-600: 202 138 4;
-  --iwd-accent-700: 161 98 7;
-  --iwd-accent-800: 133 77 14;
-  --iwd-accent-900: 113 63 18;
+  --iwd-accent-50: 254 247 224;
+  --iwd-accent-100: 254 240 178;
+  --iwd-accent-200: 253 226 147;
+  --iwd-accent-300: 252 201 52;
+  --iwd-accent-400: 250 187 5;
+  --iwd-accent-500: 244 180 0;
+  --iwd-accent-600: 226 114 0;
+  --iwd-accent-700: 184 92 0;
+  --iwd-accent-800: 142 71 0;
+  --iwd-accent-900: 100 50 0;
   --iwd-accent-950: 66 32 6;
 
   --iwd-dark-50: 255 251 235;
@@ -146,36 +215,7 @@
   --iwd-dark-900: 37 30 16;
   --iwd-dark-950: 18 14 6;
 
-  --iwd-focus-ring: 113 63 18;
-}
-
-/* Magenta: electric fuchsia palette (IWD purple-pink flag) */
-[data-theme='magenta'] {
-  --iwd-accent-50: 253 244 255;
-  --iwd-accent-100: 250 232 255;
-  --iwd-accent-200: 245 208 254;
-  --iwd-accent-300: 240 171 252;
-  --iwd-accent-400: 232 121 249;
-  --iwd-accent-500: 217 70 239;
-  --iwd-accent-600: 192 38 211;
-  --iwd-accent-700: 162 28 175;
-  --iwd-accent-800: 134 25 143;
-  --iwd-accent-900: 112 26 117;
-  --iwd-accent-950: 74 4 78;
-
-  --iwd-dark-50: 253 247 255;
-  --iwd-dark-100: 250 240 252;
-  --iwd-dark-200: 241 227 244;
-  --iwd-dark-300: 219 203 224;
-  --iwd-dark-400: 181 159 189;
-  --iwd-dark-500: 139 115 147;
-  --iwd-dark-600: 107 85 114;
-  --iwd-dark-700: 81 61 87;
-  --iwd-dark-800: 55 39 60;
-  --iwd-dark-900: 35 23 39;
-  --iwd-dark-950: 17 10 20;
-
-  --iwd-focus-ring: 112 26 117;
+  --iwd-focus-ring: 226 114 0;
 }
 
 /* ─── Light / Dark mode modifiers ─── */
@@ -201,6 +241,45 @@
   --iwd-dark-50: 17 24 39;
 
   color-scheme: light;
+}
+
+/* ─── Contrast Utilities ─── */
+.text-high-contrast {
+  color: rgb(var(--iwd-text-primary));
+}
+
+[data-mode='light'] .text-dynamic-accent {
+  color: rgb(var(--iwd-accent-700));
+}
+
+[data-mode='dark'] .text-dynamic-accent {
+  color: rgb(var(--iwd-accent-400));
+}
+
+.bg-glass-hero {
+  background: rgba(var(--iwd-dark-950) / 0.15);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@keyframes fillProgress {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.dot-progress {
+  height: 100%;
+  border-radius: 9999px;
+  background: linear-gradient(
+    90deg,
+    rgb(var(--iwd-gold-300)) 0%,
+    rgb(var(--iwd-gold-400)) 100%
+  );
 }
 
 /* Light mode: flip Tailwind default text colors for readability */
@@ -832,6 +911,215 @@
   /* ─── Background glow pulse ─── */
   .glow-pulse {
     animation: glowPulse 8s ease-in-out infinite;
+  }
+}
+
+/* ─── Size helper utilities (width & height) ───
+/* Define project-specific "size-*" helpers used across JSX. These are
+   intentionally plain CSS classes so the Tailwind linter doesn't flag
+   custom classnames. Keep values in the site's spacing/rem scale. */
+.size-full {
+  width: 100%;
+  height: 100%;
+}
+.size-1 {
+  width: 0.25rem;
+  height: 0.25rem;
+}
+.size-1\.5 {
+  width: 0.375rem;
+  height: 0.375rem;
+}
+.size-2 {
+  width: 0.5rem;
+  height: 0.5rem;
+}
+.size-2\.5 {
+  width: 0.625rem;
+  height: 0.625rem;
+}
+.size-3 {
+  width: 0.75rem;
+  height: 0.75rem;
+}
+.size-3\.5 {
+  width: 0.875rem;
+  height: 0.875rem;
+}
+.size-4 {
+  width: 1rem;
+  height: 1rem;
+}
+.size-4\.5 {
+  width: 1.125rem;
+  height: 1.125rem;
+}
+.size-5 {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+.size-6 {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+.size-8 {
+  width: 2rem;
+  height: 2rem;
+}
+.size-10 {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+.size-11 {
+  width: 2.75rem;
+  height: 2.75rem;
+}
+.size-12 {
+  width: 3rem;
+  height: 3rem;
+}
+.size-14 {
+  width: 3.5rem;
+  height: 3.5rem;
+}
+.size-16 {
+  width: 4rem;
+  height: 4rem;
+}
+.size-24 {
+  width: 6rem;
+  height: 6rem;
+}
+.size-32 {
+  width: 8rem;
+  height: 8rem;
+}
+.size-36 {
+  width: 9rem;
+  height: 9rem;
+}
+.size-44 {
+  width: 11rem;
+  height: 11rem;
+}
+.size-56 {
+  width: 14rem;
+  height: 14rem;
+}
+
+/* Color token helpers (use CSS variables defined at top of file) */
+.bg-iwd-accent-500\/20 {
+  background-color: rgb(var(--iwd-accent-500) / 0.2);
+}
+.bg-iwd-accent-500\/10 {
+  background-color: rgb(var(--iwd-accent-500) / 0.1);
+}
+.bg-iwd-accent-900\/5 {
+  background-color: rgb(var(--iwd-accent-900) / 0.05);
+}
+.bg-iwd-accent-950\/10 {
+  background-color: rgb(var(--iwd-accent-950) / 0.1);
+}
+.bg-iwd-gold-400\/10 {
+  background-color: rgb(var(--iwd-gold-400) / 0.1);
+}
+.bg-iwd-gold-400\/20 {
+  background-color: rgb(var(--iwd-gold-400) / 0.2);
+}
+.bg-iwd-dark-900 {
+  background-color: rgb(var(--iwd-dark-900));
+}
+
+/* Gradient token helpers compatible with Tailwind's gradient utilities */
+.from-iwd-dark-900 {
+  --tw-gradient-from: rgb(var(--iwd-dark-900));
+  --tw-gradient-stops: var(--tw-gradient-from),
+    var(--tw-gradient-to, rgba(255, 255, 255, 0));
+}
+.to-iwd-dark-950 {
+  --tw-gradient-to: rgb(var(--iwd-dark-950));
+}
+.to-iwd-accent-900\/20 {
+  --tw-gradient-to: rgb(var(--iwd-accent-900) / 0.2);
+}
+
+/* Focus ring helpers (escaped colon in classnames) */
+.focus\:ring-iwd-accent-500:focus {
+  box-shadow: 0 0 0 4px rgb(var(--iwd-accent-500) / 0.12);
+}
+.focus\:ring-focus-ring:focus {
+  box-shadow: 0 0 0 4px rgb(var(--iwd-focus-ring) / 0.12);
+}
+
+/* Custom scrollbar helper */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(var(--iwd-accent-400)) transparent;
+}
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgb(var(--iwd-accent-400));
+  border-radius: 6px;
+}
+
+/* Group-hover shimmer helper */
+.animate-shimmer {
+  animation: shimmerGold 6s ease-in-out infinite 2s;
+  background-size: 200% auto;
+}
+.group:hover .group-hover\:animate-shimmer {
+  animation: shimmerGold 6s ease-in-out infinite 2s;
+  background-size: 200% auto;
+}
+
+/* Perspective helper (escaped bracket) */
+.perspective-\[1000px\] {
+  perspective: 1000px;
+}
+
+/* Bracketed/arbitrary usages (escape special chars) */
+.size-\[4\.5rem\] {
+  width: 4.5rem;
+  height: 4.5rem;
+}
+.size-\[55\%\] {
+  width: 55%;
+  height: 55%;
+}
+.size-\[800px\] {
+  width: 800px;
+  height: 800px;
+}
+
+/* Responsive variant helpers (escaped colons for literal classnames) */
+@media (min-width: 640px) {
+  .sm\:size-5 {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+  .sm\:size-11 {
+    width: 2.75rem;
+    height: 2.75rem;
+  }
+  .sm\:size-32 {
+    width: 8rem;
+    height: 8rem;
+  }
+  .sm\:size-\[4\.5rem\] {
+    width: 4.5rem;
+    height: 4.5rem;
+  }
+}
+@media (min-width: 768px) {
+  .md\:size-36 {
+    width: 9rem;
+    height: 9rem;
   }
 }
 
