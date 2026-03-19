@@ -1,8 +1,9 @@
 import { useEffect, useRef, useState } from 'react'
 import CTAButton from '@/components/ui/CTAButton'
 import { FaTicket, FaArrowDown } from 'react-icons/fa6'
+import heroVideo from '@/data/2026/assets/video/iwd-background.mp4'
 
-/* ─── Configuration ─── */
+/* --- Configuration --- */
 const EVENT_DATE = new Date('2026-03-28T09:00:00-05:00')
 
 const TAGLINES = [
@@ -18,17 +19,6 @@ const STATS = [
   { value: 8, suffix: '', label: 'Tracks' },
   { value: 120, suffix: '+', label: 'Companies' },
 ]
-
-/* Pre-compute particle positions (stable across renders) */
-const PARTICLES = Array.from({ length: 35 }, (_, i) => ({
-  id: i,
-  left: `${Math.random() * 100}%`,
-  top: `${Math.random() * 100}%`,
-  size: 1.5 + Math.random() * 3,
-  delay: `${Math.random() * 10}s`,
-  duration: `${14 + Math.random() * 20}s`,
-  opacity: 0.08 + Math.random() * 0.22,
-}))
 
 function calcRemaining(target) {
   const diff = Math.max(0, target.getTime() - Date.now())
@@ -50,13 +40,13 @@ function LandingSection() {
 
   const statsRef = useRef(null)
 
-  /* ── Countdown ── */
+  /* --- Countdown --- */
   useEffect(() => {
     const id = setInterval(() => setCountdown(calcRemaining(EVENT_DATE)), 1000)
     return () => clearInterval(id)
   }, [])
 
-  /* ── Rotating taglines ── */
+  /* --- Rotating taglines --- */
   useEffect(() => {
     const id = setInterval(() => {
       setTaglineFading(true)
@@ -68,7 +58,7 @@ function LandingSection() {
     return () => clearInterval(id)
   }, [])
 
-  /* ── Stats counter (IntersectionObserver trigger) ── */
+  /* --- Stats counter (IntersectionObserver trigger) --- */
   useEffect(() => {
     const el = statsRef.current
     if (!el) return
@@ -105,103 +95,27 @@ function LandingSection() {
   return (
     <section
       id="landing"
-      className="relative flex min-h-screen items-center justify-center overflow-hidden pt-16"
+      className="relative flex min-h-screen items-center justify-center overflow-hidden bg-[#020617] pt-16"
     >
-      {/* ─── Animated gradient base ─── */}
-      <div
-        className="landing-gradient absolute inset-0"
-        style={{
-          background: `
-            radial-gradient(ellipse 120% 80% at 50% 50%, rgb(var(--iwd-accent-950)) 0%, transparent 70%),
-            radial-gradient(ellipse 80% 100% at 80% 80%, rgb(var(--iwd-dark-950)) 0%, transparent 60%),
-            radial-gradient(ellipse 100% 60% at 20% 20%, rgb(var(--iwd-accent-900) / 0.8) 0%, transparent 50%),
-            rgb(var(--iwd-dark-950))
-          `,
-        }}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="none"
         aria-hidden="true"
-      />
-
-      {/* ─── Animated mesh orbs ─── */}
-      <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
-        <div
-          className="landing-orb absolute -left-[20%] -top-[20%] size-[60vw] rounded-full opacity-20 blur-3xl"
-          style={{
-            background: `radial-gradient(circle, rgb(var(--iwd-accent-500)), transparent 70%)`,
-            animation: 'landingOrb1 20s ease-in-out infinite',
-          }}
-        />
-        <div
-          className="landing-orb absolute -bottom-[10%] -right-[15%] size-[50vw] rounded-full opacity-15 blur-3xl"
-          style={{
-            background: `radial-gradient(circle, rgb(var(--iwd-accent-600)), transparent 70%)`,
-            animation: 'landingOrb2 25s ease-in-out infinite',
-          }}
-        />
-        <div
-          className="landing-orb absolute left-[40%] top-[30%] size-[30vw] rounded-full opacity-10 blur-3xl"
-          style={{
-            background: `radial-gradient(circle, rgb(var(--iwd-accent-400)), transparent 70%)`,
-            animation: 'landingOrb3 18s ease-in-out infinite',
-          }}
-        />
-      </div>
-
-      {/* ─── Floating luminous particles ─── */}
-      <div
-        className="pointer-events-none absolute inset-0 overflow-hidden"
-        aria-hidden="true"
+        className="absolute inset-0 z-0 size-full object-cover"
       >
-        {PARTICLES.map((p) => (
-          <div
-            key={p.id}
-            className="landing-particle absolute rounded-full"
-            style={{
-              left: p.left,
-              top: p.top,
-              width: p.size,
-              height: p.size,
-              opacity: p.opacity,
-              background: `rgb(var(--iwd-accent-400))`,
-              boxShadow: `0 0 ${p.size * 3}px rgb(var(--iwd-accent-400) / 0.4)`,
-              animation: `particleDrift ${p.duration} ease-in-out infinite`,
-              animationDelay: p.delay,
-            }}
-          />
-        ))}
-      </div>
+        <source src={heroVideo} type="video/mp4" />
+      </video>
 
-      {/* ─── Grid pattern overlay ─── */}
       <div
-        className="pointer-events-none absolute inset-0 opacity-[0.03]"
-        style={{
-          backgroundImage: `
-            linear-gradient(rgb(var(--iwd-accent-400) / 0.25) 1px, transparent 1px),
-            linear-gradient(90deg, rgb(var(--iwd-accent-400) / 0.25) 1px, transparent 1px)
-          `,
-          backgroundSize: '48px 48px',
-        }}
+        className="absolute inset-0 z-10 bg-gradient-to-b from-[#020617]/70 via-[#020617]/60 to-[#020617]/90"
         aria-hidden="true"
       />
 
-      {/* ─── Grain ─── */}
-      <div
-        className="pointer-events-none absolute inset-0 opacity-[0.025]"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
-          backgroundRepeat: 'repeat',
-          backgroundSize: '256px 256px',
-        }}
-        aria-hidden="true"
-      />
-
-      {/* ─── Horizontal light sweep on load ─── */}
-      <div
-        className="landing-sweep pointer-events-none absolute inset-0"
-        aria-hidden="true"
-      />
-
-      {/* ─── Content ─── */}
-      <div className="relative z-10 mx-auto flex max-w-5xl flex-col items-center px-6 text-center sm:px-12">
+      {/* --- Content --- */}
+      <div className="relative z-20 mx-auto flex max-w-5xl flex-col items-center px-6 text-center sm:px-12 pb-20">
         {/* Eyebrow */}
         <div
           className="hero-stagger mb-8 flex items-center gap-4"
@@ -344,13 +258,13 @@ function LandingSection() {
           allies in Detroit&apos;s tech ecosystem. Whether you&apos;re a
           seasoned professional, an ambitious innovator, or a creative —{' '}
           <span className="font-medium text-iwd-gold-300/80">
-            this is your space.
+            this is your space to Break the Pattern.
           </span>
         </p>
 
         {/* CTAs */}
         <div
-          className="hero-stagger flex flex-col items-center gap-4 sm:flex-row"
+          className="hero-stagger flex flex-col items-center gap-6 sm:flex-row"
           style={{ animationDelay: '1.15s' }}
         >
           <CTAButton
@@ -368,7 +282,7 @@ function LandingSection() {
         </div>
 
         {/* Scroll indicator */}
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 sm:bottom-14">
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 sm:bottom-18">
           <a
             href="#attendees"
             aria-label="Scroll to content"
@@ -385,7 +299,7 @@ function LandingSection() {
         </div>
       </div>
 
-      {/* ─── Bottom fade into next section ─── */}
+      {/* --- Bottom fade into next section --- */}
       <div
         className="pointer-events-none absolute inset-x-0 bottom-0 h-48"
         style={{
