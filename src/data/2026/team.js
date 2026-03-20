@@ -198,10 +198,10 @@ export const teamData = [
     topContributor: true,
     university: '',
     bio: `
-	  Hello, I am the founder of Shrinkray Interactive, a UX/UI development studio in Toledo, Ohio, leaning-in on accessible, high-performance, and user-friendly web experiences. As a founding member of GDG Toledo, I connect developers and designers through events and hackathons. Collaborating with the devteam, I oversee UX Engineering and redesign for the Michigan DevFest/Detroit Compass websites creating smooth, inclusive experience for speakers, partners, and attendees. If you are seeking a friendly, versitile, and talented developer for your project, let's connect.
+	  Hello, I am the founder of Shrinkray Interactive, a UX/UI development studio in Toledo, Ohio, leaning-in on accessible, high-performance, and user-friendly web experiences. As a founding member of GDG Toledo, I connect developers and designers through events and hackathons. Collaborating with the devteam, I oversee UX Engineering for the Michigan DevFest/Detroit Compass websites creating smooth, inclusive experience for speakers, partners, and attendees. If you are seeking a friendly, versitile, and talented developer for your project, let's connect.
 	`,
     organization: 'Shrinkray Interactive + GDG Toledo + Toledo Codes',
-    role: 'Dev Lead + UX Engineer',
+    role: 'UX Engineer',
     commits: '150',
     avatar: GregMiller,
   },
