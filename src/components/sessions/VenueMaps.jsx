@@ -1,27 +1,21 @@
-import dteFloor1 from '@/assets/images/maps/dte-first.webp'
-import dteFloor2 from '@/assets/images/maps/dte-second.webp'
+import lcgrcMap from '@/assets/images/maps/lcgrcMapx800.webp'
 
 function VenueMaps() {
   return (
     <section className="w-full py-8" aria-labelledby="venue-maps-heading">
-      <div className="grid gap-6 lg:grid-cols-2">
-        <div className="rounded-2xl border-4 border-iwd-gold-500 bg-iwd-gold-100 p-4">
+      <div className="mx-1 mb-1 rounded-xl border-4 border-iwd-gold-500 bg-iwd-gold-100">
+        <div className="overflow-x-auto overflow-y-hidden scroll-smooth">
           <img
-            src={dteFloor1}
-            alt="DTE Energy Headquarters Floor 1 featuring the main entrance into the Service Building. Find Build with AI workshops in SB 120. Also on the floor are Innovation and AI Foundations sessions in WCB 105 and WCB 103 in the Walker Crisler Building."
-            className="size-full rounded-2xl object-cover"
-            loading="lazy"
-          />
-        </div>
-        <div className="rounded-2xl border-4 border-iwd-gold-500 bg-iwd-gold-100 p-4">
-          <img
-            src={dteFloor2}
-            alt="DTE Energy Headquarters Floor 2 featuring second story skywalk connecting from the parking garage to the Service Building. Also on the floor are Town Square Level Up sessions, booths, and Leadership WCB 275 and 278. Or find Breakout Sessions in WCB room 255."
-            className="size-full rounded-2xl object-cover"
+            src={lcgrcMap}
+            alt=""
+            className="min-w-max rounded-2xl object-left-top"
             loading="lazy"
           />
         </div>
       </div>
+      <p className="py-2 text-center text-sm text-neutral-50">
+        Use the scrollbar to view the full map »
+      </p>
     </section>
   )
 }
