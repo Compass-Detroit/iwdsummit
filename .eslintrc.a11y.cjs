@@ -74,4 +74,13 @@ module.exports = {
   globals: {
     __dirname: true,
   },
+  overrides: [
+    {
+      files: ['src/components/sessions/VenueMaps.jsx'],
+      rules: {
+        // WCAG: keyboard users must focus the overflow strip; APG scroll regions use tabindex on non-widgets
+        'jsx-a11y/no-noninteractive-tabindex': 'off',
+      },
+    },
+  ],
 }
