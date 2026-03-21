@@ -47,5 +47,3 @@ export default function ThemeProvider({ children }) {
 ThemeProvider.propTypes = {
   children: PropTypes.node.isRequired,
 }
-
-// useTheme hook moved to hooks/useTheme.js to keep this file exporting only the provider component

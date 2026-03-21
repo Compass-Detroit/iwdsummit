@@ -41,18 +41,27 @@ function FontSwitcher() {
           role="radiogroup"
           aria-label="Font styles"
         >
+          {/* TODO: Abstract to a separate component */}
           <div className="flex flex-col gap-1">
             {FONTS.map((f) => {
-              const sampleClass =
-                f.id === 'classic'
-                  ? 'font-biorhyme'
-                  : f.id === 'editorial'
-                    ? 'font-asimovian'
-                    : f.id === 'tech'
-                      ? 'font-orbitron'
-                      : f.id === 'script'
-                        ? 'font-russell'
-                        : 'font-montserrat'
+              let sampleClass
+
+              switch (f.id) {
+                case 'classic':
+                  sampleClass = 'font-biorhyme'
+                  break
+                case 'editorial':
+                  sampleClass = 'font-asimovian'
+                  break
+                case 'tech':
+                  sampleClass = 'font-orbitron'
+                  break
+                case 'script':
+                  sampleClass = 'font-russell'
+                  break
+                default:
+                  sampleClass = 'font-montserrat'
+              }
 
               return (
                 <button

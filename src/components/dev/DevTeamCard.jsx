@@ -14,10 +14,9 @@ const DevTeamCard = ({
 }) => {
   return (
     <div className="group relative transform-gpu overflow-hidden rounded-2xl border border-white/[0.06] bg-white/[0.02] backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-white/[0.12] hover:bg-white/[0.04] hover:shadow-xl hover:shadow-black/20">
-      {/* --- PREMIUM WRAPPED RIBBON --- */}
+      {/* Ribbon */}
       {badge && (
         <div className="absolute right-0 top-0 z-30 size-32 overflow-hidden rounded-tr-2xl">
-          {/* The Ribbon Wrap Container */}
           {/* We use a large width and -right offset to ensure it hits the edges perfectly */}
           <div
             className="absolute top-[28px] w-[160px] rotate-45"
@@ -33,7 +32,6 @@ const DevTeamCard = ({
               style={{ bottom: '-3px', right: '30px' }}
             />
 
-            {/* The Main Ribbon Body */}
             <div className="relative border-y border-white/10 bg-gradient-to-r from-amber-600 via-amber-400 to-amber-600 py-1.5 shadow-md">
               <div className="text-center text-[10px] font-black uppercase tracking-[0.2em] text-amber-950/80">
                 {badge}
@@ -43,7 +41,7 @@ const DevTeamCard = ({
         </div>
       )}
 
-      {/* --- IMAGE SECTION --- */}
+      {/* Image */}
       <div className="aspect-[4/5] overflow-hidden">
         <img
           src={avatar}
@@ -52,7 +50,7 @@ const DevTeamCard = ({
         />
       </div>
 
-      {/* --- INFO SECTION --- */}
+      {/* Info */}
       <div className="absolute inset-x-0 bottom-0 translate-y-full border-t border-white/[0.06] bg-slate-900/90 p-3 text-center backdrop-blur-md transition-transform duration-300 ease-out group-focus-within:translate-y-0 group-hover:translate-y-0">
         <h3 className="text-sm font-semibold text-white">{name}</h3>
         <p className="mt-0.5 text-xs text-gray-400">

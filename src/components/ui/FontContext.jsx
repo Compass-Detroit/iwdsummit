@@ -43,5 +43,3 @@ export default function FontProvider({ children }) {
 FontProvider.propTypes = {
   children: PropTypes.node.isRequired,
 }
-
-// useFont hook moved to hooks/useFont.js to keep this file exporting only a component
