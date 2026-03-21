@@ -299,6 +299,15 @@ const SessionsSection = ({
           : Math.min(tabs.length - 1, index + 1)
       setActiveTab(nextIndex)
       buttonRefs.current[nextIndex]?.focus()
+    } else if (event.key === 'Home') {
+      event.preventDefault()
+      setActiveTab(0)
+      buttonRefs.current[0]?.focus()
+    } else if (event.key === 'End') {
+      event.preventDefault()
+      const last = tabs.length - 1
+      setActiveTab(last)
+      buttonRefs.current[last]?.focus()
     } else if (event.key === 'Enter' || event.key === ' ') {
       event.preventDefault()
       activateTab(index, true)
@@ -390,6 +399,7 @@ const SessionsSection = ({
             <div
               ref={navRef}
               role="tablist"
+              aria-orientation="horizontal"
               id="sessions-nav"
               className={`scrollbar-visible flex w-full flex-nowrap items-start justify-start gap-2 overflow-x-auto overflow-y-visible rounded-xl border border-white/5 bg-iwd-black-950 py-3 pe-4 ps-4 md:px-6 2xl:items-center 2xl:justify-center ${
                 isExpanded ? 'max-h-none opacity-100' : 'max-h-0 opacity-0'
