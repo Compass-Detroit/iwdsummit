@@ -4,7 +4,7 @@ function VenueMaps() {
   return (
     <section className="w-full py-8" aria-labelledby="venue-maps-heading">
       <div className="mx-1 mb-1 rounded-xl border-4 border-iwd-gold-500 bg-iwd-gold-100">
-        <div className="overflow-x-auto overflow-y-hidden scroll-smooth">
+        <div className="scrollbar-visible overflow-x-auto overflow-y-hidden scroll-smooth">
           <img
             src={lcgrcMap}
             alt=""
