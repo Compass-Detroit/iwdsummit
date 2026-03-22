@@ -69,7 +69,7 @@ const TeamSection = ({ teamData, year }) => {
     >
       <SectionSkipLink href="#page-footer">Skip to footer</SectionSkipLink>
       <div className="flex w-full justify-center pt-0">
-        <h2 className="mb-4 w-full text-center font-heading text-3xl font-bold text-white dark:text-white sm:text-4xl md:mb-6 lg:text-5xl">
+        <h2 className="mb-4 w-full text-center font-heading text-3xl font-bold text-white sm:text-4xl md:mb-6 lg:text-5xl">
           {year ? `${year} ` : ''}Leadership Team
         </h2>
       </div>
@@ -100,7 +100,7 @@ const TeamSection = ({ teamData, year }) => {
                       aria-hidden="true"
                     >
                       <div
-                        className="team-ribbon-bar text-center text-[11px] font-black uppercase tracking-[0.12em] text-white dark:text-white"
+                        className="team-ribbon-bar text-center text-[11px] font-black uppercase tracking-[0.12em] text-white"
                         style={{
                           backgroundColor: getRibbonColor(dev.team),
                           padding: '6px 0',
@@ -173,13 +173,13 @@ const TeamSection = ({ teamData, year }) => {
                       </div>
 
                       <div className="flex flex-1 flex-col gap-1 sm:pt-4">
-                        <h3 className="font-heading text-xl font-black text-white dark:text-white">
+                        <h3 className="font-heading text-xl font-black text-white">
                           {dev.name}
                         </h3>
                         {dev.organization && (
                           <div className="flex items-center justify-center gap-2 sm:justify-start">
                             <div className="h-px w-3 bg-iwd-gold-400/30" />
-                            <p className="text-[10px] font-bold uppercase tracking-widest text-white dark:text-white/40">
+                            <p className="text-[10px] font-bold uppercase tracking-widest text-gray-900 dark:text-white/40">
                               {dev.organization}
                             </p>
                           </div>
@@ -190,7 +190,7 @@ const TeamSection = ({ teamData, year }) => {
                         {dev.commits != null && dev.commits > 0 && (
                           <div className="mx-auto mt-3 flex w-fit items-center justify-center gap-1.5 rounded-full bg-white/5 px-3 py-1 sm:mx-0 sm:justify-start">
                             <FaCodeCommit className="size-3 text-iwd-gold-400/60" />
-                            <span className="text-[10px] font-black uppercase tracking-widest text-white dark:text-white/30">
+                            <span className="text-[10px] font-black uppercase tracking-widest text-gray-900 dark:text-white/30">
                               Core Contributor
                             </span>
                           </div>
@@ -260,7 +260,7 @@ const TeamSection = ({ teamData, year }) => {
             </button>
             <h3
               id="modal-title"
-              className="mb-4 pr-8 text-xl font-semibold text-white dark:text-white"
+              className="mb-4 pr-8 text-xl font-semibold text-white"
             >
               {selectedBio.name}
             </h3>

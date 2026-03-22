@@ -17,7 +17,7 @@ function JobOpen() {
             <FaBriefcase className="size-6 text-iwd-gold-400" />
           </div>
         </div>
-        <h2 className="mb-6 font-heading text-4xl font-bold text-white dark:text-white sm:text-5xl lg:text-6xl">
+        <h2 className="mb-6 font-heading text-4xl font-bold text-white sm:text-5xl lg:text-6xl">
           Job{' '}
           <span className="bg-gradient-to-r from-iwd-gold-300 via-iwd-gold-400 to-iwd-gold-300 bg-clip-text text-transparent">
             Openings

@@ -288,7 +288,7 @@ function SpeakerDetails({
 
   return (
     <div className="relative max-h-[90vh] w-full max-w-4xl overflow-y-auto rounded-3xl bg-iwd-surface-raised dark:bg-iwd-black-950 shadow-2xl ring-1 ring-white/10">
-      <div className="relative px-8 py-12 text-white dark:text-white" style={heroStyle}>
+      <div className="relative px-8 py-12 text-white" style={heroStyle}>
         <div className="absolute inset-0 bg-gradient-to-b from-white/20 via-white/10 to-transparent mix-blend-soft-light"></div>
         <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/20 to-transparent"></div>
 
@@ -297,7 +297,7 @@ function SpeakerDetails({
 
         <button
           onClick={onClose ? onClose : () => {}}
-          className="absolute right-6 top-6 z-20 rounded-full bg-black/30 p-2 text-white dark:text-white transition-all hover:scale-110 hover:bg-white/30 focus:outline-none focus:ring-2 focus:ring-offset-2"
+          className="absolute right-6 top-6 z-20 rounded-full bg-black/30 p-2 text-white transition-all hover:scale-110 hover:bg-white/30 focus:outline-none focus:ring-2 focus:ring-offset-2"
           style={interactiveFocusVars}
           aria-label="Close speaker details"
         >
@@ -337,22 +337,22 @@ function SpeakerDetails({
               </span>
             )}
             {isGDE && (
-              <span className="inline-flex items-center rounded-full border border-white/30 bg-black/30 px-3 py-1 text-white dark:text-white">
+              <span className="inline-flex items-center rounded-full border border-white/30 bg-black/30 px-3 py-1 text-white">
                 Google Developer Expert
               </span>
             )}
             {isWTM && (
-              <span className="inline-flex items-center rounded-full border border-white/30 bg-black/30 px-3 py-1 text-white dark:text-white">
+              <span className="inline-flex items-center rounded-full border border-white/30 bg-black/30 px-3 py-1 text-white">
                 Women Techmakers Ambassador
               </span>
             )}
           </div>
           {position && (
-            <p className="mb-2 mt-4 text-lg font-medium text-white dark:text-white">
+            <p className="mb-2 mt-4 text-lg font-medium text-white">
               {position}
             </p>
           )}
-          {organization && <p className="mt-2 text-white dark:text-white">{organization}</p>}
+          {organization && <p className="mt-2 text-white">{organization}</p>}
 
           <div className="mt-4 flex flex-wrap items-center justify-center gap-3">
             {instagram && (
@@ -360,7 +360,7 @@ function SpeakerDetails({
                 href={`${instagram}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center rounded-full border border-white/30 bg-black/30 px-4 py-2 text-sm font-medium text-white dark:text-white transition-all hover:bg-white/30 focus:outline-none focus:ring-2 focus:ring-offset-2"
+                className="inline-flex items-center rounded-full border border-white/30 bg-black/30 px-4 py-2 text-sm font-medium text-white transition-all hover:bg-white/30 focus:outline-none focus:ring-2 focus:ring-offset-2"
                 onClick={(e) => e.stopPropagation()}
                 aria-label={`${name}'s Instagram profile - opens in new tab`}
                 style={interactiveFocusVars}
@@ -374,7 +374,7 @@ function SpeakerDetails({
                 href={`${mastodon}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center rounded-full border border-white/30 bg-black/30 px-4 py-2 text-sm font-medium text-white dark:text-white transition-all hover:bg-white/30 focus:outline-none focus:ring-2 focus:ring-offset-2"
+                className="inline-flex items-center rounded-full border border-white/30 bg-black/30 px-4 py-2 text-sm font-medium text-white transition-all hover:bg-white/30 focus:outline-none focus:ring-2 focus:ring-offset-2"
                 onClick={(e) => e.stopPropagation()}
                 aria-label={`${name}'s Mastodon profile - opens in new tab`}
                 style={interactiveFocusVars}
@@ -388,7 +388,7 @@ function SpeakerDetails({
                 href={`https://twitter.com/${twitter}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center rounded-full border border-white/30 bg-black/30 px-4 py-2 text-sm font-medium text-white dark:text-white transition-all hover:bg-white/30 focus:outline-none focus:ring-2 focus:ring-offset-2"
+                className="inline-flex items-center rounded-full border border-white/30 bg-black/30 px-4 py-2 text-sm font-medium text-white transition-all hover:bg-white/30 focus:outline-none focus:ring-2 focus:ring-offset-2"
                 onClick={(e) => e.stopPropagation()}
                 aria-label={`${name}'s Twitter profile - opens in new tab`}
                 style={interactiveFocusVars}
@@ -406,7 +406,7 @@ function SpeakerDetails({
                     href={link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center rounded-full border border-white/30 bg-black/30 px-4 py-2 text-sm font-medium text-white dark:text-white transition-all hover:bg-white/30 focus:outline-none focus:ring-2 focus:ring-offset-2"
+                    className="inline-flex items-center rounded-full border border-white/30 bg-black/30 px-4 py-2 text-sm font-medium text-white transition-all hover:bg-white/30 focus:outline-none focus:ring-2 focus:ring-offset-2"
                     onClick={(e) => e.stopPropagation()}
                     aria-label={`Visit ${name}'s website ${domain} - opens in new tab`}
                     style={interactiveFocusVars}
@@ -426,7 +426,7 @@ function SpeakerDetails({
             {bio && (
               <h3
                 id={`speaker-modal-about-${id}`}
-                className="mb-4 text-2xl font-bold text-white dark:text-white"
+                className="mb-4 text-2xl font-bold text-white"
               >
                 About {name.split(' ')[0]}
               </h3>
@@ -471,12 +471,12 @@ function SpeakerDetails({
                 className="rounded-2xl bg-iwd-surface-raised dark:bg-iwd-black-900 p-6"
                 style={{ border: `3px solid ${trackTheme.focusColor}` }}
               >
-                <h4 className="mb-4 text-xl font-semibold uppercase text-white dark:text-white">
+                <h4 className="mb-4 text-xl font-semibold uppercase text-white">
                   Session
                 </h4>
 
                 <div className="mb-4 rounded-xl bg-iwd-surface-raised dark:bg-iwd-black-950 p-4 shadow-sm">
-                  <h3 className="text-base font-semibold leading-relaxed text-white dark:text-white">
+                  <h3 className="text-base font-semibold leading-relaxed text-white">
                     {sessionTitle}
                   </h3>
                 </div>
@@ -555,7 +555,7 @@ function SpeakerDetails({
         <IoChevronForward className="size-6 text-gray-300" aria-hidden="true" />
       </button>
 
-      <div className="sticky bottom-4 left-1/2 z-10 mx-auto w-fit -translate-x-1/2 rounded-full bg-gray-900/80 px-4 py-2 text-sm font-medium text-white dark:text-white backdrop-blur-sm">
+      <div className="sticky bottom-4 left-1/2 z-10 mx-auto w-fit -translate-x-1/2 rounded-full bg-gray-900/80 px-4 py-2 text-sm font-medium text-white backdrop-blur-sm">
         {displayPosition} of {numSpeakers}
       </div>
     </div>

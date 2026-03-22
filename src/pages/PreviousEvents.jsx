@@ -99,7 +99,7 @@ const PreviousEvents = () => {
             </p>
             <h1
               id="main-heading"
-              className="mb-5 font-heading text-3xl font-bold text-white dark:text-white sm:text-4xl lg:text-5xl"
+              className="mb-5 font-heading text-3xl font-bold text-white sm:text-4xl lg:text-5xl"
             >
               Past{' '}
               <span className="bg-gradient-to-r from-iwd-gold-300 via-iwd-gold-400 to-iwd-gold-300 bg-clip-text text-transparent">
@@ -136,7 +136,7 @@ const PreviousEvents = () => {
                   </span>
                 </div>
 
-                <h2 className="mb-2 font-heading text-xl font-bold text-white dark:text-white sm:text-2xl">
+                <h2 className="mb-2 font-heading text-xl font-bold text-white sm:text-2xl">
                   {event.name}
                 </h2>
 

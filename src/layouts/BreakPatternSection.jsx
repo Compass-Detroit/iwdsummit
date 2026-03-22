@@ -66,7 +66,7 @@ export default function BreakPatternSection() {
 
           {/* Text Side */}
           <div className="w-full text-center lg:w-1/2 lg:text-left">
-            <h2 className="mb-8 font-heading text-5xl font-black leading-[0.9] text-white dark:text-white sm:text-6xl lg:text-7xl">
+            <h2 className="mb-8 font-heading text-5xl font-black leading-[0.9] text-white sm:text-6xl lg:text-7xl">
               Break the <br />
               <span className="bg-gradient-to-r from-iwd-gold-200 via-iwd-gold-400 to-iwd-gold-200 bg-clip-text italic tracking-tight text-transparent">
                 Pattern
@@ -100,7 +100,7 @@ export default function BreakPatternSection() {
                 </div>
               </div>
               <div className="flex flex-col items-center sm:items-start">
-                <span className="mb-1 text-sm font-black uppercase tracking-widest text-white dark:text-white">
+                <span className="mb-1 text-sm font-black uppercase tracking-widest text-white">
                   Join the movement
                 </span>
                 <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-iwd-gold-400/70">

@@ -8,7 +8,7 @@ const TrackHeader = memo(({ title, colorClass }) => (
       colorClass || 'bg-iwd-dark-900'
     }`}
   >
-    <h4 className="font-heading text-lg font-black uppercase tracking-widest text-white dark:text-white">
+    <h4 className="font-heading text-lg font-black uppercase tracking-widest text-white">
       {title}
     </h4>
   </div>
@@ -22,12 +22,12 @@ const CompactSession = memo(({ session }) => (
         {session.time}
       </span>
       {session.type && (
-        <span className="rounded-md bg-white/5 px-1.5 py-0.5 text-[8px] font-bold uppercase text-white dark:text-white/40">
+        <span className="rounded-md bg-white/5 px-1.5 py-0.5 text-[8px] font-bold uppercase text-gray-900 dark:text-white/40">
           {session.type}
         </span>
       )}
     </div>
-    <h5 className="line-clamp-2 font-heading text-sm font-bold text-white dark:text-white transition-colors group-hover:text-iwd-gold-300">
+    <h5 className="line-clamp-2 font-heading text-sm font-bold text-white transition-colors group-hover:text-iwd-gold-300">
       {session.title}
     </h5>
     <div className="mt-1 flex items-center gap-2">
@@ -38,7 +38,7 @@ const CompactSession = memo(({ session }) => (
           className="size-5 rounded-full object-cover grayscale transition-all group-hover:grayscale-0"
         />
       )}
-      <span className="text-[10px] font-medium text-white dark:text-white/50">
+      <span className="text-[10px] font-medium text-gray-900 dark:text-white/50">
         {session.speaker}
       </span>
     </div>

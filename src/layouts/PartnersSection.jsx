@@ -38,7 +38,7 @@ const PartnersSection = ({ partnersData = {}, year }) => {
         <p className="mb-4 text-center font-body text-xs font-medium uppercase tracking-[0.3em] text-iwd-gold-400/80">
           Our Supporters
         </p>
-        <h2 className="mb-5 w-full text-center font-heading text-3xl font-bold text-white dark:text-white sm:text-4xl lg:text-5xl">
+        <h2 className="mb-5 w-full text-center font-heading text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
           {year ? `${year} ` : ''}
           <span className="bg-gradient-to-r from-iwd-gold-300 via-iwd-gold-400 to-iwd-gold-300 bg-clip-text text-transparent">
             Partners
@@ -86,18 +86,18 @@ const PartnersSection = ({ partnersData = {}, year }) => {
                           />
                         </div>
                       ) : (
-                        <p className="text-center text-3xl font-bold tracking-tight text-white dark:text-white/90">
+                        <p className="text-center text-3xl font-bold tracking-tight text-gray-900 dark:text-white/90">
                           {partner.name}
                         </p>
                       )}
                     </div>
                     {/* ── Back: Org info ── */}
                     <div className="from-iwd-dark-900 to-iwd-dark-950 absolute inset-0 flex flex-col items-center justify-center rounded-[2rem] border border-iwd-gold-400/20 bg-gradient-to-br p-8 backdrop-blur-xl [backface-visibility:hidden] [transform:rotateY(180deg)]">
-                      <h3 className="mb-4 text-2xl font-black tracking-tight text-white dark:text-white">
+                      <h3 className="mb-4 text-2xl font-black tracking-tight text-white">
                         {partner.name}
                       </h3>
                       {partner.desc && (
-                        <p className="line-clamp-6 text-center text-base leading-relaxed text-white dark:text-white/70">
+                        <p className="line-clamp-6 text-center text-base leading-relaxed text-gray-900 dark:text-white/70">
                           {partner.desc}
                         </p>
                       )}
@@ -135,7 +135,7 @@ const PartnersSection = ({ partnersData = {}, year }) => {
                   href="mailto:whatupdoe@compass-detroit.com"
                   label="Become a Partner"
                   ariaLabel="Join us as a partner"
-                  className="text-xl font-semibold text-white dark:text-white"
+                  className="text-xl font-semibold text-white"
                   variant="secondary"
                   icon={<FaEnvelope />}
                   iconPosition="left"

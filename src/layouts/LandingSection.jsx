@@ -130,7 +130,7 @@ function LandingSection() {
         {/* Video Play/Pause toggle for accessibility */}
         <button
           onClick={toggleVideoPlayback}
-          className="absolute bottom-6 right-6 lg:bottom-12 lg:right-12 z-20 flex size-10 items-center justify-center rounded-full bg-black/40 text-white dark:text-white/70 backdrop-blur-md transition-all hover:bg-black/60 hover:text-white dark:text-white"
+          className="absolute bottom-6 right-6 z-20 flex size-10 items-center justify-center rounded-full bg-black/40 text-gray-900 backdrop-blur-md transition-all hover:bg-black/60 hover:text-white lg:bottom-12 lg:right-12 dark:text-white/70 dark:hover:text-gray-900"
           aria-label={isVideoPlaying ? 'Pause background video' : 'Play background video'}
         >
           {isVideoPlaying ? (
@@ -165,7 +165,7 @@ function LandingSection() {
             style={{ animationDelay: '0.3s' }}
           >
             <span
-              className="block text-3xl text-white dark:text-white/95 sm:text-5xl lg:text-[3.5rem] xl:text-[4.5rem]"
+              className="block text-3xl text-gray-900 dark:text-white/95 sm:text-5xl lg:text-[3.5rem] xl:text-[4.5rem]"
               style={{
                 letterSpacing: '-0.01em',
                 lineHeight: '1.2',
@@ -236,7 +236,7 @@ function LandingSection() {
                 { val: countdown.seconds, label: 'Sec' },
               ].map(({ val, label }) => (
                 <div key={label} className="flex flex-col items-center">
-                  <div className="countdown-cell flex size-14 items-center justify-center rounded-xl border border-white/[0.08] bg-white/[0.03] font-orbitron text-xl font-bold tabular-nums text-white dark:text-white backdrop-blur-sm sm:size-[4.5rem] sm:text-2xl">
+                  <div className="countdown-cell flex size-14 items-center justify-center rounded-xl border border-white/[0.08] bg-white/[0.03] font-orbitron text-xl font-bold tabular-nums text-white backdrop-blur-sm sm:size-[4.5rem] sm:text-2xl">
                     {String(val).padStart(2, '0')}
                   </div>
                   <span className="mt-1.5 font-body text-[8px] font-semibold uppercase tracking-[0.25em] text-iwd-gold-400/45 sm:text-[9px]">
@@ -268,7 +268,7 @@ function LandingSection() {
                 key={stat.label}
                 className="flex flex-col items-center px-5 sm:px-8"
               >
-                <span className="font-orbitron text-xl font-bold text-white dark:text-white sm:text-2xl">
+                <span className="font-orbitron text-xl font-bold text-white sm:text-2xl">
                   {animatedStats[i]}
                   {stat.suffix}
                 </span>
@@ -281,7 +281,7 @@ function LandingSection() {
 
           {/* Description */}
           <p
-            className="hero-stagger mb-10 max-w-xl font-body text-[15px] font-light leading-[1.8] text-white dark:text-white/55 sm:mb-12 sm:text-base"
+            className="hero-stagger mb-10 max-w-xl font-body text-[15px] font-light leading-[1.8] text-gray-900 dark:text-white/55 sm:mb-12 sm:text-base"
             style={{ animationDelay: '1.05s' }}
           >
             A day of learning, building, connecting, and empowering women and
@@ -320,7 +320,7 @@ function LandingSection() {
             <a
               href="#attendees"
               aria-label="Scroll to content"
-              className="group flex flex-col items-center gap-2.5 text-white dark:text-white/20 transition-colors duration-500 hover:text-white dark:text-white/50"
+              className="group flex flex-col items-center gap-2.5 text-gray-900 dark:text-white/50 transition-colors duration-500 hover:text-white dark:hover:text-gray-900"
             >
               <span className="font-body text-[9px] font-medium uppercase tracking-[0.4em]">
                 Scroll

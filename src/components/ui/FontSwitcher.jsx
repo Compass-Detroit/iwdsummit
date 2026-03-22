@@ -74,7 +74,7 @@ function FontSwitcher() {
                   }}
                   className={`flex items-center justify-between rounded-lg px-3 py-2 text-left transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-white/30 ${
                     font === f.id
-                      ? 'bg-white/10 text-white dark:text-white'
+                      ? 'bg-white/10 text-white'
                       : 'text-gray-400 hover:bg-white/[0.06] hover:text-gray-200'
                   }`}
                 >

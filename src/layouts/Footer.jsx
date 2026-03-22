@@ -11,7 +11,7 @@ function Footer() {
     <footer
       id="page-footer"
       role="contentinfo"
-      className="relative flex flex-col bg-iwd-surface-raised dark:bg-iwd-black-900 text-white dark:text-white"
+      className="relative flex flex-col bg-iwd-surface-raised dark:bg-iwd-black-900 text-white"
     >
       {/* Gradient top border */}
       <div className="h-px w-full bg-gradient-to-r from-transparent via-iwd-gold-400/30 to-transparent" />

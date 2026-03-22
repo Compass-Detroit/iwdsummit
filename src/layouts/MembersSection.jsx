@@ -18,7 +18,7 @@ const MembersSection = () => {
           <p className="mb-4 font-body text-xs font-medium uppercase tracking-[0.3em] text-iwd-gold-400/80">
             Get Involved
           </p>
-          <h2 className="mb-5 font-heading text-3xl font-bold text-white dark:text-white sm:text-4xl lg:text-5xl">
+          <h2 className="mb-5 font-heading text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
             Join the{' '}
             <span className="bg-gradient-to-r from-iwd-gold-300 via-iwd-gold-400 to-iwd-gold-300 bg-clip-text text-transparent">
               Movement
@@ -75,7 +75,7 @@ const MembersSection = () => {
             href="https://bit.ly/compass2026"
             label="Become a Member"
             ariaLabel="Join Compass Detroit as a member - opens in new tab"
-            className="text-xl font-semibold text-white dark:text-white"
+            className="text-xl font-semibold text-white"
             target="_blank"
             rel="noreferrer"
             variant="primary"

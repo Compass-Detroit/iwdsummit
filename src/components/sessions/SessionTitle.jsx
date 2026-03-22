@@ -11,7 +11,7 @@ const SessionTitle = (props) => {
       <img className="group-hover:ml-2" src={Mic} alt="Microphone Icon" />
       <div className="hidden overflow-hidden group-hover:block">
         <p className="text-lg text-gray-200">Talking About</p>
-        <p className="overflow-x-scroll whitespace-nowrap text-xl font-bold text-white dark:text-white">
+        <p className="overflow-x-scroll whitespace-nowrap text-xl font-bold text-white">
           {props.sessionTitle}
         </p>
       </div>

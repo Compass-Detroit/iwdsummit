@@ -54,7 +54,7 @@ const PastEventsSection = () => {
           />
         </svg>
         <svg
-          className="absolute bottom-0 left-0 size-96 -translate-x-1/4 translate-y-1/4 text-white dark:text-white/5"
+          className="absolute bottom-0 left-0 size-96 -translate-x-1/4 translate-y-1/4 text-gray-900 dark:text-white/5"
           viewBox="0 0 400 400"
         >
           <path
@@ -72,7 +72,7 @@ const PastEventsSection = () => {
           <p className="mb-4 text-sm font-semibold uppercase tracking-[0.4em] text-iwd-gold-400/60">
             Our Legacy
           </p>
-          <h2 className="font-heading text-4xl font-black tracking-tight text-white dark:text-white sm:text-6xl">
+          <h2 className="font-heading text-4xl font-black tracking-tight text-white sm:text-6xl">
             Past{' '}
             <span className="bg-gradient-to-r from-iwd-gold-300 to-iwd-gold-500 bg-clip-text text-transparent">
               Events
@@ -93,7 +93,7 @@ const PastEventsSection = () => {
                 {event.year}
               </div>
               <div className="mt-6">
-                <h3 className="text-xl font-bold uppercase tracking-tight text-white dark:text-white">
+                <h3 className="text-xl font-bold uppercase tracking-tight text-white">
                   {event.title}
                 </h3>
                 <p className="mt-2 text-sm font-medium uppercase tracking-wide text-iwd-gold-400/80">
@@ -110,7 +110,7 @@ const PastEventsSection = () => {
               </div>
 
               <div className="mt-6 flex items-center gap-x-4">
-                <button className="text-xs font-black uppercase tracking-widest text-white dark:text-white/50 transition-colors hover:text-white dark:text-white">
+                <button className="text-xs font-black uppercase tracking-widest text-gray-900 dark:text-white/50 transition-colors hover:text-gray-900">
                   View Gallery →
                 </button>
               </div>

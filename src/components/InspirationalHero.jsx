@@ -371,7 +371,7 @@ export default function InspirationalHero() {
           >
             <cite className="not-italic">
               <span
-                className="font-heading font-black uppercase tracking-wider text-white dark:text-white"
+                className="font-heading font-black uppercase tracking-wider text-white"
                 style={{
                   fontSize: 'clamp(1.2rem, 3.5vw, 2.2rem)',
                   textShadow: `0 0 30px ${palette[3]}60, 0 2px 10px rgba(0,0,0,0.5)`,

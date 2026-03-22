@@ -29,7 +29,7 @@ function AboutSection() {
 
         <h2
           id="about-heading"
-          className="mb-12 font-heading text-3xl font-black leading-tight text-white dark:text-white sm:text-4xl lg:text-5xl"
+          className="mb-12 font-heading text-3xl font-black leading-tight text-white sm:text-4xl lg:text-5xl"
         >
           Where Innovation
           <br />
@@ -38,18 +38,18 @@ function AboutSection() {
           </span>
         </h2>
 
-        <p className="text-base font-light leading-[1.9] text-white dark:text-white/70 md:text-lg">
+        <p className="text-base font-light leading-[1.9] text-gray-900 dark:text-white/70 md:text-lg">
           The International Women&apos;s Day Innovation Summit brings together
           technologists, creators, leaders, and allies for a day of learning,
           building, and empowering women across Detroit&apos;s tech ecosystem.
         </p>
-        <p className="mt-6 text-base font-light leading-[1.9] text-white dark:text-white/70 md:text-lg">
+        <p className="mt-6 text-base font-light leading-[1.9] text-gray-900 dark:text-white/70 md:text-lg">
           Hosted by Compass Detroit in partnership with GDG Detroit and Women
           Techmakers, this summit features keynotes, hands-on workshops, career
           panels, and community-driven sessions designed to inspire the next
           generation of innovators.
         </p>
-        <p className="mt-6 text-base font-light leading-[1.9] text-white dark:text-white/80 md:text-lg">
+        <p className="mt-6 text-base font-light leading-[1.9] text-gray-900 dark:text-white/80 md:text-lg">
           Whether you&apos;re a seasoned engineer, a student exploring your
           first hackathon, a founder building something bold, or an ally
           championing representation —{' '}

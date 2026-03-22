@@ -52,7 +52,7 @@ const DevTeamCard = ({
 
       {/* Info */}
       <div className="absolute inset-x-0 bottom-0 translate-y-full border-t border-white/[0.06] bg-slate-900/90 p-3 text-center backdrop-blur-md transition-transform duration-300 ease-out group-focus-within:translate-y-0 group-hover:translate-y-0">
-        <h3 className="text-sm font-semibold text-white dark:text-white">{name}</h3>
+        <h3 className="text-sm font-semibold text-white">{name}</h3>
         <p className="mt-0.5 text-xs text-gray-400">
           {organization || university}
         </p>

@@ -14,7 +14,7 @@ const InstagramHandle = ({ handle, absolute = true }) => (
     }
     aria-label="Follow on Instagram - opens in new tab"
   >
-    <FaInstagram className="size-5 text-white dark:text-white" />
+    <FaInstagram className="size-5 text-white" />
   </a>
 )
 

@@ -42,7 +42,7 @@ const MuralItem = memo(({ quote, name, title, image, isLarge }) => {
 
         <blockquote className="relative mb-8">
           <p
-            className={`font-body font-normal italic leading-relaxed text-white dark:text-white drop-shadow-md transition-all duration-500 group-hover:text-iwd-gold-50 ${
+            className={`font-body font-normal italic leading-relaxed text-white drop-shadow-md transition-all duration-500 group-hover:text-iwd-gold-50 ${
               isLarge
                 ? 'text-2xl sm:text-3xl lg:text-4xl'
                 : 'text-lg sm:text-xl'
@@ -53,10 +53,10 @@ const MuralItem = memo(({ quote, name, title, image, isLarge }) => {
         </blockquote>
 
         <div className="flex flex-col gap-2 border-l-2 border-iwd-gold-400/40 pl-6 transition-colors group-hover:border-iwd-gold-400">
-          <cite className="font-heading text-xl font-black uppercase not-italic tracking-widest text-iwd-gold-300 transition-colors group-hover:text-white dark:text-white">
+          <cite className="font-heading text-xl font-black uppercase not-italic tracking-widest text-iwd-gold-300 transition-colors group-hover:text-white">
             {name}
           </cite>
-          <span className="text-xs font-bold uppercase tracking-[0.3em] text-white dark:text-white/40 group-hover:text-iwd-gold-400/60">
+          <span className="text-xs font-bold uppercase tracking-[0.3em] text-gray-900 dark:text-white/40 group-hover:text-iwd-gold-400/60">
             {title}
           </span>
         </div>
@@ -120,13 +120,13 @@ export default function InspirationalMural() {
             </span>
             <div className="h-px w-16 bg-gradient-to-l from-transparent to-iwd-gold-400/50" />
           </div>
-          <h2 className="font-heading text-5xl font-black text-white dark:text-white sm:text-7xl lg:text-8xl">
+          <h2 className="font-heading text-5xl font-black text-white sm:text-7xl lg:text-8xl">
             Inspirational{' '}
             <span className="bg-gradient-to-r from-iwd-gold-200 via-iwd-gold-400 to-iwd-gold-200 bg-clip-text text-transparent">
               Mural
             </span>
           </h2>
-          <p className="mt-10 max-w-3xl font-body text-xl font-light leading-relaxed text-white dark:text-white/60">
+          <p className="mt-10 max-w-3xl font-body text-xl font-light leading-relaxed text-gray-900 dark:text-white/60">
             A celebration of the pioneers, leaders, and visionaries who break
             the pattern and redefine what is possible in tech and beyond.
           </p>
@@ -154,7 +154,7 @@ export default function InspirationalMural() {
           <div className="mt-20 flex justify-center">
             <button
               onClick={() => setShowAll(false)}
-              className="group flex items-center gap-3 font-heading text-sm font-black uppercase tracking-widest text-white dark:text-white/30 transition-colors hover:text-white dark:text-white"
+              className="group flex items-center gap-3 font-heading text-sm font-black uppercase tracking-widest text-gray-900 dark:text-white/30 transition-colors hover:text-gray-900"
             >
               <FaChevronDown className="size-4 rotate-180" />
               Show Less

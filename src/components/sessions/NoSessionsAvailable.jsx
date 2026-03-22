@@ -7,10 +7,10 @@ const NoSessionsAvailable = ({ currentSession }) => {
       <div className="rounded-xl border-2 border-dashed border-white/20 bg-iwd-surface-raised dark:bg-iwd-black-950 p-8 text-center shadow-md md:p-12">
         <div className="mb-4 flex justify-center">
           <div className="rounded-full bg-primary-900 p-4">
-            <FaClock className="size-12 text-white dark:text-white" aria-hidden="true" />
+            <FaClock className="size-12 text-white" aria-hidden="true" />
           </div>
         </div>
-        <h3 className="mb-2 text-4xl font-bold text-white dark:text-white">Coming Soon!</h3>
+        <h3 className="mb-2 text-4xl font-bold text-white">Coming Soon!</h3>
         <p className="mb-4 text-lg text-gray-200">
           Watch for updates on {currentSession} sessions
         </p>

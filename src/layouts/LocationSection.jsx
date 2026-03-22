@@ -64,7 +64,7 @@ function LocationSection() {
   return (
     <section
       id="location"
-      className="bg-iwd-surface-raised relative overflow-hidden py-24 text-white md:py-32 dark:bg-iwd-black-900 dark:text-white"
+      className="bg-iwd-surface-raised relative overflow-hidden py-24 text-white md:py-32 dark:bg-iwd-black-900 "
       aria-labelledby="location-heading"
     >
       {/* Accent glow */}
@@ -92,7 +92,7 @@ function LocationSection() {
 
           <h2
             id="location-heading"
-            className="text-center font-heading text-4xl font-bold text-white sm:text-5xl lg:text-6xl dark:text-white"
+            className="text-center font-heading text-4xl font-bold text-white sm:text-5xl lg:text-6xl "
           >
             When &{' '}
             <span className="bg-gradient-to-r from-iwd-gold-300 via-iwd-gold-400 to-iwd-gold-300 bg-clip-text text-transparent">
@@ -112,7 +112,7 @@ function LocationSection() {
                   aria-hidden="true"
                 />
               </div>
-              <h3 className="text-xl font-semibold text-white dark:text-white">
+              <h3 className="text-xl font-semibold text-white">
                 When
               </h3>
             </div>
@@ -132,11 +132,11 @@ function LocationSection() {
                   aria-hidden="true"
                 />
               </div>
-              <h3 className="text-xl font-semibold text-white dark:text-white">
+              <h3 className="text-xl font-semibold text-white">
                 Venue
               </h3>
             </div>
-            <p className="mb-2 text-2xl font-bold text-white dark:text-white">
+            <p className="mb-2 text-2xl font-bold text-white">
               Little Caesars Global Resource Center
             </p>
             <p className="mb-4 text-lg text-gray-300">
@@ -182,7 +182,7 @@ function LocationSection() {
                       <span className="text-sm font-black uppercase tracking-[0.2em] text-iwd-gold-400">
                         Location Highlight
                       </span>
-                      <span className="text-2xl font-bold text-white drop-shadow-md dark:text-white">
+                      <span className="text-2xl font-bold text-white drop-shadow-md ">
                         {img.label}
                       </span>
                     </div>
@@ -226,7 +226,7 @@ function LocationSection() {
                     e.stopPropagation()
                     prevImg()
                   }}
-                  className="pointer-events-auto flex size-14 items-center justify-center rounded-full border border-white/10 bg-black/60 text-white opacity-0 backdrop-blur-xl transition-all hover:border-iwd-gold-400/40 hover:bg-iwd-gold-500/20 group-hover:opacity-100 dark:text-white"
+                  className="pointer-events-auto flex size-14 items-center justify-center rounded-full border border-white/10 bg-black/60 text-white opacity-0 backdrop-blur-xl transition-all hover:border-iwd-gold-400/40 hover:bg-iwd-gold-500/20 group-hover:opacity-100 "
                   aria-label="Previous Image"
                 >
                   <FaChevronLeft className="size-6" />
@@ -236,7 +236,7 @@ function LocationSection() {
                     e.stopPropagation()
                     nextImg()
                   }}
-                  className="pointer-events-auto flex size-14 items-center justify-center rounded-full border border-white/10 bg-black/60 text-white opacity-0 backdrop-blur-xl transition-all hover:border-iwd-gold-400/40 hover:bg-iwd-gold-500/20 group-hover:opacity-100 dark:text-white"
+                  className="pointer-events-auto flex size-14 items-center justify-center rounded-full border border-white/10 bg-black/60 text-white opacity-0 backdrop-blur-xl transition-all hover:border-iwd-gold-400/40 hover:bg-iwd-gold-500/20 group-hover:opacity-100 "
                   aria-label="Next Image"
                 >
                   <FaChevronRight className="size-6" />
@@ -289,7 +289,7 @@ function LocationSection() {
                   aria-hidden="true"
                 />
               </div>
-              <h3 className="text-xl font-semibold text-white dark:text-white">
+              <h3 className="text-xl font-semibold text-white">
                 Parking Options
               </h3>
             </div>
@@ -299,7 +299,7 @@ function LocationSection() {
                   1
                 </div>
                 <div>
-                  <strong className="mb-1 block text-white dark:text-white">
+                  <strong className="mb-1 block text-white">
                     Fox Garage (Recommended)
                   </strong>
                   <p className="text-sm leading-relaxed text-gray-400">
@@ -313,7 +313,7 @@ function LocationSection() {
                   2
                 </div>
                 <div>
-                  <strong className="mb-1 block text-white dark:text-white">
+                  <strong className="mb-1 block text-white">
                     Opera House Garage
                   </strong>
                   <p className="text-sm leading-relaxed text-gray-400">
@@ -327,7 +327,7 @@ function LocationSection() {
                   3
                 </div>
                 <div>
-                  <strong className="mb-1 block text-white dark:text-white">
+                  <strong className="mb-1 block text-white">
                     Comerica Park Lots
                   </strong>
                   <p className="text-sm leading-relaxed text-gray-400">
@@ -340,7 +340,7 @@ function LocationSection() {
                   4
                 </div>
                 <div>
-                  <strong className="mb-1 block text-white dark:text-white">
+                  <strong className="mb-1 block text-white">
                     MGM Grand Garage (Free)
                   </strong>
                   <p className="text-sm leading-relaxed text-gray-400">
@@ -354,7 +354,7 @@ function LocationSection() {
 
           {/* Entrance Card */}
           <div className="group rounded-2xl border border-white/[0.06] bg-white/[0.02] p-8 backdrop-blur-sm transition-all duration-300 hover:border-white/[0.12] hover:bg-white/[0.04]">
-            <h3 className="mb-3 text-xl font-semibold text-white dark:text-white">
+            <h3 className="mb-3 text-xl font-semibold text-white">
               Entrance
             </h3>
             <p className="text-sm leading-relaxed text-gray-400">

@@ -33,7 +33,7 @@ const SponsorsSection = ({
           <div className="h-px w-10 bg-gradient-to-l from-transparent to-iwd-gold-400/40 sm:w-14" />
         </div>
 
-        <h2 className="mb-3 w-full text-center font-heading text-3xl font-bold text-white dark:text-white sm:text-4xl lg:text-5xl">
+        <h2 className="mb-3 w-full text-center font-heading text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
           {year && !isCurrentYear ? `${year} ` : ''}
           <span className="bg-gradient-to-r from-iwd-gold-300 via-iwd-gold-400 to-iwd-gold-300 bg-clip-text text-transparent">
             Sponsors
@@ -63,7 +63,7 @@ const SponsorsSection = ({
                       />
                     </div>
                     <div className="min-w-0 text-center sm:text-left">
-                      <h3 className="text-lg font-semibold text-white dark:text-white">
+                      <h3 className="text-lg font-semibold text-white">
                         {sponsor.name}
                       </h3>
                       <p className="mt-1 line-clamp-3 text-sm leading-relaxed text-gray-400">

@@ -30,7 +30,7 @@ const JobBoardSection = ({ year = new Date().getFullYear() }) => {
           <div className="h-px w-10 bg-gradient-to-l from-transparent to-iwd-gold-400/40 sm:w-14" />
         </div>
 
-        <h2 className="mb-3 text-center font-heading text-3xl font-bold text-white dark:text-white sm:text-4xl lg:text-5xl">
+        <h2 className="mb-3 text-center font-heading text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
           {year && !isCurrentYear ? `${year} ` : ''}Job{' '}
           <span className="bg-gradient-to-r from-iwd-gold-300 via-iwd-gold-400 to-iwd-gold-300 bg-clip-text text-transparent">
             Board
@@ -79,7 +79,7 @@ const JobBoardSection = ({ year = new Date().getFullYear() }) => {
                   </div>
                   {/* Company name */}
                   <div className="flex flex-col">
-                    <h3 className="min-w-0 pr-4 text-center text-xl font-black tracking-tight text-white dark:text-white transition-colors duration-300 sm:text-left">
+                    <h3 className="min-w-0 pr-4 text-center text-xl font-black tracking-tight text-white transition-colors duration-300 sm:text-left">
                       {company.name}
                     </h3>
                     <span className="mt-1 text-center text-xs font-semibold uppercase tracking-widest text-iwd-gold-400/50 sm:text-left">

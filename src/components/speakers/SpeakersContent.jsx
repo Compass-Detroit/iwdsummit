@@ -31,7 +31,7 @@ const SpeakersContent = ({ year, defaultExpanded }) => {
             : `Expand ${year} Compass Detroit Speakers`
         }
         onClick={toggleExpanded}
-        className="absolute left-0 top-3 cursor-pointer items-center text-white dark:text-white transition-colors hover:text-gray-400 sm:top-4"
+        className="absolute left-0 top-3 cursor-pointer items-center text-white transition-colors hover:text-gray-400 sm:top-4"
       >
         <IoChevronDown
           className={`size-6 shrink-0 text-iwd-gold-300 sm:size-7 md:size-8 lg:size-9 ${
@@ -43,7 +43,7 @@ const SpeakersContent = ({ year, defaultExpanded }) => {
         <p className="mb-4 font-body text-xs font-medium uppercase tracking-[0.3em] text-iwd-gold-400/80">
           Meet Our Speakers
         </p>
-        <h2 className="mb-5 w-full font-heading text-3xl font-bold text-white dark:text-white sm:text-4xl lg:text-5xl">
+        <h2 className="mb-5 w-full font-heading text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
           {year}{' '}
           <span className="bg-gradient-to-r from-iwd-gold-300 via-iwd-gold-400 to-iwd-gold-300 bg-clip-text text-transparent">
             Speakers

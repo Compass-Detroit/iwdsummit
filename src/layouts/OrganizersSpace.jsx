@@ -52,14 +52,14 @@ const TeamCard = memo(
           </div>
 
           <div className="flex flex-col gap-1">
-            <h4 className="font-heading text-xl font-black tracking-tight text-white dark:text-white">
+            <h4 className="font-heading text-xl font-black tracking-tight text-white">
               {name}
             </h4>
             <span className="text-xs font-bold uppercase tracking-widest text-iwd-gold-400/60">
               {role || position || 'Contributor'}
             </span>
             {(organization || university) && (
-              <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-white dark:text-white/30">
+              <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-gray-900 dark:text-white/30">
                 {organization || university}
               </span>
             )}
@@ -72,7 +72,7 @@ const TeamCard = memo(
                 href={linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-lg bg-white/5 p-2 text-white dark:text-white/50 transition-all hover:bg-[#0077b5] hover:text-white dark:text-white"
+                className="rounded-lg bg-white/5 p-2 text-gray-900 dark:text-white/50 transition-all hover:bg-[#0077b5] hover:text-gray-900"
               >
                 <FaLinkedin className="size-4" />
               </a>
@@ -82,13 +82,13 @@ const TeamCard = memo(
                 href={github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-lg bg-white/5 p-2 text-white dark:text-white/50 transition-all hover:bg-[#333] hover:text-white dark:text-white"
+                className="rounded-lg bg-white/5 p-2 text-gray-900 dark:text-white/50 transition-all hover:bg-[#333] hover:text-gray-900"
               >
                 <FaGithub className="size-4" />
               </a>
             )}
             {!linkedin && !github && (
-              <div className="rounded-lg bg-white/5 p-2 text-[10px] font-bold uppercase italic tracking-widest text-white dark:text-white/20">
+              <div className="rounded-lg bg-white/5 p-2 text-[10px] font-bold uppercase italic tracking-widest text-gray-900 dark:text-white/20">
                 Social Off
               </div>
             )}
@@ -144,13 +144,13 @@ export default function OrganizersSpace() {
             </span>
             <div className="h-px w-12 bg-gradient-to-l from-transparent to-iwd-gold-400/50" />
           </div>
-          <h2 className="font-heading text-5xl font-black text-white dark:text-white sm:text-7xl lg:text-8xl">
+          <h2 className="font-heading text-5xl font-black text-white sm:text-7xl lg:text-8xl">
             Community{' '}
             <span className="bg-gradient-to-r from-iwd-gold-200 via-iwd-gold-400 to-iwd-gold-200 bg-clip-text text-transparent">
               Space
             </span>
           </h2>
-          <p className="mt-8 max-w-2xl font-body text-lg font-light leading-relaxed text-white dark:text-white/40 sm:text-xl">
+          <p className="mt-8 max-w-2xl font-body text-lg font-light leading-relaxed text-gray-900 dark:text-white/40 sm:text-xl">
             Meet the visionary organizers and technical contributors working to
             break the pattern in Detroit.
           </p>

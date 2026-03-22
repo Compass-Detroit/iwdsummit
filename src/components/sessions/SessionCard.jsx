@@ -178,7 +178,7 @@ function SessionCard({
               }`}
             >
               {sessionTitle && (
-                <h3 className="text-base font-semibold text-white md:text-xl dark:text-white">
+                <h3 className="text-base font-semibold text-white md:text-xl ">
                   {sessionTitle}
                 </h3>
               )}
@@ -255,7 +255,7 @@ function SessionCard({
                 className={`size-6 transition-all duration-500 ${
                   isSaved
                     ? 'scale-110 text-iwd-gold-400 drop-shadow-[0_0_8px_rgba(255,208,174,0.5)]'
-                    : 'text-gray-500 group-hover/save:scale-110 group-hover/save:text-white dark:text-white'
+                    : 'text-gray-500 group-hover/save:scale-110 group-hover/save:text-white'
                 }`}
                 fill={isSaved ? 'currentColor' : 'none'}
                 stroke="currentColor"

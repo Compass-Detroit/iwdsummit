@@ -77,7 +77,7 @@ const ProfileCard = ({
   const renderBadge = track && (
     <div className="absolute bottom-4 right-4 z-10">
       <span
-        className={`inline-flex items-center gap-2 rounded-xl border border-white/10 ${badgeColor} px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-white dark:text-white shadow-lg backdrop-blur-sm`}
+        className={`inline-flex items-center gap-2 rounded-xl border border-white/10 ${badgeColor} px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-white shadow-lg backdrop-blur-sm`}
       >
         {track}
         {isGDE && (
@@ -208,7 +208,7 @@ const ProfileCard = ({
 
         {/* Name + info overlaid on image bottom */}
         <div className="absolute inset-x-0 bottom-0 p-6 transition-transform duration-500 group-hover:translate-y-[-4px]">
-          <h3 className="font-heading text-2xl font-black text-white dark:text-white drop-shadow-2xl">
+          <h3 className="font-heading text-2xl font-black text-white drop-shadow-2xl">
             {name}
           </h3>
           {organization && (
@@ -220,7 +220,7 @@ const ProfileCard = ({
             </div>
           )}
           {position && (
-            <p className="mt-2 line-clamp-1 text-xs font-medium text-white dark:text-white/50">
+            <p className="mt-2 line-clamp-1 text-xs font-medium text-gray-900 dark:text-white/50">
               {position}
             </p>
           )}
