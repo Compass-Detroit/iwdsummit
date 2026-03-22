@@ -6,7 +6,6 @@ import { DIRECTION } from '@/constants/directions'
 import { addMinutes, format, parse, isValid } from 'date-fns'
 import useSchedule from '@/hooks/useSchedule'
 import {
-  generateGoogleCalendarLink,
   generateOutlookCalendarLink,
   generateICSFile,
 } from '../../utils/calendarExport'
@@ -284,21 +283,6 @@ function SessionCard({
             <span className="min-w-[120px] text-xs font-semibold uppercase tracking-wider text-gray-500">
               Export to Calendar:
             </span>
-            <a
-              href={generateGoogleCalendarLink({
-                title: sessionTitle,
-                description: sessionDesc,
-                time: sessionTime,
-                room: sessionRoom,
-                sessionDuration,
-              })}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-md border border-white/10 bg-white/5 px-3 py-1.5 text-xs font-semibold text-white transition-colors hover:bg-white/10"
-              onClick={(e) => e.stopPropagation()}
-            >
-              Google
-            </a>
             <a
               href={generateOutlookCalendarLink({
                 title: sessionTitle,

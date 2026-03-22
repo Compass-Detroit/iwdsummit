@@ -3,10 +3,10 @@ import PropTypes from 'prop-types'
 
 import useSchedule from '@/hooks/useSchedule'
 import ActivityCard from '@/components/sessions/ActivityCard'
+import MyScheduleExports from '@/components/sessions/MyScheduleExports'
 import SessionCard from '@/components/sessions/SessionCard'
 import SectionSkipLink from '@/components/ui/SectionSkipLink'
 import VenueMaps from '@/components/sessions/VenueMaps'
-import { generateICSFile } from '../utils/calendarExport'
 
 import { conferenceActivities } from '@/data/2026/conferenceActivities'
 import { DIRECTION } from '@/constants/directions'
@@ -614,39 +614,30 @@ const SessionsSection = ({
               <VenueMaps />
             ) : hasContentForTrack ? (
               <>
-                {currentSession === 'My Schedule' &&
-                  savedSessionIds.length > 0 && (
-                    <div className="mb-4 flex justify-end px-4 sm:px-0">
-                      <button
-                        onClick={() => {
-                          const exportData = currentTrackSessions.map((s) => ({
-                            title: s.sessionTitle,
-                            description: s.sessionDesc,
-                            time: s.sessionTime,
-                            room: s.sessionRoom,
-                            sessionDuration: s.sessionDuration,
-                          }))
-                          generateICSFile(exportData)
-                        }}
-                        className="flex items-center gap-2 rounded-lg border border-iwd-gold-400/30 bg-iwd-gold-400/10 px-4 py-2 text-xs font-bold uppercase tracking-widest text-iwd-gold-300 shadow-lg shadow-iwd-gold-500/5 transition-all hover:-translate-y-0.5 hover:bg-iwd-gold-400/20"
-                      >
-                        <svg
-                          className="size-4"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4"
-                          />
-                        </svg>
-                        Export Full Schedule (ICS)
-                      </button>
-                    </div>
-                  )}
+                {currentSession === 'My Schedule' && (
+                  <MyScheduleExports
+                    events={mergedTrackItems.map((item) =>
+                      item.type === 'session'
+                        ? {
+                            title: item.sessionTitle,
+                            description: item.sessionDesc,
+                            time: item.sessionTime,
+                            room: item.sessionRoom,
+                            sessionDuration: item.sessionDuration,
+                          }
+                        : {
+                            title: item.title,
+                            description:
+                              item.content && item.cta?.url
+                                ? `${item.content} ${item.cta.url}`
+                                : item.content || '',
+                            time: item.time,
+                            timeEnd: item.timeEnd,
+                            room: item.room,
+                          }
+                    )}
+                  />
+                )}
                 {/* Session cards + activity cards: single column; sorted by time */}
                 <ul className="grid w-full grid-cols-1 gap-8 py-7">
                   {mergedTrackItems.map((item) =>
