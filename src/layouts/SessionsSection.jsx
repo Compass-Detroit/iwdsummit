@@ -614,30 +614,31 @@ const SessionsSection = ({
               <VenueMaps />
             ) : hasContentForTrack ? (
               <>
-                {currentSession === 'My Schedule' && (
-                  <MyScheduleExports
-                    events={mergedTrackItems.map((item) =>
-                      item.type === 'session'
-                        ? {
-                            title: item.sessionTitle,
-                            description: item.sessionDesc,
-                            time: item.sessionTime,
-                            room: item.sessionRoom,
-                            sessionDuration: item.sessionDuration,
-                          }
-                        : {
-                            title: item.title,
-                            description:
-                              item.content && item.cta?.url
-                                ? `${item.content} ${item.cta.url}`
-                                : item.content || '',
-                            time: item.time,
-                            timeEnd: item.timeEnd,
-                            room: item.room,
-                          }
-                    )}
-                  />
-                )}
+                {currentSession === 'My Schedule' &&
+                  savedSessionIds.length > 0 && (
+                    <MyScheduleExports
+                      events={mergedTrackItems.map((item) =>
+                        item.type === 'session'
+                          ? {
+                              title: item.sessionTitle,
+                              description: item.sessionDesc,
+                              time: item.sessionTime,
+                              room: item.sessionRoom,
+                              sessionDuration: item.sessionDuration,
+                            }
+                          : {
+                              title: item.title,
+                              description:
+                                item.content && item.cta?.url
+                                  ? `${item.content} ${item.cta.url}`
+                                  : item.content || '',
+                              time: item.time,
+                              timeEnd: item.timeEnd,
+                              room: item.room,
+                            }
+                      )}
+                    />
+                  )}
                 {/* Session cards + activity cards: single column; sorted by time */}
                 <ul className="grid w-full grid-cols-1 gap-8 py-7">
                   {mergedTrackItems.map((item) =>
