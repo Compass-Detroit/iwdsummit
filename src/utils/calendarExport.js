@@ -1,125 +1,193 @@
-/**
- * Utility functions for exporting sessions to calendars
- */
+const DEFAULT_EVENT_DATE = '2026-03-28'
+const DEFAULT_TIMEZONE_OFFSET = '-04:00'
+const DEFAULT_LOCATION_PREFIX = 'Little Caesars Global Resource Center'
 
 // Formats a Date object to YYYYMMDDTHHmmssZ
-const formatDate = (date) => {
-  return date.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z'
+const formatDate = (date) =>
+  `${date.toISOString().replace(/[-:]/g, '').split('.')[0]}Z`
+
+const normalizeTimeString = (value) => {
+  if (!value || typeof value !== 'string') return null
+
+  const cleaned = value.trim().toLowerCase()
+  if (!cleaned || cleaned === 'tba' || cleaned === 'n/a') return null
+
+  const match = cleaned.match(/^(\d{1,2})(?::(\d{2}))?\s*(am|pm)?$/i)
+  if (!match) return null
+
+  let hours = Number(match[1])
+  const mins = Number(match[2] ?? 0)
+  const meridiem = match[3]?.toLowerCase()
+
+  if (Number.isNaN(hours) || Number.isNaN(mins)) return null
+
+  if (meridiem === 'pm' && hours !== 12) hours += 12
+  if (meridiem === 'am' && hours === 12) hours = 0
+
+  // Session data often omits AM/PM. For summit schedules, 1:00-6:00 are PM.
+  if (!meridiem && hours >= 1 && hours <= 6) hours += 12
+
+  return `${String(hours).padStart(2, '0')}:${String(mins).padStart(2, '0')}`
 }
 
-const buildSessionDate = (timeStr, durationStr = 45) => {
-  // Pad the time string and attach timezone offset (March 2026 EDT is -04:00)
-  const isPM = timeStr.toLowerCase().includes('pm')
-  const isAM = timeStr.toLowerCase().includes('am')
-  let cleanTime = timeStr.replace(/am|pm/i, '').trim()
+const parseTimeRangeFromTime = (time) => {
+  if (!time || typeof time !== 'string' || !time.includes('-')) return null
 
-  if (!cleanTime.includes(':')) {
-    cleanTime = `${cleanTime}:00`
+  const [startRaw, endRaw] = time.split('-').map((part) => part.trim())
+  const start = normalizeTimeString(startRaw)
+  const end = normalizeTimeString(endRaw)
+
+  if (!start || !end) return null
+  return { start, end }
+}
+
+const buildEventDate = (
+  date = DEFAULT_EVENT_DATE,
+  time,
+  offset = DEFAULT_TIMEZONE_OFFSET
+) => {
+  if (!time) return null
+  return new Date(`${date}T${time}:00${offset}`)
+}
+
+const parseSessionDates = (session) => {
+  const {
+    time,
+    timeEnd,
+    sessionDuration = 45,
+    eventDate = DEFAULT_EVENT_DATE,
+    timezoneOffset = DEFAULT_TIMEZONE_OFFSET,
+  } = session
+
+  const range = parseTimeRangeFromTime(time)
+  const startTime = range?.start ?? normalizeTimeString(time)
+  const endTime = range?.end ?? normalizeTimeString(timeEnd ?? '') ?? null
+
+  if (!startTime) return null
+
+  const startDate = buildEventDate(eventDate, startTime, timezoneOffset)
+  if (Number.isNaN(startDate?.getTime())) return null
+
+  let endDate = null
+  if (endTime) {
+    endDate = buildEventDate(eventDate, endTime, timezoneOffset)
+  } else {
+    const duration = Number(sessionDuration)
+    const safeDuration = Number.isFinite(duration) ? duration : 45
+    endDate = new Date(startDate.getTime() + safeDuration * 60 * 1000)
   }
 
-  let [hours, mins] = cleanTime.split(':').map(Number)
+  if (Number.isNaN(endDate?.getTime())) return null
 
-  // Handle 12-hour logic
-  if (isPM && hours !== 12) hours += 12
-  if (isAM && hours === 12) hours = 0
-
-  // Standardize back to string
-  const finalTime = `${hours.toString().padStart(2, '0')}:${mins
-    .toString()
-    .padStart(2, '0')}:00`
-
-  const baseDate = new Date(`2026-03-28T${finalTime}-04:00`)
-  // Extract number from duration string (e.g. "45 Min" -> 45)
-  const durMatch = String(durationStr).match(/(\d+)/)
-  const duration = durMatch ? parseInt(durMatch[1], 10) : 45
-  const endDate = new Date(baseDate.getTime() + duration * 60000)
-
-  return { baseDate, endDate }
+  return { startDate, endDate }
 }
 
-export const generateGoogleCalendarLink = (session) => {
-  const { title, description, time, room, sessionDuration = 45 } = session
-  if (!time) return '#'
+const normalizeSessionsArray = (sessions) =>
+  (Array.isArray(sessions) ? sessions : [sessions]).filter(Boolean)
 
-  try {
-    const { baseDate, endDate } = buildSessionDate(time, sessionDuration)
-    const params = new URLSearchParams({
-      action: 'TEMPLATE',
-      text: title,
-      dates: `${formatDate(baseDate)}/${formatDate(endDate)}`,
-      details: description || '',
-      location: `Little Caesars Global Resource Center - ${room || 'TBD'}`,
-    })
-    return `https://calendar.google.com/calendar/render?${params.toString()}`
-  } catch (e) {
-    console.error('Failed to parse session date for GCal', e)
-    return '#'
-  }
+const buildEventLocation = ({ room, location }) => {
+  if (location) return location
+  if (!room) return DEFAULT_LOCATION_PREFIX
+  return `${DEFAULT_LOCATION_PREFIX} - ${room}`
 }
+
+const escapeICS = (value = '') =>
+  String(value)
+    .replace(/\\/g, '\\\\')
+    .replace(/\r?\n/g, '\\n')
+    .replace(/,/g, '\\,')
+    .replace(/;/g, '\\;')
 
 export const generateOutlookCalendarLink = (session) => {
-  const { title, description, time, room, sessionDuration = 45 } = session
-  if (!time) return '#'
+  const [event] = normalizeSessionsArray(session)
+  if (!event) return '#'
 
   try {
-    const { baseDate, endDate } = buildSessionDate(time, sessionDuration)
+    const parsed = parseSessionDates(event)
+    if (!parsed) return '#'
+
+    const { startDate, endDate } = parsed
     const params = new URLSearchParams({
       path: '/calendar/action/compose',
       rru: 'addevent',
-      subject: title,
-      body: description || '',
-      startdt: baseDate.toISOString(),
+      subject: event.title || 'IWD Summit Session',
+      body: event.description || '',
+      startdt: startDate.toISOString(),
       enddt: endDate.toISOString(),
-      location: `Little Caesars Global Resource Center - ${room || 'TBD'}`,
+      location: buildEventLocation(event),
     })
     return `https://outlook.live.com/calendar/0/deeplink/compose?${params.toString()}`
-  } catch (e) {
-    console.error('Failed to parse session date for Outlook', e)
+  } catch (error) {
+    console.error('Failed to parse session date for Outlook', error)
     return '#'
   }
 }
 
-export const generateICSFile = (sessions) => {
-  const getICSContent = (session) => {
-    const { title, description, time, room, sessionDuration = 45 } = session
-    if (!time) return ''
+const buildICSContent = (sessions) => {
+  const events = normalizeSessionsArray(sessions)
+    .map((session, index) => {
+      const parsed = parseSessionDates(session)
+      if (!parsed) return null
 
-    try {
-      const { baseDate, endDate } = buildSessionDate(time, sessionDuration)
-      return `BEGIN:VEVENT
-SUMMARY:${title.replace(/,/g, '\\,')}
-DESCRIPTION:${(description || '').replace(/\\n/g, ' ').replace(/,/g, '\\,')}
-DTSTART:${formatDate(baseDate)}
-DTEND:${formatDate(endDate)}
-LOCATION:Little Caesars Global Resource Center - ${room || 'TBD'}
-END:VEVENT`
-    } catch {
-      return ''
-    }
-  }
+      const { startDate, endDate } = parsed
+      const now = formatDate(new Date())
+      const start = formatDate(startDate)
+      const end = formatDate(endDate)
+      const slug = (session.title || 'session')
+        .replace(/\s+/g, '-')
+        .toLowerCase()
+      const uid = `${start}-${slug}-${index}@compassdetroit.org`
 
-  const events = Array.isArray(sessions) ? sessions : [sessions]
-  const validEvents = events
-    .map(getICSContent)
-    .filter((e) => e.length > 0)
-    .join('\n')
+      return [
+        'BEGIN:VEVENT',
+        `UID:${escapeICS(uid)}`,
+        `DTSTAMP:${now}`,
+        `SUMMARY:${escapeICS(session.title || 'IWD Summit Session')}`,
+        `DESCRIPTION:${escapeICS(session.description || '')}`,
+        `DTSTART:${start}`,
+        `DTEND:${end}`,
+        `LOCATION:${escapeICS(buildEventLocation(session))}`,
+        'END:VEVENT',
+      ].join('\r\n')
+    })
+    .filter(Boolean)
 
-  const icsContent = `BEGIN:VCALENDAR
-VERSION:2.0
-PRODID:-//Compass Detroit//IWD Summit 2026//EN
-${validEvents}
-END:VCALENDAR`
+  return [
+    'BEGIN:VCALENDAR',
+    'VERSION:2.0',
+    'CALSCALE:GREGORIAN',
+    'METHOD:PUBLISH',
+    'PRODID:-//Compass Detroit//IWD Summit 2026//EN',
+    ...events,
+    'END:VCALENDAR',
+  ].join('\r\n')
+}
 
-  const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' })
+const downloadICS = (content, filename) => {
+  const blob = new Blob([content], { type: 'text/calendar;charset=utf-8' })
   const url = window.URL.createObjectURL(blob)
   const link = document.createElement('a')
   link.href = url
-  const filename =
-    Array.isArray(sessions) && sessions.length > 1
-      ? 'iwd-2026-full-schedule.ics'
-      : 'iwd-2026-session.ics'
   link.setAttribute('download', filename)
   document.body.appendChild(link)
   link.click()
   document.body.removeChild(link)
+  window.URL.revokeObjectURL(url)
+}
+
+export const generateICSFile = (sessions, options = {}) => {
+  const events = normalizeSessionsArray(sessions)
+  const validCount = events.filter((event) => parseSessionDates(event)).length
+  if (!validCount) return false
+
+  const extension = options.extension === 'ical' ? 'ical' : 'ics'
+  const defaultFilename =
+    validCount > 1
+      ? `iwd-2026-full-schedule.${extension}`
+      : `iwd-2026-session.${extension}`
+
+  const filename = options.filename || defaultFilename
+  const content = buildICSContent(events)
+  downloadICS(content, filename)
+  return true
 }

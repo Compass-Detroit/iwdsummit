@@ -3,10 +3,10 @@ import PropTypes from 'prop-types'
 
 import useSchedule from '@/hooks/useSchedule'
 import ActivityCard from '@/components/sessions/ActivityCard'
+import MyScheduleExports from '@/components/sessions/MyScheduleExports'
 import SessionCard from '@/components/sessions/SessionCard'
 import SectionSkipLink from '@/components/ui/SectionSkipLink'
 import VenueMaps from '@/components/sessions/VenueMaps'
-import { generateICSFile } from '../utils/calendarExport'
 
 import { conferenceActivities } from '@/data/2026/conferenceActivities'
 import { DIRECTION } from '@/constants/directions'
@@ -127,21 +127,6 @@ const trackDescriptions = {
         <span className="font-bold">Careers Stage</span> is located in Walker
         Crisler Building Floor 1
       </h3>
-    </>
-  ),
-  'Breakout Sessions': (
-    <>
-      <h3
-        id="breakout-sessions-heading"
-        className="mx-auto mb-4 text-center text-xl font-semibold text-white sm:text-2xl "
-      >
-        <span className="font-bold">Breakout Sessions</span> is located on the
-        2nd floor of Walker Crisler Building (WCB),{'\u00A0'}Room{'\u00A0'}255
-      </h3>
-      <p className="mb-6 max-w-4xl text-pretty text-center text-base text-gray-400">
-        Focused discussions and interactive sessions on specialized topics. Join
-        conversations with experts and peers.
-      </p>
     </>
   ),
   'Schedule': (
@@ -452,7 +437,7 @@ const SessionsSection = ({
               role="tablist"
               aria-orientation="horizontal"
               id="sessions-nav"
-              className={`scrollbar-hide bg-iwd-surface-raised flex w-full flex-nowrap items-center justify-start gap-3 overflow-x-auto overflow-y-visible rounded-2xl border border-white/5 p-3 backdrop-blur-md md:justify-center md:px-6 dark:bg-iwd-black-950/50 ${
+              className={`scrollbar-visible bg-iwd-surface-raised flex w-full flex-nowrap items-center justify-start gap-3 overflow-x-auto overflow-y-visible rounded-2xl border border-white/5 p-3 backdrop-blur-md md:px-6 dark:bg-iwd-black-950/50 ${
                 isExpanded
                   ? 'max-h-none opacity-100'
                   : 'max-h-0 opacity-0 transition-all'
@@ -518,13 +503,6 @@ const SessionsSection = ({
                       <>Workshops</>
                     ) : tab === 'AI Foundations' ? (
                       <>AI Foundations</>
-                    ) : tab === 'Breakout Sessions' ? (
-                      <>
-                        <span className="inline max-xs:hidden">
-                          Breakout Sessions
-                        </span>
-                        <span className="hidden max-xs:inline">Breakout</span>
-                      </>
                     ) : (
                       tab
                     )}
@@ -545,8 +523,8 @@ const SessionsSection = ({
                 <IoChevronBack className="size-4 animate-pulse" />
               )}
               {canScrollRight
-                ? 'Swipe for more tracks'
-                : 'Swipe to explore earlier tracks'}
+                ? 'Scroll to view more tracks'
+                : 'Scroll back to earlier tracks'}
               {canScrollRight && (
                 <IoChevronForward className="size-4 animate-pulse" />
               )}
@@ -654,85 +632,97 @@ const SessionsSection = ({
               isExpanded ? 'opacity-100' : 'max-h-0 opacity-0'
             } transition-all duration-500`}
           >
+            {lastConflict && currentSession !== 'My Schedule' && (
+              <div className="mb-4 rounded-md border border-yellow-400/30 bg-yellow-400/10 p-3 text-sm text-yellow-100">
+                <div className="flex flex-wrap items-center justify-between gap-3">
+                  <div>
+                    <strong>Schedule conflict detected</strong>
+                    <div className="text-xs text-yellow-100/80">
+                      A saved session overlaps with another. Review and resolve
+                      it in My Schedule.
+                    </div>
+                  </div>
+                  <button
+                    onClick={() => activateTab(0)}
+                    className="rounded border border-yellow-300/40 px-3 py-1 text-xs font-semibold"
+                  >
+                    Open My Schedule
+                  </button>
+                </div>
+              </div>
+            )}
             {currentSession === 'Map' ? (
               <VenueMaps />
             ) : hasContentForTrack ? (
               <>
-                {currentSession === 'My Schedule' &&
-                  savedSessionIds.length > 0 && (
-                    <>
-                      {lastConflict && (
-                        <div className="mb-4 rounded-md border border-yellow-400/20 bg-yellow-400/5 p-3 text-sm text-yellow-200">
-                          <div className="flex items-center justify-between gap-4">
-                            <div>
-                              <strong>Schedule conflict</strong>
-                              <div className="text-xs text-yellow-200/80">
-                                A session you tried to save overlaps with one
-                                already in your schedule. Choose how to resolve
-                                it.
-                              </div>
-                            </div>
-                            <div className="flex items-center gap-2">
-                              <button
-                                onClick={() =>
-                                  autoResolveAndAdd(lastConflict.newId)
-                                }
-                                className="rounded bg-yellow-400/30 px-3 py-1 text-xs font-semibold"
-                              >
-                                Auto-resolve (keep earliest)
-                              </button>
-                              <button
-                                onClick={() =>
-                                  addSessionAnyway(lastConflict.newId)
-                                }
-                                className="rounded border border-yellow-400/30 px-3 py-1 text-xs font-semibold"
-                              >
-                                Add anyway
-                              </button>
-                              <button
-                                onClick={() => clearLastConflict()}
-                                className="rounded px-3 py-1 text-xs text-yellow-200/70"
-                              >
-                                Cancel
-                              </button>
+                {currentSession === 'My Schedule' && (
+                  <>
+                    <div className="mb-4 rounded-xl border border-white/10 bg-white/5 p-4 text-sm text-gray-200">
+                      Build your schedule by clicking <strong>Add</strong> on
+                      sessions. If there is a time overlap, you can resolve it
+                      here, then export your saved agenda to iCal.
+                    </div>
+                    {lastConflict && (
+                      <div className="mb-4 rounded-md border border-yellow-400/20 bg-yellow-400/5 p-3 text-sm text-yellow-200">
+                        <div className="flex flex-wrap items-center justify-between gap-3">
+                          <div>
+                            <strong>Schedule conflict</strong>
+                            <div className="text-xs text-yellow-200/80">
+                              A session overlaps with one already in your
+                              schedule. Choose how to resolve it.
                             </div>
                           </div>
+                          <div className="flex flex-wrap items-center gap-2">
+                            <button
+                              onClick={() =>
+                                autoResolveAndAdd(lastConflict.newId)
+                              }
+                              className="rounded bg-yellow-400/30 px-3 py-1 text-xs font-semibold"
+                            >
+                              Auto-resolve
+                            </button>
+                            <button
+                              onClick={() =>
+                                addSessionAnyway(lastConflict.newId)
+                              }
+                              className="rounded border border-yellow-400/30 px-3 py-1 text-xs font-semibold"
+                            >
+                              Add anyway
+                            </button>
+                            <button
+                              onClick={() => clearLastConflict()}
+                              className="rounded px-3 py-1 text-xs text-yellow-200/70"
+                            >
+                              Cancel
+                            </button>
+                          </div>
                         </div>
-                      )}
-                      <div className="mb-4 flex justify-end px-4 sm:px-0">
-                        <button
-                          onClick={() => {
-                            const exportData = currentTrackSessions.map(
-                              (s) => ({
-                                title: s.sessionTitle,
-                                description: s.sessionDesc,
-                                time: s.sessionTime,
-                                room: s.sessionRoom,
-                                sessionDuration: s.sessionDuration,
-                              })
-                            )
-                            generateICSFile(exportData)
-                          }}
-                          className="flex items-center gap-2 rounded-lg border border-iwd-gold-400/30 bg-iwd-gold-400/10 px-4 py-2 text-xs font-bold uppercase tracking-widest text-iwd-gold-300 shadow-lg shadow-iwd-gold-500/5 transition-all hover:-translate-y-0.5 hover:bg-iwd-gold-400/20"
-                        >
-                          <svg
-                            className="size-4"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4"
-                            />
-                          </svg>
-                          Export Full Schedule (ICS)
-                        </button>
                       </div>
-                    </>
-                  )}
+                    )}
+                    <MyScheduleExports
+                      events={mergedTrackItems.map((item) =>
+                        item.type === 'session'
+                          ? {
+                              title: item.sessionTitle,
+                              description: item.sessionDesc,
+                              time: item.sessionTime,
+                              room: item.sessionRoom,
+                              sessionDuration: item.sessionDuration,
+                            }
+                          : {
+                              title: item.title,
+                              description:
+                                item.content && item.cta?.url
+                                  ? `${item.content} ${item.cta.url}`
+                                  : item.content || '',
+                              time: item.time,
+                              timeEnd: item.timeEnd,
+                              room: item.room,
+                            }
+                      )}
+                    />
+                  </>
+                )}
                 {/* Session cards + activity cards: single column; sorted by time */}
                 <ul className="grid w-full grid-cols-1 gap-8 py-7">
                   {mergedTrackItems.map((item) =>
