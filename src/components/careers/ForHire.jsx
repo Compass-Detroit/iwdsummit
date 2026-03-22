@@ -4,7 +4,7 @@ function ForHire() {
   return (
     <section
       id="for-hire"
-      className="relative flex flex-col justify-center bg-iwd-black-900 px-6 py-24 sm:px-10 md:px-14 lg:px-16"
+      className="relative flex flex-col justify-center bg-iwd-surface-raised dark:bg-iwd-black-900 px-6 py-24 sm:px-10 md:px-14 lg:px-16"
     >
       {/* Background glow overlay */}
       <div className="pointer-events-none absolute inset-0 opacity-40">
@@ -17,7 +17,7 @@ function ForHire() {
             <FaUserPlus className="size-6 text-iwd-gold-400" />
           </div>
         </div>
-        <h2 className="mb-6 font-heading text-4xl font-bold text-white sm:text-5xl lg:text-6xl">
+        <h2 className="mb-6 font-heading text-4xl font-bold text-white dark:text-white sm:text-5xl lg:text-6xl">
           For{' '}
           <span className="bg-gradient-to-r from-iwd-gold-300 via-iwd-gold-400 to-iwd-gold-300 bg-clip-text text-transparent">
             Hire

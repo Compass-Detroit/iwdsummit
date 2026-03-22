@@ -173,7 +173,7 @@ function SessionCard({
               }`}
             >
               {sessionTitle && (
-                <h3 className="text-base font-semibold text-white md:text-xl">
+                <h3 className="text-base font-semibold text-white dark:text-white md:text-xl">
                   {sessionTitle}
                 </h3>
               )}
@@ -242,7 +242,7 @@ function SessionCard({
               className="group/save relative flex size-10 shrink-0 items-center justify-center rounded-xl transition-all duration-300 hover:bg-iwd-gold-400/10 active:scale-90"
             >
               {/* Tooltip hint */}
-              <span className="absolute -top-10 left-1/2 -translate-x-1/2 whitespace-nowrap rounded border border-iwd-gold-400/20 bg-iwd-black-900 px-2 py-1 text-[10px] font-bold uppercase tracking-widest text-iwd-gold-300 opacity-0 transition-opacity group-hover/save:opacity-100">
+              <span className="absolute -top-10 left-1/2 -translate-x-1/2 whitespace-nowrap rounded border border-iwd-gold-400/20 bg-iwd-surface-raised dark:bg-iwd-black-900 px-2 py-1 text-[10px] font-bold uppercase tracking-widest text-iwd-gold-300 opacity-0 transition-opacity group-hover/save:opacity-100">
                 {isSaved ? 'Saved' : 'Save'}
               </span>
 
@@ -250,7 +250,7 @@ function SessionCard({
                 className={`size-6 transition-all duration-500 ${
                   isSaved
                     ? 'scale-110 text-iwd-gold-400 drop-shadow-[0_0_8px_rgba(255,208,174,0.5)]'
-                    : 'text-gray-500 group-hover/save:scale-110 group-hover/save:text-white'
+                    : 'text-gray-500 group-hover/save:scale-110 group-hover/save:text-white dark:text-white'
                 }`}
                 fill={isSaved ? 'currentColor' : 'none'}
                 stroke="currentColor"

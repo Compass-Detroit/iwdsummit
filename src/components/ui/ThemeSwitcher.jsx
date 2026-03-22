@@ -53,7 +53,7 @@ function ThemeSwitcher() {
       {/* Swatch dropdown */}
       {open && (
         <div
-          className="absolute right-0 top-full z-50 mt-2 rounded-xl border border-white/10 bg-iwd-black-950/95 p-2 shadow-xl shadow-black/40 backdrop-blur-xl"
+          className="absolute right-0 top-full z-50 mt-2 rounded-xl border border-white/10 bg-iwd-surface-raised dark:bg-iwd-black-950/95 p-2 shadow-xl shadow-black/40 backdrop-blur-xl"
           role="radiogroup"
           aria-label="Theme colors"
         >

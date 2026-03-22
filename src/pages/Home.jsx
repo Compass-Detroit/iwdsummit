@@ -15,6 +15,8 @@ import OrganizersSection from '@/layouts/OrganizersSection'
 import { SpeakersData as Speakers2026 } from '@/data/2026/speakers'
 import { partnersData } from '@/data/2026/partners'
 
+import MembersSection from '@/layouts/MembersSection'
+
 function Home() {
   const currentYear = new Date().getFullYear()
   return (
@@ -26,7 +28,7 @@ function Home() {
 
       <LandingSection />
 
-      <div className="relative z-10 space-y-32 bg-iwd-black-950 py-20">
+      <div className="relative z-10 space-y-32 bg-iwd-surface-raised dark:bg-iwd-black-950 py-20">
         <LocationSection />
 
         <div id="schedule">
@@ -54,6 +56,7 @@ function Home() {
           <AboutSection />
         </div>
 
+        <MembersSection />
         <AttendeeSection />
         <BreakPatternSection />
         <PastEventsSection />

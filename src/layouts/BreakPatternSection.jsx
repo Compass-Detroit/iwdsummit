@@ -37,7 +37,7 @@ export default function BreakPatternSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden bg-iwd-black-950 py-24 lg:py-32"
+      className="relative overflow-hidden bg-iwd-surface-raised dark:bg-iwd-black-950 py-24 lg:py-32"
     >
       {/* Decorative background elements */}
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-iwd-gold-400/20 to-transparent" />
@@ -66,7 +66,7 @@ export default function BreakPatternSection() {
 
           {/* Text Side */}
           <div className="w-full text-center lg:w-1/2 lg:text-left">
-            <h2 className="mb-8 font-heading text-5xl font-black leading-[0.9] text-white sm:text-6xl lg:text-7xl">
+            <h2 className="mb-8 font-heading text-5xl font-black leading-[0.9] text-white dark:text-white sm:text-6xl lg:text-7xl">
               Break the <br />
               <span className="bg-gradient-to-r from-iwd-gold-200 via-iwd-gold-400 to-iwd-gold-200 bg-clip-text italic tracking-tight text-transparent">
                 Pattern
@@ -90,7 +90,7 @@ export default function BreakPatternSection() {
                 {[1, 2, 3, 4, 5].map((i) => (
                   <div
                     key={i}
-                    className="size-14 overflow-hidden rounded-full border-2 border-iwd-black-900 bg-iwd-black-800 shadow-xl ring-2 ring-iwd-gold-400/20 transition-transform hover:-translate-y-1"
+                    className="size-14 overflow-hidden rounded-full border-2 border-iwd-black-900 bg-iwd-surface-raised dark:bg-iwd-black-800 shadow-xl ring-2 ring-iwd-gold-400/20 transition-transform hover:-translate-y-1"
                   >
                     <div className="size-full bg-gradient-to-br from-iwd-gold-300/40 via-iwd-gold-500/20 to-iwd-gold-300/40" />
                   </div>
@@ -100,7 +100,7 @@ export default function BreakPatternSection() {
                 </div>
               </div>
               <div className="flex flex-col items-center sm:items-start">
-                <span className="mb-1 text-sm font-black uppercase tracking-widest text-white">
+                <span className="mb-1 text-sm font-black uppercase tracking-widest text-white dark:text-white">
                   Join the movement
                 </span>
                 <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-iwd-gold-400/70">

@@ -10,7 +10,7 @@ const TwitterHandle = ({
   const getClassName = () => {
     if (variant === 'avatar') {
       // Used on GenericCard
-      return 'absolute -bottom-8 left-1/2 flex size-10 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white text-black dark:bg-black dark:text-white'
+      return 'absolute -bottom-8 left-1/2 flex size-10 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white text-black dark:bg-black dark:text-white dark:text-white'
     }
 
     if (absolute) {

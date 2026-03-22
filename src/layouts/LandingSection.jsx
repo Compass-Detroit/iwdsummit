@@ -39,8 +39,10 @@ function LandingSection() {
   const [taglineFading, setTaglineFading] = useState(false)
   const [statsVisible, setStatsVisible] = useState(false)
   const [animatedStats, setAnimatedStats] = useState(STATS.map(() => 0))
+  const [isVideoPlaying, setIsVideoPlaying] = useState(true)
 
   const statsRef = useRef(null)
+  const videoRef = useRef(null)
 
   /* --- Countdown --- */
   useEffect(() => {
@@ -92,6 +94,17 @@ function LandingSection() {
     return () => cancelAnimationFrame(rafId)
   }, [statsVisible])
 
+  const toggleVideoPlayback = () => {
+    if (videoRef.current) {
+      if (isVideoPlaying) {
+        videoRef.current.pause()
+      } else {
+        videoRef.current.play()
+      }
+      setIsVideoPlaying(!isVideoPlaying)
+    }
+  }
+
   const isEventLive = countdown.total <= 0
 
   return (
@@ -99,9 +112,10 @@ function LandingSection() {
       <section
         id="hero"
         aria-label="Hero Section"
-        className="relative flex min-h-[90vh] w-full flex-col justify-center overflow-hidden bg-iwd-black-900 pt-20"
+        className="relative flex min-h-[90vh] w-full flex-col justify-center overflow-hidden bg-iwd-surface-raised dark:bg-iwd-black-900 pt-20"
       >
         <video
+          ref={videoRef}
           autoPlay
           loop
           muted
@@ -112,6 +126,19 @@ function LandingSection() {
         >
           <source src={heroVideo} type="video/mp4" />
         </video>
+
+        {/* Video Play/Pause toggle for accessibility */}
+        <button
+          onClick={toggleVideoPlayback}
+          className="absolute bottom-6 right-6 lg:bottom-12 lg:right-12 z-20 flex size-10 items-center justify-center rounded-full bg-black/40 text-white dark:text-white/70 backdrop-blur-md transition-all hover:bg-black/60 hover:text-white dark:text-white"
+          aria-label={isVideoPlaying ? 'Pause background video' : 'Play background video'}
+        >
+          {isVideoPlaying ? (
+            <svg className="size-4" fill="currentColor" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+          ) : (
+            <svg className="size-4" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          )}
+        </button>
 
         <div
           className="absolute inset-0 z-10 bg-gradient-to-b from-[#020617]/70 via-[#020617]/60 to-[#020617]/90"
@@ -138,7 +165,7 @@ function LandingSection() {
             style={{ animationDelay: '0.3s' }}
           >
             <span
-              className="block text-3xl text-white/95 sm:text-5xl lg:text-[3.5rem] xl:text-[4.5rem]"
+              className="block text-3xl text-white dark:text-white/95 sm:text-5xl lg:text-[3.5rem] xl:text-[4.5rem]"
               style={{
                 letterSpacing: '-0.01em',
                 lineHeight: '1.2',
@@ -209,7 +236,7 @@ function LandingSection() {
                 { val: countdown.seconds, label: 'Sec' },
               ].map(({ val, label }) => (
                 <div key={label} className="flex flex-col items-center">
-                  <div className="countdown-cell flex size-14 items-center justify-center rounded-xl border border-white/[0.08] bg-white/[0.03] font-orbitron text-xl font-bold tabular-nums text-white backdrop-blur-sm sm:size-[4.5rem] sm:text-2xl">
+                  <div className="countdown-cell flex size-14 items-center justify-center rounded-xl border border-white/[0.08] bg-white/[0.03] font-orbitron text-xl font-bold tabular-nums text-white dark:text-white backdrop-blur-sm sm:size-[4.5rem] sm:text-2xl">
                     {String(val).padStart(2, '0')}
                   </div>
                   <span className="mt-1.5 font-body text-[8px] font-semibold uppercase tracking-[0.25em] text-iwd-gold-400/45 sm:text-[9px]">
@@ -241,7 +268,7 @@ function LandingSection() {
                 key={stat.label}
                 className="flex flex-col items-center px-5 sm:px-8"
               >
-                <span className="font-orbitron text-xl font-bold text-white sm:text-2xl">
+                <span className="font-orbitron text-xl font-bold text-white dark:text-white sm:text-2xl">
                   {animatedStats[i]}
                   {stat.suffix}
                 </span>
@@ -254,7 +281,7 @@ function LandingSection() {
 
           {/* Description */}
           <p
-            className="hero-stagger mb-10 max-w-xl font-body text-[15px] font-light leading-[1.8] text-white/55 sm:mb-12 sm:text-base"
+            className="hero-stagger mb-10 max-w-xl font-body text-[15px] font-light leading-[1.8] text-white dark:text-white/55 sm:mb-12 sm:text-base"
             style={{ animationDelay: '1.05s' }}
           >
             A day of learning, building, connecting, and empowering women and
@@ -272,12 +299,16 @@ function LandingSection() {
           >
             <CTAButton
               href="#membership"
+              target="_self"
+              rel=""
               label="STAY UPDATED"
               icon={<FaTicket />}
               ariaLabel="Stay updated on the IWD Innovation Summit 2026"
             />
             <CTAButton
               href="#speakers"
+              target="_self"
+              rel=""
               label="MEET THE SPEAKERS"
               variant="secondary"
               ariaLabel="View the speaker lineup"
@@ -289,7 +320,7 @@ function LandingSection() {
             <a
               href="#attendees"
               aria-label="Scroll to content"
-              className="group flex flex-col items-center gap-2.5 text-white/20 transition-colors duration-500 hover:text-white/50"
+              className="group flex flex-col items-center gap-2.5 text-white dark:text-white/20 transition-colors duration-500 hover:text-white dark:text-white/50"
             >
               <span className="font-body text-[9px] font-medium uppercase tracking-[0.4em]">
                 Scroll

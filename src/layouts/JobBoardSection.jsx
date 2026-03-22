@@ -8,7 +8,7 @@ const JobBoardSection = ({ year = new Date().getFullYear() }) => {
   return (
     <section
       id="jobboard"
-      className="relative overflow-hidden bg-iwd-black-900 px-6 py-24 sm:px-10 md:px-14 lg:px-16"
+      className="relative overflow-hidden bg-iwd-surface-raised dark:bg-iwd-black-900 px-6 py-24 sm:px-10 md:px-14 lg:px-16"
     >
       {/* Accent glow */}
       <div
@@ -30,7 +30,7 @@ const JobBoardSection = ({ year = new Date().getFullYear() }) => {
           <div className="h-px w-10 bg-gradient-to-l from-transparent to-iwd-gold-400/40 sm:w-14" />
         </div>
 
-        <h2 className="mb-3 text-center font-heading text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
+        <h2 className="mb-3 text-center font-heading text-3xl font-bold text-white dark:text-white sm:text-4xl lg:text-5xl">
           {year && !isCurrentYear ? `${year} ` : ''}Job{' '}
           <span className="bg-gradient-to-r from-iwd-gold-300 via-iwd-gold-400 to-iwd-gold-300 bg-clip-text text-transparent">
             Board
@@ -72,14 +72,14 @@ const JobBoardSection = ({ year = new Date().getFullYear() }) => {
                       <img
                         src={company.logo}
                         alt={`${company.name} logo`}
-                        className="relative size-24 object-contain transition-transform duration-500 group-hover:scale-110"
+                        className="relative size-24 object-contain transition-transform duration-500 group-hover:scale-110 invert dark:invert-0"
                         loading="lazy"
                       />
                     </div>
                   </div>
                   {/* Company name */}
                   <div className="flex flex-col">
-                    <h3 className="min-w-0 pr-4 text-center text-xl font-black tracking-tight text-white transition-colors duration-300 sm:text-left">
+                    <h3 className="min-w-0 pr-4 text-center text-xl font-black tracking-tight text-white dark:text-white transition-colors duration-300 sm:text-left">
                       {company.name}
                     </h3>
                     <span className="mt-1 text-center text-xs font-semibold uppercase tracking-widest text-iwd-gold-400/50 sm:text-left">

@@ -11,7 +11,7 @@ function Footer() {
     <footer
       id="page-footer"
       role="contentinfo"
-      className="relative flex flex-col bg-iwd-black-900 text-white"
+      className="relative flex flex-col bg-iwd-surface-raised dark:bg-iwd-black-900 text-white dark:text-white"
     >
       {/* Gradient top border */}
       <div className="h-px w-full bg-gradient-to-r from-transparent via-iwd-gold-400/30 to-transparent" />
@@ -52,7 +52,7 @@ function Footer() {
       {/* Credits section */}
       <div
         id="footer-credits"
-        className="relative mx-auto w-full max-w-full border-t border-white/[0.06] bg-iwd-black-950 px-6 pb-24 pt-12 lg:px-8"
+        className="relative mx-auto w-full max-w-full border-t border-white/[0.06] bg-iwd-surface-raised dark:bg-iwd-black-950 px-6 pb-24 pt-12 lg:px-8"
       >
         {/* Subtle accent glow */}
         <div

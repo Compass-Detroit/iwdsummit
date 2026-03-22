@@ -35,7 +35,7 @@ function AttendeeSection() {
   return (
     <section
       id="attendees"
-      className="relative overflow-hidden bg-iwd-black-950 py-24 sm:py-32"
+      className="relative overflow-hidden bg-iwd-surface-raised dark:bg-iwd-black-950 py-24 sm:py-32"
     >
       <SectionSkipLink href="#location">Skip attendees section</SectionSkipLink>
 
@@ -51,7 +51,7 @@ function AttendeeSection() {
           Our Community
         </p>
 
-        <h2 className="mb-5 font-heading text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
+        <h2 className="mb-5 font-heading text-3xl font-bold text-white dark:text-white sm:text-4xl lg:text-5xl">
           Companies That{' '}
           <span className="bg-gradient-to-r from-iwd-gold-300 via-iwd-gold-400 to-iwd-gold-300 bg-clip-text text-transparent">
             Show Up
@@ -106,7 +106,7 @@ function AttendeeSection() {
                 src={img.src}
                 alt={img.name}
                 loading="lazy"
-                className="logo-halo h-20 max-w-[180px] object-contain transition-all duration-500 group-hover:scale-105 group-hover:drop-shadow-[0_0_20px_rgba(255,255,255,0.15)] sm:h-28 sm:max-w-[260px]"
+                className="logo-halo h-20 max-w-[180px] object-contain transition-all duration-500 group-hover:scale-105 group-hover:drop-shadow-[0_0_20px_rgba(255,255,255,0.15)] sm:h-28 sm:max-w-[260px] invert dark:invert-0"
               />
               <div className="absolute inset-x-0 bottom-0 flex items-center justify-center bg-gradient-to-t from-iwd-black-950/80 via-iwd-black-950/40 to-transparent px-3 pb-3 pt-8 opacity-0 transition-all duration-300 group-hover:opacity-100">
                 <span className="font-body text-xs font-medium tracking-wide text-gray-200">
@@ -139,7 +139,7 @@ function AttendeeSection() {
                 src={img.src}
                 alt={img.name}
                 loading="lazy"
-                className="logo-halo h-20 max-w-[180px] object-contain transition-all duration-500 group-hover:scale-105 group-hover:drop-shadow-[0_0_20px_rgba(255,255,255,0.15)] sm:h-28 sm:max-w-[260px]"
+                className="logo-halo h-20 max-w-[180px] object-contain transition-all duration-500 group-hover:scale-105 group-hover:drop-shadow-[0_0_20px_rgba(255,255,255,0.15)] sm:h-28 sm:max-w-[260px] invert dark:invert-0"
               />
               <div className="absolute inset-x-0 bottom-0 flex items-center justify-center bg-gradient-to-t from-iwd-black-950/80 via-iwd-black-950/40 to-transparent px-3 pb-3 pt-8 opacity-0 transition-all duration-300 group-hover:opacity-100">
                 <span className="font-body text-xs font-medium tracking-wide text-gray-200">

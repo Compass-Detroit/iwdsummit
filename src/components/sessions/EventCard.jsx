@@ -98,7 +98,7 @@ const EventCard = ({
           {track}
         </span>
 
-        <h4 className="mb-2 text-base font-bold leading-tight text-white">
+        <h4 className="mb-2 text-base font-bold leading-tight text-white dark:text-white">
           {title}
         </h4>
 
@@ -113,7 +113,7 @@ const EventCard = ({
   if (compact) {
     return (
       <div className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-3">
-        <h4 className="mb-1 text-base font-bold text-white">{title}</h4>
+        <h4 className="mb-1 text-base font-bold text-white dark:text-white">{title}</h4>
         <p className="text-sm leading-relaxed text-gray-400">{description}</p>
       </div>
     )
@@ -128,7 +128,7 @@ const EventCard = ({
           : 'md:mr-auto md:w-[calc(50%-3rem)]'
       }`}
     >
-      <h4 className="mb-2 text-lg font-bold text-white md:text-xl">{title}</h4>
+      <h4 className="mb-2 text-lg font-bold text-white dark:text-white md:text-xl">{title}</h4>
 
       {/* Hover tooltip */}
       <div
@@ -136,7 +136,7 @@ const EventCard = ({
           alignRight
             ? 'right-0 top-full mr-4 mt-2'
             : 'left-0 top-full ml-4 mt-2'
-        } w-full max-w-72 rounded-lg border border-white/10 bg-iwd-black-900 p-4 shadow-xl`}
+        } w-full max-w-72 rounded-lg border border-white/10 bg-iwd-surface-raised dark:bg-iwd-black-900 p-4 shadow-xl`}
       >
         <div className="text-base leading-relaxed text-gray-300">
           {description}

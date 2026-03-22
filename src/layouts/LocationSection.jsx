@@ -65,7 +65,7 @@ function LocationSection() {
   return (
     <section
       id="location"
-      className="relative overflow-hidden bg-iwd-black-900 py-24 text-white md:py-32"
+      className="relative overflow-hidden bg-iwd-surface-raised dark:bg-iwd-black-900 py-24 text-white dark:text-white md:py-32"
       aria-labelledby="location-heading"
     >
       {/* Accent glow */}
@@ -93,7 +93,7 @@ function LocationSection() {
 
           <h2
             id="location-heading"
-            className="text-center font-heading text-4xl font-bold text-white sm:text-5xl lg:text-6xl"
+            className="text-center font-heading text-4xl font-bold text-white dark:text-white sm:text-5xl lg:text-6xl"
           >
             When &{' '}
             <span className="bg-gradient-to-r from-iwd-gold-300 via-iwd-gold-400 to-iwd-gold-300 bg-clip-text text-transparent">
@@ -113,7 +113,7 @@ function LocationSection() {
                   aria-hidden="true"
                 />
               </div>
-              <h3 className="text-xl font-semibold text-white">When</h3>
+              <h3 className="text-xl font-semibold text-white dark:text-white">When</h3>
             </div>
             <p className="font-orbitron text-lg font-semibold tracking-wide text-iwd-gold-300">
               March 28, 2026
@@ -131,9 +131,9 @@ function LocationSection() {
                   aria-hidden="true"
                 />
               </div>
-              <h3 className="text-xl font-semibold text-white">Venue</h3>
+              <h3 className="text-xl font-semibold text-white dark:text-white">Venue</h3>
             </div>
-            <p className="mb-2 text-2xl font-bold text-white">
+            <p className="mb-2 text-2xl font-bold text-white dark:text-white">
               Little Caesars Global Resource Center
             </p>
             <p className="mb-4 text-lg text-gray-300">
@@ -141,7 +141,7 @@ function LocationSection() {
             </p>
             <div className="flex flex-wrap gap-3">
               <a
-                href="https://goo.gl/maps/Q3sVnB8Fz4F6XUvz7"
+                href="https://maps.app.goo.gl/B39TqZ2mK6qPz89A7"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-lg border border-iwd-gold-500/30 bg-iwd-gold-500/10 px-4 py-2 text-sm font-semibold text-iwd-gold-300 transition-colors hover:bg-iwd-gold-500/20"
@@ -159,7 +159,7 @@ function LocationSection() {
             <h3 className="mb-6 font-heading text-xl font-bold uppercase tracking-widest text-iwd-gold-400/80">
               Venue Gallery
             </h3>
-            <div className="group relative aspect-[21/9] w-full overflow-hidden rounded-3xl border border-white/[0.08] bg-iwd-black-950/50 shadow-2xl transition-all duration-500 hover:border-iwd-gold-400/30">
+            <div className="group relative aspect-[21/9] w-full overflow-hidden rounded-3xl border border-white/[0.08] bg-iwd-surface-raised dark:bg-iwd-black-950/50 shadow-2xl transition-all duration-500 hover:border-iwd-gold-400/30">
               {/* Carousel Content */}
               {VENUE_IMAGES.map((img, idx) => (
                 <div
@@ -175,11 +175,11 @@ function LocationSection() {
                   />
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
                   <div className="absolute left-8 top-8 flex items-start justify-start gap-4">
-                    <div className="flex flex-col gap-1 rounded-md bg-iwd-black-950/50 px-4 py-2 backdrop-blur-md">
+                    <div className="flex flex-col gap-1 rounded-md bg-iwd-surface-raised dark:bg-iwd-black-950/50 px-4 py-2 backdrop-blur-md">
                       <span className="text-sm font-black uppercase tracking-[0.2em] text-iwd-gold-400">
                         Location Highlight
                       </span>
-                      <span className="text-2xl font-bold text-white drop-shadow-md">
+                      <span className="text-2xl font-bold text-white dark:text-white drop-shadow-md">
                         {img.label}
                       </span>
                     </div>
@@ -223,7 +223,7 @@ function LocationSection() {
                     e.stopPropagation()
                     prevImg()
                   }}
-                  className="pointer-events-auto flex size-14 items-center justify-center rounded-full border border-white/10 bg-black/60 text-white opacity-0 backdrop-blur-xl transition-all hover:border-iwd-gold-400/40 hover:bg-iwd-gold-500/20 group-hover:opacity-100"
+                  className="pointer-events-auto flex size-14 items-center justify-center rounded-full border border-white/10 bg-black/60 text-white dark:text-white opacity-0 backdrop-blur-xl transition-all hover:border-iwd-gold-400/40 hover:bg-iwd-gold-500/20 group-hover:opacity-100"
                   aria-label="Previous Image"
                 >
                   <FaChevronLeft className="size-6" />
@@ -233,7 +233,7 @@ function LocationSection() {
                     e.stopPropagation()
                     nextImg()
                   }}
-                  className="pointer-events-auto flex size-14 items-center justify-center rounded-full border border-white/10 bg-black/60 text-white opacity-0 backdrop-blur-xl transition-all hover:border-iwd-gold-400/40 hover:bg-iwd-gold-500/20 group-hover:opacity-100"
+                  className="pointer-events-auto flex size-14 items-center justify-center rounded-full border border-white/10 bg-black/60 text-white dark:text-white opacity-0 backdrop-blur-xl transition-all hover:border-iwd-gold-400/40 hover:bg-iwd-gold-500/20 group-hover:opacity-100"
                   aria-label="Next Image"
                 >
                   <FaChevronRight className="size-6" />
@@ -247,7 +247,7 @@ function LocationSection() {
             <h3 className="mb-6 font-heading text-xl font-bold uppercase tracking-widest text-iwd-gold-400/80">
               Little Caesars HQ
             </h3>
-            <div className="relative aspect-[21/9] w-full overflow-hidden rounded-3xl border border-white/[0.1] bg-iwd-black-950/50 shadow-2xl">
+            <div className="relative aspect-[21/9] w-full overflow-hidden rounded-3xl border border-white/[0.1] bg-iwd-surface-raised dark:bg-iwd-black-950/50 shadow-2xl">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1474.743169822604!2d-83.05315364177726!3d42.338780280806414!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8824d2ca78df0e73%3A0xe54d6afcc1dacc7!2sLittle%20Caesars%20Global%20Resource%20Center!5e0!3m2!1sen!2sus!4v1711204899999!5m2!1sen!2sus"
                 width="100%"
@@ -286,7 +286,7 @@ function LocationSection() {
                   aria-hidden="true"
                 />
               </div>
-              <h3 className="text-xl font-semibold text-white">
+              <h3 className="text-xl font-semibold text-white dark:text-white">
                 Parking Options
               </h3>
             </div>
@@ -296,7 +296,7 @@ function LocationSection() {
                   1
                 </div>
                 <div>
-                  <strong className="mb-1 block text-white">
+                  <strong className="mb-1 block text-white dark:text-white">
                     Fox Garage (Recommended)
                   </strong>
                   <p className="text-sm leading-relaxed text-gray-400">
@@ -310,7 +310,7 @@ function LocationSection() {
                   2
                 </div>
                 <div>
-                  <strong className="mb-1 block text-white">
+                  <strong className="mb-1 block text-white dark:text-white">
                     Opera House Garage
                   </strong>
                   <p className="text-sm leading-relaxed text-gray-400">
@@ -324,7 +324,7 @@ function LocationSection() {
                   3
                 </div>
                 <div>
-                  <strong className="mb-1 block text-white">
+                  <strong className="mb-1 block text-white dark:text-white">
                     Comerica Park Lots
                   </strong>
                   <p className="text-sm leading-relaxed text-gray-400">
@@ -337,7 +337,7 @@ function LocationSection() {
                   4
                 </div>
                 <div>
-                  <strong className="mb-1 block text-white">
+                  <strong className="mb-1 block text-white dark:text-white">
                     MGM Grand Garage (Free)
                   </strong>
                   <p className="text-sm leading-relaxed text-gray-400">
@@ -351,7 +351,7 @@ function LocationSection() {
 
           {/* Entrance Card */}
           <div className="group rounded-2xl border border-white/[0.06] bg-white/[0.02] p-8 backdrop-blur-sm transition-all duration-300 hover:border-white/[0.12] hover:bg-white/[0.04]">
-            <h3 className="mb-3 text-xl font-semibold text-white">Entrance</h3>
+            <h3 className="mb-3 text-xl font-semibold text-white dark:text-white">Entrance</h3>
             <p className="text-sm leading-relaxed text-gray-400">
               Enter through the main front doors on Woodward Avenue. Check-in is
               located in the main lobby. Have your registration QR code ready.

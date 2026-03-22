@@ -9,7 +9,7 @@ const SponsorsSection = ({
   return (
     <section
       id="sponsors"
-      className="relative overflow-hidden bg-iwd-black-950 px-6 py-24 sm:px-10 md:px-14 lg:px-16"
+      className="relative overflow-hidden bg-iwd-surface-raised dark:bg-iwd-black-950 px-6 py-24 sm:px-10 md:px-14 lg:px-16"
     >
       {/* Accent glow */}
       <div
@@ -33,7 +33,7 @@ const SponsorsSection = ({
           <div className="h-px w-10 bg-gradient-to-l from-transparent to-iwd-gold-400/40 sm:w-14" />
         </div>
 
-        <h2 className="mb-3 w-full text-center font-heading text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
+        <h2 className="mb-3 w-full text-center font-heading text-3xl font-bold text-white dark:text-white sm:text-4xl lg:text-5xl">
           {year && !isCurrentYear ? `${year} ` : ''}
           <span className="bg-gradient-to-r from-iwd-gold-300 via-iwd-gold-400 to-iwd-gold-300 bg-clip-text text-transparent">
             Sponsors
@@ -58,12 +58,12 @@ const SponsorsSection = ({
                       <img
                         src={sponsor.logo}
                         alt={`${sponsor.name} logo`}
-                        className="logo-halo max-h-24 max-w-[160px] object-contain transition-transform duration-300 group-hover:scale-105"
+                        className="logo-halo max-h-24 max-w-[160px] object-contain transition-transform duration-300 group-hover:scale-105 invert dark:invert-0"
                         loading="lazy"
                       />
                     </div>
                     <div className="min-w-0 text-center sm:text-left">
-                      <h3 className="text-lg font-semibold text-white">
+                      <h3 className="text-lg font-semibold text-white dark:text-white">
                         {sponsor.name}
                       </h3>
                       <p className="mt-1 line-clamp-3 text-sm leading-relaxed text-gray-400">

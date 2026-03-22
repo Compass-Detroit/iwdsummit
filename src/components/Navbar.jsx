@@ -300,8 +300,8 @@ function Navbar() {
                 aria-current={isActive ? 'page' : undefined}
                 className={`relative px-2 py-4 pb-2 text-[13px] font-medium uppercase tracking-[0.12em] transition-colors duration-300 ${
                   isActive
-                    ? 'text-white after:w-full after:opacity-100'
-                    : 'text-gray-300 after:w-0 after:opacity-0 hover:text-white'
+                    ? 'text-white dark:text-white after:w-full after:opacity-100'
+                    : 'text-gray-300 after:w-0 after:opacity-0 hover:text-white dark:text-white'
                 } after:absolute after:bottom-0 after:left-0 after:h-px after:bg-gradient-to-r after:from-transparent after:via-iwd-gold-400 after:to-transparent after:transition-all after:duration-300 after:ease-in-out`}
               >
                 {section.text}
@@ -323,8 +323,8 @@ function Navbar() {
               aria-current={isActive ? 'page' : undefined}
               className={`relative px-2 py-4 pb-2 text-[13px] font-medium uppercase tracking-[0.12em] transition-colors duration-300 ${
                 isActive
-                  ? 'text-white after:w-full after:opacity-100'
-                  : 'text-gray-300 after:w-0 after:opacity-0 hover:text-white'
+                  ? 'text-white dark:text-white after:w-full after:opacity-100'
+                  : 'text-gray-300 after:w-0 after:opacity-0 hover:text-white dark:text-white'
               } after:absolute after:bottom-0 after:left-0 after:h-px after:bg-gradient-to-r after:from-transparent after:via-iwd-gold-400 after:to-transparent after:transition-all after:duration-300 after:ease-in-out`}
             >
               {section.text}
@@ -337,7 +337,7 @@ function Navbar() {
 
   // Mobile Navigation List (section links + route links like Previous Events)
   const mobileNavList = (
-    <ul className="flex flex-col space-y-2 p-4 text-white">
+    <ul className="flex flex-col space-y-2 p-4 text-white dark:text-white">
       {sections.map((section) => {
         const isRouteLink = !!section.to
         const linkKey = section.id || section.to
@@ -394,8 +394,8 @@ function Navbar() {
       aria-label="Main navigation"
       className={`site-header fixed left-0 top-0 z-30 w-screen transition-all duration-500 ${
         activeLink === 'landing' && isHomePage
-          ? 'bg-iwd-black-950/80 text-white backdrop-blur-xl'
-          : 'bg-iwd-black-950/95 text-gray-100 shadow-lg shadow-black/20 backdrop-blur-xl'
+          ? 'bg-iwd-surface-raised dark:bg-iwd-black-950/80 text-white dark:text-white backdrop-blur-xl'
+          : 'bg-iwd-surface-raised dark:bg-iwd-black-950/95 text-gray-100 dark:text-gray-100 shadow-lg shadow-black/20 backdrop-blur-xl'
       }`}
     >
       {/* Screen Reader Announcements */}
@@ -425,7 +425,7 @@ function Navbar() {
 
         <div className="flex items-center gap-2">
           {/* Desktop Navigation */}
-          <div className="hidden xl:block">{desktopNavList}</div>
+          <div className="hidden min-[1500px]:block">{desktopNavList}</div>
 
           {/* Theme Switcher */}
           <FontSwitcher />
@@ -438,10 +438,10 @@ function Navbar() {
             aria-label={isNavVisible ? 'Close Main Menu' : 'Open Main Menu'}
             aria-expanded={isNavVisible}
             aria-controls="mobile-navigation"
-            className={`mr-2 touch-manipulation rounded border-2 p-2 transition-colors sm:px-4 xl:hidden ${
+            className={`mr-2 touch-manipulation rounded border-2 p-2 transition-colors sm:px-4 max-[1499px]:block min-[1500px]:hidden ${
               activeLink === 'landing' && isHomePage
-                ? 'border-iwd-gold-400/40 text-white hover:bg-iwd-gold-400/10 active:bg-iwd-gold-400/20'
-                : 'border-gray-600 text-gray-100 hover:bg-gray-700 active:bg-gray-600'
+                ? 'border-iwd-gold-400/40 text-white dark:text-white hover:bg-iwd-gold-400/10 active:bg-iwd-gold-400/20'
+                : 'border-gray-600 text-gray-100 dark:text-gray-100 hover:bg-gray-700 active:bg-gray-600'
             }`}
             onClick={(e) => {
               e.preventDefault()
@@ -475,15 +475,15 @@ function Navbar() {
       </div>
 
       {/* Mobile Navigation */}
-      <div className="w-full max-w-full overflow-hidden xl:hidden">
+      <div className="w-full max-w-full overflow-hidden min-[1500px]:hidden">
         {isNavVisible && (
           <div
             id="mobile-navigation"
             aria-labelledby="mobile-menu-button"
             className={`nav-menu-expanded block w-full overflow-hidden shadow-lg ${
               activeLink === 'landing' && isHomePage
-                ? 'bg-iwd-black-950/95 backdrop-blur-xl'
-                : 'bg-iwd-black-950/95 text-white backdrop-blur-xl'
+                ? 'bg-iwd-surface-raised dark:bg-iwd-black-950/95 backdrop-blur-xl'
+                : 'bg-iwd-surface-raised dark:bg-iwd-black-950/95 text-white dark:text-white backdrop-blur-xl'
             }`}
             style={{
               transform: 'translateZ(0)',

@@ -2,6 +2,8 @@ import typography from '@tailwindcss/typography'
 
 /** @type {import('tailwindcss').Config} */
 export default {
+  // Match app ThemeContext (data-mode on <html>), not OS prefers-color-scheme
+  darkMode: ['selector', '[data-mode="dark"]'],
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   safelist: [
     'ribbon-organizer',

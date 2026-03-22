@@ -48,7 +48,7 @@ const trackDescriptions = {
     <>
       <h3
         id="build-with-ai-heading"
-        className="mx-auto mb-4 text-center text-xl font-semibold text-white sm:text-2xl"
+        className="mx-auto mb-4 text-center text-xl font-semibold text-white dark:text-white sm:text-2xl"
       >
         <span className="font-bold">Build with AI Stage</span> is located in
         Service Building 120 (SB{'\u00A0'}120)
@@ -59,7 +59,7 @@ const trackDescriptions = {
     <>
       <h3
         id="innovation-heading"
-        className="mx-auto mb-4 text-center text-xl font-semibold text-white sm:text-2xl"
+        className="mx-auto mb-4 text-center text-xl font-semibold text-white dark:text-white sm:text-2xl"
       >
         <span className="font-bold">Innovation Stage</span> is located on the
         1st floor of Walker Crisler Building (WCB), Room{'\u00A0'}103
@@ -74,7 +74,7 @@ const trackDescriptions = {
     <>
       <h3
         id="level-up-heading"
-        className="mx-auto mb-4 text-center text-xl font-semibold text-white sm:text-2xl"
+        className="mx-auto mb-4 text-center text-xl font-semibold text-white dark:text-white sm:text-2xl"
       >
         <span className="font-bold">Level Up Stage</span> is located in Town
         Square
@@ -90,7 +90,7 @@ const trackDescriptions = {
     <>
       <h3
         id="leadership-heading"
-        className="mx-auto mb-4 text-center text-xl font-semibold text-white sm:text-2xl"
+        className="mx-auto mb-4 text-center text-xl font-semibold text-white dark:text-white sm:text-2xl"
       >
         <span className="font-bold">Leadership Stage</span> is located in Walker
         Crisler Building Floor 2 Rooms 275 and 278 (WCB{'\u00A0'}275{'\u00A0'}
@@ -107,7 +107,7 @@ const trackDescriptions = {
     <>
       <h3
         id="ai-foundations-heading"
-        className="mx-auto mb-4 text-center text-xl font-semibold text-white sm:text-2xl"
+        className="mx-auto mb-4 text-center text-xl font-semibold text-white dark:text-white sm:text-2xl"
       >
         <span className="font-bold">AI Foundations Stage</span> is located in
         Walker Crisler Building Floor 1 Room 105 (WCB{'\u00A0'}105)
@@ -121,7 +121,7 @@ const trackDescriptions = {
     <>
       <h3
         id="careers-heading"
-        className="mx-auto mb-4 text-center text-xl font-semibold text-white sm:text-2xl"
+        className="mx-auto mb-4 text-center text-xl font-semibold text-white dark:text-white sm:text-2xl"
       >
         <span className="font-bold">Careers Stage</span> is located in Walker
         Crisler Building Floor 1
@@ -132,7 +132,7 @@ const trackDescriptions = {
     <>
       <h3
         id="breakout-sessions-heading"
-        className="mx-auto mb-4 text-center text-xl font-semibold text-white sm:text-2xl"
+        className="mx-auto mb-4 text-center text-xl font-semibold text-white dark:text-white sm:text-2xl"
       >
         <span className="font-bold">Breakout Sessions</span> is located on the
         2nd floor of Walker Crisler Building (WCB),{'\u00A0'}Room{'\u00A0'}255
@@ -147,7 +147,7 @@ const trackDescriptions = {
     <>
       <h3
         id="map-heading"
-        className="mx-auto mb-4 text-center text-xl font-normal text-white sm:text-2xl"
+        className="mx-auto mb-4 text-center text-xl font-normal text-white dark:text-white sm:text-2xl"
       >
         <span className="font-bold">IWD Innovation Summit Venue Guide</span>
       </h3>
@@ -316,6 +316,15 @@ const SessionsSection = ({
           : Math.min(tabs.length - 1, index + 1)
       setActiveTab(nextIndex)
       buttonRefs.current[nextIndex]?.focus()
+    } else if (event.key === 'Home') {
+      event.preventDefault()
+      setActiveTab(0)
+      buttonRefs.current[0]?.focus()
+    } else if (event.key === 'End') {
+      event.preventDefault()
+      const last = tabs.length - 1
+      setActiveTab(last)
+      buttonRefs.current[last]?.focus()
     } else if (event.key === 'Enter' || event.key === ' ') {
       event.preventDefault()
       activateTab(index, true)
@@ -348,7 +357,7 @@ const SessionsSection = ({
   return (
     <section
       id="schedule"
-      className="relative flex flex-col items-center justify-start bg-iwd-black-950 p-4 pb-24 pt-16 sm:px-10 md:px-14 lg:px-16"
+      className="relative flex flex-col items-center justify-start bg-iwd-surface-raised dark:bg-iwd-black-950 p-4 pb-24 pt-16 sm:px-10 md:px-14 lg:px-16"
     >
       <SectionSkipLink href="#membership">
         Skip sessions navigation
@@ -359,7 +368,7 @@ const SessionsSection = ({
             isExpanded ? `Collapse ${year} Sessions` : `Expand ${year} Sessions`
           }
           onClick={toggleExpanded}
-          className="absolute left-0 top-3 cursor-pointer items-center text-white transition-colors hover:text-gray-400 sm:top-4"
+          className="absolute left-0 top-3 cursor-pointer items-center text-white dark:text-white transition-colors hover:text-gray-400 sm:top-4"
         >
           <IoChevronDown
             className={`size-6 shrink-0 text-iwd-gold-300 sm:size-7 md:size-8 lg:size-9 ${
@@ -371,7 +380,7 @@ const SessionsSection = ({
           <p className="mb-4 font-body text-xs font-medium uppercase tracking-[0.3em] text-iwd-gold-400/80">
             What&rsquo;s Happening
           </p>
-          <h2 className="mb-5 font-heading text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
+          <h2 className="mb-5 font-heading text-3xl font-bold text-white dark:text-white sm:text-4xl lg:text-5xl">
             {year}{' '}
             <span className="bg-gradient-to-r from-iwd-gold-300 via-iwd-gold-400 to-iwd-gold-300 bg-clip-text text-transparent">
               Schedule
@@ -407,8 +416,9 @@ const SessionsSection = ({
             <div
               ref={navRef}
               role="tablist"
+              aria-orientation="horizontal"
               id="sessions-nav"
-              className={`scrollbar-hide flex w-full flex-nowrap items-center justify-start gap-3 overflow-x-auto overflow-y-visible rounded-2xl border border-white/5 bg-iwd-black-950/50 p-3 backdrop-blur-md md:justify-center md:px-6 ${
+              className={`scrollbar-hide flex w-full flex-nowrap items-center justify-start gap-3 overflow-x-auto overflow-y-visible rounded-2xl border border-white/5 bg-iwd-surface-raised dark:bg-iwd-black-950/50 p-3 backdrop-blur-md md:justify-center md:px-6 ${
                 isExpanded
                   ? 'max-h-none opacity-100'
                   : 'max-h-0 opacity-0 transition-all'
@@ -434,7 +444,7 @@ const SessionsSection = ({
                     className={`relative shrink-0 whitespace-nowrap rounded-md p-2 text-xs font-semibold uppercase tracking-wider transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-focus-ring focus:ring-offset-2 focus:ring-offset-black md:min-w-20 md:px-3 md:py-2 lg:min-w-36 lg:px-4 lg:text-sm ${
                       activeTab === index
                         ? 'border border-iwd-gold-400/40 bg-iwd-gold-400/15 text-iwd-gold-300 shadow-lg shadow-iwd-gold-500/10 after:absolute after:-bottom-3 after:left-1/2 after:block after:size-0 after:-translate-x-1/2 after:border-x-[10px] after:border-t-[10px] after:border-iwd-gold-400/40 after:border-x-transparent'
-                        : 'border border-white/5 bg-white/[0.03] text-gray-400 hover:border-white/10 hover:bg-white/[0.06] hover:text-white'
+                        : 'border border-white/5 bg-white/[0.03] text-gray-400 hover:border-white/10 hover:bg-white/[0.06] hover:text-white dark:text-white'
                     }`}
                     onClick={() => activateTab(index, false)}
                     onFocus={(e) => scrollTabIntoView(e.currentTarget)}
@@ -515,7 +525,7 @@ const SessionsSection = ({
               <aside className="hidden w-full shrink-0 flex-col gap-6 lg:flex lg:w-80">
                 <div className="sticky top-32 rounded-2xl border border-white/5 bg-white/[0.02] p-6 backdrop-blur-xl">
                   <div className="mb-6 flex items-center justify-between border-b border-white/10 pb-4">
-                    <h4 className="font-heading text-lg font-black uppercase tracking-widest text-white">
+                    <h4 className="font-heading text-lg font-black uppercase tracking-widest text-white dark:text-white">
                       My Schedule
                     </h4>
                     <span className="rounded-full bg-iwd-gold-400/20 px-2 py-0.5 text-[10px] font-bold text-iwd-gold-300">
@@ -542,7 +552,7 @@ const SessionsSection = ({
                             <span className="text-[10px] font-black uppercase tracking-wider text-iwd-gold-400/60">
                               {s.sessionTime}
                             </span>
-                            <span className="line-clamp-1 text-xs font-bold text-white transition-colors group-hover:text-iwd-gold-300">
+                            <span className="line-clamp-1 text-xs font-bold text-white dark:text-white transition-colors group-hover:text-iwd-gold-300">
                               {s.sessionTitle}
                             </span>
                           </li>
@@ -550,14 +560,14 @@ const SessionsSection = ({
                       {savedSessionIds.length > 5 && (
                         <button
                           onClick={() => activateTab(0)}
-                          className="mt-2 text-left text-[10px] font-black uppercase tracking-widest text-white/30 transition-colors hover:text-white"
+                          className="mt-2 text-left text-[10px] font-black uppercase tracking-widest text-white dark:text-white/30 transition-colors hover:text-white dark:text-white"
                         >
                           + {savedSessionIds.length - 5} more in my schedule
                         </button>
                       )}
                     </ul>
                   ) : (
-                    <div className="flex flex-col items-center justify-center py-8 text-center text-white/20">
+                    <div className="flex flex-col items-center justify-center py-8 text-center text-white dark:text-white/20">
                       <svg
                         className="mb-3 size-8 opacity-20"
                         fill="none"

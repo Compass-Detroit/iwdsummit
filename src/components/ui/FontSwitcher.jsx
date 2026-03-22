@@ -37,7 +37,7 @@ function FontSwitcher() {
       {/* Font dropdown */}
       {open && (
         <div
-          className="absolute right-0 top-full z-50 mt-2 min-w-40 rounded-xl border border-white/10 bg-iwd-black-950/95 p-2 shadow-xl shadow-black/40 backdrop-blur-xl"
+          className="absolute right-0 top-full z-50 mt-2 min-w-40 rounded-xl border border-white/10 bg-iwd-surface-raised dark:bg-iwd-black-950/95 p-2 shadow-xl shadow-black/40 backdrop-blur-xl"
           role="radiogroup"
           aria-label="Font styles"
         >
@@ -74,7 +74,7 @@ function FontSwitcher() {
                   }}
                   className={`flex items-center justify-between rounded-lg px-3 py-2 text-left transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-white/30 ${
                     font === f.id
-                      ? 'bg-white/10 text-white'
+                      ? 'bg-white/10 text-white dark:text-white'
                       : 'text-gray-400 hover:bg-white/[0.06] hover:text-gray-200'
                   }`}
                 >

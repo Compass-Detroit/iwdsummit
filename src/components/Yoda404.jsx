@@ -69,7 +69,7 @@ const Yoda404 = () => {
       <div className="mt-8 flex flex-col gap-4 sm:flex-row">
         <Link
           to="/"
-          className="rounded-lg bg-emerald-800 px-8 py-3 font-semibold text-white shadow-lg transition-colors duration-200 hover:bg-emerald-900 hover:shadow-xl"
+          className="rounded-lg bg-emerald-800 px-8 py-3 font-semibold text-white dark:text-white shadow-lg transition-colors duration-200 hover:bg-emerald-900 hover:shadow-xl"
         >
           Return to Home
         </Link>

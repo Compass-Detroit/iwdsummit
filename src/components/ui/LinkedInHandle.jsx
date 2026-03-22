@@ -13,7 +13,7 @@ const LinkedInHandle = ({ handle, absolute = true }) => (
     }
     aria-label="Follow on LinkedIn - opens in new tab"
   >
-    <FaLinkedinIn className="size-5 text-white" aria-hidden="true" />
+    <FaLinkedinIn className="size-5 text-white dark:text-white" aria-hidden="true" />
   </a>
 )
 

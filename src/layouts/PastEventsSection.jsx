@@ -29,7 +29,7 @@ const PastEventsSection = () => {
   return (
     <section
       id="past-events"
-      className="relative overflow-hidden bg-iwd-black-950 py-24 sm:py-32"
+      className="relative overflow-hidden bg-iwd-surface-raised dark:bg-iwd-black-950 py-24 sm:py-32"
     >
       {/* Hand-drawn style background accents */}
       <div className="pointer-events-none absolute inset-0 opacity-20">
@@ -54,7 +54,7 @@ const PastEventsSection = () => {
           />
         </svg>
         <svg
-          className="absolute bottom-0 left-0 size-96 -translate-x-1/4 translate-y-1/4 text-white/5"
+          className="absolute bottom-0 left-0 size-96 -translate-x-1/4 translate-y-1/4 text-white dark:text-white/5"
           viewBox="0 0 400 400"
         >
           <path
@@ -72,7 +72,7 @@ const PastEventsSection = () => {
           <p className="mb-4 text-sm font-semibold uppercase tracking-[0.4em] text-iwd-gold-400/60">
             Our Legacy
           </p>
-          <h2 className="font-heading text-4xl font-black tracking-tight text-white sm:text-6xl">
+          <h2 className="font-heading text-4xl font-black tracking-tight text-white dark:text-white sm:text-6xl">
             Past{' '}
             <span className="bg-gradient-to-r from-iwd-gold-300 to-iwd-gold-500 bg-clip-text text-transparent">
               Events
@@ -89,11 +89,11 @@ const PastEventsSection = () => {
               key={event.year}
               className="group relative flex flex-col items-start rounded-3xl border border-white/10 bg-white/[0.02] p-8 transition-all duration-500 hover:bg-white/[0.04]"
             >
-              <div className="absolute -top-6 left-8 flex h-12 w-16 -skew-x-12 items-center justify-center rounded-xl border border-white/10 bg-iwd-black-900 text-2xl font-black text-iwd-gold-400 shadow-2xl transition-transform group-hover:skew-x-0">
+              <div className="absolute -top-6 left-8 flex h-12 w-16 -skew-x-12 items-center justify-center rounded-xl border border-white/10 bg-iwd-surface-raised dark:bg-iwd-black-900 text-2xl font-black text-iwd-gold-400 shadow-2xl transition-transform group-hover:skew-x-0">
                 {event.year}
               </div>
               <div className="mt-6">
-                <h3 className="text-xl font-bold uppercase tracking-tight text-white transition-colors group-hover:text-iwd-gold-300">
+                <h3 className="text-xl font-bold uppercase tracking-tight text-white dark:text-white">
                   {event.title}
                 </h3>
                 <p className="mt-2 text-sm font-medium uppercase tracking-wide text-iwd-gold-400/80">
@@ -106,11 +106,11 @@ const PastEventsSection = () => {
 
               {/* Hand-drawn 'connector' line */}
               <div className="relative mt-8 h-px w-full bg-gradient-to-r from-iwd-gold-400/20 via-iwd-gold-400/40 to-transparent">
-                <div className="absolute -right-1 -top-1 size-2 rounded-full border border-iwd-gold-400/40 bg-iwd-black-950" />
+                <div className="absolute -right-1 -top-1 size-2 rounded-full border border-iwd-gold-400/40 bg-iwd-surface-raised dark:bg-iwd-black-950" />
               </div>
 
               <div className="mt-6 flex items-center gap-x-4">
-                <button className="text-xs font-black uppercase tracking-widest text-white/50 transition-colors hover:text-white">
+                <button className="text-xs font-black uppercase tracking-widest text-white dark:text-white/50 transition-colors hover:text-white dark:text-white">
                   View Gallery →
                 </button>
               </div>

@@ -19,7 +19,14 @@ const GenericCard = ({
   }
 
   return (
-    <div className="group relative w-full max-w-sm">
+    <div
+      className={`group relative w-full max-w-sm ${onOpen ? 'cursor-pointer' : ''}`}
+      onClick={onOpen}
+      role={onOpen ? 'button' : undefined}
+      tabIndex={onOpen ? 0 : undefined}
+      onKeyDown={handleKeyDown}
+      aria-label={onOpen ? `View details for ${name}` : undefined}
+    >
       <div className="relative h-[27rem] overflow-hidden rounded-2xl border border-white/[0.06] bg-white/[0.02] shadow-lg backdrop-blur-sm transition-all duration-300 group-hover:-translate-y-1 group-hover:border-white/[0.12] group-hover:bg-white/[0.04] group-hover:shadow-xl group-hover:shadow-black/20">
         {/* Gradient header band */}
         <div className="relative h-24 overflow-hidden">
@@ -36,7 +43,7 @@ const GenericCard = ({
         <div className="relative -mt-12 flex justify-center">
           <div className="relative">
             <div className="rounded-full bg-gradient-to-br from-iwd-gold-300/80 via-iwd-gold-500/60 to-iwd-gold-300/80 p-[3px] shadow-lg shadow-iwd-gold-500/20">
-              <div className="size-[168px] rounded-full bg-iwd-black-950 p-0.5">
+              <div className="size-[168px] rounded-full bg-iwd-surface-raised dark:bg-iwd-black-950 p-0.5">
                 {avatar && (
                   <img
                     src={avatar}
@@ -62,7 +69,7 @@ const GenericCard = ({
 
         <div className="px-6 pb-6 pt-4 text-center">
           {name && (
-            <h3 className="mb-1 line-clamp-2 text-lg font-semibold text-white">
+            <h3 className="mb-1 line-clamp-2 text-lg font-semibold text-white dark:text-white">
               {name}
             </h3>
           )}
@@ -82,11 +89,7 @@ const GenericCard = ({
           {onOpen && (
             <button
               className="inline-flex items-center gap-1 rounded-lg border border-white/[0.08] bg-white/[0.04] px-4 py-2 text-xs font-medium text-gray-300 opacity-0 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-iwd-gold-400/30 hover:bg-iwd-gold-400/10 hover:text-iwd-gold-300 group-hover:opacity-100"
-              onClick={onOpen}
-              onKeyDown={handleKeyDown}
-              role={onOpen ? 'button' : undefined}
-              tabIndex={onOpen ? 0 : undefined}
-              aria-label={onOpen ? `View details for ${name}` : undefined}
+              tabIndex={-1}
             >
               View Details
               <IoChevronForward className="size-3" />

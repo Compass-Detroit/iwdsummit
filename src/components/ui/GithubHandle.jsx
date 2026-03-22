@@ -16,7 +16,7 @@ const GithubHandle = ({ handle, absolute = true }) => {
       }
       aria-label="Follow on GitHub - opens in new tab"
     >
-      <FaGithubAlt className="size-5 text-white" aria-hidden="true" />
+      <FaGithubAlt className="size-5 text-white dark:text-white" aria-hidden="true" />
     </a>
   )
 }

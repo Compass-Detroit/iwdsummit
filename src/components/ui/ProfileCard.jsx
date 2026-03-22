@@ -36,7 +36,7 @@ const ProfileCard = ({
       'Tech+Design': 'bg-red-800',
       Workshops: 'bg-orange-800',
       'AI Foundations': 'bg-red-800',
-      'Breakout Sessions': 'bg-iwd-black-800',
+      'Breakout Sessions': 'bg-iwd-surface-raised dark:bg-iwd-black-800',
     }
 
     if (track) return trackColors[track] || 'bg-red-700'
@@ -58,7 +58,7 @@ const ProfileCard = ({
       'bg-red-800': 'from-red-400/60 via-red-400/5',
       'bg-orange-900': 'from-orange-400/60 via-orange-400/5',
       'bg-iwd-gold-800': 'from-iwd-gold-400/60 via-iwd-gold-400/5',
-      'bg-iwd-black-800': 'from-iwd-black-800/60 via-iwd-black-800/5',
+      'bg-iwd-surface-raised dark:bg-iwd-black-800': 'from-iwd-black-800/60 via-iwd-black-800/5',
 
       // Legacy/fallback colors
       'bg-primary-300': 'from-primary-300/60 via-primary-300/5',
@@ -77,7 +77,7 @@ const ProfileCard = ({
   const renderBadge = track && (
     <div className="absolute bottom-4 right-4 z-10">
       <span
-        className={`inline-flex items-center gap-2 rounded-xl border border-white/10 ${badgeColor} px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-white shadow-lg backdrop-blur-sm`}
+        className={`inline-flex items-center gap-2 rounded-xl border border-white/10 ${badgeColor} px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-white dark:text-white shadow-lg backdrop-blur-sm`}
       >
         {track}
         {isGDE && (
@@ -164,7 +164,7 @@ const ProfileCard = ({
   const hasImage = Boolean(imageSrc)
 
   const renderSpeakerCard = (
-    <div className="group relative h-full overflow-hidden rounded-2xl border border-white/[0.06] bg-iwd-black-950 transition-all duration-500 hover:-translate-y-2 hover:border-iwd-gold-400/30 hover:shadow-[0_20px_50px_rgba(255,208,174,0.15)]">
+    <div className="group relative h-full overflow-hidden rounded-2xl border border-white/[0.06] bg-iwd-surface-raised dark:bg-iwd-black-950 transition-all duration-500 hover:-translate-y-2 hover:border-iwd-gold-400/30 hover:shadow-[0_20px_50px_rgba(255,208,174,0.15)]">
       {/* Animated Gradient Border (visible on hover) */}
       <div className="absolute inset-0 -z-10 bg-gradient-to-br from-iwd-gold-400/20 via-transparent to-iwd-gold-300/20 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
@@ -208,7 +208,7 @@ const ProfileCard = ({
 
         {/* Name + info overlaid on image bottom */}
         <div className="absolute inset-x-0 bottom-0 p-6 transition-transform duration-500 group-hover:translate-y-[-4px]">
-          <h3 className="font-heading text-2xl font-black text-white drop-shadow-2xl">
+          <h3 className="font-heading text-2xl font-black text-white dark:text-white drop-shadow-2xl">
             {name}
           </h3>
           {organization && (
@@ -220,7 +220,7 @@ const ProfileCard = ({
             </div>
           )}
           {position && (
-            <p className="mt-2 line-clamp-1 text-xs font-medium text-white/50">
+            <p className="mt-2 line-clamp-1 text-xs font-medium text-white dark:text-white/50">
               {position}
             </p>
           )}

@@ -57,7 +57,7 @@ function ActivityCard({
           </div>
           <div className="min-w-0 flex-1">
             {title && (
-              <h3 className="text-base font-semibold text-white md:text-xl">
+              <h3 className="text-base font-semibold text-white dark:text-white md:text-xl">
                 {title}
               </h3>
             )}
@@ -126,7 +126,7 @@ function ActivityCard({
                   className={`size-6 transition-transform ${
                     isSaved
                       ? 'scale-110 text-iwd-gold-400'
-                      : 'text-gray-400 hover:text-white'
+                      : 'text-gray-400 hover:text-white dark:text-white'
                   }`}
                   fill={isSaved ? 'currentColor' : 'none'}
                   stroke="currentColor"
