@@ -32,9 +32,7 @@ import TerrellMcKinney from './assets/images/speakers/TerrellMcKinney.webp'
 import SaamerMansoor from './assets/images/speakers/SaamerMansoor.webp'
 import UmeloOnyejiaka from './assets/images/speakers/UmeloOnyejiaka.webp'
 import DesmondBakerJr from './assets/images/speakers/DesmondBakerJr.webp'
-import RishirajSarkar from './assets/images/speakers/RishirajSarkar.webp'
 import HernandoGonzalezMalabet from './assets/images/speakers/HernandoGonzalezMalabet.webp'
-import PriyalSheth from './assets/images/speakers/PriyalSheth.webp'
 import SilviyaTopchiyska from './assets/images/speakers/SilviyaTopchiyska.webp'
 import TabiceWard from './assets/images/speakers/TabiceWard.webp'
 
@@ -496,29 +494,6 @@ export const SpeakersData = [
     isGDE: false,
   },
   {
-    id: 20,
-    name: 'Rishiraj Sarkar',
-    avatar: RishirajSarkar,
-    bio: 'Rishiraj is a graduate researcher in AI alignment and safety. His work focuses on making AI systems more interpretable and controllable.',
-    linkedIn: 'https://www.linkedin.com/in/rishirajsarkar',
-    organization: 'University of Michigan',
-    position: 'AI Research Fellow',
-    session: {
-      title: 'AI Alignment for Practitioners: What You Need to Know',
-      abstract:
-        "AI safety isn't just for researchers — it's for every engineer shipping AI.",
-      description:
-        "Rishiraj translates cutting-edge AI alignment research into practical guidance for engineers building AI products. He covers interpretability tools, evaluation frameworks for model safety, and the red-teaming practices that should be in every AI team's workflow.",
-      tags: ['In-person', 'AI Foundations'],
-      track: 'AI Foundations',
-      time: '10:00',
-      room: 'WCB 105',
-      sessionDuration: 45,
-    },
-    isWTM: false,
-    isGDE: false,
-  },
-  {
     id: 21,
     name: 'Hernando Gonzalez Malabet',
     avatar: HernandoGonzalezMalabet,
@@ -539,28 +514,6 @@ export const SpeakersData = [
     },
     isWTM: false,
     isGDE: false,
-  },
-  {
-    id: 22,
-    name: 'Priyal Sheth',
-    avatar: PriyalSheth,
-    bio: 'Priyal is a data engineer and GDE for Google Cloud who specializes in building real-time data pipelines. She speaks frequently on BigQuery, Dataflow, and data mesh architectures.',
-    linkedIn: 'https://www.linkedin.com/in/priyalsheth',
-    organization: 'Altair',
-    position: 'Senior Data Engineer',
-    session: {
-      title: 'Real-Time Data Pipelines on Google Cloud',
-      abstract: 'From batch to streaming — without losing your mind.',
-      description:
-        "Priyal walks through Altair's journey from nightly batch jobs to real-time streaming analytics. She covers Pub/Sub, Dataflow, and BigQuery streaming inserts — plus the operational lessons that textbooks don't teach.",
-      tags: ['In-person', 'AI Foundations'],
-      track: 'AI Foundations',
-      time: '1:00',
-      room: 'WCB 105',
-      sessionDuration: 45,
-    },
-    isWTM: false,
-    isGDE: true,
   },
   {
     id: 23,

@@ -22,13 +22,14 @@ function SessionCard({
   sessionDuration = 60, // Duration in minutes
 }) {
   const [direction, setDirection] = useState(DIRECTION.BOTTOM)
-  const { isSessionSaved, toggleSession } = useSchedule()
+  const { isSessionSaved, toggleSession, isSessionConflicting } = useSchedule()
   const toggle = () => {
     setDirection((d) =>
       d === DIRECTION.TOP ? DIRECTION.BOTTOM : DIRECTION.TOP
     )
   }
   const isSaved = sessionId ? isSessionSaved(sessionId) : false
+  const isConflicting = sessionId ? isSessionConflicting(sessionId) : false
 
   const getSessionTimes = () => {
     if (!sessionTime || typeof sessionTime !== 'string')
@@ -244,11 +245,13 @@ function SessionCard({
               aria-label={
                 isSaved ? 'Remove from my schedule' : 'Add to my schedule'
               }
-              className="group/save relative flex size-10 shrink-0 items-center justify-center rounded-xl transition-all duration-300 hover:bg-iwd-gold-400/10 active:scale-90"
+              className={`group/save relative flex size-10 shrink-0 items-center justify-center rounded-xl transition-all duration-300 hover:bg-iwd-gold-400/10 active:scale-90 ${
+                isConflicting ? 'ring-2 ring-red-500/60' : ''
+              }`}
             >
               {/* Tooltip hint */}
               <span className="bg-iwd-surface-raised absolute -top-10 left-1/2 -translate-x-1/2 whitespace-nowrap rounded border border-iwd-gold-400/20 px-2 py-1 text-[10px] font-bold uppercase tracking-widest text-iwd-gold-300 opacity-0 transition-opacity group-hover/save:opacity-100 dark:bg-iwd-black-900">
-                {isSaved ? 'Saved' : 'Save'}
+                {isConflicting ? 'Time conflict' : isSaved ? 'Saved' : 'Save'}
               </span>
 
               <svg

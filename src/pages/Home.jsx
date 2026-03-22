@@ -4,7 +4,6 @@ import LocationSection from '@/layouts/LocationSection'
 import AboutSection from '@/layouts/AboutSection'
 import AttendeeSection from '@/layouts/AttendeeSection'
 import BreakPatternSection from '@/layouts/BreakPatternSection'
-import InspirationalMural from '@/components/ui/InspirationalMural'
 import PastEventsSection from '@/layouts/PastEventsSection'
 import SEOStructuredData from '@/components/ui/SEOStructuredData'
 import SessionsSection from '@/layouts/SessionsSection'
@@ -28,7 +27,7 @@ function Home() {
 
       <LandingSection />
 
-      <div className="relative z-10 space-y-32 bg-iwd-surface-raised dark:bg-iwd-black-950 py-20">
+      <div className="bg-iwd-surface-raised relative z-10 space-y-32 py-20 dark:bg-iwd-black-950">
         <LocationSection />
 
         <div id="schedule">
@@ -36,6 +35,7 @@ function Home() {
             speakersData={Speakers2026}
             year={2026}
             tracks={[
+              'Schedule',
               'Build with AI',
               'Innovation',
               'Level Up',
@@ -60,7 +60,6 @@ function Home() {
         <AttendeeSection />
         <BreakPatternSection />
         <PastEventsSection />
-        <InspirationalMural />
 
         <div id="jobboard">
           <JobBoardSection />

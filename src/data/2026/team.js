@@ -1,5 +1,4 @@
 import DaveKoziol from '@/data/2026/assets/images/team/dav_koziol.webp'
-// Use the higher-res greg_miller.webp for better quality in cards
 import GregMiller from '@/data/2026/assets/images/team/greg_miller.webp'
 import HernandoMalabet from '@/data/2026/assets/images/speakers/HernandoGonzalezMalabet.webp'
 import HodaSolati from '@/data/2026/assets/images/speakers/HodaSolati.jpg'

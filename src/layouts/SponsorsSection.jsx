@@ -9,7 +9,7 @@ const SponsorsSection = ({
   return (
     <section
       id="sponsors"
-      className="relative overflow-hidden bg-iwd-surface-raised dark:bg-iwd-black-950 px-6 py-24 sm:px-10 md:px-14 lg:px-16"
+      className="bg-iwd-surface-raised relative overflow-hidden px-6 py-24 sm:px-10 md:px-14 lg:px-16 dark:bg-iwd-black-950"
     >
       {/* Accent glow */}
       <div
@@ -58,7 +58,7 @@ const SponsorsSection = ({
                       <img
                         src={sponsor.logo}
                         alt={`${sponsor.name} logo`}
-                        className="logo-halo max-h-24 max-w-[160px] object-contain transition-transform duration-300 group-hover:scale-105 invert dark:invert-0"
+                        className="logo-halo max-h-24 max-w-[160px] object-contain transition-transform duration-300 group-hover:scale-105"
                         loading="lazy"
                       />
                     </div>

@@ -112,7 +112,7 @@ function LandingSection() {
       <section
         id="hero"
         aria-label="Hero Section"
-        className="relative flex min-h-[90vh] w-full flex-col justify-center overflow-hidden bg-iwd-surface-raised dark:bg-iwd-black-900 pt-20"
+        className="bg-iwd-surface-raised relative flex min-h-[90vh] w-full flex-col justify-center overflow-hidden pt-20 dark:bg-iwd-black-900"
       >
         <video
           ref={videoRef}
@@ -131,12 +131,18 @@ function LandingSection() {
         <button
           onClick={toggleVideoPlayback}
           className="absolute bottom-6 right-6 z-20 flex size-10 items-center justify-center rounded-full bg-black/40 text-gray-900 backdrop-blur-md transition-all hover:bg-black/60 hover:text-white lg:bottom-12 lg:right-12 dark:text-white/70 dark:hover:text-gray-900"
-          aria-label={isVideoPlaying ? 'Pause background video' : 'Play background video'}
+          aria-label={
+            isVideoPlaying ? 'Pause background video' : 'Play background video'
+          }
         >
           {isVideoPlaying ? (
-            <svg className="size-4" fill="currentColor" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+            <svg className="size-4" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
+            </svg>
           ) : (
-            <svg className="size-4" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            <svg className="size-4" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M8 5v14l11-7z" />
+            </svg>
           )}
         </button>
 
@@ -165,16 +171,25 @@ function LandingSection() {
             style={{ animationDelay: '0.3s' }}
           >
             <span
-              className="block text-3xl text-gray-900 dark:text-white/95 sm:text-5xl lg:text-[3.5rem] xl:text-[4.5rem]"
+              className="block text-2xl font-light uppercase tracking-[0.4em] text-iwd-gold-400/80 sm:text-3xl lg:text-4xl"
+              style={{
+                letterSpacing: '0.4em',
+                lineHeight: '1.2',
+              }}
+            >
+              Detroit
+            </span>
+            <span
+              className="block text-3xl text-gray-900 sm:text-5xl lg:text-[4rem] xl:text-[5rem] dark:text-white/95"
               style={{
                 letterSpacing: '-0.01em',
-                lineHeight: '1.2',
+                lineHeight: '1.1',
               }}
             >
               International Women&rsquo;s Day
             </span>
             <span
-              className="landing-shimmer block bg-gradient-to-r from-iwd-gold-200 via-iwd-gold-400 to-iwd-gold-200 bg-clip-text text-3xl text-transparent sm:text-5xl lg:text-[3.5rem] xl:text-[4.5rem]"
+              className="landing-shimmer mt-2 block bg-gradient-to-r from-iwd-gold-200 via-iwd-gold-400 to-iwd-gold-200 bg-clip-text text-3xl text-transparent sm:text-5xl lg:text-[3.5rem] xl:text-[4.5rem]"
               style={{
                 filter:
                   'drop-shadow(0 4px 24px rgb(var(--iwd-accent-500) / 0.35))',
@@ -184,13 +199,6 @@ function LandingSection() {
               Innovation Summit
             </span>
           </h1>
-
-          <p
-            className="mb-8 font-body text-lg font-extralight uppercase tracking-[0.35em] text-iwd-gold-100/80 sm:text-xl lg:text-2xl"
-            style={{ animationDelay: '0.3s' }}
-          >
-            Detroit 2026
-          </p>
 
           {/* Rotating tagline */}
           <div
@@ -281,7 +289,7 @@ function LandingSection() {
 
           {/* Description */}
           <p
-            className="hero-stagger mb-10 max-w-xl font-body text-[15px] font-light leading-[1.8] text-gray-900 dark:text-white/55 sm:mb-12 sm:text-base"
+            className="hero-stagger mb-10 max-w-xl font-body text-[15px] font-light leading-[1.8] text-gray-900 sm:mb-12 sm:text-base dark:text-white/55"
             style={{ animationDelay: '1.05s' }}
           >
             A day of learning, building, connecting, and empowering women and
@@ -298,20 +306,20 @@ function LandingSection() {
             style={{ animationDelay: '1.15s' }}
           >
             <CTAButton
-              href="#membership"
-              target="_self"
-              rel=""
-              label="STAY UPDATED"
+              href="https://bit.ly/det-iwd-26-rsvp"
+              target="_blank"
+              rel="noopener noreferrer"
+              label="GET TICKETS"
               icon={<FaTicket />}
-              ariaLabel="Stay updated on the IWD Innovation Summit 2026"
+              ariaLabel="Get tickets to the IWD Innovation Summit 2026"
             />
             <CTAButton
-              href="#speakers"
-              target="_self"
-              rel=""
-              label="MEET THE SPEAKERS"
+              href="https://bit.ly/compass-fundraiser-2026"
+              target="_blank"
+              rel="noopener noreferrer"
+              label="DONATE NOW"
               variant="secondary"
-              ariaLabel="View the speaker lineup"
+              ariaLabel="Donate to the Compass fundraiser"
             />
           </div>
 
@@ -320,7 +328,7 @@ function LandingSection() {
             <a
               href="#attendees"
               aria-label="Scroll to content"
-              className="group flex flex-col items-center gap-2.5 text-gray-900 dark:text-white/50 transition-colors duration-500 hover:text-white dark:hover:text-gray-900"
+              className="group flex flex-col items-center gap-2.5 text-gray-900 transition-colors duration-500 hover:text-white dark:text-white/50 dark:hover:text-gray-900"
             >
               <span className="font-body text-[9px] font-medium uppercase tracking-[0.4em]">
                 Scroll

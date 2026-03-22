@@ -8,7 +8,7 @@ const JobBoardSection = ({ year = new Date().getFullYear() }) => {
   return (
     <section
       id="jobboard"
-      className="relative overflow-hidden bg-iwd-surface-raised dark:bg-iwd-black-900 px-6 py-24 sm:px-10 md:px-14 lg:px-16"
+      className="bg-iwd-surface-raised relative overflow-hidden px-6 py-24 sm:px-10 md:px-14 lg:px-16 dark:bg-iwd-black-900"
     >
       {/* Accent glow */}
       <div
@@ -72,7 +72,7 @@ const JobBoardSection = ({ year = new Date().getFullYear() }) => {
                       <img
                         src={company.logo}
                         alt={`${company.name} logo`}
-                        className="relative size-24 object-contain transition-transform duration-500 group-hover:scale-110 invert dark:invert-0"
+                        className="relative size-24 object-contain transition-transform duration-500 group-hover:scale-110"
                         loading="lazy"
                       />
                     </div>

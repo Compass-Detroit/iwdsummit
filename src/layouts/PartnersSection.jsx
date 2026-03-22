@@ -20,7 +20,7 @@ const PartnersSection = ({ partnersData = {}, year }) => {
   return (
     <section
       id="partners"
-      className="relative flex flex-col justify-center bg-iwd-surface-raised dark:bg-iwd-black-950 px-8 py-24 sm:px-10 md:px-14 lg:px-16"
+      className="bg-iwd-surface-raised relative flex flex-col justify-center px-8 py-24 sm:px-10 md:px-14 lg:px-16 dark:bg-iwd-black-950"
     >
       {/* Accent glow */}
       <div
@@ -81,7 +81,7 @@ const PartnersSection = ({ partnersData = {}, year }) => {
                           <img
                             src={partner.logo}
                             alt={partner.name}
-                            className="relative max-h-40 max-w-[85%] object-contain transition-transform duration-700 group-hover:scale-110 invert dark:invert-0"
+                            className="relative max-h-40 max-w-[85%] object-contain transition-transform duration-700 group-hover:scale-110"
                             loading="lazy"
                           />
                         </div>

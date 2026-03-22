@@ -112,9 +112,7 @@ function LocationSection() {
                   aria-hidden="true"
                 />
               </div>
-              <h3 className="text-xl font-semibold text-white">
-                When
-              </h3>
+              <h3 className="text-xl font-semibold text-white">When</h3>
             </div>
             <p className="font-orbitron text-lg font-semibold tracking-wide text-iwd-gold-300">
               March 28, 2026
@@ -132,9 +130,7 @@ function LocationSection() {
                   aria-hidden="true"
                 />
               </div>
-              <h3 className="text-xl font-semibold text-white">
-                Venue
-              </h3>
+              <h3 className="text-xl font-semibold text-white">Venue</h3>
             </div>
             <p className="mb-2 text-2xl font-bold text-white">
               Little Caesars Global Resource Center
@@ -144,7 +140,7 @@ function LocationSection() {
             </p>
             <div className="flex flex-wrap gap-3">
               <a
-                href="https://maps.app.goo.gl/B39TqZ2mK6qPz89A7"
+                href="https://www.google.com/maps/place/Little+Caesars+Corporate+Office/data=!4m2!3m1!1s0x0:0x14096f8dc7a099f3?sa=X&ved=1t:2428&ictx=111"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-lg border border-iwd-gold-500/30 bg-iwd-gold-500/10 px-4 py-2 text-sm font-semibold text-iwd-gold-300 transition-colors hover:bg-iwd-gold-500/20"
@@ -354,9 +350,7 @@ function LocationSection() {
 
           {/* Entrance Card */}
           <div className="group rounded-2xl border border-white/[0.06] bg-white/[0.02] p-8 backdrop-blur-sm transition-all duration-300 hover:border-white/[0.12] hover:bg-white/[0.04]">
-            <h3 className="mb-3 text-xl font-semibold text-white">
-              Entrance
-            </h3>
+            <h3 className="mb-3 text-xl font-semibold text-white">Entrance</h3>
             <p className="text-sm leading-relaxed text-gray-400">
               Enter through the main front doors on Woodward Avenue. Check-in is
               located in the main lobby. Have your registration QR code ready.

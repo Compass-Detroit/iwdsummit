@@ -144,6 +144,20 @@ const trackDescriptions = {
       </p>
     </>
   ),
+  'Schedule': (
+    <>
+      <h3
+        id="schedule-heading"
+        className="mx-auto mb-4 text-center text-xl font-semibold text-white sm:text-2xl "
+      >
+        <span className="font-bold">Main Run-of-Show Schedule</span>
+      </h3>
+      <p className="mb-6 max-w-4xl text-pretty text-center text-base text-gray-400">
+        Overview of all miscellaneous activities, networking breaks, and main
+        stage events throughout the day.
+      </p>
+    </>
+  ),
   'Map': (
     <>
       <h3
@@ -175,7 +189,13 @@ const SessionsSection = ({
   const tabpanelRef = useRef(null)
   const [canScrollLeft, setCanScrollLeft] = useState(false)
   const [canScrollRight, setCanScrollRight] = useState(false)
-  const { savedSessionIds } = useSchedule()
+  const {
+    savedSessionIds,
+    lastConflict,
+    clearLastConflict,
+    addSessionAnyway,
+    autoResolveAndAdd,
+  } = useSchedule()
 
   const tabs = ['My Schedule', ...tracks]
   const currentSession = tabs[activeTab]
@@ -196,10 +216,11 @@ const SessionsSection = ({
     if (existingSession) {
       existingSession.speakers.push(speaker.name)
       existingSession.speakerAvatars.push(speaker.avatar)
-      existingSession.id += `_${speaker.id}`
+      existingSession.speakerIds.push(Number(speaker.id))
     } else {
       combinedSpeakerData.push({
-        id: speaker.id,
+        // We'll compute a canonical id (sorted underscore-joined) after collecting all speakers
+        speakerIds: [Number(speaker.id)],
         speakers: [speaker.name],
         speakerAvatars: [speaker.avatar],
         sessionTitle: speaker.session.title,
@@ -210,6 +231,18 @@ const SessionsSection = ({
         sessionDuration: speaker.session.sessionDuration ?? 60,
       })
     }
+  })
+
+  // Normalize ids for combined sessions to a canonical stable string (sorted speaker ids)
+  combinedSpeakerData = combinedSpeakerData.map((s) => {
+    const id =
+      s.speakerIds && s.speakerIds.length > 0
+        ? s.speakerIds
+            .slice()
+            .sort((a, b) => a - b)
+            .join('_')
+        : String(s.id || '')
+    return { ...s, id }
   })
 
   // Get sessions for current track
@@ -462,6 +495,17 @@ const SessionsSection = ({
                         </svg>
                         My Schedule
                       </>
+                    ) : tab === 'Schedule' ? (
+                      <>
+                        <svg
+                          className="mr-1.5 inline size-3 lg:size-4"
+                          fill="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10z" />
+                        </svg>
+                        Schedule
+                      </>
                     ) : tab === 'Tech+Design' ? (
                       <>Tech+Design</>
                     ) : tab === 'Level Up' ? (
@@ -616,36 +660,78 @@ const SessionsSection = ({
               <>
                 {currentSession === 'My Schedule' &&
                   savedSessionIds.length > 0 && (
-                    <div className="mb-4 flex justify-end px-4 sm:px-0">
-                      <button
-                        onClick={() => {
-                          const exportData = currentTrackSessions.map((s) => ({
-                            title: s.sessionTitle,
-                            description: s.sessionDesc,
-                            time: s.sessionTime,
-                            room: s.sessionRoom,
-                            sessionDuration: s.sessionDuration,
-                          }))
-                          generateICSFile(exportData)
-                        }}
-                        className="flex items-center gap-2 rounded-lg border border-iwd-gold-400/30 bg-iwd-gold-400/10 px-4 py-2 text-xs font-bold uppercase tracking-widest text-iwd-gold-300 shadow-lg shadow-iwd-gold-500/5 transition-all hover:-translate-y-0.5 hover:bg-iwd-gold-400/20"
-                      >
-                        <svg
-                          className="size-4"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
+                    <>
+                      {lastConflict && (
+                        <div className="mb-4 rounded-md border border-yellow-400/20 bg-yellow-400/5 p-3 text-sm text-yellow-200">
+                          <div className="flex items-center justify-between gap-4">
+                            <div>
+                              <strong>Schedule conflict</strong>
+                              <div className="text-xs text-yellow-200/80">
+                                A session you tried to save overlaps with one
+                                already in your schedule. Choose how to resolve
+                                it.
+                              </div>
+                            </div>
+                            <div className="flex items-center gap-2">
+                              <button
+                                onClick={() =>
+                                  autoResolveAndAdd(lastConflict.newId)
+                                }
+                                className="rounded bg-yellow-400/30 px-3 py-1 text-xs font-semibold"
+                              >
+                                Auto-resolve (keep earliest)
+                              </button>
+                              <button
+                                onClick={() =>
+                                  addSessionAnyway(lastConflict.newId)
+                                }
+                                className="rounded border border-yellow-400/30 px-3 py-1 text-xs font-semibold"
+                              >
+                                Add anyway
+                              </button>
+                              <button
+                                onClick={() => clearLastConflict()}
+                                className="rounded px-3 py-1 text-xs text-yellow-200/70"
+                              >
+                                Cancel
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      )}
+                      <div className="mb-4 flex justify-end px-4 sm:px-0">
+                        <button
+                          onClick={() => {
+                            const exportData = currentTrackSessions.map(
+                              (s) => ({
+                                title: s.sessionTitle,
+                                description: s.sessionDesc,
+                                time: s.sessionTime,
+                                room: s.sessionRoom,
+                                sessionDuration: s.sessionDuration,
+                              })
+                            )
+                            generateICSFile(exportData)
+                          }}
+                          className="flex items-center gap-2 rounded-lg border border-iwd-gold-400/30 bg-iwd-gold-400/10 px-4 py-2 text-xs font-bold uppercase tracking-widest text-iwd-gold-300 shadow-lg shadow-iwd-gold-500/5 transition-all hover:-translate-y-0.5 hover:bg-iwd-gold-400/20"
                         >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4"
-                          />
-                        </svg>
-                        Export Full Schedule (ICS)
-                      </button>
-                    </div>
+                          <svg
+                            className="size-4"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4"
+                            />
+                          </svg>
+                          Export Full Schedule (ICS)
+                        </button>
+                      </div>
+                    </>
                   )}
                 {/* Session cards + activity cards: single column; sorted by time */}
                 <ul className="grid w-full grid-cols-1 gap-8 py-7">
