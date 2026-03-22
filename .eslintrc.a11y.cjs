@@ -39,6 +39,9 @@ module.exports = {
       { allowConstantExport: true },
     ],
 
+    // Disable tailwind rule that can throw on certain AST nodes during a11y linting
+    'tailwindcss/no-contradicting-classname': 'off',
+
     // Critical accessibility rules - set to error level
     'jsx-a11y/alt-text': 'error',
     'jsx-a11y/anchor-has-content': 'error',
