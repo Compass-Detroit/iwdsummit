@@ -63,7 +63,8 @@ import TalonaJohnson from './assets/images/speakers/TalonaJohnson.jpeg'
 import VitalAnne from './assets/images/speakers/VitalAnne.jpg'
 import YeshaPatel from './assets/images/speakers/YeshaPatel.png'
 import YuktiGoyal from './assets/images/speakers/YuktiGoyal.jpg'
-
+import EberechiOgbuaku from './assets/images/speakers/EberechiOgbuaku.jpeg'
+import RamonaFellmy from './assets/images/speakers/RamonaFellmy.png'
 export const SpeakersData = [
   {
     id: 1,
@@ -1257,6 +1258,50 @@ export const SpeakersData = [
     position: 'Power Platform Developer + Project Manager',
     session: {
       title: 'Workshop by Lilah Kole (Alt)',
+      abstract: 'Details coming soon.',
+      description:
+        'More information about this session will be available shortly.',
+      tags: ['In-person', 'Innovation'],
+      track: 'Innovation',
+      time: 'TBA',
+      room: 'TBA',
+      sessionDuration: 45,
+    },
+    isWTM: false,
+    isGDE: false,
+  },
+  {
+    id: 99,
+    name: 'Eberechi Ogbuaku',
+    avatar: EberechiOgbuaku,
+    bio: 'Eberechi Ogbuaku is an Attorney that does work in probate, estate planning, family, and juvenile law. She’s worked in BigLaw and Public Accounting. Eberechi is also the host of the Young Professional African Collective (YPAC) podcast where she talks to people doing work on the African continent or work pertaining to the African continent. She enjoys spending time with family, traveling, and dancing.',
+    linkedIn: '',
+    organization: 'Broadstreet Legal',
+    position: 'Attorney',
+    session: {
+      title: 'Workshop by Eberechi Ogbuaku',
+      abstract: 'Details coming soon.',
+      description:
+        'More information about this session will be available shortly.',
+      tags: ['In-person', 'Innovation'],
+      track: 'Innovation',
+      time: 'TBA',
+      room: 'TBA',
+      sessionDuration: 45,
+    },
+    isWTM: false,
+    isGDE: false,
+  },
+  {
+    id: 100,
+    name: 'Ramona Fellmy',
+    avatar: RamonaFellmy,
+    bio: 'Ramona Fellmy is a technology founder, SaaS strategist, and enterprise solutions leader at Dapp Detroit. Her work focuses on building low-code, AI-driven systems for complex, compliance-heavy industries. She operates at the intersection of InsurTech, FinTech, and ethical AI. She was recently recognized as one of the Top Women in Tech in the U.S. (2026).',
+    linkedIn: '',
+    organization: 'Dapp Detroit',
+    position: 'Founder, CTO',
+    session: {
+      title: 'Workshop by Ramona Fellmy',
       abstract: 'Details coming soon.',
       description:
         'More information about this session will be available shortly.',

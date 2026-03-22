@@ -5,6 +5,11 @@ import { IoChevronDown } from 'react-icons/io5'
 import { DIRECTION } from '@/constants/directions'
 import { addMinutes, format, parse, isValid } from 'date-fns'
 import useSchedule from '@/hooks/useSchedule'
+import {
+  generateGoogleCalendarLink,
+  generateOutlookCalendarLink,
+  generateICSFile,
+} from '../../utils/calendarExport'
 
 function SessionCard({
   sessionId,
@@ -173,7 +178,7 @@ function SessionCard({
               }`}
             >
               {sessionTitle && (
-                <h3 className="text-base font-semibold text-white dark:text-white md:text-xl">
+                <h3 className="text-base font-semibold text-white md:text-xl dark:text-white">
                   {sessionTitle}
                 </h3>
               )}
@@ -242,7 +247,7 @@ function SessionCard({
               className="group/save relative flex size-10 shrink-0 items-center justify-center rounded-xl transition-all duration-300 hover:bg-iwd-gold-400/10 active:scale-90"
             >
               {/* Tooltip hint */}
-              <span className="absolute -top-10 left-1/2 -translate-x-1/2 whitespace-nowrap rounded border border-iwd-gold-400/20 bg-iwd-surface-raised dark:bg-iwd-black-900 px-2 py-1 text-[10px] font-bold uppercase tracking-widest text-iwd-gold-300 opacity-0 transition-opacity group-hover/save:opacity-100">
+              <span className="bg-iwd-surface-raised absolute -top-10 left-1/2 -translate-x-1/2 whitespace-nowrap rounded border border-iwd-gold-400/20 px-2 py-1 text-[10px] font-bold uppercase tracking-widest text-iwd-gold-300 opacity-0 transition-opacity group-hover/save:opacity-100 dark:bg-iwd-black-900">
                 {isSaved ? 'Saved' : 'Save'}
               </span>
 
@@ -272,7 +277,59 @@ function SessionCard({
           id={`session-${sessionTitle.replace(/\s+/g, '-').toLowerCase()}`}
           className="border-t border-white/[0.06] px-4 pb-10 pt-5 md:px-8 lg:px-14"
         >
-          <p className="whitespace-pre-wrap text-gray-300">{sessionDesc}</p>
+          <p className="mb-6 whitespace-pre-wrap text-gray-300">
+            {sessionDesc}
+          </p>
+          <div className="flex flex-wrap items-center gap-3">
+            <span className="min-w-[120px] text-xs font-semibold uppercase tracking-wider text-gray-500">
+              Export to Calendar:
+            </span>
+            <a
+              href={generateGoogleCalendarLink({
+                title: sessionTitle,
+                description: sessionDesc,
+                time: sessionTime,
+                room: sessionRoom,
+                sessionDuration,
+              })}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-md border border-white/10 bg-white/5 px-3 py-1.5 text-xs font-semibold text-white transition-colors hover:bg-white/10"
+              onClick={(e) => e.stopPropagation()}
+            >
+              Google
+            </a>
+            <a
+              href={generateOutlookCalendarLink({
+                title: sessionTitle,
+                description: sessionDesc,
+                time: sessionTime,
+                room: sessionRoom,
+                sessionDuration,
+              })}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-md border border-white/10 bg-white/5 px-3 py-1.5 text-xs font-semibold text-white transition-colors hover:bg-white/10"
+              onClick={(e) => e.stopPropagation()}
+            >
+              Outlook
+            </a>
+            <button
+              onClick={(e) => {
+                e.stopPropagation()
+                generateICSFile({
+                  title: sessionTitle,
+                  description: sessionDesc,
+                  time: sessionTime,
+                  room: sessionRoom,
+                  sessionDuration,
+                })
+              }}
+              className="rounded-md border border-white/10 bg-white/5 px-3 py-1.5 text-xs font-semibold text-white transition-colors hover:bg-white/10"
+            >
+              ICS File
+            </button>
+          </div>
         </div>
       )}
     </div>

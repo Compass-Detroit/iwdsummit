@@ -6,6 +6,7 @@ import ActivityCard from '@/components/sessions/ActivityCard'
 import SessionCard from '@/components/sessions/SessionCard'
 import SectionSkipLink from '@/components/ui/SectionSkipLink'
 import VenueMaps from '@/components/sessions/VenueMaps'
+import { generateICSFile } from '../utils/calendarExport'
 
 import { conferenceActivities } from '@/data/2026/conferenceActivities'
 import { DIRECTION } from '@/constants/directions'
@@ -48,7 +49,7 @@ const trackDescriptions = {
     <>
       <h3
         id="build-with-ai-heading"
-        className="mx-auto mb-4 text-center text-xl font-semibold text-white dark:text-white sm:text-2xl"
+        className="mx-auto mb-4 text-center text-xl font-semibold text-white sm:text-2xl dark:text-white"
       >
         <span className="font-bold">Build with AI Stage</span> is located in
         Service Building 120 (SB{'\u00A0'}120)
@@ -59,7 +60,7 @@ const trackDescriptions = {
     <>
       <h3
         id="innovation-heading"
-        className="mx-auto mb-4 text-center text-xl font-semibold text-white dark:text-white sm:text-2xl"
+        className="mx-auto mb-4 text-center text-xl font-semibold text-white sm:text-2xl dark:text-white"
       >
         <span className="font-bold">Innovation Stage</span> is located on the
         1st floor of Walker Crisler Building (WCB), Room{'\u00A0'}103
@@ -74,7 +75,7 @@ const trackDescriptions = {
     <>
       <h3
         id="level-up-heading"
-        className="mx-auto mb-4 text-center text-xl font-semibold text-white dark:text-white sm:text-2xl"
+        className="mx-auto mb-4 text-center text-xl font-semibold text-white sm:text-2xl dark:text-white"
       >
         <span className="font-bold">Level Up Stage</span> is located in Town
         Square
@@ -90,7 +91,7 @@ const trackDescriptions = {
     <>
       <h3
         id="leadership-heading"
-        className="mx-auto mb-4 text-center text-xl font-semibold text-white dark:text-white sm:text-2xl"
+        className="mx-auto mb-4 text-center text-xl font-semibold text-white sm:text-2xl dark:text-white"
       >
         <span className="font-bold">Leadership Stage</span> is located in Walker
         Crisler Building Floor 2 Rooms 275 and 278 (WCB{'\u00A0'}275{'\u00A0'}
@@ -107,7 +108,7 @@ const trackDescriptions = {
     <>
       <h3
         id="ai-foundations-heading"
-        className="mx-auto mb-4 text-center text-xl font-semibold text-white dark:text-white sm:text-2xl"
+        className="mx-auto mb-4 text-center text-xl font-semibold text-white sm:text-2xl dark:text-white"
       >
         <span className="font-bold">AI Foundations Stage</span> is located in
         Walker Crisler Building Floor 1 Room 105 (WCB{'\u00A0'}105)
@@ -121,7 +122,7 @@ const trackDescriptions = {
     <>
       <h3
         id="careers-heading"
-        className="mx-auto mb-4 text-center text-xl font-semibold text-white dark:text-white sm:text-2xl"
+        className="mx-auto mb-4 text-center text-xl font-semibold text-white sm:text-2xl dark:text-white"
       >
         <span className="font-bold">Careers Stage</span> is located in Walker
         Crisler Building Floor 1
@@ -132,7 +133,7 @@ const trackDescriptions = {
     <>
       <h3
         id="breakout-sessions-heading"
-        className="mx-auto mb-4 text-center text-xl font-semibold text-white dark:text-white sm:text-2xl"
+        className="mx-auto mb-4 text-center text-xl font-semibold text-white sm:text-2xl dark:text-white"
       >
         <span className="font-bold">Breakout Sessions</span> is located on the
         2nd floor of Walker Crisler Building (WCB),{'\u00A0'}Room{'\u00A0'}255
@@ -147,7 +148,7 @@ const trackDescriptions = {
     <>
       <h3
         id="map-heading"
-        className="mx-auto mb-4 text-center text-xl font-normal text-white dark:text-white sm:text-2xl"
+        className="mx-auto mb-4 text-center text-xl font-normal text-white sm:text-2xl dark:text-white"
       >
         <span className="font-bold">IWD Innovation Summit Venue Guide</span>
       </h3>
@@ -357,7 +358,7 @@ const SessionsSection = ({
   return (
     <section
       id="schedule"
-      className="relative flex flex-col items-center justify-start bg-iwd-surface-raised dark:bg-iwd-black-950 p-4 pb-24 pt-16 sm:px-10 md:px-14 lg:px-16"
+      className="bg-iwd-surface-raised relative flex flex-col items-center justify-start p-4 pb-24 pt-16 sm:px-10 md:px-14 lg:px-16 dark:bg-iwd-black-950"
     >
       <SectionSkipLink href="#membership">
         Skip sessions navigation
@@ -368,7 +369,7 @@ const SessionsSection = ({
             isExpanded ? `Collapse ${year} Sessions` : `Expand ${year} Sessions`
           }
           onClick={toggleExpanded}
-          className="absolute left-0 top-3 cursor-pointer items-center text-white dark:text-white transition-colors hover:text-gray-400 sm:top-4"
+          className="absolute left-0 top-3 cursor-pointer items-center text-white transition-colors hover:text-gray-400 sm:top-4"
         >
           <IoChevronDown
             className={`size-6 shrink-0 text-iwd-gold-300 sm:size-7 md:size-8 lg:size-9 ${
@@ -380,7 +381,7 @@ const SessionsSection = ({
           <p className="mb-4 font-body text-xs font-medium uppercase tracking-[0.3em] text-iwd-gold-400/80">
             What&rsquo;s Happening
           </p>
-          <h2 className="mb-5 font-heading text-3xl font-bold text-white dark:text-white sm:text-4xl lg:text-5xl">
+          <h2 className="mb-5 font-heading text-3xl font-bold text-white sm:text-4xl lg:text-5xl dark:text-white">
             {year}{' '}
             <span className="bg-gradient-to-r from-iwd-gold-300 via-iwd-gold-400 to-iwd-gold-300 bg-clip-text text-transparent">
               Schedule
@@ -418,7 +419,7 @@ const SessionsSection = ({
               role="tablist"
               aria-orientation="horizontal"
               id="sessions-nav"
-              className={`scrollbar-hide flex w-full flex-nowrap items-center justify-start gap-3 overflow-x-auto overflow-y-visible rounded-2xl border border-white/5 bg-iwd-surface-raised dark:bg-iwd-black-950/50 p-3 backdrop-blur-md md:justify-center md:px-6 ${
+              className={`scrollbar-hide bg-iwd-surface-raised flex w-full flex-nowrap items-center justify-start gap-3 overflow-x-auto overflow-y-visible rounded-2xl border border-white/5 p-3 backdrop-blur-md md:justify-center md:px-6 dark:bg-iwd-black-950/50 ${
                 isExpanded
                   ? 'max-h-none opacity-100'
                   : 'max-h-0 opacity-0 transition-all'
@@ -552,7 +553,7 @@ const SessionsSection = ({
                             <span className="text-[10px] font-black uppercase tracking-wider text-iwd-gold-400/60">
                               {s.sessionTime}
                             </span>
-                            <span className="line-clamp-1 text-xs font-bold text-white dark:text-white transition-colors group-hover:text-iwd-gold-300">
+                            <span className="line-clamp-1 text-xs font-bold text-white transition-colors group-hover:text-iwd-gold-300">
                               {s.sessionTitle}
                             </span>
                           </li>
@@ -560,7 +561,7 @@ const SessionsSection = ({
                       {savedSessionIds.length > 5 && (
                         <button
                           onClick={() => activateTab(0)}
-                          className="mt-2 text-left text-[10px] font-black uppercase tracking-widest text-white dark:text-white/30 transition-colors hover:text-white dark:text-white"
+                          className="mt-2 text-left text-[10px] font-black uppercase tracking-widest text-gray-900 transition-all hover:text-black dark:text-white/30 dark:hover:text-white"
                         >
                           + {savedSessionIds.length - 5} more in my schedule
                         </button>
@@ -613,6 +614,39 @@ const SessionsSection = ({
               <VenueMaps />
             ) : hasContentForTrack ? (
               <>
+                {currentSession === 'My Schedule' &&
+                  savedSessionIds.length > 0 && (
+                    <div className="mb-4 flex justify-end px-4 sm:px-0">
+                      <button
+                        onClick={() => {
+                          const exportData = currentTrackSessions.map((s) => ({
+                            title: s.sessionTitle,
+                            description: s.sessionDesc,
+                            time: s.sessionTime,
+                            room: s.sessionRoom,
+                            sessionDuration: s.sessionDuration,
+                          }))
+                          generateICSFile(exportData)
+                        }}
+                        className="flex items-center gap-2 rounded-lg border border-iwd-gold-400/30 bg-iwd-gold-400/10 px-4 py-2 text-xs font-bold uppercase tracking-widest text-iwd-gold-300 shadow-lg shadow-iwd-gold-500/5 transition-all hover:-translate-y-0.5 hover:bg-iwd-gold-400/20"
+                      >
+                        <svg
+                          className="size-4"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4"
+                          />
+                        </svg>
+                        Export Full Schedule (ICS)
+                      </button>
+                    </div>
+                  )}
                 {/* Session cards + activity cards: single column; sorted by time */}
                 <ul className="grid w-full grid-cols-1 gap-8 py-7">
                   {mergedTrackItems.map((item) =>

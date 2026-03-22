@@ -13,6 +13,10 @@ import AED from '@/assets/images/sponsors/AED.webp'
 
 // add these if you have them (update paths to match your repo)
 import AutomationWorkz from '@/assets/images/sponsors/Automation_Workz.webp'
+import Techqueria from '@/assets/images/sponsors/techqueria.jpg'
+import WhyNotCollab from '@/assets/images/sponsors/whynotcollab.png'
+import HeartOfTheCity from '@/assets/images/sponsors/heartofthecity.jpg'
+import Jac3D from '@/assets/images/sponsors/jac3d.png'
 
 export const partnersData = {
   partners: [
@@ -106,6 +110,34 @@ export const partnersData = {
       logo: GDGWindsor,
       desc: 'Google Developer Group Windsor is a community of developers interested in Google technologies.',
       url: 'https://gdg.community.dev/gdg-windsor/',
+    },
+    {
+      id: 14,
+      name: 'Techqueria Detroit',
+      logo: Techqueria,
+      desc: 'We’re a vibrant, 25,000-strong community empowering Latiné professionals to thrive in every corner of the tech industry. Techqueria provide mentorship, career development, and advocacy for DEI.',
+      url: 'https://techqueria.org',
+    },
+    {
+      id: 15,
+      name: 'Why Not Collab Detroit',
+      logo: WhyNotCollab,
+      desc: 'Why Not Collab Detroit is an initiative dedicated to creating budget-friendly visual, musical, and artistic content by fostering partnerships among Detroit-based creators.',
+      url: 'https://www.instagram.com/whynotcollabdet',
+    },
+    {
+      id: 16,
+      name: 'Heart of The City Photography',
+      logo: HeartOfTheCity,
+      desc: 'Specializes in creating headshots, high school senior portraits, branding imagery, and corporate & social impact event photography that authentically reflect who you are.',
+      url: 'https://www.hocxsls.com',
+    },
+    {
+      id: 17,
+      name: 'Jac3D G33k',
+      logo: Jac3D,
+      desc: 'A technology and fitness enthusiast dedicated to digital innovation and community building in the Detroit tech space.',
+      url: 'https://www.instagram.com/jac3dg33k',
     },
   ],
 }
