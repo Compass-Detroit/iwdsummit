@@ -63,24 +63,336 @@ import YeshaPatel from './assets/images/speakers/YeshaPatel.png'
 import YuktiGoyal from './assets/images/speakers/YuktiGoyal.jpg'
 import EberechiOgbuaku from './assets/images/speakers/EberechiOgbuaku.jpeg'
 import RamonaFellmy from './assets/images/speakers/RamonaFellmy.png'
+import RishirajSarkar from './assets/images/speakers/RishirajSarkar.webp'
+import DavidCardozo from './assets/images/speakers/DavidCardozo.webp'
+import AnnyStaten from './assets/images/speakers/AnnyStaten.jpeg'
+import MackHendricks from './assets/images/speakers/MackHendricks.jpeg'
+import BryantDumas from './assets/images/speakers/BryantDumas.jpg'
+import MaridyMazaira from './assets/images/speakers/MaridyMazaira.jpeg'
+
 const rawSpeakersData = [
   {
     id: 1,
+    name: 'Jenna Ritten',
+    avatar: JennaRitten,
+    bio: 'Jenna is the visionary behind Detroits Innovation Summit series and Founding Executive Director of Compass (Collective of Minority Professionals and STEAM Societies), the organization bringing together Michigans diverse tech talent to combat brain drain and create local opportunities. As Chief Developer Advocate & Architect at IBM Research, she leads IBMs technical community while scaling their global developer ecosystem from 2 million to 9 million members.A cornerstone of Michigans tech renaissance, Jenna serves as Co-Leader of Google Developer Group Detroit, lead organizer of Michigan DevFest (1,000+ attendees), and board member of Automation Workz. As a local leader in Michigans tech ecosystem since 2018, she pioneered hackathon culture in the region by introducing the first hackathons to both the AfroTech Conference in 2023 and Michigan DevFest in 2025, creating hands-on opportunities for developers to showcase their skills and solve real-world challenges.Through Compass partnerships with NSBE Detroit, SHPE Detroit, IBM, Google, DTE Energy, and other leading organizations, Jenna is building bridges between corporate innovation and community empowerment. Her mission: ensuring Michigans next generation of Black technologists not only have opportunities to excel but can do so without leaving the state they call home.Connect with Jenna to learn how Compass is transforming Michigans tech ecosystem, one community at a time.',
+    linkedIn: 'https://www.linkedin.com/in/jennaritten',
+    organization: 'IBM Research',
+    position: 'Chief Developer Advocate & Architect',
+    session: {
+      title: 'Welcome & Opening Remarks',
+      abstract:
+        'Welcome and Opening Remarks by Compass Detroit, MCWT, Women Techmakers, GDG Detroit, NSBE Detroit, SHPE Detroit, DevOps Detroit, and Detroit Hacker House.',
+      description:
+        'Welcome and Opening Remarks by Compass Detroit, MCWT, Women Techmakers, GDG Detroit, NSBE Detroit, SHPE Detroit, DevOps Detroit, and Detroit Hacker House.',
+      tags: ['In-person', 'Level Up'],
+      track: 'Level Up',
+      time: '09:00',
+      room: 'Pizza Treat',
+      sessionDuration: 10,
+    },
+    isWTM: true,
+    isGDE: false,
+  },
+  {
+    id: 2,
     name: 'Angela Richardson',
     avatar: AngelaRichardson,
-    bio: 'Angela is a seasoned software architect with 15+ years building scalable cloud platforms. She leads AI integration strategy at a Fortune 500 automotive company and mentors emerging engineers through Women Who Code Detroit.',
-    linkedIn: 'https://www.linkedin.com/in/angelarichardson',
-    organization: 'Ford Motor Company',
-    position: 'Senior AI Architect',
+    bio: 'Angela Richardson, CAE, is a strategic governance and programs executive with more than 20 years of experience leading national industry councils, executive peer networks, and board-driven organizations, facilitating high-trust national conversations for Fortune 1000 ESG, CSR, and social media executives on accountability, reputational risk, and long-term institutional impact, currently directing three national councils within the automotive sector while partnering with volunteer leaders to align strategy, strengthen member engagement, and shape long-range priorities, and bringing a governance and executive accountability perspective to emerging technology by engaging with AI and cybersecurity through the lens of institutional risk and long-term leadership responsibility while actively supporting mid-career women in tech as a member of the Michigan Council of Women in Technology and a graduate of its Reignite program.',
+    linkedIn: 'https://www.linkedin.com/in/angelamrichardson/',
+    organization: 'Specialty Equipment Marketing Association (SEMA)',
+    position: 'Council Director',
+    session: {
+      title: 'Welcome & Opening Remarks',
+      abstract:
+        'Welcome and Opening Remarks by Compass Detroit, MCWT, Women Techmakers, GDG Detroit, NSBE Detroit, SHPE Detroit, DevOps Detroit, and Detroit Hacker House.',
+      description:
+        'Welcome and Opening Remarks by Compass Detroit, MCWT, Women Techmakers, GDG Detroit, NSBE Detroit, SHPE Detroit, DevOps Detroit, and Detroit Hacker House.',
+      tags: ['In-person', 'Level Up'],
+      track: 'Level Up',
+      time: '09:00',
+      room: 'Pizza Treat',
+      sessionDuration: 10,
+    },
+    isWTM: true,
+    isGDE: false,
+  },
+  {
+    id: 3,
+    name: 'Maridy Mazaira',
+    avatar: MaridyMazaira,
+    bio: 'Maridy Mazaira is a passionate community leader and advocate for STEM education, dedicated to empowering students and underrepresented communities to pursue meaningful careers in engineering and technology. As President of the Society of Hispanic Professional Engineers (SHPE) Detroit Chapter, she leads initiatives that bridge the gap between students and industry by creating opportunities for mentorship, networking, and professional growth.With a background from the University of Michigan-Dearborn, where she was recognized as a “Difference Maker,” Maridy has demonstrated a strong commitment to leadership, service, and community impact. She has played a key role in organizing large-scale events such as college fairs, STEM workshops, and professional development programs that connect students with real-world opportunities.Maridy is driven by a mission to create inclusive spaces where individuals feel supported, represented, and empowered to succeed. She believes that access to resources, guidance, and strong professional networks can transform lives. Through her work, she continues to inspire and uplift others, helping them build confidence and navigate their academic and career journeys with purpose.',
+    linkedIn: 'https://www.linkedin.com/in/maridy-mazaira',
+    organization: 'SHPE Detroit Professional',
+    position: 'President',
+    session: {
+      title: 'Welcome & Opening Remarks',
+      abstract:
+        'Welcome and Opening Remarks by Compass Detroit, MCWT, Women Techmakers, GDG Detroit, NSBE Detroit, SHPE Detroit, DevOps Detroit, and Detroit Hacker House.',
+      description:
+        'Welcome and Opening Remarks by Compass Detroit, MCWT, Women Techmakers, GDG Detroit, NSBE Detroit, SHPE Detroit, DevOps Detroit, and Detroit Hacker House.',
+      tags: ['In-person', 'Level Up'],
+      track: 'Level Up',
+      time: '09:00',
+      room: 'Pizza Treat',
+      sessionDuration: 10,
+    },
+    isWTM: true,
+    isGDE: false,
+  },
+  {
+    id: 4,
+    name: 'Jeseekia Vaughn',
+    avatar: JeseekiaVaughn,
+    bio: 'Software Engineer passionate about growing the community through teaching, promoting STEM education, youth mentoring, and entrepreneurship, with a career progression from front end web development to full stack engineering including API development and vehicle connectivity, now focusing on AI and machine learning with goals of becoming a Machine Learning Engineer in the short term and pursuing a PhD in the long term, actively live streaming AI and ML studies and projects while co-hosting the trainX.ai podcast to help developers integrate AI tools, deeply involved in educating future and early career developers through bootcamps and organizations like Girl Develop It, and contributing to the Detroit tech ecosystem as a co-founder of Detroit Black Tech and organizer of the Hacking With The Homies Developer Conference, with extensive experience leading and speaking at meetups and large scale conferences including serving as the 2019 NSBE Convention Vice Chair for an event hosting around 15000 attendees, driven by a mission to reduce barriers for others entering tech and continuously building educational content through the upcoming MetaDevWorld platform.',
+    linkedIn: 'https://www.linkedin.com/in/jeseekiavaughn',
+    organization: 'Detroit Hacker House',
+    position: 'Co-Founder',
+    session: {
+      title: 'Welcome & Opening Remarks',
+      abstract:
+        'Welcome and Opening Remarks by Compass Detroit, MCWT, Women Techmakers, GDG Detroit, NSBE Detroit, SHPE Detroit, DevOps Detroit, and Detroit Hacker House.',
+      description:
+        'Welcome and Opening Remarks by Compass Detroit, MCWT, Women Techmakers, GDG Detroit, NSBE Detroit, SHPE Detroit, DevOps Detroit, and Detroit Hacker House.',
+      tags: ['In-person', 'Level Up'],
+      track: 'Level Up',
+      time: '09:00',
+      room: 'Pizza Treat',
+      sessionDuration: 10,
+    },
+    isWTM: true,
+    isGDE: false,
+  },
+  {
+    id: 5,
+    name: 'Umelo Onyejiaka',
+    avatar: UmeloOnyejiaka,
+    bio: 'Umelo Onyejiaka is a cloud and DevOps engineer, community builder, and founder of DevOps Detroit, holding multiple industry certifications including AWS Certified Solutions Architect Professional, AWS Certified DevOps Engineer Professional, Certified Kubernetes Administrator, and Terraform Associate, whose work focuses on how people grow skills in the real world by emphasizing community driven learning, mentorship, and shared exposure over isolation, creating spaces through DevOps Detroit where individuals can build practical technical skills, gain confidence, and discover opportunities by learning alongside others, and advocating that collective growth strengthens the entire ecosystem, while speaking at the Detroit Black History Month Innovation Summit on how community driven learning accelerates skill development, creates opportunity, and transforms individual potential into collective impact.',
+    linkedIn: 'https://www.linkedin.com/in/umeloonyejiaka',
+    organization: 'DevOps Detroit',
+    position: 'DevOps engineer',
+    session: {
+      title: 'Welcome & Opening Remarks',
+      abstract:
+        'Welcome and Opening Remarks by Compass Detroit, MCWT, Women Techmakers, GDG Detroit, NSBE Detroit, SHPE Detroit, DevOps Detroit, and Detroit Hacker House.',
+      description:
+        'Welcome and Opening Remarks by Compass Detroit, MCWT, Women Techmakers, GDG Detroit, NSBE Detroit, SHPE Detroit, DevOps Detroit, and Detroit Hacker House.',
+      tags: ['In-person', 'Level Up'],
+      track: 'Level Up',
+      time: '09:00',
+      room: 'Pizza Treat',
+      sessionDuration: 10,
+    },
+    isWTM: true,
+    isGDE: false,
+  },
+  {
+    id: 6,
+    name: 'Rishiraj Sarkar',
+    avatar: RishirajSarkar,
+    bio: `Experience in working with Network security, Trustworthy ML development, Hardware and Wifi security across various platforms and Cloud.Current Graduate student in University of Michigan, studying Cybersecurity and information assurance with focus on Network security, Cloud Security, Trustworthy AI and Security by design architecturesEx - Cyber strategy consultant at Deloitte, facilitating data and privacy services to multi-national clients.Cybersecurity enthusiast with experience in Kali Linux, Python, SQL and SIEM tools. Well versed in privacy policies like GDPR, CPRA and more.Trained in Enterprise tools like ServiceNow and Aravo.Two years experience in Web development.Motivated to integrate security by design systems across the industry and drive growth towards trustworthy ML.`,
+    linkedIn: 'https://www.linkedin.com/in/risarkar/',
+    organization: 'GDG Detroit',
+    position: 'Co-Leader',
+    session: {
+      title: 'Welcome & Opening Remarks',
+      abstract:
+        'Welcome and Opening Remarks by Compass Detroit, MCWT, Women Techmakers, GDG Detroit, NSBE Detroit, SHPE Detroit, DevOps Detroit, and Detroit Hacker House.',
+      description:
+        'Welcome and Opening Remarks by Compass Detroit, MCWT, Women Techmakers, GDG Detroit, NSBE Detroit, SHPE Detroit, DevOps Detroit, and Detroit Hacker House.',
+      tags: ['In-person', 'Level Up'],
+      track: 'Level Up',
+      time: '09:00',
+      room: 'Pizza Treat',
+      sessionDuration: 10,
+    },
+    isWTM: true,
+    isGDE: false,
+  },
+  {
+    id: 7,
+    name: 'Angela Richardson',
+    avatar: AngelaRichardson,
+    bio: 'Angela Richardson, CAE, is a strategic governance and programs executive with more than 20 years of experience leading national industry councils, executive peer networks, and board-driven organizations, facilitating high-trust national conversations for Fortune 1000 ESG, CSR, and social media executives on accountability, reputational risk, and long-term institutional impact, currently directing three national councils within the automotive sector while partnering with volunteer leaders to align strategy, strengthen member engagement, and shape long-range priorities, and bringing a governance and executive accountability perspective to emerging technology by engaging with AI and cybersecurity through the lens of institutional risk and long-term leadership responsibility while actively supporting mid-career women in tech as a member of the Michigan Council of Women in Technology and a graduate of its Reignite program.',
+    linkedIn: 'https://www.linkedin.com/in/angelamrichardson/',
+    organization: 'Specialty Equipment Marketing Association (SEMA)',
+    position: 'Council Director',
+    session: {
+      title:
+        'Innovation Summit Panel Discussion: Who Designs the System? Women Defining the Future of Tech',
+      abstract:
+        'This panel explores how real impact in technology extends beyond execution into influence where decisions about funding, hiring, and strategic direction are made, featuring women leaders across manufacturing, aerospace, AI, enterprise software, and STEM education, and highlighting the shift from delivering results to shaping organizational and industry futures, while providing attendees with practical insights on navigating influence, expanding their presence in decision making spaces, and intentionally positioning themselves for transformative impact in tech.',
+      description:
+        'True impact in tech - the kind that changes industries like energy, healthcare, and manufacturing -doesn’t just happen at the keyboard. It is nurtured in the spaces where funding is allocated, rears itself where hiring standards are set, and leaves deep marks as credit, attribution, or kudos are given. Most of us know how to deliver. We lead projects, solve problems, maintain critical systems, and get results. But we don’t always ask: Who is actually deciding what gets built? Who is in the room when funding gets allocated? Who is shaping the future vectors for organizations and industries? Join us for a panel featuring four women working across manufacturing, aerospace, enterprise software, AI, and STEM education who have navigated with influence inside complex organizations. Enter a practical discussion that arcs from delivering results to shaping direction and what that shift actually requires from a twenty-first century woman in tech. You’ll leave seeing your own environment differently and better equipped to move with intention and belonging where transformational decisions are being made. Moderator: Angela Richardson, CAE: Governance & Council Engagement Director, SEMA Panelists: Talona Johnson, MBA, PMP, CMQ/OE, International Product Manager, General Motors Vital Anne, Program Director, Siemens Industries Software Bryne Berry, MSc Mechanical Engineer, Founder and President of Black Girls Do Science® Bandhan Kaur, Data and AI Architect at Slalom',
+      tags: ['In-person', 'Level Up'],
+      track: 'Level Up',
+      time: '09:10',
+      room: 'Pizza Treat',
+      sessionDuration: 50,
+    },
+    isWTM: true,
+    isGDE: false,
+  },
+  {
+    id: 8,
+    name: 'Talona Johnson MBA, PMP, CMQ/OE',
+    avatar: TalonaJohnson,
+    bio: 'International Product Manager at General Motors',
+    linkedIn: 'https://www.linkedin.com/in/talona-johnson/',
+    organization: 'General Motors',
+    position: 'International Product Manager',
+    session: {
+      title:
+        'Innovation Summit Panel Discussion: Who Designs the System? Women Defining the Future of Tech',
+      abstract:
+        'This panel explores how real impact in technology extends beyond execution into influence where decisions about funding, hiring, and strategic direction are made, featuring women leaders across manufacturing, aerospace, AI, enterprise software, and STEM education, and highlighting the shift from delivering results to shaping organizational and industry futures, while providing attendees with practical insights on navigating influence, expanding their presence in decision making spaces, and intentionally positioning themselves for transformative impact in tech.',
+      description:
+        'True impact in tech - the kind that changes industries like energy, healthcare, and manufacturing -doesn’t just happen at the keyboard. It is nurtured in the spaces where funding is allocated, rears itself where hiring standards are set, and leaves deep marks as credit, attribution, or kudos are given. Most of us know how to deliver. We lead projects, solve problems, maintain critical systems, and get results. But we don’t always ask: Who is actually deciding what gets built? Who is in the room when funding gets allocated? Who is shaping the future vectors for organizations and industries? Join us for a panel featuring four women working across manufacturing, aerospace, enterprise software, AI, and STEM education who have navigated with influence inside complex organizations. Enter a practical discussion that arcs from delivering results to shaping direction and what that shift actually requires from a twenty-first century woman in tech. You’ll leave seeing your own environment differently and better equipped to move with intention and belonging where transformational decisions are being made. Moderator: Angela Richardson, CAE: Governance & Council Engagement Director, SEMA Panelists: Talona Johnson, MBA, PMP, CMQ/OE, International Product Manager, General Motors Vital Anne, Program Director, Siemens Industries Software Bryne Berry, MSc Mechanical Engineer, Founder and President of Black Girls Do Science® Bandhan Kaur, Data and AI Architect at Slalom',
+      tags: ['In-person', 'Level Up'],
+      track: 'Level Up',
+      time: '09:10',
+      room: 'Pizza Treat',
+      sessionDuration: 50,
+    },
+    isWTM: true,
+    isGDE: false,
+  },
+  {
+    id: 9,
+    name: 'Vital Anne',
+    avatar: VitalAnne,
+    bio: 'With over 30 years of professional experience spanning engineering, design, crash and safety analysis, software product management, quality assurance, and product delivery, Vital Anne brings a multidisciplinary perspective to building and leading technology driven organizations, having worked with both large OEMs and mid sized consulting firms across the automotive and software industries, currently serving as a Program Director responsible for a large suite of software products across two business lines where she leads cross functional teams to coordinate product delivery, standardize policies and processes, ensure timely releases, and maintain high quality standards, operating at the intersection of technology, strategy, and people to transform ideas into measurable results, while remaining passionate about inclusive leadership and building high performing teams, holding a Master’s degree in Mechanical Engineering from Purdue University, and actively contributing to community leadership as the elected School Board President of a large public school district in Southeast Michigan where she advocates for strong public education and student success.',
+    linkedIn: 'https://www.linkedin.com/in/vital-anne-bb48554/',
+    organization: 'Siemens Industries Software',
+    position: 'Program Director',
+    session: {
+      title:
+        'Innovation Summit Panel Discussion: Who Designs the System? Women Defining the Future of Tech',
+      abstract:
+        'This panel explores how real impact in technology extends beyond execution into influence where decisions about funding, hiring, and strategic direction are made, featuring women leaders across manufacturing, aerospace, AI, enterprise software, and STEM education, and highlighting the shift from delivering results to shaping organizational and industry futures, while providing attendees with practical insights on navigating influence, expanding their presence in decision making spaces, and intentionally positioning themselves for transformative impact in tech.',
+      description:
+        'True impact in tech - the kind that changes industries like energy, healthcare, and manufacturing -doesn’t just happen at the keyboard. It is nurtured in the spaces where funding is allocated, rears itself where hiring standards are set, and leaves deep marks as credit, attribution, or kudos are given. Most of us know how to deliver. We lead projects, solve problems, maintain critical systems, and get results. But we don’t always ask: Who is actually deciding what gets built? Who is in the room when funding gets allocated? Who is shaping the future vectors for organizations and industries? Join us for a panel featuring four women working across manufacturing, aerospace, enterprise software, AI, and STEM education who have navigated with influence inside complex organizations. Enter a practical discussion that arcs from delivering results to shaping direction and what that shift actually requires from a twenty-first century woman in tech. You’ll leave seeing your own environment differently and better equipped to move with intention and belonging where transformational decisions are being made. Moderator: Angela Richardson, CAE: Governance & Council Engagement Director, SEMA Panelists: Talona Johnson, MBA, PMP, CMQ/OE, International Product Manager, General Motors Vital Anne, Program Director, Siemens Industries Software Bryne Berry, MSc Mechanical Engineer, Founder and President of Black Girls Do Science® Bandhan Kaur, Data and AI Architect at Slalom',
+      tags: ['In-person', 'Level Up'],
+      track: 'Level Up',
+      time: '09:10',
+      room: 'Pizza Treat',
+      sessionDuration: 50,
+    },
+    isWTM: true,
+    isGDE: false,
+  },
+  {
+    id: 10,
+    name: 'Bryne Berry',
+    avatar: BryneBerry,
+    bio: 'Bryne Berry holds both a Master of Science and Bachelor of Science in Mechanical Engineering with a minor in English from the University of Iowa and currently works as an engineer with GE Aerospace, having founded Black Girls Do Science while in college to challenge stereotypes about who can be scientists and to inspire underrepresented girls in grades 4 through 8 to pursue STEAM fields, originally from Des Moines, Iowa and now based in Detroit where she has lived for the past five years and enjoys restoring her historic home.',
+    linkedIn: 'https://www.linkedin.com/in/bryne-berry/',
+    organization: 'GE Aerospace',
+    position: 'Staff Engineer',
+    session: {
+      title:
+        'Innovation Summit Panel Discussion: Who Designs the System? Women Defining the Future of Tech',
+      abstract:
+        'This panel explores how real impact in technology extends beyond execution into influence where decisions about funding, hiring, and strategic direction are made, featuring women leaders across manufacturing, aerospace, AI, enterprise software, and STEM education, and highlighting the shift from delivering results to shaping organizational and industry futures, while providing attendees with practical insights on navigating influence, expanding their presence in decision making spaces, and intentionally positioning themselves for transformative impact in tech.',
+      description:
+        'True impact in tech - the kind that changes industries like energy, healthcare, and manufacturing -doesn’t just happen at the keyboard. It is nurtured in the spaces where funding is allocated, rears itself where hiring standards are set, and leaves deep marks as credit, attribution, or kudos are given. Most of us know how to deliver. We lead projects, solve problems, maintain critical systems, and get results. But we don’t always ask: Who is actually deciding what gets built? Who is in the room when funding gets allocated? Who is shaping the future vectors for organizations and industries? Join us for a panel featuring four women working across manufacturing, aerospace, enterprise software, AI, and STEM education who have navigated with influence inside complex organizations. Enter a practical discussion that arcs from delivering results to shaping direction and what that shift actually requires from a twenty-first century woman in tech. You’ll leave seeing your own environment differently and better equipped to move with intention and belonging where transformational decisions are being made. Moderator: Angela Richardson, CAE: Governance & Council Engagement Director, SEMA Panelists: Talona Johnson, MBA, PMP, CMQ/OE, International Product Manager, General Motors Vital Anne, Program Director, Siemens Industries Software Bryne Berry, MSc Mechanical Engineer, Founder and President of Black Girls Do Science® Bandhan Kaur, Data and AI Architect at Slalom',
+      tags: ['In-person', 'Level Up'],
+      track: 'Level Up',
+      time: '09:10',
+      room: 'Pizza Treat',
+      sessionDuration: 50,
+    },
+    isWTM: true,
+    isGDE: false,
+  },
+
+  // ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  {
+    id: 3,
+    name: 'Anny Staten',
+    avatar: AnnyStaten,
+    bio: 'Anny Staten is a leader, creator, and community builder who believes growth happens best when people feel seen, supported, and challenged. With seventeen years of experience leading teams, mentoring creatives, and supporting learners in tech and education spaces, Anny brings both heart and strategy to everything she does.As Assistant Director at the Apple Developer Academy-Detroit, I support program leadership and operations. I teach learners coding, business, and design through app development using Apple ecosystem tools. Before stepping into broader leadership, Anny served as a classroom teacher, Dean of Students, and Assistant Principal. She remains a passionate lover of education, grounded in the belief that learning changes lives.She’s driven by authenticity, curiosity, and intentional living, and is deeply committed to creating spaces where the next generation of leaders can thrive. When she’s not leading or building, Anny enjoys investing in her family, being a mother, planning new adventures, and turning purpose into action.',
+    linkedIn: 'http://www.linkedin.com/in/anny-staten-mba-a6a1aa25',
+    organization: 'Apple Developer Academy Detroit',
+    position: 'Assistant Director',
     session: {
       title: 'Building Responsible AI Systems at Scale',
       abstract:
         'How to embed ethics and fairness into production ML pipelines.',
       description:
         'This session explores practical frameworks for deploying AI responsibly — from bias detection in training data to post-deployment monitoring. Angela draws on real Ford case studies to show how teams can ship fast without cutting corners on fairness.',
-      tags: ['In-person', 'Build with AI'],
-      track: 'Build with AI',
-      time: '10:00',
+      tags: ['In-person', 'Level Up'],
+      track: 'Level Up',
+      time: '14:00',
+      room: 'SB 120',
+      sessionDuration: 45,
+    },
+    isWTM: true,
+    isGDE: false,
+  },
+  {
+    id: 4,
+    name: 'Mack Hendricks',
+    avatar: MackHendricks,
+    bio: 'I have been involved in technology since my dad decided to purchase me a Commodore Vic 20 in 1984 - I was hooked! In particular, Ive always been interested in telecommunications. I remember my first modem. It was a Commodore Hayes 300 Baud Modem.I have been in few different technical positions, but I have spent the last 15 years at Sun Microsystems and Oracle primarily focused on positioning and architecting enterprise level middleware solutions for Fortune 500 companies.In parallel, Ive been a technical advisor for a few different projects and companies with a focus on OpenSource VoIP technologies such as Asterisk, FreeSwitch, A2Billing, Vicidial and Kamailio.',
+    linkedIn: 'https://www.linkedin.com/in/mackhendricks',
+    organization: 'Detroit Hacker House',
+    position: 'Founder and Director of Engineering',
+    session: {
+      title: 'Building Responsible AI Systems at Scale',
+      abstract:
+        'How to embed ethics and fairness into production ML pipelines.',
+      description:
+        'This session explores practical frameworks for deploying AI responsibly — from bias detection in training data to post-deployment monitoring. Angela draws on real Ford case studies to show how teams can ship fast without cutting corners on fairness.',
+      tags: ['In-person', 'Level Up'],
+      track: 'Level Up',
+      time: '14:00',
+      room: 'SB 120',
+      sessionDuration: 45,
+    },
+    isWTM: true,
+    isGDE: false,
+  },
+  {
+    id: 5,
+    name: 'Bryant Dumas',
+    avatar: BryantDumas,
+    bio: 'Bryant Dumas Jr. is a cloud strategist, who leads the DevOps Detroit Cloud Pathways Program. He has a background in network engineering, and has witnessed the critical role networking plays in both small and large-scale environments. Including on-prem and hybrid infrastructures.',
+    linkedIn: 'https://www.linkedin.com/in/bryantdumas-jr/',
+    organization: 'MANTECH',
+    position: 'Cloud Engineer',
+    session: {
+      title: 'Building Responsible AI Systems at Scale',
+      abstract:
+        'How to embed ethics and fairness into production ML pipelines.',
+      description:
+        'This session explores practical frameworks for deploying AI responsibly — from bias detection in training data to post-deployment monitoring. Angela draws on real Ford case studies to show how teams can ship fast without cutting corners on fairness.',
+      tags: ['In-person', 'Level Up'],
+      track: 'Level Up',
+      time: '14:00',
+      room: 'SB 120',
+      sessionDuration: 45,
+    },
+    isWTM: true,
+    isGDE: false,
+  },
+  {
+    id: 5,
+    name: 'Maridy Mazaira',
+    avatar: MaridyMazaira,
+    bio: 'Maridy Mazaira is a passionate community leader and advocate for STEM education, dedicated to empowering students and underrepresented communities to pursue meaningful careers in engineering and technology. As President of the Society of Hispanic Professional Engineers (SHPE) Detroit Chapter, she leads initiatives that bridge the gap between students and industry by creating opportunities for mentorship, networking, and professional growth.With a background from the University of Michigan-Dearborn, where she was recognized as a “Difference Maker,” Maridy has demonstrated a strong commitment to leadership, service, and community impact. She has played a key role in organizing large-scale events such as college fairs, STEM workshops, and professional development programs that connect students with real-world opportunities.Maridy is driven by a mission to create inclusive spaces where individuals feel supported, represented, and empowered to succeed. She believes that access to resources, guidance, and strong professional networks can transform lives. Through her work, she continues to inspire and uplift others, helping them build confidence and navigate their academic and career journeys with purpose.',
+    linkedIn: 'https://www.linkedin.com/in/maridy-mazaira',
+    organization: 'SHPE Detroit Professional',
+    position: 'President',
+    session: {
+      title: 'Building Responsible AI Systems at Scale',
+      abstract:
+        'How to embed ethics and fairness into production ML pipelines.',
+      description:
+        'This session explores practical frameworks for deploying AI responsibly — from bias detection in training data to post-deployment monitoring. Angela draws on real Ford case studies to show how teams can ship fast without cutting corners on fairness.',
+      tags: ['In-person', 'Level Up'],
+      track: 'Level Up',
+      time: '15:00',
       room: 'SB 120',
       sessionDuration: 45,
     },
@@ -559,6 +871,31 @@ const rawSpeakersData = [
     },
     isWTM: false,
     isGDE: false,
+  },
+  {
+    id: 47,
+    name: 'David Cardozo',
+    email: null,
+    avatar: DavidCardozo,
+    bio: `Facilitator for the Agentverse: The Guardian's Bastion - Secure Scalable Inference for AgentOps`,
+    twitter: null,
+    linkedIn: 'https://www.linkedin.com/in/davidcardozo/',
+    github: null,
+    organization: 'Dataiku',
+    position: 'Founder',
+    session: {
+      title: `Agentverse: The Guardian's Bastion - Secure Scalable Inference for AgentOps`,
+      abstract: null,
+      description: `This workshop is the definitive enterprise playbook for mastering the agentic future on Google Cloud. We provide an end-to-end roadmap that guides you from the first vibe of an idea to a full-scale, operational reality. Across these four interconnected labs, you will learn how the specialized skills of a developer, architect, data engineer, and SRE must converge to create, manage, and scale a powerful Agentverse.`,
+      tags: ['In-person', 'Build with AI'],
+      track: 'Build with AI',
+      time: '14:00',
+      room: 'SB 120',
+      sessionDuration: 120,
+    },
+    isWTM: false,
+    isGDE: false,
+    mastodon: null,
   },
 
   {

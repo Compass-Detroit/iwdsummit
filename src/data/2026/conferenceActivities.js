@@ -7,15 +7,6 @@
  */
 export const conferenceActivities = [
   {
-    id: 'level-up-checkin',
-    track: 'Level Up',
-    title: 'Check-In & Breakfast',
-    content: null,
-    time: '08:00',
-    timeEnd: '09:00',
-    room: 'in Town Square',
-  },
-  {
     id: 'level-up-networking',
     track: 'Level Up',
     title: 'Techie Hour & Networking',
