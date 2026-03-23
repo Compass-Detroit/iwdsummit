@@ -301,4 +301,18 @@ export const teamData = [
     commits: null,
     avatar: DeAndre,
   },
+  {
+    id: 20,
+    name: 'Divya Lakshmi',
+    github: 'https://github.com/Divyatech-hub',
+    linkedin: '',
+    team: 'devteam',
+    star: false,
+    university: '',
+    bio: 'Contributor to IWD Summit schedule and calendar export improvements, focused on reliable iCal workflows and attendee-friendly UX.',
+    organization: 'Compass Detroit',
+    role: 'Developer',
+    commits: null,
+    avatar: 'https://github.com/Divyatech-hub.png',
+  },
 ]
