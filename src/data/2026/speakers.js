@@ -70,7 +70,6 @@ import MackHendricks from './assets/images/speakers/MackHendricks.jpeg'
 import BryantDumas from './assets/images/speakers/BryantDumas.jpg'
 import MaridyMazaira from './assets/images/speakers/MaridyMazaira.jpeg'
 
-export const SpeakersData = [
 const rawSpeakersData = [
   {
     id: 1,
