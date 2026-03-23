@@ -63,7 +63,7 @@ import YeshaPatel from './assets/images/speakers/YeshaPatel.png'
 import YuktiGoyal from './assets/images/speakers/YuktiGoyal.jpg'
 import EberechiOgbuaku from './assets/images/speakers/EberechiOgbuaku.jpeg'
 import RamonaFellmy from './assets/images/speakers/RamonaFellmy.png'
-export const SpeakersData = [
+const rawSpeakersData = [
   {
     id: 1,
     name: 'Angela Richardson',
@@ -1268,3 +1268,394 @@ export const SpeakersData = [
     isGDE: false,
   },
 ]
+
+const TRACK_ROTATION = [
+  'Level Up',
+  'Build with AI',
+  'AI Foundations',
+  'Leadership',
+  'Innovation',
+  'Careers',
+]
+
+const EVENT_PAGE_SPEAKERS = [
+  {
+    name: 'Afia Phillips',
+    organization: 'Little Caesars Enterprises',
+    position: 'VP of Cybersecurity',
+    avatar:
+      'https://res.cloudinary.com/startup-grind/image/upload/c_fill,dpr_2,f_auto,g_face,h_400,q_auto:good,w_400/v1/gcs/platform-data-goog/events/AfiaPhillips%2520%25281%2529.jpg',
+  },
+  {
+    name: 'Angela Richardson',
+    organization: 'Specialty Equipment Marketing Association (SEMA)',
+    position: 'Governance & Council Engagement Director',
+    avatar:
+      'https://res.cloudinary.com/startup-grind/image/upload/c_fill,dpr_2,f_auto,g_face,h_200,q_auto:good,w_200/v1/gcs/platform-data-goog/events/AngelaRichardson_14ofaIm.png',
+  },
+  {
+    name: 'Anny Staten',
+    organization: 'Apple Developer Academy Detroit',
+    position: 'Assistant Director',
+    avatar:
+      'https://res.cloudinary.com/startup-grind/image/upload/c_fill,dpr_2,f_auto,g_face,h_200,q_auto:good,w_200/v1/gcs/platform-data-goog/events/AnnyStaten_1xgUfzu.jpeg',
+  },
+  {
+    name: 'Bandhan Kaur',
+    organization: 'Slalom',
+    position: 'Data and AI Architect',
+    avatar:
+      'https://res.cloudinary.com/startup-grind/image/upload/c_fill,dpr_2,f_auto,g_face,h_200,q_auto:good,w_200/v1/gcs/platform-data-goog/events/BandhanKaur_RqGeed5.JPG',
+  },
+  {
+    name: 'Bryant Dumas',
+    organization: 'MANTECH',
+    position: 'Cloud Engineer',
+    avatar:
+      'https://res.cloudinary.com/startup-grind/image/upload/c_fill,dpr_2,f_auto,g_face,h_200,q_auto:good,w_200/v1/gcs/platform-data-goog/events/BryantDumas_vPP2oVw.jpg',
+  },
+  {
+    name: 'Bryne Berry',
+    organization: 'Black Girls Do Science®',
+    position: 'MSc Mechanical Engineer, Founder and President',
+    avatar:
+      'https://res.cloudinary.com/startup-grind/image/upload/c_fill,dpr_2,f_auto,g_face,h_200,q_auto:good,w_200/v1/gcs/platform-data-goog/events/BryneBerry_YhvG4gT.jpg',
+  },
+  {
+    name: 'Cherice Caldwell-Williams',
+    organization: 'DTE Energy',
+    position: 'IT Manager',
+    avatar:
+      'https://res.cloudinary.com/startup-grind/image/upload/c_fill,dpr_2,f_auto,g_face,h_200,q_auto:good,w_200/v1/gcs/platform-data-goog/events/ChericeCaldwell_6NOT9d6.jpeg',
+  },
+  {
+    name: 'David Cardozo',
+    organization: 'Dataiku',
+    position: 'Senior AI Engineer',
+    avatar:
+      'https://res.cloudinary.com/startup-grind/image/upload/c_fill,dpr_2,f_auto,g_face,h_200,q_auto:good,w_200/v1/gcs/platform-data-goog/events/DavidCardozo_66QCBbF.jpg',
+  },
+  {
+    name: 'Dichondra Johnson',
+    organization: 'DRJ & Associates | University of Michigan',
+    position: 'CEO/Founder | Doctoral Research Associate',
+    avatar:
+      'https://res.cloudinary.com/startup-grind/image/upload/c_fill,dpr_2,f_auto,g_face,h_200,q_auto:good,w_200/v1/gcs/platform-data-goog/events/DichondraJohnson_dFOhhwd.jpg',
+  },
+  {
+    name: 'Dr. Donna Bell',
+    organization: 'Dunamis Charge',
+    position: 'Chief Product Officer | Founder - The Executive Table',
+    avatar:
+      'https://res.cloudinary.com/startup-grind/image/upload/c_fill,dpr_2,f_auto,g_face,h_200,q_auto:good,w_200/v1/gcs/platform-data-goog/events/DonnaBell_JYiDOk3.png',
+  },
+  {
+    name: 'Dr. Emily Jacobs',
+    organization: 'Empowered Moms',
+    position: 'Founder',
+    avatar:
+      'https://res.cloudinary.com/startup-grind/image/upload/c_fill,dpr_2,f_auto,g_face,h_200,q_auto:good,w_200/v1/gcs/platform-data-goog/events/DrEmilyJacobs_BCVkYiF.jpeg',
+  },
+  {
+    name: 'Eberechi Ogbuaku',
+    organization: 'Broadstreet Legal',
+    position: 'Attorney',
+    avatar:
+      'https://res.cloudinary.com/startup-grind/image/upload/c_fill,dpr_2,f_auto,g_face,h_200,q_auto:good,w_200/v1/gcs/platform-data-goog/events/EberechiOgbuaku_o4QfPoJ.jpeg',
+  },
+  {
+    name: 'Hoda Solati',
+    organization: 'BraunAbility',
+    position: 'UX/UI Designer',
+    avatar:
+      'https://res.cloudinary.com/startup-grind/image/upload/c_fill,dpr_2,f_auto,g_face,h_200,q_auto:good,w_200/v1/gcs/platform-data-goog/events/HodaSolati_ZDwQMe1.jpg',
+  },
+  {
+    name: 'Ida Byrd-Hill',
+    organization: 'Automation Workz',
+    position: 'CEO',
+    avatar:
+      'https://res.cloudinary.com/startup-grind/image/upload/c_fill,dpr_2,f_auto,g_face,h_200,q_auto:good,w_200/v1/gcs/platform-data-goog/events/IdaByrd-Hill_bAb9x65.png',
+  },
+  {
+    name: 'Jahsiah Kidd',
+    organization: 'General Motors',
+    position: 'Digital Transformation Project Manager',
+    avatar:
+      'https://res.cloudinary.com/startup-grind/image/upload/c_fill,dpr_2,f_auto,g_face,h_200,q_auto:good,w_200/v1/gcs/platform-data-goog/events/JahsiahKidd_4nE1MeY.jpeg',
+  },
+  {
+    name: 'Jenna Ritten',
+    organization: 'Chief Developer Advocate & Architect @ IBM Research',
+    position: 'Summit Organizer & Founding Executive Director @ Compass',
+    avatar:
+      'https://res.cloudinary.com/startup-grind/image/upload/c_fill,dpr_2,f_auto,g_face,h_200,q_auto:good,w_200/v1/gcs/platform-data-goog/events/jennaphoto_xWpaGgW.jpeg',
+  },
+  {
+    name: 'Jeseekia Vaughn',
+    organization: 'Detroit Hacker House',
+    position: 'Director',
+    avatar:
+      'https://res.cloudinary.com/startup-grind/image/upload/c_fill,dpr_2,f_auto,g_face,h_200,q_auto:good,w_200/v1/gcs/platform-data-goog/events/JeseekiaVaughn%2520_fioucvn.jpeg',
+  },
+  {
+    name: 'Julea Ferrara',
+    organization: 'J. Ferrara Consulting Solutions',
+    position: 'CEO / Founder',
+    avatar:
+      'https://res.cloudinary.com/startup-grind/image/upload/c_fill,dpr_2,f_auto,g_face,h_200,q_auto:good,w_200/v1/gcs/platform-data-goog/events/JuleaFerrara_g05Vbu4.jpg',
+  },
+  {
+    name: 'Kendall Braxton',
+    organization: 'Braxton Management',
+    position: 'CEO',
+    avatar:
+      'https://res.cloudinary.com/startup-grind/image/upload/c_fill,dpr_2,f_auto,g_face,h_200,q_auto:good,w_200/v1/gcs/platform-data-goog/events/KendallBraxton_5HEeNKj.jpg',
+  },
+  {
+    name: 'Lilah Kole',
+    organization: 'Entrepreneur',
+    position: '',
+    avatar:
+      'https://res.cloudinary.com/startup-grind/image/upload/c_fill,dpr_2,f_auto,g_face,h_200,q_auto:good,w_200/v1/gcs/platform-data-goog/events/LilahKole-2_m0DKpEY.jpeg',
+  },
+  {
+    name: 'Mack Hendricks',
+    organization: 'Detroit Hacker House',
+    position: 'Executive Director',
+    avatar:
+      'https://res.cloudinary.com/startup-grind/image/upload/c_fill,dpr_2,f_auto,g_face,h_200,q_auto:good,w_200/v1/gcs/platform-data-goog/events/MackHendricks_eJ31rqC.jpeg',
+  },
+  {
+    name: 'Marcela Billingslea Durini',
+    organization: 'Meta Platforms Inc',
+    position: 'Messenger Gen AI Creations Team, Software Engineering Intern',
+    avatar:
+      'https://res.cloudinary.com/startup-grind/image/upload/c_fill,dpr_2,f_auto,g_face,h_200,q_auto:good,w_200/v1/gcs/platform-data-goog/events/MarcelaBillingsleaDurini_fPLMg56.png',
+  },
+  {
+    name: 'Marilyn Nash',
+    organization: 'U.S. Patent and Trademark Office (USPTO)',
+    position:
+      'Interim Assistant Regional Director and Regional Outreach Officer',
+    avatar:
+      'https://res.cloudinary.com/startup-grind/image/upload/c_fill,dpr_2,f_auto,g_face,h_200,q_auto:good,w_200/v1/gcs/platform-data-goog/events/MarilynNash_6N1yCiX.jpg',
+  },
+  {
+    name: 'Nagham Alsamari',
+    organization: 'Imkan Leadership Development',
+    position: 'Resilience and Leadership Trainer',
+    avatar:
+      'https://res.cloudinary.com/startup-grind/image/upload/c_fill,dpr_2,f_auto,g_face,h_200,q_auto:good,w_200/v1/gcs/platform-data-goog/events/NaghamAlsamari_CeXFvch.png',
+  },
+  {
+    name: 'Onorio Catenacci',
+    organization: 'TEKSystem',
+    position: 'Technical Trainer II',
+    avatar:
+      'https://res.cloudinary.com/startup-grind/image/upload/c_fill,dpr_2,f_auto,g_face,h_200,q_auto:good,w_200/v1/gcs/platform-data-goog/events/OnorioCatenacci_RzxcCSn.jpg',
+  },
+  {
+    name: 'Ramona Fellmy',
+    organization: 'Dapp Detroit',
+    position: 'Founder, CTO',
+    avatar:
+      'https://res.cloudinary.com/startup-grind/image/upload/c_fill,dpr_2,f_auto,g_face,h_200,q_auto:good,w_200/v1/gcs/platform-data-goog/events/RamonaFellmy_rmfDHYz.png',
+  },
+  {
+    name: 'Rania Hoteit',
+    organization:
+      'ID4A Technologies, Watson Institute, Electus Global Education',
+    position:
+      'Multi-award-winning Entrepreneur, Impact Leader, and Executive Advisor',
+    avatar:
+      'https://res.cloudinary.com/startup-grind/image/upload/c_fill,dpr_2,f_auto,g_face,h_200,q_auto:good,w_200/v1/gcs/platform-data-goog/events/RaniaHoteit_NoKf9PU.jpg',
+  },
+  {
+    name: 'Rasheda Williams',
+    organization: 'Inspired Life Professionals',
+    position: 'Founder & CEO',
+    avatar:
+      'https://res.cloudinary.com/startup-grind/image/upload/c_fill,dpr_2,f_auto,g_face,h_200,q_auto:good,w_200/v1/gcs/platform-data-goog/events/RashedaWilliams_LjjTZzh.jpg',
+  },
+  {
+    name: 'Rishiraj Sarkar',
+    organization: 'GDG Detroit',
+    position: 'Co-Leader',
+    avatar:
+      'https://res.cloudinary.com/startup-grind/image/upload/c_fill,dpr_2,f_auto,g_face,h_200,q_auto:good,w_200/v1/gcs/platform-data-goog/events/RishirajSarkar_Y6ZfWtB.jpg',
+  },
+  {
+    name: 'Robin Kinnie',
+    organization: 'Audio Engineers of Detroit',
+    position: 'President',
+    avatar:
+      'https://res.cloudinary.com/startup-grind/image/upload/c_fill,dpr_2,f_auto,g_face,h_200,q_auto:good,w_200/v1/gcs/platform-data-goog/events/RobinKinnie_L3iPXsg.jpg',
+  },
+  {
+    name: 'Dr. Shalonda Owens',
+    organization: 'Livonia Public Schools',
+    position: 'Principal',
+    avatar:
+      'https://res.cloudinary.com/startup-grind/image/upload/c_fill,dpr_2,f_auto,g_face,h_200,q_auto:good,w_200/v1/gcs/platform-data-goog/events/ShalondaOwens_JLgKHoi.jpeg',
+  },
+  {
+    name: 'Sheneelia Logan',
+    organization: 'Detroit Edge',
+    position: 'Founder/Owner',
+    avatar:
+      'https://res.cloudinary.com/startup-grind/image/upload/c_fill,dpr_2,f_auto,g_face,h_200,q_auto:good,w_200/v1/gcs/platform-data-goog/events/SheneeliaLogan_4uxX9ca.png',
+  },
+  {
+    name: 'Shima Solati',
+    organization: 'BraunAbility',
+    position: 'UX/UI Designer',
+    avatar:
+      'https://res.cloudinary.com/startup-grind/image/upload/c_fill,dpr_2,f_auto,g_face,h_200,q_auto:good,w_200/v1/gcs/platform-data-goog/events/ShimaSolati_4gE2ZGb.jpg',
+  },
+  {
+    name: 'Tabice Ward',
+    organization: 'Walker-Miller',
+    position: 'Chief Information Officer',
+    avatar:
+      'https://res.cloudinary.com/startup-grind/image/upload/c_fill,dpr_2,f_auto,g_face,h_200,q_auto:good,w_200/v1/gcs/platform-data-goog/events/TabiceWard-1_uJp7AA1.jpg',
+  },
+  {
+    name: 'Talona Johnson, MBA, PMP, CMQ/OE',
+    organization: 'General Motors',
+    position: 'International Product Manager',
+    avatar:
+      'https://res.cloudinary.com/startup-grind/image/upload/c_fill,dpr_2,f_auto,g_face,h_200,q_auto:good,w_200/v1/gcs/platform-data-goog/events/TalonaJohnson_RI9lQyn.jpeg',
+  },
+  {
+    name: 'Tatiana Jackson',
+    organization: 'Real Culture',
+    position: 'Founder',
+    avatar:
+      'https://res.cloudinary.com/startup-grind/image/upload/c_fill,dpr_2,f_auto,g_face,h_200,q_auto:good,w_200/v1/gcs/platform-data-goog/events/TatianaJackson-1_v9SVntk.jpg',
+  },
+  {
+    name: 'Tracie Hightower',
+    organization: 'Collective Flow Learning, LLC',
+    position: 'Chief Strategy and Innovation Coach',
+    avatar:
+      'https://res.cloudinary.com/startup-grind/image/upload/c_fill,dpr_2,f_auto,g_face,h_200,q_auto:good,w_200/v1/gcs/platform-data-goog/events/TracieHightower-1_LcEe5i8.jpg',
+  },
+  {
+    name: 'Umelo Onyejiaka',
+    organization: 'DevOps Detroit',
+    position: 'Founder & Cloud Solutions Engineer',
+    avatar:
+      'https://res.cloudinary.com/startup-grind/image/upload/c_fill,dpr_2,f_auto,g_face,h_200,q_auto:good,w_200/v1/gcs/platform-data-goog/events/UmeloOnyejiaka%2520%25281%2529_xk9tWQg.jpeg',
+  },
+  {
+    name: 'Vital Anne',
+    organization: 'Siemens Industries Software',
+    position: 'Program Director',
+    avatar:
+      'https://res.cloudinary.com/startup-grind/image/upload/c_fill,dpr_2,f_auto,g_face,h_200,q_auto:good,w_200/v1/gcs/platform-data-goog/events/VitalAnne_BzSd9kQ.jpg',
+  },
+  {
+    name: 'Yana Grant',
+    organization: 'Meta',
+    position: 'Data Labeling Analyst',
+    avatar:
+      'https://res.cloudinary.com/startup-grind/image/upload/c_fill,dpr_2,f_auto,g_face,h_200,q_auto:good,w_200/v1/gcs/platform-data-goog/events/YanaGrant%2520%25281%2529_EvGVIi3.png',
+  },
+  {
+    name: 'Yesha Patel',
+    organization: 'IBM',
+    position: 'Senior Solution Architect & eCommerce SME',
+    avatar:
+      'https://res.cloudinary.com/startup-grind/image/upload/c_fill,dpr_2,f_auto,g_face,h_200,q_auto:good,w_200/v1/gcs/platform-data-goog/events/YeshaPatel_04hTer3.png',
+  },
+  {
+    name: 'Yukti Goyal',
+    organization: 'Kforce',
+    position: 'Lead Software Engineer',
+    avatar:
+      'https://res.cloudinary.com/startup-grind/image/upload/c_fill,dpr_2,f_auto,g_face,h_200,q_auto:good,w_200/v1/gcs/platform-data-goog/events/YuktiGoyal_s605Bkp.jpg',
+  },
+  {
+    name: 'Maridy Mazaira',
+    organization: 'SHPE Detroit Professional',
+    position: 'President',
+    avatar:
+      'https://res.cloudinary.com/startup-grind/image/upload/c_fill,dpr_2,f_auto,g_face,h_200,q_auto:good,w_200/v1/gcs/platform-data-goog/events/MaridyMazaira_uBQx7Al.jpeg',
+  },
+]
+
+const normalizeSpeakerName = (name) =>
+  String(name)
+    .toLowerCase()
+    .replace(/^dr\.\s+/, '')
+    .replace(/[^\w\s]/g, '')
+    .replace(/\s+/g, ' ')
+    .trim()
+
+const eventSpeakerByKey = new Map(
+  EVENT_PAGE_SPEAKERS.map((speaker) => [
+    normalizeSpeakerName(speaker.name),
+    speaker,
+  ])
+)
+
+const createPlaceholderSession = (index) => ({
+  title: 'Session details coming soon',
+  abstract: 'Detailed session information will be published soon.',
+  description:
+    'This speaker is confirmed for the Detroit International Women’s Day Innovation Summit. Session details are being finalized.',
+  tags: ['In-person', 'TBA'],
+  track: TRACK_ROTATION[index % TRACK_ROTATION.length],
+  time: 'TBA',
+  room: 'TBA',
+  sessionDuration: 45,
+})
+
+const enrichedExisting = rawSpeakersData
+  .filter((speaker) =>
+    eventSpeakerByKey.has(normalizeSpeakerName(speaker.name))
+  )
+  .map((speaker, index) => {
+    const eventMeta = eventSpeakerByKey.get(normalizeSpeakerName(speaker.name))
+    return {
+      ...speaker,
+      name: eventMeta.name,
+      avatar: eventMeta.avatar || speaker.avatar,
+      organization: eventMeta.organization || speaker.organization,
+      position: eventMeta.position || speaker.position,
+      bio:
+        speaker.bio ||
+        `${eventMeta.name} is a confirmed speaker for the Detroit International Women’s Day Innovation Summit.`,
+      session:
+        speaker.session && speaker.session.title
+          ? speaker.session
+          : createPlaceholderSession(index),
+    }
+  })
+
+const existingKeys = new Set(
+  enrichedExisting.map((speaker) => normalizeSpeakerName(speaker.name))
+)
+
+const startingId = rawSpeakersData.reduce(
+  (maxId, speaker) => Math.max(maxId, Number(speaker.id) || 0),
+  0
+)
+
+const missingFromEventPage = EVENT_PAGE_SPEAKERS.filter(
+  (speaker) => !existingKeys.has(normalizeSpeakerName(speaker.name))
+).map((speaker, index) => ({
+  id: startingId + index + 1,
+  name: speaker.name,
+  avatar: speaker.avatar,
+  bio: `${speaker.name} is a confirmed speaker for the Detroit International Women’s Day Innovation Summit.`,
+  linkedIn: '',
+  organization: speaker.organization,
+  position: speaker.position || 'Speaker',
+  session: createPlaceholderSession(index),
+  isWTM: false,
+  isGDE: false,
+}))
+
+export const SpeakersData = [...enrichedExisting, ...missingFromEventPage]

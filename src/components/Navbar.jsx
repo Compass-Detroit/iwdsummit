@@ -3,15 +3,17 @@ import { FaBars, FaXmark } from 'react-icons/fa6'
 import { Link, useLocation } from 'react-router-dom'
 import CompassDetroitLogo from './ui/CompassDetroitLogo'
 import ThemeSwitcher from './ui/ThemeSwitcher'
-import FontSwitcher from './ui/FontSwitcher'
 import { sections } from '@/data/2026/navigation'
+import useTheme from '@/hooks/useTheme'
 
 // Section links have id (anchor); route links have to (full page)
 const navSections = sections.filter((s) => s.id)
 
 function Navbar() {
+  const { mode } = useTheme()
   const location = useLocation()
   const isHomePage = location.pathname === '/'
+  const isLightMode = mode === 'light'
   const [activeLink, setActiveLink] = useState('landing')
   const [isNavVisible, setIsNavVisible] = useState(false)
   const [isManualNavigation, setIsManualNavigation] = useState(false)
@@ -394,8 +396,8 @@ function Navbar() {
       aria-label="Main navigation"
       className={`site-header fixed left-0 top-0 z-30 w-screen transition-all duration-500 ${
         activeLink === 'landing' && isHomePage
-          ? 'bg-iwd-surface-raised dark:bg-iwd-black-950/80 text-white backdrop-blur-xl'
-          : 'bg-iwd-surface-raised dark:bg-iwd-black-950/95 text-gray-100 dark:text-gray-100 shadow-lg shadow-black/20 backdrop-blur-xl'
+          ? 'bg-iwd-surface-raised text-white backdrop-blur-xl dark:bg-iwd-black-950/80'
+          : 'bg-iwd-surface-raised text-gray-100 shadow-lg shadow-black/20 backdrop-blur-xl dark:bg-iwd-black-950/95 dark:text-gray-100'
       }`}
     >
       {/* Screen Reader Announcements */}
@@ -420,7 +422,10 @@ function Navbar() {
           onClick={handleHomeNavigation}
           aria-label="Go to home page"
         >
-          <CompassDetroitLogo textColor="#FFFFFF" className="h-12 sm:h-16" />
+          <CompassDetroitLogo
+            textColor={isLightMode ? '#1F2937' : '#FFFFFF'}
+            className="h-12 sm:h-16"
+          />
         </Link>
 
         <div className="flex items-center gap-2">
@@ -428,7 +433,6 @@ function Navbar() {
           <div className="hidden min-[1500px]:block">{desktopNavList}</div>
 
           {/* Theme Switcher */}
-          <FontSwitcher />
           <ThemeSwitcher />
 
           {/* Mobile NavBar Hamburger Button */}
@@ -438,10 +442,10 @@ function Navbar() {
             aria-label={isNavVisible ? 'Close Main Menu' : 'Open Main Menu'}
             aria-expanded={isNavVisible}
             aria-controls="mobile-navigation"
-            className={`mr-2 touch-manipulation rounded border-2 p-2 transition-colors sm:px-4 max-[1499px]:block min-[1500px]:hidden ${
+            className={`mr-2 touch-manipulation rounded border-2 p-2 transition-colors max-[1499px]:block sm:px-4 min-[1500px]:hidden ${
               activeLink === 'landing' && isHomePage
                 ? 'border-iwd-gold-400/40 text-white hover:bg-iwd-gold-400/10 active:bg-iwd-gold-400/20'
-                : 'border-gray-600 text-gray-100 dark:text-gray-100 hover:bg-gray-700 active:bg-gray-600'
+                : 'border-gray-600 text-gray-100 hover:bg-gray-700 active:bg-gray-600 dark:text-gray-100'
             }`}
             onClick={(e) => {
               e.preventDefault()
@@ -482,8 +486,8 @@ function Navbar() {
             aria-labelledby="mobile-menu-button"
             className={`nav-menu-expanded block w-full overflow-hidden shadow-lg ${
               activeLink === 'landing' && isHomePage
-                ? 'bg-iwd-surface-raised dark:bg-iwd-black-950/95 backdrop-blur-xl'
-                : 'bg-iwd-surface-raised dark:bg-iwd-black-950/95 text-white backdrop-blur-xl'
+                ? 'bg-iwd-surface-raised backdrop-blur-xl dark:bg-iwd-black-950/95'
+                : 'bg-iwd-surface-raised text-white backdrop-blur-xl dark:bg-iwd-black-950/95'
             }`}
             style={{
               transform: 'translateZ(0)',

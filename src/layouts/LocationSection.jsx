@@ -155,9 +155,6 @@ function LocationSection() {
         <div className="flex flex-col gap-12">
           {/* 1. Full-Width Carousel Row */}
           <div className="w-full">
-            <h3 className="mb-6 font-heading text-xl font-bold uppercase tracking-widest text-iwd-gold-400/80">
-              Venue Gallery
-            </h3>
             <div className="bg-iwd-surface-raised group relative aspect-[21/9] w-full overflow-hidden rounded-3xl border border-white/[0.08] shadow-2xl transition-all duration-500 hover:border-iwd-gold-400/30 dark:bg-iwd-black-950/50">
               {/* Carousel Content */}
               {VENUE_IMAGES.map((img, idx) => (
@@ -176,7 +173,7 @@ function LocationSection() {
                   <div className="absolute left-8 top-8 flex items-start justify-start gap-4">
                     <div className="bg-iwd-surface-raised flex flex-col gap-1 rounded-md px-4 py-2 backdrop-blur-md dark:bg-iwd-black-950/50">
                       <span className="text-sm font-black uppercase tracking-[0.2em] text-iwd-gold-400">
-                        Location Highlight
+                        Venue Gallery
                       </span>
                       <span className="text-2xl font-bold text-white drop-shadow-md ">
                         {img.label}
@@ -192,8 +189,8 @@ function LocationSection() {
                           }}
                           className={`relative h-2 rounded-full transition-all duration-500 ${
                             i === activeImg
-                              ? 'w-12 bg-white/10'
-                              : 'w-6 bg-white/10 hover:bg-white/20'
+                              ? 'w-12 bg-black/50'
+                              : 'w-6 bg-black/40 hover:bg-black/70'
                           }`}
                           aria-label={`Go to image ${i + 1}`}
                         >
@@ -243,10 +240,10 @@ function LocationSection() {
 
           {/* 2. Full-Width Enhanced Map */}
           <div className="w-full">
-            <h3 className="mb-6 font-heading text-xl font-bold uppercase tracking-widest text-iwd-gold-400/80">
-              Little Caesars HQ
-            </h3>
             <div className="bg-iwd-surface-raised relative aspect-[21/9] w-full overflow-hidden rounded-3xl border border-white/[0.1] shadow-2xl dark:bg-iwd-black-950/50">
+              <div className="absolute right-4 top-4 z-20 rounded-md bg-black/60 px-3 py-1 text-xs font-bold uppercase tracking-widest text-iwd-gold-300">
+                Little Caesars HQ
+              </div>
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1474.743169822604!2d-83.05315364177726!3d42.338780280806414!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8824d2ca78df0e73%3A0xe54d6afcc1dacc7!2sLittle%20Caesars%20Global%20Resource%20Center!5e0!3m2!1sen!2sus!4v1711204899999!5m2!1sen!2sus"
                 width="100%"
@@ -270,6 +267,16 @@ function LocationSection() {
                 </div>
                 <FaMapPin className="size-10 text-iwd-gold-400 drop-shadow-[0_0_15px_rgba(255,184,0,0.8)]" />
               </div>
+            </div>
+            <div className="mt-4 flex flex-wrap gap-3">
+              <a
+                href="https://www.google.com/maps/place/Little+Caesars+Corporate+Office/data=!4m2!3m1!1s0x0:0x14096f8dc7a099f3?sa=X&ved=1t:2428&ictx=111"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-lg border border-iwd-gold-500/30 bg-iwd-gold-500/10 px-4 py-2 text-sm font-semibold text-iwd-gold-300 transition-colors hover:bg-iwd-gold-500/20"
+              >
+                <FaMap className="size-4" /> Open in Google Maps
+              </a>
             </div>
           </div>
         </div>

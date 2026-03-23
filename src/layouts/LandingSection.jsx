@@ -130,7 +130,7 @@ function LandingSection() {
         {/* Video Play/Pause toggle for accessibility */}
         <button
           onClick={toggleVideoPlayback}
-          className="absolute bottom-6 right-6 z-20 flex size-10 items-center justify-center rounded-full bg-black/40 text-gray-900 backdrop-blur-md transition-all hover:bg-black/60 hover:text-white lg:bottom-12 lg:right-12 dark:text-white/70 dark:hover:text-gray-900"
+          className="absolute bottom-6 right-6 z-20 flex size-10 items-center justify-center rounded-full border border-white/30 bg-black/55 text-white backdrop-blur-md transition-all hover:bg-black/70 lg:bottom-12 lg:right-12"
           aria-label={
             isVideoPlaying ? 'Pause background video' : 'Play background video'
           }
@@ -180,7 +180,7 @@ function LandingSection() {
               Detroit
             </span>
             <span
-              className="block text-3xl text-gray-900 sm:text-5xl lg:text-[4rem] xl:text-[5rem] dark:text-white/95"
+              className="block text-3xl text-gray-900 sm:whitespace-nowrap sm:text-4xl lg:text-[3.2rem] xl:text-[3.7rem] dark:text-white/95"
               style={{
                 letterSpacing: '-0.01em',
                 lineHeight: '1.1',
@@ -324,20 +324,14 @@ function LandingSection() {
           </div>
 
           {/* Scroll indicator */}
-          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 sm:bottom-20">
-            <a
-              href="#attendees"
-              aria-label="Scroll to content"
-              className="group flex flex-col items-center gap-2.5 text-gray-900 transition-colors duration-500 hover:text-white dark:text-white/50 dark:hover:text-gray-900"
-            >
-              <span className="font-body text-[9px] font-medium uppercase tracking-[0.4em]">
-                Scroll
-              </span>
-              <div className="relative flex items-center justify-center">
-                <FaArrowDown className="relative z-10 size-2.5 animate-bounce" />
-                <div className="absolute size-8 rounded-full border border-current opacity-30 transition-transform duration-500 group-hover:scale-125" />
-              </div>
-            </a>
+          <div className="mt-2 flex flex-col items-center gap-2 text-white/80">
+            <span className="font-body text-[9px] font-medium uppercase tracking-[0.4em]">
+              More Below
+            </span>
+            <div className="relative flex items-center justify-center">
+              <FaArrowDown className="relative z-10 size-2.5 animate-bounce" />
+              <div className="absolute size-8 rounded-full border border-current opacity-30" />
+            </div>
           </div>
         </div>
 

@@ -30,9 +30,7 @@ const PartnersSection = ({ partnersData = {}, year }) => {
         }}
         aria-hidden="true"
       />
-      <SectionSkipLink href="#leadership">
-        Skip partners section
-      </SectionSkipLink>
+      <SectionSkipLink href="#team">Skip partners section</SectionSkipLink>
 
       <div className="relative w-full pt-0">
         <p className="mb-4 text-center font-body text-xs font-medium uppercase tracking-[0.3em] text-iwd-gold-400/80">
@@ -92,7 +90,7 @@ const PartnersSection = ({ partnersData = {}, year }) => {
                       )}
                     </div>
                     {/* ── Back: Org info ── */}
-                    <div className="from-iwd-dark-900 to-iwd-dark-950 absolute inset-0 flex flex-col items-center justify-center rounded-[2rem] border border-iwd-gold-400/20 bg-gradient-to-br p-8 backdrop-blur-xl [backface-visibility:hidden] [transform:rotateY(180deg)]">
+                    <div className="from-iwd-dark-900 to-iwd-dark-950 absolute inset-0 flex flex-col items-center justify-start overflow-y-auto rounded-[2rem] border border-iwd-gold-400/20 bg-gradient-to-br p-6 pt-8 backdrop-blur-xl [backface-visibility:hidden] [transform:rotateY(180deg)]">
                       <h3 className="mb-4 text-2xl font-black tracking-tight text-white">
                         {partner.name}
                       </h3>

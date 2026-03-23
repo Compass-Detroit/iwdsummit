@@ -58,7 +58,8 @@ const ProfileCard = ({
       'bg-red-800': 'from-red-400/60 via-red-400/5',
       'bg-orange-900': 'from-orange-400/60 via-orange-400/5',
       'bg-iwd-gold-800': 'from-iwd-gold-400/60 via-iwd-gold-400/5',
-      'bg-iwd-surface-raised dark:bg-iwd-black-800': 'from-iwd-black-800/60 via-iwd-black-800/5',
+      'bg-iwd-surface-raised dark:bg-iwd-black-800':
+        'from-iwd-black-800/60 via-iwd-black-800/5',
 
       // Legacy/fallback colors
       'bg-primary-300': 'from-primary-300/60 via-primary-300/5',
@@ -152,6 +153,7 @@ const ProfileCard = ({
 
   const renderButton = onViewDetails && (
     <button
+      type="button"
       className={`my-3 inline-flex items-center whitespace-nowrap rounded-lg px-4 py-2 text-sm font-medium shadow-md transition-colors focus:outline-none focus:ring-2 focus:ring-focus-ring focus:ring-offset-2 ${speakerDetailColors}`}
       onClick={onViewDetails}
       aria-label={`View details for ${name}`}
@@ -164,7 +166,7 @@ const ProfileCard = ({
   const hasImage = Boolean(imageSrc)
 
   const renderSpeakerCard = (
-    <div className="group relative h-full overflow-hidden rounded-2xl border border-white/[0.06] bg-iwd-surface-raised dark:bg-iwd-black-950 transition-all duration-500 hover:-translate-y-2 hover:border-iwd-gold-400/30 hover:shadow-[0_20px_50px_rgba(255,208,174,0.15)]">
+    <div className="bg-iwd-surface-raised group relative h-full overflow-hidden rounded-2xl border border-white/[0.06] transition-all duration-500 hover:-translate-y-2 hover:border-iwd-gold-400/30 hover:shadow-[0_20px_50px_rgba(255,208,174,0.15)] dark:bg-iwd-black-950">
       {/* Animated Gradient Border (visible on hover) */}
       <div className="absolute inset-0 -z-10 bg-gradient-to-br from-iwd-gold-400/20 via-transparent to-iwd-gold-300/20 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
