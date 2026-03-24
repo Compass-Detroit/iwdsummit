@@ -51,8 +51,7 @@ const trackDescriptions = {
         id="build-with-ai-heading"
         className="mx-auto mb-4 text-center text-xl font-semibold text-white sm:text-2xl "
       >
-        <span className="font-bold">Build with AI Stage</span> is located in
-        Service Building 120 (SB{'\u00A0'}120)
+        Build with AI stage in Pizza Pizza
       </h3>
     </>
   ),
@@ -62,8 +61,7 @@ const trackDescriptions = {
         id="innovation-heading"
         className="mx-auto mb-4 text-center text-xl font-semibold text-white sm:text-2xl "
       >
-        <span className="font-bold">Innovation Stage</span> is located on the
-        1st floor of Walker Crisler Building (WCB), Room{'\u00A0'}103
+        Innovation stage in The Family Theatre
       </h3>
       <p className="mb-6 max-w-4xl text-pretty text-center text-base text-gray-400">
         Discover groundbreaking ideas and emerging technologies shaping the
@@ -77,8 +75,7 @@ const trackDescriptions = {
         id="level-up-heading"
         className="mx-auto mb-4 text-center text-xl font-semibold text-white sm:text-2xl "
       >
-        <span className="font-bold">Level Up Stage</span> is located in Town
-        Square
+        Level Up stage in Pizza Treat
       </h3>
       <p className="mb-6 max-w-4xl text-pretty text-center text-base text-gray-400">
         Advance your career and personal growth. From mentorship to leadership,
@@ -93,10 +90,7 @@ const trackDescriptions = {
         id="leadership-heading"
         className="mx-auto mb-4 text-center text-xl font-semibold text-white sm:text-2xl "
       >
-        <span className="font-bold">Leadership Stage</span> is located in Walker
-        Crisler Building Floor 2 Rooms 275 and 278 (WCB{'\u00A0'}275{'\u00A0'}
-        and
-        {'\u00A0'}278)
+        Leadership stage in Reserve-n-Ready
       </h3>
       <p className="mb-6 max-w-4xl text-pretty text-center text-base text-gray-400">
         Discover insights from founders and entrepreneurs building the next
@@ -110,8 +104,7 @@ const trackDescriptions = {
         id="ai-foundations-heading"
         className="mx-auto mb-4 text-center text-xl font-semibold text-white sm:text-2xl "
       >
-        <span className="font-bold">AI Foundations Stage</span> is located in
-        Walker Crisler Building Floor 1 Room 105 (WCB{'\u00A0'}105)
+        AI Foundations stage in Hot-n-Ready
       </h3>
       <p className="mb-6 max-w-4xl text-pretty text-center text-base text-gray-400">
         Build your foundational knowledge of artificial intelligence.{' '}
@@ -124,8 +117,7 @@ const trackDescriptions = {
         id="careers-heading"
         className="mx-auto mb-4 text-center text-xl font-semibold text-white sm:text-2xl "
       >
-        <span className="font-bold">Careers Stage</span> is located in Walker
-        Crisler Building Floor 1
+        Careers stage in Value Conference Room
       </h3>
     </>
   ),
@@ -351,7 +343,7 @@ const SessionsSection = ({
   }
 
   const renderNoSessionsOrSpeakersMessage = () => (
-    <div className="col-span-1 my-4 flex flex-col items-center justify-center space-y-8 text-center text-lg leading-relaxed">
+    <div className="col-span-1 my-4 flex flex-col items-center justify-center space-y-8 text-center text-lg leading-relaxed dark:text-gray-400">
       <p>
         We are currently looking for speakers and will update the list of
         sessions once we have more information. If you are interested in
