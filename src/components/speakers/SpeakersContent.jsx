@@ -61,7 +61,7 @@ const SpeakersContent = ({ year, defaultExpanded }) => {
       }`}
     >
       <div className="mx-auto mt-6 max-w-4xl text-left">
-        <p className="text-base leading-[1.9] text-gray-400 md:text-lg">
+        <p className="text-base leading-[1.9] text-gray-400 md:text-lg dark:text-gray-400">
           Join us for engaging and inspiring talks from industry leaders,
           innovators, and experts who are shaping the future of technology. Our
           speakers bring real-world experience and cutting-edge insights across
@@ -119,7 +119,7 @@ const SpeakersContent = ({ year, defaultExpanded }) => {
   return (
     <section
       id="speakers"
-      className="relative flex flex-col justify-center border-b border-white/10 bg-iwd-surface-raised dark:bg-iwd-black-950 p-8 pb-24 pt-16 sm:px-10 md:px-14 lg:px-16"
+      className="bg-iwd-surface-raised relative flex flex-col justify-center border-b border-white/10 p-8 pb-24 pt-16 sm:px-10 md:px-14 lg:px-16 dark:bg-iwd-black-950"
     >
       <SectionSkipLink href="#jobboard">Skip speakers section</SectionSkipLink>
       {renderSpeakerHeader}
