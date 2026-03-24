@@ -14,36 +14,21 @@
  */
 
 import AngelaRichardson from './assets/images/speakers/AngelaRichardson.webp'
-import CherylThompson from './assets/images/speakers/CherylThompson.webp'
-import GinaGrant from './assets/images/speakers/GinaGrant.webp'
 import IdaByrdHill from './assets/images/speakers/IdaByrd-Hill.webp'
 import JennaRitten from './assets/images/speakers/JennaRitten.webp'
 import JeseekiaVaughn from './assets/images/speakers/JeseekiaVaughn.webp'
-import KamilleTynes from './assets/images/speakers/KamilleTynes.webp'
-import LawrielleWest from './assets/images/speakers/LawrielleWest.webp'
-import LorrenaBlack from './assets/images/speakers/LorrenaBlack.webp'
 import MarilynNash from './assets/images/speakers/MarilynNash.webp'
 import TatianaJackson from './assets/images/speakers/TatianaJackson.webp'
-import TinettaWilson from './assets/images/speakers/TinettaWilson.webp'
 import TracieHightower from './assets/images/speakers/TracieHightower.webp'
 import YanaGrant from './assets/images/speakers/YanaGrant.webp'
-import ZipporahAbla from './assets/images/speakers/ZipporahAbla.webp'
-import TerrellMcKinney from './assets/images/speakers/TerrellMcKinney.webp'
-import SaamerMansoor from './assets/images/speakers/SaamerMansoor.webp'
 import UmeloOnyejiaka from './assets/images/speakers/UmeloOnyejiaka.webp'
-import DesmondBakerJr from './assets/images/speakers/DesmondBakerJr.webp'
-import HernandoGonzalezMalabet from './assets/images/speakers/HernandoGonzalezMalabet.webp'
-import SilviyaTopchiyska from './assets/images/speakers/SilviyaTopchiyska.webp'
 import TabiceWard from './assets/images/speakers/TabiceWard.webp'
 
 // New 2026 Speaker Headshots
 import BandhanKaur from './assets/images/speakers/BandhanKaur.jpg'
 import BryneBerry from './assets/images/speakers/BryneBerry.jpg'
-import DanRey1 from './assets/images/speakers/DanRey-1.png'
-import DanRey2 from './assets/images/speakers/DanRey-2.jpeg'
 import DichondraJohnson from './assets/images/speakers/DichondraJohnson.jpg'
 import DonnaBell from './assets/images/speakers/DonnaBell.png'
-import GbemisolaEsho from './assets/images/speakers/GbemisolaEsho.jpg'
 import HodaSolati from './assets/images/speakers/HodaSolati.jpg'
 import JahsiahKidd from './assets/images/speakers/JahsiahKidd.jpeg'
 import KendallBraxton from './assets/images/speakers/KendallBraxton.jpg'
@@ -56,7 +41,6 @@ import RobinKinnie from './assets/images/speakers/RobinKinnie.jpg'
 import ShalondaOwens from './assets/images/speakers/ShalondaOwens.jpeg'
 import SheneeliaLogan from './assets/images/speakers/SheneeliaLogan.png'
 import ShimaSolati from './assets/images/speakers/ShimaSolati.jpg'
-import SuvadityaMukherjee from './assets/images/speakers/SuvadityaMukherjee.jpg'
 import TalonaJohnson from './assets/images/speakers/TalonaJohnson.jpeg'
 import VitalAnne from './assets/images/speakers/VitalAnne.jpg'
 import YeshaPatel from './assets/images/speakers/YeshaPatel.png'
@@ -400,52 +384,6 @@ const rawSpeakersData = [
     isGDE: false,
   },
   {
-    id: 2,
-    name: 'Cheryl Thompson',
-    avatar: CherylThompson,
-    bio: 'Cheryl is a cybersecurity strategist and former NSA analyst. She now consults on secure architecture and leads the Detroit chapter of ISACA.',
-    linkedIn: 'https://www.linkedin.com/in/cherylthompson',
-    organization: 'Deloitte',
-    position: 'Cybersecurity Principal',
-    session: {
-      title: 'Zero Trust in the Age of Generative AI',
-      abstract:
-        'The security landscape is shifting. Are your defenses keeping up?',
-      description:
-        'Generative AI introduces new attack surfaces — prompt injection, data exfiltration through model outputs, and adversarial fine-tuning. Cheryl breaks down the zero-trust principles that matter most and how to retrofit them into existing enterprise architectures.',
-      tags: ['In-person', 'Innovation'],
-      track: 'Innovation',
-      time: '10:00',
-      room: 'WCB 103',
-      sessionDuration: 45,
-    },
-    isWTM: false,
-    isGDE: false,
-  },
-  {
-    id: 3,
-    name: 'Gina Grant',
-    avatar: GinaGrant,
-    bio: 'Gina is a UX research lead who has shaped product experiences for over 2 million users. She specializes in inclusive design and accessibility for underserved communities.',
-    linkedIn: 'https://www.linkedin.com/in/ginagrant',
-    organization: 'Google',
-    position: 'UX Research Lead',
-    session: {
-      title: 'Designing for Everyone: Inclusive UX in Practice',
-      abstract:
-        'Move beyond compliance — design experiences that genuinely include.',
-      description:
-        'Accessibility is more than screen readers and color contrast. Gina walks through her research-driven framework for inclusive design, covering cognitive load, cultural context, and economic access. Attendees leave with a toolkit they can use Monday morning.',
-      tags: ['In-person', 'Innovation'],
-      track: 'Innovation',
-      time: '11:00',
-      room: 'WCB 103',
-      sessionDuration: 45,
-    },
-    isWTM: true,
-    isGDE: true,
-  },
-  {
     id: 4,
     name: 'Ida Byrd-Hill',
     avatar: IdaByrdHill,
@@ -515,73 +453,6 @@ const rawSpeakersData = [
     isGDE: false,
   },
   {
-    id: 7,
-    name: 'Kamille Tynes',
-    avatar: KamilleTynes,
-    bio: 'Kamille is a data scientist specializing in NLP and conversational AI. She has published research on reducing bias in large language models.',
-    linkedIn: 'https://www.linkedin.com/in/kamilletynes',
-    organization: 'IBM',
-    position: 'Senior Data Scientist',
-    session: {
-      title: 'De-Biasing LLMs: From Theory to Production',
-      abstract:
-        'Practical techniques for making language models more equitable.',
-      description:
-        'Large language models inherit the biases of their training data. Kamille walks through techniques her team uses at IBM to detect, measure, and mitigate bias — including RLHF strategies, evaluation frameworks, and red-teaming methodologies that work at scale.',
-      tags: ['In-person', 'Build with AI'],
-      track: 'Build with AI',
-      time: '1:00',
-      room: 'SB 120',
-      sessionDuration: 45,
-    },
-    isWTM: true,
-    isGDE: false,
-  },
-  {
-    id: 8,
-    name: 'Lawrielle West',
-    avatar: LawrielleWest,
-    bio: 'Lawrielle is a product manager who transitioned from journalism to tech. She now leads product strategy for AI-powered tools and advocates for diverse representation in product teams.',
-    linkedIn: 'https://www.linkedin.com/in/lawriellewest',
-    organization: 'Rocket Mortgage',
-    position: 'Senior Product Manager',
-    session: {
-      title: 'From Journalist to PM: Career Pivots That Work',
-      abstract: 'Your non-traditional background is your superpower.',
-      description:
-        'Lawrielle shares the frameworks that helped her pivot from a journalism career into product management — and why the storytelling skills she built in newsrooms make her a stronger PM. Practical advice for anyone considering a career switch into tech.',
-      tags: ['In-person', 'Level Up'],
-      track: 'Level Up',
-      time: '11:00',
-      room: 'Town Square',
-      sessionDuration: 45,
-    },
-    isWTM: false,
-    isGDE: false,
-  },
-  {
-    id: 9,
-    name: 'Lorrena Black',
-    avatar: LorrenaBlack,
-    bio: 'Lorrena is a cloud infrastructure engineer with deep expertise in Kubernetes, Terraform, and multi-cloud architectures. She is a Google Developer Expert for Cloud.',
-    linkedIn: 'https://www.linkedin.com/in/lorrenablack',
-    organization: 'Stellantis',
-    position: 'Principal Cloud Engineer',
-    session: {
-      title: 'Multi-Cloud Without the Mess',
-      abstract: "Taming infrastructure complexity when one cloud isn't enough.",
-      description:
-        'Stellantis runs workloads across AWS, GCP, and Azure. Lorrena shares the hard-won lessons from building a unified platform layer — including what abstractions actually help, when to embrace cloud-native, and the tooling that keeps her team sane.',
-      tags: ['In-person', 'Innovation'],
-      track: 'Innovation',
-      time: '1:00',
-      room: 'WCB 103',
-      sessionDuration: 45,
-    },
-    isWTM: false,
-    isGDE: true,
-  },
-  {
     id: 10,
     name: 'Marilyn Nash',
     avatar: MarilynNash,
@@ -623,28 +494,6 @@ const rawSpeakersData = [
       sessionDuration: 45,
     },
     isWTM: true,
-    isGDE: false,
-  },
-  {
-    id: 12,
-    name: 'Tinetta Wilson',
-    avatar: TinettaWilson,
-    bio: 'Tinetta is a DevOps leader who has built CI/CD pipelines serving 50+ development teams. She speaks internationally on platform engineering and developer experience.',
-    linkedIn: 'https://www.linkedin.com/in/tinettawilson',
-    organization: 'General Motors',
-    position: 'Director of Platform Engineering',
-    session: {
-      title: 'Platform Engineering: Building for Developer Joy',
-      abstract: 'The best platform is the one developers actually want to use.',
-      description:
-        "At GM, Tinetta's team serves hundreds of developers. She shares the principles behind their internal developer platform — from golden paths to self-service infrastructure — and how focusing on developer experience reduced deployment failures by 73%.",
-      tags: ['In-person', 'Innovation'],
-      track: 'Innovation',
-      time: '2:00',
-      room: 'WCB 103',
-      sessionDuration: 45,
-    },
-    isWTM: false,
     isGDE: false,
   },
   {
@@ -692,74 +541,6 @@ const rawSpeakersData = [
     isGDE: false,
   },
   {
-    id: 15,
-    name: 'Zipporah Abla',
-    avatar: ZipporahAbla,
-    bio: 'Zipporah is a robotics engineer working on autonomous vehicle perception systems. She holds 3 patents in sensor fusion technology.',
-    linkedIn: 'https://www.linkedin.com/in/zipporahabla',
-    organization: 'May Mobility',
-    position: 'Robotics Engineer',
-    session: {
-      title: 'The Future of Autonomous Mobility in Detroit',
-      abstract:
-        "Detroit built the car. Now it's building the robot that drives it.",
-      description:
-        "Zipporah explores how Detroit's automotive legacy uniquely positions the city for the autonomous vehicle revolution. She covers the state of sensor fusion, edge computing challenges, and why diverse engineering teams build safer autonomous systems.",
-      tags: ['In-person', 'Innovation'],
-      track: 'Innovation',
-      time: '3:00',
-      room: 'WCB 103',
-      sessionDuration: 45,
-    },
-    isWTM: false,
-    isGDE: false,
-  },
-  {
-    id: 16,
-    name: 'Terrell McKinney',
-    avatar: TerrellMcKinney,
-    bio: 'Terrell is a state legislator and tech advocate who champions digital equity policy. He connects technologists with civic opportunities.',
-    linkedIn: 'https://www.linkedin.com/in/terrellmckinney',
-    organization: 'Michigan State Legislature',
-    position: 'State Representative',
-    session: {
-      title: 'Policy Meets Code: Tech Advocacy That Moves the Needle',
-      abstract:
-        'How technologists can shape the policies that shape technology.',
-      description:
-        'Terrell breaks down how tech workers can effectively advocate for digital equity, broadband access, and AI regulation. From testimony tips to coalition-building, this session equips attendees to be as effective in the statehouse as they are in the codebase.',
-      tags: ['In-person', 'Leadership'],
-      track: 'Leadership',
-      time: '2:00',
-      room: 'WCB 275',
-      sessionDuration: 45,
-    },
-    isWTM: false,
-    isGDE: false,
-  },
-  {
-    id: 17,
-    name: 'Saamer Mansoor',
-    avatar: SaamerMansoor,
-    bio: 'Saamer is a Google Developer Expert in Web Technologies and a full-stack developer who focuses on performance optimization and developer tooling.',
-    linkedIn: 'https://www.linkedin.com/in/saamermansoor',
-    organization: 'Compass Detroit',
-    position: 'Lead Developer & GDE',
-    session: {
-      title: 'Web Performance Deep Dive: Core Web Vitals in 2026',
-      abstract: "Your site is slower than you think. Let's fix that.",
-      description:
-        'Saamer walks through the latest Core Web Vitals metrics, common performance pitfalls in modern React apps, and the toolchain for diagnosing and fixing them. Expect live profiling, real production examples, and actionable takeaways.',
-      tags: ['In-person', 'Build with AI'],
-      track: 'Build with AI',
-      time: '3:00',
-      room: 'SB 120',
-      sessionDuration: 45,
-    },
-    isWTM: false,
-    isGDE: true,
-  },
-  {
     id: 18,
     name: 'Umelo Onyejiaka',
     avatar: UmeloOnyejiaka,
@@ -780,73 +561,6 @@ const rawSpeakersData = [
       sessionDuration: 45,
     },
     isWTM: false,
-    isGDE: false,
-  },
-  {
-    id: 19,
-    name: 'Desmond Baker Jr',
-    avatar: DesmondBakerJr,
-    bio: 'Desmond is a mobile engineer and community builder who organizes Android meetups across Michigan. He focuses on Kotlin Multiplatform and Jetpack Compose.',
-    linkedIn: 'https://www.linkedin.com/in/desmondbakerjr',
-    organization: 'United Wholesale Mortgage',
-    position: 'Senior Mobile Engineer',
-    session: {
-      title: 'Kotlin Multiplatform: One Codebase, Every Screen',
-      abstract:
-        'Ship to Android, iOS, and desktop from a single Kotlin codebase.',
-      description:
-        'Desmond demonstrates how his team at UWM uses Kotlin Multiplatform to share business logic across platforms while keeping native UI. He covers the architecture decisions, testing strategies, and the state of the KMP ecosystem in 2026.',
-      tags: ['In-person', 'Level Up'],
-      track: 'Level Up',
-      time: '3:00',
-      room: 'Town Square',
-      sessionDuration: 45,
-    },
-    isWTM: false,
-    isGDE: false,
-  },
-  {
-    id: 21,
-    name: 'Hernando Gonzalez Malabet',
-    avatar: HernandoGonzalezMalabet,
-    bio: 'Hernando is a creative technologist who blends art and code. He builds interactive installations and generative art using WebGL, Three.js, and machine learning.',
-    linkedIn: 'https://www.linkedin.com/in/hernandomalabet',
-    organization: 'College for Creative Studies',
-    position: 'Creative Technologist',
-    session: {
-      title: 'Generative Art Meets AI: Creative Coding in 2026',
-      abstract: 'Where code becomes canvas and algorithms become artists.',
-      description:
-        'Hernando live-codes a generative art piece using AI models and WebGL. This session explores the intersection of creative expression and machine learning — from style transfer to latent space exploration — showing how anyone can use code as a creative medium.',
-      tags: ['In-person', 'AI Foundations'],
-      track: 'AI Foundations',
-      time: '11:00',
-      room: 'WCB 105',
-      sessionDuration: 45,
-    },
-    isWTM: false,
-    isGDE: false,
-  },
-  {
-    id: 23,
-    name: 'Silviya Topchiyska',
-    avatar: SilviyaTopchiyska,
-    bio: 'Silviya is a Women Techmakers Ambassador and senior engineer who focuses on developer advocacy and building inclusive engineering cultures.',
-    linkedIn: 'https://www.linkedin.com/in/silviyatopchiyska',
-    organization: 'Honigman LLP',
-    position: 'Technology Director',
-    session: {
-      title: 'Building Engineering Cultures Where Everyone Thrives',
-      abstract: "Culture isn't ping pong tables — it's how you treat people.",
-      description:
-        'Silviya shares research-backed strategies for building engineering teams where diverse contributors do their best work. From psychological safety to code review practices, she covers the small changes that create big cultural shifts.',
-      tags: ['In-person', 'Leadership'],
-      track: 'Leadership',
-      time: '3:00',
-      room: 'WCB 275',
-      sessionDuration: 45,
-    },
-    isWTM: true,
     isGDE: false,
   },
   {
@@ -987,28 +701,6 @@ const rawSpeakersData = [
     isGDE: false,
   },
   {
-    id: 29,
-    name: 'Dan Rey',
-    avatar: DanRey1,
-    bio: 'Technical Product Analyst at McDonald’s',
-    linkedIn: '',
-    organization: 'McDonald’s',
-    position: 'Technical Product Analyst',
-    session: {
-      title: 'Workshop by Dan Rey',
-      abstract: 'Details coming soon.',
-      description:
-        'More information about this session will be available shortly.',
-      tags: ['In-person', 'Innovation'],
-      track: 'Innovation',
-      time: 'TBA',
-      room: 'TBA',
-      sessionDuration: 45,
-    },
-    isWTM: false,
-    isGDE: false,
-  },
-  {
     id: 30,
     name: 'Dichondra Johnson',
     avatar: DichondraJohnson,
@@ -1062,28 +754,6 @@ const rawSpeakersData = [
     position: 'Founder',
     session: {
       title: 'Workshop by Dr. Emily Jacobs',
-      abstract: 'Details coming soon.',
-      description:
-        'More information about this session will be available shortly.',
-      tags: ['In-person', 'Innovation'],
-      track: 'Innovation',
-      time: 'TBA',
-      room: 'TBA',
-      sessionDuration: 45,
-    },
-    isWTM: false,
-    isGDE: false,
-  },
-  {
-    id: 33,
-    name: 'Gbemisola Esho',
-    avatar: GbemisolaEsho,
-    bio: 'Cloud at Google Developer Expert',
-    linkedIn: '',
-    organization: 'Google Developer Expert',
-    position: 'Cloud',
-    session: {
-      title: 'Workshop by Gbemisola Esho',
       abstract: 'Details coming soon.',
       description:
         'More information about this session will be available shortly.',
@@ -1407,28 +1077,6 @@ const rawSpeakersData = [
     isGDE: false,
   },
   {
-    id: 48,
-    name: 'Suvaditya Mukherjee',
-    avatar: SuvadityaMukherjee,
-    bio: 'ML Engineer at Magnopus LLC',
-    linkedIn: '',
-    organization: 'Magnopus LLC',
-    position: 'ML Engineer',
-    session: {
-      title: 'Workshop by Suvaditya Mukherjee',
-      abstract: 'Details coming soon.',
-      description:
-        'More information about this session will be available shortly.',
-      tags: ['In-person', 'Innovation'],
-      track: 'Innovation',
-      time: 'TBA',
-      room: 'TBA',
-      sessionDuration: 45,
-    },
-    isWTM: false,
-    isGDE: false,
-  },
-  {
     id: 49,
     name: 'Talona Johnson, MBA, PMP, CMQ/OE',
     avatar: TalonaJohnson,
@@ -1504,28 +1152,6 @@ const rawSpeakersData = [
     position: 'Lead Software Engineer',
     session: {
       title: 'Workshop by Yukti Goyal',
-      abstract: 'Details coming soon.',
-      description:
-        'More information about this session will be available shortly.',
-      tags: ['In-person', 'Innovation'],
-      track: 'Innovation',
-      time: 'TBA',
-      room: 'TBA',
-      sessionDuration: 45,
-    },
-    isWTM: false,
-    isGDE: false,
-  },
-  {
-    id: 53,
-    name: 'Dan Rey (Alt)',
-    avatar: DanRey2,
-    bio: 'Technical Product Analyst at McDonald’s',
-    linkedIn: '',
-    organization: 'McDonald’s',
-    position: 'Technical Product Analyst',
-    session: {
-      title: 'Workshop by Dan Rey (Alt)',
       abstract: 'Details coming soon.',
       description:
         'More information about this session will be available shortly.',
