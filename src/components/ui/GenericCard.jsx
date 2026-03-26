@@ -20,7 +20,9 @@ const GenericCard = ({
 
   return (
     <div
-      className={`group relative w-full max-w-sm ${onOpen ? 'cursor-pointer' : ''}`}
+      className={`group relative w-full max-w-sm ${
+        onOpen ? 'cursor-pointer' : ''
+      }`}
       onClick={onOpen}
       role={onOpen ? 'button' : undefined}
       tabIndex={onOpen ? 0 : undefined}
@@ -43,7 +45,7 @@ const GenericCard = ({
         <div className="relative -mt-12 flex justify-center">
           <div className="relative">
             <div className="rounded-full bg-gradient-to-br from-iwd-gold-300/80 via-iwd-gold-500/60 to-iwd-gold-300/80 p-[3px] shadow-lg shadow-iwd-gold-500/20">
-              <div className="size-[168px] rounded-full bg-iwd-surface-raised dark:bg-iwd-black-950 p-0.5">
+              <div className="bg-iwd-surface-raised size-[168px] rounded-full p-0.5 dark:bg-iwd-black-950">
                 {avatar && (
                   <img
                     src={avatar}

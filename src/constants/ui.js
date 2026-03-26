@@ -25,45 +25,6 @@ export const THEMES = [
   },
 ]
 
-export const FONTS = [
-  {
-    id: 'classic',
-    label: 'Classic',
-    heading: 'font-biorhyme',
-    body: 'font-montserrat',
-    sample: 'BioRhyme',
-  },
-  {
-    id: 'editorial',
-    label: 'Editorial',
-    heading: 'font-asimovian',
-    body: 'font-montserrat',
-    sample: 'Asimovian',
-  },
-  {
-    id: 'tech',
-    label: 'Tech',
-    heading: 'font-orbitron',
-    body: 'font-montserrat',
-    sample: 'Orbitron',
-  },
-  {
-    id: 'script',
-    label: 'Script',
-    heading: 'font-russell',
-    body: 'font-russell',
-    sample: 'Russell',
-  },
-  {
-    id: 'modern',
-    label: 'Modern',
-    heading: 'font-montserrat',
-    body: 'font-montserrat',
-    sample: 'Montserrat',
-  },
-]
-
 export default {
   THEMES,
-  FONTS,
 }
