@@ -4,7 +4,9 @@
 
 /* ─── Theme color tokens ─── */
 
-/* 2026 Default Palette (60/30/20: #000000, #1CE9B6, #0334AB) */
+/* 2026 Default Palette (60/30/20: #000000, #1CE9B6, #0334AB)
+ * Tailwind `iwd-gold-*` colors read `--iwd-accent-*` below (brand accent; mint in this theme).
+ * Use `light:*` utilities for html[data-mode=light] (see tailwind `lightModeVariant` plugin). */
 :root {
   --iwd-accent-50: 232 255 248;
   --iwd-accent-100: 206 254 237;
@@ -426,6 +428,22 @@
 }
 [data-mode='light'] :is(#hero, .site-header.site-header--dark) .hover\:bg-iwd-gold-400\/20:hover {
   background-color: rgb(var(--iwd-accent-400) / 0.2);
+}
+/* Light mode: CTAButton hover resets to rest colors — mirror resting gold on dark hero */
+[data-mode='light'] :is(#hero, .site-header.site-header--dark) .hover\:bg-iwd-gold-400\/10:hover {
+  background-color: rgb(var(--iwd-accent-400) / 0.1);
+}
+[data-mode='light'] :is(#hero, .site-header.site-header--dark) .hover\:border-iwd-gold-400\/30:hover {
+  border-color: rgb(var(--iwd-accent-400) / 0.3);
+}
+[data-mode='light'] :is(#hero, .site-header.site-header--dark) .hover\:border-black\/10:hover {
+  border-color: rgb(255 255 255 / 0.14);
+}
+[data-mode='light'] :is(#hero, .site-header.site-header--dark) .hover\:bg-black\/\[0\.04\]:hover {
+  background-color: rgb(255 255 255 / 0.06);
+}
+[data-mode='light'] :is(#hero, .site-header.site-header--dark) .hover\:text-gray-600:hover {
+  color: rgb(229 231 235 / 0.92);
 }
 [data-mode='light'] :is(#hero, .site-header.site-header--dark) .border-black\/10 {
   border-color: rgb(255 255 255 / 0.14);

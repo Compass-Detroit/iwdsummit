@@ -6,6 +6,7 @@ import SectionSkipLink from '@/components/ui/SectionSkipLink'
 
 import { SpeakerContext } from '@/components/speakers/SpeakerContext'
 
+import { GOLD_PRIMARY_LIGHT_HOVER } from '@/constants/goldPrimaryButtonLightHover'
 import { DIRECTION } from '@/constants/directions'
 import { IoChevronDown } from 'react-icons/io5'
 
@@ -110,7 +111,7 @@ const SpeakersContent = ({ year, defaultExpanded }) => {
       <a
         href="https://www.papercall.io/midevfest2025"
         target="_blank"
-        className="flex items-center rounded-lg border border-iwd-gold-400/30 bg-iwd-gold-400/10 px-8 py-4 text-sm font-semibold uppercase tracking-widest text-iwd-gold-300 shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:cursor-pointer hover:border-iwd-gold-400/50 hover:bg-iwd-gold-400/20 hover:shadow-xl hover:shadow-iwd-gold-500/10"
+        className={`flex items-center rounded-lg border border-iwd-gold-400/30 bg-iwd-gold-400/10 px-8 py-4 text-sm font-semibold uppercase tracking-widest text-iwd-gold-300 shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:cursor-pointer hover:border-iwd-gold-400/50 hover:bg-iwd-gold-400/20 hover:shadow-xl hover:shadow-iwd-gold-500/10 ${GOLD_PRIMARY_LIGHT_HOVER}`}
         rel="noreferrer"
       >
         APPLY TO SPEAK

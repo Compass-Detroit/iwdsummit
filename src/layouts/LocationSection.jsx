@@ -11,6 +11,8 @@ import {
 } from 'react-icons/fa6'
 import SectionSkipLink from '@/components/ui/SectionSkipLink'
 
+import { GOLD_PRIMARY_LIGHT_HOVER } from '@/constants/goldPrimaryButtonLightHover'
+
 // Venue images
 import lcHqFacade from '@/assets/images/location/lc_hq_facade.jpg'
 import lcHqLobby from '@/assets/images/location/lc_hq_lobby.jpg'
@@ -256,7 +258,7 @@ function LocationSection() {
                         e.stopPropagation()
                         togglePlayback()
                       }}
-                      className="flex size-8 items-center justify-center rounded-full border border-iwd-gold-400/30 bg-iwd-gold-400/10 text-iwd-gold-400 transition-all hover:bg-iwd-gold-400/20 active:scale-90"
+                      className={`flex size-8 items-center justify-center rounded-full border border-iwd-gold-400/30 bg-iwd-gold-400/10 text-iwd-gold-400 transition-all hover:bg-iwd-gold-400/20 active:scale-90 ${GOLD_PRIMARY_LIGHT_HOVER}`}
                       aria-label={
                         isPlaying ? 'Pause slideshow' : 'Play slideshow'
                       }

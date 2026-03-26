@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types'
 
+import { GOLD_PRIMARY_LIGHT_HOVER } from '@/constants/goldPrimaryButtonLightHover'
+
 const SponsorsSection = ({
   sponsorsData = [],
   year = new Date().getFullYear(),
@@ -77,7 +79,7 @@ const SponsorsSection = ({
                 <div className="mt-10 flex justify-center">
                   <a
                     href="mailto:sponsors@compassdetroit.org"
-                    className="rounded-xl border border-iwd-gold-400/30 bg-iwd-gold-400/10 px-8 py-4 text-sm font-semibold uppercase tracking-widest text-iwd-gold-300 shadow-lg backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-iwd-gold-400/50 hover:bg-iwd-gold-400/20 hover:shadow-xl hover:shadow-iwd-gold-500/10"
+                    className={`rounded-xl border border-iwd-gold-400/30 bg-iwd-gold-400/10 px-8 py-4 text-sm font-semibold uppercase tracking-widest text-iwd-gold-300 shadow-lg backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-iwd-gold-400/50 hover:bg-iwd-gold-400/20 hover:shadow-xl hover:shadow-iwd-gold-500/10 ${GOLD_PRIMARY_LIGHT_HOVER}`}
                   >
                     Become a Sponsor
                   </a>
@@ -94,7 +96,7 @@ const SponsorsSection = ({
               {year && isCurrentYear && (
                 <a
                   href="mailto:sponsors@compassdetroit.org"
-                  className="inline-flex items-center rounded-xl border border-iwd-gold-400/30 bg-iwd-gold-400/10 px-8 py-4 text-sm font-semibold uppercase tracking-widest text-iwd-gold-300 shadow-lg backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-iwd-gold-400/50 hover:bg-iwd-gold-400/20 hover:shadow-xl hover:shadow-iwd-gold-500/10 focus:outline-none focus:ring-2 focus:ring-focus-ring focus:ring-offset-2"
+                  className={`inline-flex items-center rounded-xl border border-iwd-gold-400/30 bg-iwd-gold-400/10 px-8 py-4 text-sm font-semibold uppercase tracking-widest text-iwd-gold-300 shadow-lg backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-iwd-gold-400/50 hover:bg-iwd-gold-400/20 hover:shadow-xl hover:shadow-iwd-gold-500/10 focus:outline-none focus:ring-2 focus:ring-focus-ring focus:ring-offset-2 ${GOLD_PRIMARY_LIGHT_HOVER}`}
                 >
                   Become a Sponsor
                 </a>

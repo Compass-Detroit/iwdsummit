@@ -1,10 +1,12 @@
 import { FaBriefcase } from 'react-icons/fa6'
 
+import { GOLD_PRIMARY_LIGHT_HOVER } from '@/constants/goldPrimaryButtonLightHover'
+
 function JobOpen() {
   return (
     <section
       id="job-openings"
-      className="relative flex flex-col justify-center bg-iwd-surface-raised dark:bg-iwd-black-950 px-6 py-24 sm:px-10 md:px-14 lg:px-16"
+      className="bg-iwd-surface-raised relative flex flex-col justify-center px-6 py-24 sm:px-10 md:px-14 lg:px-16 dark:bg-iwd-black-950"
     >
       {/* Background glow overlay */}
       <div className="pointer-events-none absolute inset-0 opacity-40">
@@ -32,7 +34,9 @@ function JobOpen() {
         </p>
 
         <div className="mt-10">
-          <button className="inline-flex items-center gap-2 rounded-full border border-iwd-gold-400/30 bg-iwd-gold-400/10 px-8 py-3.5 font-semibold text-iwd-gold-300 transition-colors hover:bg-iwd-gold-400/20 focus:outline-none focus:ring-2 focus:ring-[rgb(var(--iwd-accent-500)/0.12)] focus:ring-offset-2 focus:ring-offset-black">
+          <button
+            className={`inline-flex items-center gap-2 rounded-full border border-iwd-gold-400/30 bg-iwd-gold-400/10 px-8 py-3.5 font-semibold text-iwd-gold-300 transition-colors hover:bg-iwd-gold-400/20 focus:outline-none focus:ring-2 focus:ring-[rgb(var(--iwd-accent-500)/0.12)] focus:ring-offset-2 focus:ring-offset-black ${GOLD_PRIMARY_LIGHT_HOVER}`}
+          >
             Submit a Job Opening
           </button>
         </div>
