@@ -77,78 +77,83 @@ function AttendeeSection() {
         )}
       </div>
 
-      {/* Play / Pause */}
-      <button
-        onClick={togglePlay}
-        aria-pressed={isPlaying}
-        aria-label={isPlaying ? 'Pause logo scroll' : 'Play logo scroll'}
-        className="absolute right-4 top-6 z-10 flex size-10 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-gray-400 backdrop-blur-md transition-all duration-300 hover:border-iwd-gold-400/30 hover:text-iwd-gold-300 sm:right-8 sm:top-8"
-      >
-        {isPlaying ? (
-          <FaPause className="size-3" />
-        ) : (
-          <FaPlay className="ml-0.5 size-3" />
-        )}
-      </button>
-
-      {/* Row 1 — left to right */}
-      <div className="relative mb-4 sm:mb-6">
-        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-20 bg-gradient-to-r from-iwd-black-950 to-transparent sm:w-36" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-20 bg-gradient-to-l from-iwd-black-950 to-transparent sm:w-36" />
-
-        <Marquee speed={40} pauseOnHover play={isPlaying} gradient={false}>
-          {row1.map((img, i) => (
-            <div
-              key={i}
-              className="group relative mx-5 flex items-center justify-center overflow-hidden rounded-2xl border border-white/[0.04] bg-white/[0.02] px-6 py-5 transition-all duration-500 hover:border-white/10 hover:bg-white/[0.05] sm:mx-8 sm:px-10 sm:py-6"
-            >
-              <img
-                src={img.src}
-                alt={img.name}
-                loading="lazy"
-                className="logo-halo h-20 max-w-[180px] object-contain transition-all duration-500 group-hover:scale-105 group-hover:drop-shadow-[0_0_20px_rgba(255,255,255,0.15)] sm:h-28 sm:max-w-[260px]"
-              />
-              <div className="absolute inset-x-0 bottom-0 flex items-center justify-center bg-gradient-to-t from-iwd-black-950/80 via-iwd-black-950/40 to-transparent px-3 pb-3 pt-8 opacity-0 transition-all duration-300 group-hover:opacity-100">
-                <span className="font-body text-xs font-medium tracking-wide text-gray-200">
-                  {img.name}
-                </span>
-              </div>
-            </div>
-          ))}
-        </Marquee>
-      </div>
-
-      {/* Row 2 — right to left */}
+      {/* Logo marquees + play/pause (control sits above the sliding rows) */}
       <div className="relative">
-        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-20 bg-gradient-to-r from-iwd-black-950 to-transparent sm:w-36" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-20 bg-gradient-to-l from-iwd-black-950 to-transparent sm:w-36" />
+        <div className="mb-3 flex justify-end px-4 sm:mb-4 sm:px-8">
+          <button
+            type="button"
+            onClick={togglePlay}
+            aria-pressed={isPlaying}
+            aria-label={isPlaying ? 'Pause logo scroll' : 'Play logo scroll'}
+            className="flex size-10 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-gray-400 backdrop-blur-md transition-all duration-300 hover:border-iwd-gold-400/30 hover:text-iwd-gold-300"
+          >
+            {isPlaying ? (
+              <FaPause className="size-3" />
+            ) : (
+              <FaPlay className="ml-0.5 size-3" />
+            )}
+          </button>
+        </div>
 
-        <Marquee
-          speed={35}
-          pauseOnHover
-          play={isPlaying}
-          gradient={false}
-          direction="right"
-        >
-          {row2.map((img, i) => (
-            <div
-              key={i}
-              className="group relative mx-5 flex items-center justify-center overflow-hidden rounded-2xl border border-white/[0.04] bg-white/[0.02] px-6 py-5 transition-all duration-500 hover:border-white/10 hover:bg-white/[0.05] sm:mx-8 sm:px-10 sm:py-6"
-            >
-              <img
-                src={img.src}
-                alt={img.name}
-                loading="lazy"
-                className="logo-halo h-20 max-w-[180px] object-contain transition-all duration-500 group-hover:scale-105 group-hover:drop-shadow-[0_0_20px_rgba(255,255,255,0.15)] sm:h-28 sm:max-w-[260px]"
-              />
-              <div className="absolute inset-x-0 bottom-0 flex items-center justify-center bg-gradient-to-t from-iwd-black-950/80 via-iwd-black-950/40 to-transparent px-3 pb-3 pt-8 opacity-0 transition-all duration-300 group-hover:opacity-100">
-                <span className="font-body text-xs font-medium tracking-wide text-gray-200">
-                  {img.name}
-                </span>
+        {/* Row 1 — left to right */}
+        <div className="relative mb-4 sm:mb-6">
+          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-20 bg-gradient-to-r from-iwd-black-950 to-transparent sm:w-36" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-20 bg-gradient-to-l from-iwd-black-950 to-transparent sm:w-36" />
+
+          <Marquee speed={40} pauseOnHover play={isPlaying} gradient={false}>
+            {row1.map((img, i) => (
+              <div
+                key={i}
+                className="group relative mx-5 flex items-center justify-center overflow-hidden rounded-2xl border border-white/[0.04] bg-white/[0.02] px-6 py-5 transition-all duration-500 hover:border-white/10 hover:bg-white/[0.05] sm:mx-8 sm:px-10 sm:py-6"
+              >
+                <img
+                  src={img.src}
+                  alt={img.name}
+                  loading="lazy"
+                  className="logo-halo h-20 max-w-[180px] object-contain transition-all duration-500 group-hover:scale-105 group-hover:drop-shadow-[0_0_20px_rgba(255,255,255,0.15)] sm:h-28 sm:max-w-[260px]"
+                />
+                <div className="absolute inset-x-0 bottom-0 flex items-center justify-center bg-gradient-to-t from-iwd-black-950/80 via-iwd-black-950/40 to-transparent px-3 pb-3 pt-8 opacity-0 transition-all duration-300 group-hover:opacity-100">
+                  <span className="font-body text-xs font-medium tracking-wide text-gray-200">
+                    {img.name}
+                  </span>
+                </div>
               </div>
-            </div>
-          ))}
-        </Marquee>
+            ))}
+          </Marquee>
+        </div>
+
+        {/* Row 2 — right to left */}
+        <div className="relative">
+          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-20 bg-gradient-to-r from-iwd-black-950 to-transparent sm:w-36" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-20 bg-gradient-to-l from-iwd-black-950 to-transparent sm:w-36" />
+
+          <Marquee
+            speed={35}
+            pauseOnHover
+            play={isPlaying}
+            gradient={false}
+            direction="right"
+          >
+            {row2.map((img, i) => (
+              <div
+                key={i}
+                className="group relative mx-5 flex items-center justify-center overflow-hidden rounded-2xl border border-white/[0.04] bg-white/[0.02] px-6 py-5 transition-all duration-500 hover:border-white/10 hover:bg-white/[0.05] sm:mx-8 sm:px-10 sm:py-6"
+              >
+                <img
+                  src={img.src}
+                  alt={img.name}
+                  loading="lazy"
+                  className="logo-halo h-20 max-w-[180px] object-contain transition-all duration-500 group-hover:scale-105 group-hover:drop-shadow-[0_0_20px_rgba(255,255,255,0.15)] sm:h-28 sm:max-w-[260px]"
+                />
+                <div className="absolute inset-x-0 bottom-0 flex items-center justify-center bg-gradient-to-t from-iwd-black-950/80 via-iwd-black-950/40 to-transparent px-3 pb-3 pt-8 opacity-0 transition-all duration-300 group-hover:opacity-100">
+                  <span className="font-body text-xs font-medium tracking-wide text-gray-200">
+                    {img.name}
+                  </span>
+                </div>
+              </div>
+            ))}
+          </Marquee>
+        </div>
       </div>
     </section>
   )
