@@ -370,7 +370,8 @@ const rawSpeakersData = [
     session: {
       title:
         'Demystifying Intellectual Property Protection: What Founders Should Know Now, Not Later',
-      abstract: 'Forget scale — get your first 100 customers right.',
+      abstract:
+        'Learn the essentials of patents, trademarks, copyrights, and trade secrets so you can protect your startup’s ideas from day one.',
       description:
         'In this session you will hear from the United States Patent and Trademark Office (USPTO) about the basics of patents, trademarks, copyrights and trade secrets, collectively known as intellectual property (IP), and potential ways to protect your innovations as you transition from idea to product. We will also discuss the value of federal registration, how to avoid common mistakes, and considerations for start-ups. Attendees will be provided with free resources for legal and technical assistance.',
       tags: ['In-person', 'Innovation'],
@@ -465,7 +466,7 @@ Through her work, Brittanie is building the infrastructure layer for circular ma
     session: {
       title:
         'Business Soft Life: A Multi-Tool AI Strategy for Real Entrepreneurs',
-      abstract: 'A multi-tool AI strategy for real entrepreneurs.',
+      abstract: `Learn the essentials of patents, trademarks, copyrights, and trade secrets so you can protect your startup’s ideas from day one.`,
       description:
         'Dichondra Johnson presents practical AI strategies tailored for real entrepreneurs, exploring how to leverage multiple AI tools to build a sustainable and thriving business.',
       tags: ['In-person', 'AI Foundations'],
@@ -531,7 +532,7 @@ Through her work, Brittanie is building the infrastructure layer for circular ma
 
 Before joining Meta, Yana was a Missile & Fire Control SAP Software DevOps Analyst at Lockheed Martin. She then moved to Detroit to work at LinkedIn in Trust and Safety.
 
-Yana credits her abilities and professional growth to her formative IT internships at the Congressional Budget Office and at NBCUniversal, where she supported operations and systems administration.
+Yana credits her abilities and professional growth to her formative IT internships at the Congressional Budget Office and at NBC Universal, where she supported operations and systems administration.
 
 In addition to her work at Meta, Yana is the founder of Hustle and Brand, a coaching platform dedicated to helping high school and college students turn their career dreams into reality. Through Hustle and Brand, she provides early college-to-career coaching, resume and LinkedIn building tips, and access to internships, scholarships, and leadership opportunities. Yana is known for her ability to inspire confidence, deliver actionable advice, and help others build their personal brand and professional hustle.`,
     linkedIn: 'https://www.linkedin.com/in/yana-grant',
@@ -541,7 +542,7 @@ In addition to her work at Meta, Yana is the founder of Hustle and Brand, a coac
       title:
         'Get Paid to Train AI: Your Work-From-Home Side Hustle Starts Today',
       abstract: 'Leveraging product-led user experiences and data to scale.',
-      description: `What if your next paycheck came from teaching an AI how to think? Sounds futuristic — but it's already happening, and regular people are cashing in from their living rooms. In this session, Bryanna Grant, a member of Meta's Product Data Operations team, pulls back the curtain on the human side of AI. Drawing from her real-world experience in data labeling, annotation, and quality assurance, Bryanna will show you how this behind-the-scenes work fuels the technology billions of people use every day — and how you can get paid to be part of it. From beginner-friendly platforms paying $5–$15/hr to expert-level opportunities clearing $40–$200/hr, you'll walk away with a clear, actionable roadmap to launching your AI annotation side gig — starting today.`,
+      description: `What if your next paycheck came from teaching an AI how to think? Sounds futuristic — but it's already happening, and regular people are cashing in from their living rooms. In this session, Yana Grant, a member of Meta's Product Data Operations team, pulls back the curtain on the human side of AI. Drawing from her real-world experience in data labeling, annotation, and quality assurance, Yana will show you how this behind-the-scenes work fuels the technology billions of people use every day — and how you can get paid to be part of it. From beginner-friendly platforms paying $5–$15/hr to expert-level opportunities clearing $40–$200/hr, you'll walk away with a clear, actionable roadmap to launching your AI annotation side gig — starting today.`,
       tags: ['In-person', 'Level Up'],
       track: 'Level Up',
       time: '14:30',
@@ -639,7 +640,7 @@ Cherice lives by a simple guiding principle: be kind, courteous, and respectful 
       abstract:
         'Bridging the gap between confidence and competence in a developing career.',
       description:
-        'In a wold of cutting-edge technology and constant transformation, mere management is not enough. Holistic leadership focuses on the humans behind the world, ensuring that investment does not stop at minimal professional development but goes further to support the people. Holistic leadership encompasses collaborative development, ongoing training, wellness, and adaptability. This workshop dives into what it means to be a holistic leader and what it looks like to lead by example.',
+        'In a world of cutting-edge technology and constant transformation, mere management is not enough. Holistic leadership focuses on the humans behind the world, ensuring that investment does not stop at minimal professional development but goes further to support the people. Holistic leadership encompasses collaborative development, ongoing training, wellness, and adaptability. This workshop dives into what it means to be a holistic leader and what it looks like to lead by example.',
       tags: ['In-person', 'Leadership'],
       track: 'Leadership',
       time: '15:00',
@@ -821,7 +822,7 @@ Cherice lives by a simple guiding principle: be kind, courteous, and respectful 
       title:
         'Visualize, Cultivate, Leverage: How to Build Relationships in Business',
       abstract: 'Strategies for modern workforce integration in the era of AI.',
-      description: `Success in business isn’t just about what you know—it’s about who you grow with. This session is designed for those who want to build authentic, mutually beneficial relationships that support both personal values and professional goals. Participants will learn how to visualize the right connections for their next level, cultivate relationships with intention and trust, and leverage their networks without guilt, self-doubt, or burnout. Through real-world examples and actionable strategies, this session breaks down how women can navigate networking, collaboration, and influence while staying aligned, confident, and true to themselves. Whether you’re grow`,
+      description: `Success in business isn’t just about what you know—it’s about who you grow with. This session is designed for those who want to build authentic, mutually beneficial relationships that support both personal values and professional goals. Participants will learn how to visualize the right connections for their next level, cultivate relationships with intention and trust, and leverage their networks without guilt, self-doubt, or burnout. Through real-world examples and actionable strategies, this session breaks down how women can navigate networking, collaboration, and influence while staying aligned, confident, and true to themselves. growing your career, launching a business, or expanding your impact, you’ll leave with a clear relationship roadmap you can start using right away.`,
       tags: ['In-person', 'Level Up'],
       track: 'Level Up',
       time: '2:00',
@@ -979,7 +980,7 @@ Cherice lives by a simple guiding principle: be kind, courteous, and respectful 
 With over 250 event productions and more than 100 million impressions generated across campaigns, content, and media, Tatiana has supported both global brands and local founders in turning visibility into real growth.
 
 Following a full-capacity workshop at Compass Detroit, she continues to equip women with accessible frameworks—like her P.R.O.F.I.T Method™—designed to move from uncertainty to execution. In alignment with this year’s theme, Break the Pattern, Tatiana empowers women to challenge outdated ways of thinking, embrace technology with intention, and create new pathways for success in Detroit and beyond.`,
-    linkedIn: ' https://www.linkedin.com/in/tatiana-simone-jackson',
+    linkedIn: 'https://www.linkedin.com/in/tatiana-simone-jackson',
     organization: 'Real Culture',
     position: 'Founder',
     session: {

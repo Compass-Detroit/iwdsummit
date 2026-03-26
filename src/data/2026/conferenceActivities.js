@@ -80,7 +80,7 @@ export const conferenceActivities = [
     content: null,
     time: '08:15',
     timeEnd: '08:45',
-    room: 'near Stairs and Value Conference Room',
+    room: 'near stairs and Value Conference Room',
   },
   {
     id: 'schedule-welcome',
@@ -134,7 +134,7 @@ export const conferenceActivities = [
     content: null,
     time: '13:00',
     timeEnd: '14:00',
-    room: `Pizza Treat`,
+    room: 'Pizza Treat',
   },
   {
     id: 'schedule-sessions-afternoon',
