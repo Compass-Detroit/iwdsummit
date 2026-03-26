@@ -509,7 +509,7 @@ const SessionsSection = ({
           {/* Scroll hint for mobile */}
           {(canScrollLeft || canScrollRight) && (
             <p
-              className={`mt-2 flex items-center gap-1 text-sm text-gray-500 xl:hidden ${
+              className={`mt-2 flex items-center gap-1 text-sm text-gray-600 xl:hidden dark:text-gray-400 ${
                 canScrollRight ? 'justify-end' : 'justify-start'
               }`}
               aria-hidden="true"

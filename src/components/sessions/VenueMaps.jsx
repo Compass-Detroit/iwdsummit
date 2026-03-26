@@ -46,7 +46,7 @@ function VenueMaps() {
           className="scrollbar-visible overflow-x-auto overflow-y-hidden scroll-smooth rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-focus-ring focus-visible:ring-offset-2 focus-visible:ring-offset-iwd-gold-100"
           tabIndex={0}
           role="region"
-          aria-labelledby="venue-maps-heading"
+          aria-label="Scrollable venue map"
         >
           <img
             ref={imgRef}

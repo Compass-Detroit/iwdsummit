@@ -3,31 +3,54 @@ import PropTypes from 'prop-types'
 import ScheduleContext from '@/contexts/scheduleContextCore'
 import { SpeakersData } from '@/data/2026/speakers'
 
-export default function ScheduleProvider({ children }) {
-  // Normalize stored IDs to a canonical session id format (sorted underscore-joined ids)
-  const canonicalizeSessionId = (sessionId) => {
-    if (!sessionId && sessionId !== 0) return ''
-    const asStr = String(sessionId)
-    if (asStr.includes('_')) {
-      const parts = asStr
-        .split('_')
-        .map((p) => Number(p))
-        .filter(Boolean)
-      parts.sort((a, b) => a - b)
-      return parts.join('_')
-    }
-    const idNum = Number(asStr)
-    const speaker = SpeakersData.find(
-      (s) => s.id === idNum || String(s.id) === asStr
-    )
-    if (!speaker || !speaker.session?.title) return asStr
-    const related = SpeakersData.filter(
-      (s) => s.session?.title === speaker.session.title
-    ).map((s) => Number(s.id))
-    related.sort((a, b) => a - b)
-    return related.join('_')
+// Normalize stored IDs to a canonical session id format (sorted underscore-joined ids)
+const canonicalizeSessionId = (sessionId) => {
+  if (!sessionId && sessionId !== 0) return ''
+  const asStr = String(sessionId)
+  if (asStr.includes('_')) {
+    const parts = asStr
+      .split('_')
+      .map((p) => Number(p))
+      .filter(Boolean)
+    parts.sort((a, b) => a - b)
+    return parts.join('_')
   }
+  const idNum = Number(asStr)
+  const speaker = SpeakersData.find(
+    (s) => s.id === idNum || String(s.id) === asStr
+  )
+  if (!speaker || !speaker.session?.title) return asStr
+  const related = SpeakersData.filter(
+    (s) => s.session?.title === speaker.session.title
+  ).map((s) => Number(s.id))
+  related.sort((a, b) => a - b)
+  return related.join('_')
+}
 
+const getRepresentativeSpeakerForCanonicalId = (canonicalId) => {
+  if (!canonicalId) return null
+  // Find any speaker whose canonical id matches
+  return (
+    SpeakersData.find((s) => canonicalizeSessionId(s.id) === canonicalId) ||
+    null
+  )
+}
+
+const buildSessionRange = (time, duration) => {
+  if (!time || typeof time !== 'string') return null
+  const isPM = time.toLowerCase().includes('pm')
+  const isAM = time.toLowerCase().includes('am')
+  let cleanTime = time.replace(/am|pm/i, '').trim()
+  if (!cleanTime.includes(':')) cleanTime = `${cleanTime}:00`
+  let [hours, mins] = cleanTime.split(':').map(Number)
+  if (isPM && hours !== 12) hours += 12
+  if (isAM && hours === 12) hours = 0
+  const start = hours * 60 + mins
+  const end = start + (duration || 45)
+  return { start, end }
+}
+
+export default function ScheduleProvider({ children }) {
   const [savedSessionIds, setSavedSessionIds] = useState(() => {
     try {
       const stored = localStorage.getItem('iwd26_saved_sessions')
@@ -52,29 +75,6 @@ export default function ScheduleProvider({ children }) {
 
   const [conflictingSessionIds, setConflictingSessionIds] = useState([])
   const [lastConflict, setLastConflict] = useState(null)
-
-  const getRepresentativeSpeakerForCanonicalId = (canonicalId) => {
-    if (!canonicalId) return null
-    // Find any speaker whose canonical id matches
-    return (
-      SpeakersData.find((s) => canonicalizeSessionId(s.id) === canonicalId) ||
-      null
-    )
-  }
-
-  const buildSessionRange = (time, duration) => {
-    if (!time || typeof time !== 'string') return null
-    const isPM = time.toLowerCase().includes('pm')
-    const isAM = time.toLowerCase().includes('am')
-    let cleanTime = time.replace(/am|pm/i, '').trim()
-    if (!cleanTime.includes(':')) cleanTime = `${cleanTime}:00`
-    let [hours, mins] = cleanTime.split(':').map(Number)
-    if (isPM && hours !== 12) hours += 12
-    if (isAM && hours === 12) hours = 0
-    const start = hours * 60 + mins
-    const end = start + (duration || 45)
-    return { start, end }
-  }
 
   const toggleSession = (sessionId) => {
     const canonicalId = canonicalizeSessionId(sessionId)
