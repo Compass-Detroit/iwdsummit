@@ -5,7 +5,7 @@ const MembersSection = () => {
   return (
     <section
       id="membership"
-      className="relative overflow-hidden bg-iwd-surface-raised dark:bg-iwd-black-950 px-6 py-24 sm:px-10 sm:py-32 md:px-14 lg:px-16"
+      className="bg-iwd-surface-raised relative overflow-hidden px-6 py-24 sm:px-10 sm:py-32 md:px-14 lg:px-16 dark:bg-iwd-black-950"
     >
       {/* Background glows */}
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
@@ -68,7 +68,7 @@ const MembersSection = () => {
 
         {/* CTA */}
         <div className="mt-12 flex flex-col items-center gap-4 text-center sm:mt-14">
-          <p className="font-body text-sm font-light text-gray-500">
+          <p className="font-body text-sm font-light text-gray-600 dark:text-gray-400">
             Free membership &mdash; no catch, just community.
           </p>
           <CTAButton

@@ -1,5 +1,10 @@
 import typography from '@tailwindcss/typography'
 
+/** Parent-based light mode (html[data-mode="light"]). Use `light:*` utilities; do not use `[data-mode=light]:*` — that targets elements that carry the attribute, so it never matches. */
+function lightModeVariant({ addVariant }) {
+  addVariant('light', '[data-mode="light"] &')
+}
+
 /** @type {import('tailwindcss').Config} */
 export default {
   // Match app ThemeContext (data-mode on <html>), not OS prefers-color-scheme
@@ -83,6 +88,7 @@ export default {
             950: '#042f2e',
             DEFAULT: '#0f766e',
           },
+          /** Named "gold" historically; values come from --iwd-accent-* (brand accent — mint in 2026 default, theme-dependent). */
           gold: {
             50: 'rgb(var(--iwd-accent-50) / <alpha-value>)',
             100: 'rgb(var(--iwd-accent-100) / <alpha-value>)',
@@ -158,5 +164,5 @@ export default {
       },
     },
   },
-  plugins: [typography],
+  plugins: [typography, lightModeVariant],
 }

@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react'
+
+import { GOLD_PRIMARY_LIGHT_HOVER } from '@/constants/goldPrimaryButtonLightHover'
 import PageLayout from '@/layouts/PageLayout'
 // TODO: Uncomment when gallery photos are ready
 // import EventGallery from '@/components/gallery/EventGallery'
@@ -307,7 +309,7 @@ const PreviousEvents = () => {
             </p>
             <a
               href="/#membership"
-              className="inline-flex items-center rounded-lg border border-iwd-gold-400/30 bg-iwd-gold-400/10 px-10 py-5 text-sm font-semibold uppercase tracking-widest text-iwd-gold-300 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:border-iwd-gold-400/50 hover:bg-iwd-gold-400/20 hover:shadow-2xl hover:shadow-iwd-gold-500/20"
+              className={`inline-flex items-center rounded-lg border border-iwd-gold-400/30 bg-iwd-gold-400/10 px-10 py-5 text-sm font-semibold uppercase tracking-widest text-iwd-gold-300 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:border-iwd-gold-400/50 hover:bg-iwd-gold-400/20 hover:shadow-2xl hover:shadow-iwd-gold-500/20 ${GOLD_PRIMARY_LIGHT_HOVER}`}
             >
               Join the Community
             </a>

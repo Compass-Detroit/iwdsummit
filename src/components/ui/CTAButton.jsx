@@ -1,6 +1,8 @@
 import { useRef, useState } from 'react'
 import PropTypes from 'prop-types'
 
+import { GOLD_PRIMARY_LIGHT_HOVER } from '@/constants/goldPrimaryButtonLightHover'
+
 /**
  * CTAButton - A reusable Call-to-Action button component with Magnetic hover effect and built-in accessibility features.
  *
@@ -103,10 +105,9 @@ function CTAButton({
 
   // Define variant styles
   const variantStyles = {
-    primary:
-      'border border-iwd-gold-400/30 bg-iwd-gold-400/10 text-iwd-gold-300 px-12 shadow-lg font-semibold text-sm uppercase tracking-widest hover:border-iwd-gold-400/50 hover:bg-iwd-gold-400/20 hover:shadow-xl hover:shadow-iwd-gold-500/10',
+    primary: `border border-iwd-gold-400/30 bg-iwd-gold-400/10 text-iwd-gold-300 px-12 shadow-lg font-semibold text-sm uppercase tracking-widest hover:border-iwd-gold-400/50 hover:bg-iwd-gold-400/20 hover:shadow-xl hover:shadow-iwd-gold-500/10 ${GOLD_PRIMARY_LIGHT_HOVER}`,
     secondary:
-      'border border-black/10 bg-black/[0.04] text-gray-600 px-12 py-4 shadow-lg font-semibold text-sm uppercase tracking-widest hover:border-black/20 hover:bg-black/[0.08] hover:text-black hover:shadow-xl dark:border-white/10 dark:bg-white/[0.04] dark:text-gray-200 dark:hover:border-white/20 dark:hover:bg-white/[0.08] dark:hover:text-white',
+      'border border-black/10 bg-black/[0.04] text-gray-600 px-12 py-4 shadow-lg font-semibold text-sm uppercase tracking-widest hover:border-black/20 hover:bg-black/[0.08] hover:text-black hover:shadow-xl light:hover:border-black/10 light:hover:bg-black/[0.04] light:hover:text-gray-600 light:hover:shadow-lg light:hover:ring-2 light:hover:ring-focus-ring/50 light:hover:ring-offset-0 dark:border-white/10 dark:bg-white/[0.04] dark:text-gray-200 dark:hover:border-white/20 dark:hover:bg-white/[0.08] dark:hover:text-white',
   }
 
   const baseStyles =

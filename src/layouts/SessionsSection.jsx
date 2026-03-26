@@ -347,18 +347,18 @@ const SessionsSection = ({
 
   const renderNoSessionsOrSpeakersMessage = () => (
     <div className="col-span-1 my-4 flex flex-col items-center justify-center space-y-8 text-center text-lg leading-relaxed dark:text-gray-400">
-      {/* <p>
+      <p>
         We are currently looking for speakers and will update the list of
         sessions once we have more information. If you are interested in
         speaking, reach out to us.
       </p>
-     <a
+      <a
         href="#membership"
         aria-label="Contact us about speaking at IWD Innovation Summit 2026"
-        className="flex items-center rounded-lg border border-iwd-gold-400/30 bg-iwd-gold-400/10 px-8 py-4 text-sm font-semibold uppercase tracking-widest text-iwd-gold-300 shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:cursor-pointer hover:border-iwd-gold-400/50 hover:bg-iwd-gold-400/20 hover:shadow-xl hover:shadow-iwd-gold-500/10 focus:outline-none focus:ring-2 focus:ring-focus-ring focus:ring-offset-2"
+        className="flex items-center rounded-lg border border-iwd-gold-400/30 bg-iwd-gold-400/10 px-8 py-4 text-sm font-semibold uppercase tracking-widest text-iwd-gold-300 shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:cursor-pointer hover:border-iwd-gold-400/50 hover:bg-iwd-gold-400/20 hover:shadow-xl hover:shadow-iwd-gold-500/10 focus:outline-none focus:ring-2 focus:ring-focus-ring focus:ring-offset-2 light:hover:border-iwd-gold-400/30 light:hover:bg-iwd-gold-400/5 light:hover:shadow-lg light:hover:shadow-iwd-gold-500/50 light:hover:ring-2"
       >
         CONTACT US TO SPEAK
-      </a> */}
+      </a>
     </div>
   )
 
@@ -455,10 +455,10 @@ const SessionsSection = ({
                     aria-controls="sessions-tabpanel"
                     id={`session-tab-${index}`}
                     tabIndex={isExpanded ? 0 : -1}
-                    className={`relative shrink-0 whitespace-nowrap rounded-md p-2 text-xs font-semibold uppercase tracking-wider transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-focus-ring focus:ring-offset-2 focus:ring-offset-black md:min-w-20 md:px-3 md:py-2 lg:min-w-36 lg:px-4 lg:text-sm ${
+                    className={`relative shrink-0 whitespace-nowrap rounded-md p-2 text-xs font-semibold uppercase tracking-wider transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-focus-ring focus-visible:ring-offset-2 focus-visible:ring-offset-black light:focus-visible:ring-offset-white md:min-w-20 md:px-3 md:py-2 lg:min-w-36 lg:px-4 lg:text-sm ${
                       activeTab === index
-                        ? 'border border-iwd-gold-400/40 bg-iwd-gold-400/15 text-iwd-gold-300 shadow-lg shadow-iwd-gold-500/10 after:absolute after:-bottom-3 after:left-1/2 after:block after:size-0 after:-translate-x-1/2 after:border-x-[10px] after:border-t-[10px] after:border-iwd-gold-400/40 after:border-x-transparent'
-                        : 'border border-white/5 bg-white/[0.03] text-gray-400 hover:border-white/10 hover:bg-white/[0.06] hover:text-white'
+                        ? 'border border-iwd-gold-400/40 bg-iwd-gold-400/15 text-iwd-gold-300 shadow-lg shadow-iwd-gold-500/10 after:absolute after:-bottom-3 after:left-1/2 after:block after:size-0 after:-translate-x-1/2 after:border-x-[10px] after:border-t-[10px] after:border-iwd-gold-400/40 after:border-x-transparent light:border-iwd-gold-500/50 light:bg-iwd-gold-500/10 light:text-iwd-gold-600 light:shadow-none'
+                        : 'border border-white/5 bg-white/[0.03] text-gray-400 hover:border-white/10 hover:bg-white/[0.06] light:border-gray-200 light:bg-gray-50 light:text-gray-500 light:hover:border-iwd-gold-400/50 light:hover:bg-iwd-gold-50 light:hover:text-gray-900 dark:hover:text-white'
                     }`}
                     onClick={() => activateTab(index, false)}
                     onFocus={(e) => scrollTabIntoView(e.currentTarget)}
@@ -509,7 +509,7 @@ const SessionsSection = ({
           {/* Scroll hint for mobile */}
           {(canScrollLeft || canScrollRight) && (
             <p
-              className={`mt-2 flex items-center gap-1 text-sm text-gray-500 xl:hidden ${
+              className={`mt-2 flex items-center gap-1 text-sm text-gray-600 xl:hidden dark:text-gray-400 ${
                 canScrollRight ? 'justify-end' : 'justify-start'
               }`}
               aria-hidden="true"

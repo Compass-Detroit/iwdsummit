@@ -36,7 +36,7 @@ const ProfileCard = ({
       'Tech+Design': 'bg-red-800',
       Workshops: 'bg-orange-800',
       'AI Foundations': 'bg-red-800',
-      'Breakout Sessions': 'bg-iwd-surface-raised dark:bg-iwd-black-800',
+      'Breakout Sessions': 'bg-slate-800 dark:bg-iwd-black-800',
     }
 
     if (track) return trackColors[track] || 'bg-red-700'
@@ -45,7 +45,7 @@ const ProfileCard = ({
 
   const badgeColor = getBadgeColor(track)
 
-  const speakerDetailColors = `border border-white/[0.08] bg-white/[0.04] text-iwd-gold-300 shadow-md backdrop-blur-sm hover:bg-iwd-gold-500 hover:border-iwd-gold-500 hover:text-black hover:shadow-lg hover:shadow-iwd-gold-500/20`
+  const speakerDetailColors = `border border-white/10 bg-white/10 text-iwd-gold-300 shadow-md backdrop-blur-sm hover:bg-iwd-gold-500 hover:border-iwd-gold-500 hover:text-black hover:shadow-lg hover:shadow-iwd-gold-500/20`
 
   // change these for the speaker wrapper gradients
   const getGradientColors = (bgColor) => {
@@ -58,8 +58,7 @@ const ProfileCard = ({
       'bg-red-800': 'from-red-400/60 via-red-400/5',
       'bg-orange-900': 'from-orange-400/60 via-orange-400/5',
       'bg-iwd-gold-800': 'from-iwd-gold-400/60 via-iwd-gold-400/5',
-      'bg-iwd-surface-raised dark:bg-iwd-black-800':
-        'from-iwd-black-800/60 via-iwd-black-800/5',
+      'bg-slate-800 dark:bg-iwd-black-800': 'from-slate-600/60 via-slate-600/5',
 
       // Legacy/fallback colors
       'bg-primary-300': 'from-primary-300/60 via-primary-300/5',
@@ -166,7 +165,7 @@ const ProfileCard = ({
   const hasImage = Boolean(imageSrc)
 
   const renderSpeakerCard = (
-    <div className="bg-iwd-surface-raised group relative h-full overflow-hidden rounded-2xl border border-white/[0.06] transition-all duration-500 hover:-translate-y-2 hover:border-iwd-gold-400/30 hover:shadow-[0_20px_50px_rgba(255,208,174,0.15)] dark:bg-iwd-black-950">
+    <div className="group relative h-full overflow-hidden rounded-2xl border border-white/[0.06] bg-slate-950 transition-all duration-500 hover:-translate-y-2 hover:border-iwd-gold-400/30 hover:shadow-[0_20px_50px_rgba(255,208,174,0.15)] dark:bg-iwd-black-950">
       {/* Animated Gradient Border (visible on hover) */}
       <div className="absolute inset-0 -z-10 bg-gradient-to-br from-iwd-gold-400/20 via-transparent to-iwd-gold-300/20 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
@@ -181,7 +180,7 @@ const ProfileCard = ({
             onError={() => setImgError(true)}
           />
         ) : (
-          <div className="flex size-full items-center justify-center bg-gradient-to-br from-iwd-black-900 via-iwd-black-950 to-iwd-black-900">
+          <div className="flex size-full items-center justify-center bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900">
             <div
               className="absolute inset-0 opacity-20"
               style={{
@@ -203,7 +202,7 @@ const ProfileCard = ({
         />
 
         {/* Soft bottom vignette */}
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-iwd-black-950 via-iwd-black-950/40 to-transparent" />
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent" />
 
         {renderImageGradient}
         {renderBadge}
@@ -222,7 +221,7 @@ const ProfileCard = ({
             </div>
           )}
           {position && (
-            <p className="mt-2 line-clamp-1 text-xs font-medium text-gray-900 dark:text-white/50">
+            <p className="mt-2 line-clamp-1 text-xs font-medium text-white/50">
               {position}
             </p>
           )}
@@ -230,7 +229,7 @@ const ProfileCard = ({
       </div>
 
       {/* Bottom bar: socials + CTA */}
-      <div className="flex items-center justify-between gap-2 border-t border-white/5 bg-white/[0.02] px-6 py-4">
+      <div className="flex items-center justify-between gap-2 border-t border-white/5 bg-slate-900 px-6 py-4">
         {renderSocialLinks || <div />}
         {renderButton}
       </div>

@@ -182,7 +182,7 @@ function LandingSection() {
               Detroit
             </span>
             <span
-              className="block text-3xl text-gray-900 sm:whitespace-nowrap sm:text-4xl lg:text-[3.2rem] xl:text-[3.7rem] dark:text-white/95"
+              className="block text-3xl text-white/95 sm:whitespace-nowrap sm:text-4xl lg:text-[3.2rem] xl:text-[3.7rem]"
               style={{
                 letterSpacing: '-0.01em',
                 lineHeight: '1.1',
@@ -216,12 +216,11 @@ function LandingSection() {
             </p>
           </div>
 
-          {/* Date badge */}
+          {/* Date badge — solid dark pill in light mode (iwd-dark-950 is remapped to white there) */}
           <div
-            className="hero-stagger mb-8 inline-flex items-center gap-2.5 rounded-full border px-5 py-2 backdrop-blur-lg sm:mb-10 sm:gap-3 sm:px-7 sm:py-2.5"
+            className="hero-stagger mb-8 inline-flex items-center gap-2.5 rounded-full border bg-[rgb(2_6_23/0.88)] px-5 py-2 backdrop-blur-lg sm:mb-10 sm:gap-3 sm:px-7 sm:py-2.5 dark:bg-[rgb(var(--iwd-dark-950)/0.6)]"
             style={{
               borderColor: 'rgb(var(--iwd-accent-400) / 0.2)',
-              background: 'rgb(var(--iwd-dark-950) / 0.6)',
               boxShadow: '0 0 30px rgb(var(--iwd-accent-500) / 0.08)',
               animationDelay: '0.75s',
             }}
@@ -291,7 +290,7 @@ function LandingSection() {
 
           {/* Description */}
           <p
-            className="hero-stagger mb-10 max-w-xl font-body text-[15px] font-light leading-[1.8] text-gray-900 sm:mb-12 sm:text-base dark:text-white/55"
+            className="hero-stagger mb-10 max-w-xl font-body text-[15px] font-light leading-[1.8] text-white/55 sm:mb-12 sm:text-base"
             style={{ animationDelay: '1.05s' }}
           >
             A day of learning, building, connecting, and empowering women and
