@@ -7,15 +7,6 @@
  */
 export const conferenceActivities = [
   {
-    id: 'level-up-networking',
-    track: 'Level Up',
-    title: 'Techie Hour & Networking',
-    content: null,
-    time: '16:30',
-    timeEnd: '18:00',
-    room: 'at Lumen Detroit',
-  },
-  {
     id: 'careers-review',
     track: 'Careers',
     title: 'Resume Review & Mock Interviews',
@@ -28,7 +19,7 @@ export const conferenceActivities = [
     },
     time: '10:00',
     timeEnd: '12:00',
-    room: 'in (WBC 110-112)',
+    room: 'in Value Conference Room',
   },
   {
     id: 'careers-resume-review',
@@ -43,7 +34,7 @@ export const conferenceActivities = [
     },
     time: '14:00',
     timeEnd: '16:00',
-    room: 'in (WBC 110-112)',
+    room: 'in Value Conference Room',
   },
   {
     id: 'careers-mentoring',
@@ -57,7 +48,7 @@ export const conferenceActivities = [
     },
     time: '10:00',
     timeEnd: '12:00',
-    room: 'in (WBC 110-112)',
+    room: 'in Value Conference Room',
   },
   {
     id: 'careers-mentorship',
@@ -71,7 +62,7 @@ export const conferenceActivities = [
     },
     time: '14:00',
     timeEnd: '16:00',
-    room: 'in (WBC 104 & 113)',
+    room: 'in Value Conference Room',
   },
   {
     id: 'schedule-checkin',
@@ -89,7 +80,7 @@ export const conferenceActivities = [
     content: null,
     time: '08:15',
     timeEnd: '08:45',
-    room: 'in Stay Fired Up Room on 3rd Floor - access 3rd floor by elevator only',
+    room: 'near stairs and Value Conference Room',
   },
   {
     id: 'schedule-welcome',
@@ -125,7 +116,7 @@ export const conferenceActivities = [
     content: null,
     time: '12:00',
     timeEnd: '13:00',
-    room: 'on 3rd Floor',
+    room: 'near Value Conference Room',
   },
   {
     id: 'schedule-headshots',
@@ -134,7 +125,7 @@ export const conferenceActivities = [
     content: null,
     time: '12:00',
     timeEnd: '13:00',
-    room: 'at TBD',
+    room: 'near stairs and Value Conference Room',
   },
   {
     id: 'schedule-keynote',
@@ -143,7 +134,7 @@ export const conferenceActivities = [
     content: null,
     time: '13:00',
     timeEnd: '14:00',
-    room: null,
+    room: 'Pizza Treat',
   },
   {
     id: 'schedule-sessions-afternoon',
@@ -155,21 +146,12 @@ export const conferenceActivities = [
     room: null,
   },
   {
-    id: 'schedule-survey',
-    track: 'Schedule',
-    title: 'Feedback Survey & Wheel of Names',
-    content: null,
-    time: '16:00',
-    timeEnd: '16:10',
-    room: null,
-  },
-  {
     id: 'schedule-closing',
     track: 'Schedule',
     title: 'Closing Remarks & Scholarship Awardees',
     content: null,
     time: '16:00',
-    timeEnd: '16:15',
+    timeEnd: '16:30',
     room: null,
   },
   {
@@ -178,7 +160,7 @@ export const conferenceActivities = [
     title: 'Techie Hour & Networking',
     content: null,
     time: '16:30',
-    timeEnd: '18:30',
-    room: 'at TBD',
+    timeEnd: '18:00',
+    room: 'at Sessions',
   },
 ]
