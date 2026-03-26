@@ -5,6 +5,9 @@ import InspirationalMural from '@/components/ui/InspirationalMural'
 const NotFound = () => {
   return (
     <PageLayout>
+      <h1 id="main-heading" className="sr-only">
+        Page not found
+      </h1>
       <div className="relative">
         <Yoda404 />
 
