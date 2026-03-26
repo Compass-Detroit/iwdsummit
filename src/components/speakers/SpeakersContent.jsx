@@ -102,7 +102,7 @@ const SpeakersContent = ({ year, defaultExpanded }) => {
   )
 
   const noSpeakersMessage = (
-    <div className="col-span-1 my-4 flex flex-col items-center justify-center space-y-8 text-center text-lg leading-relaxed">
+    <div className="col-span-1 my-4 flex flex-col items-center justify-center space-y-8 text-center text-lg leading-relaxed text-gray-300">
       <p>
         We are currently looking for speakers and will update the list once we
         have more information. If you are interested in speaking, sign up with
@@ -121,7 +121,7 @@ const SpeakersContent = ({ year, defaultExpanded }) => {
   return (
     <section
       id="speakers"
-      className="bg-iwd-surface-raised relative flex flex-col justify-center border-b border-white/10 p-8 pb-24 pt-16 sm:px-10 md:px-14 lg:px-16 dark:bg-iwd-black-950"
+      className="relative flex flex-col justify-center border-b border-white/10 bg-slate-950 p-8 pb-24 pt-16 sm:px-10 md:px-14 lg:px-16 dark:bg-iwd-black-950"
     >
       <SectionSkipLink href="#jobboard">Skip speakers section</SectionSkipLink>
       {renderSpeakerHeader}

@@ -461,6 +461,50 @@
   color: rgb(255 255 255);
 }
 
+/*
+ * Speakers section: dark canvas in light mode (matches hero on-dark palette).
+ * Restores readable white/gold on slate-950; undoes global light-surface remaps for borders.
+ */
+[data-mode='light'] #speakers .text-white {
+  color: rgb(255 255 255);
+}
+[data-mode='light'] #speakers .text-iwd-gold-400\/80 {
+  color: rgb(var(--iwd-accent-400) / 0.8);
+}
+[data-mode='light'] #speakers .text-iwd-gold-300 {
+  color: rgb(var(--iwd-accent-300) / 1);
+}
+[data-mode='light'] #speakers .text-gray-400 {
+  color: rgb(209 213 219 / 0.85);
+}
+[data-mode='light'] #speakers .text-gray-300 {
+  color: rgb(209 213 219 / 0.92);
+}
+[data-mode='light'] #speakers .hover\:text-gray-400:hover {
+  color: rgb(156 163 175);
+}
+[data-mode='light'] #speakers .border-white\/10 {
+  border-color: rgb(255 255 255 / 0.1);
+}
+[data-mode='light'] #speakers .border-white\/\[0\.06\] {
+  border-color: rgb(255 255 255 / 0.06);
+}
+[data-mode='light'] #speakers .border-white\/5 {
+  border-color: rgb(255 255 255 / 0.05);
+}
+[data-mode='light'] #speakers .border-iwd-gold-400\/30 {
+  border-color: rgb(var(--iwd-accent-400) / 0.3);
+}
+[data-mode='light'] #speakers .bg-iwd-gold-400\/10 {
+  background-color: rgb(var(--iwd-accent-400) / 0.1);
+}
+[data-mode='light'] #speakers .hover\:border-iwd-gold-400\/50:hover {
+  border-color: rgb(var(--iwd-accent-400) / 0.5);
+}
+[data-mode='light'] #speakers .hover\:bg-iwd-gold-400\/20:hover {
+  background-color: rgb(var(--iwd-accent-400) / 0.2);
+}
+
 /* Light mode: shift accent borders/backgrounds for visibility */
 [data-mode='light'] .border-iwd-gold-400\/30 {
   border-color: rgb(var(--iwd-accent-600) / 0.4);
