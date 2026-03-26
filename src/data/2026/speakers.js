@@ -23,7 +23,10 @@ import TracieHightower from './assets/images/speakers/TracieHightower.webp'
 import YanaGrant from './assets/images/speakers/YanaGrant.webp'
 import UmeloOnyejiaka from './assets/images/speakers/UmeloOnyejiaka.webp'
 import TabiceWard from './assets/images/speakers/TabiceWard.webp'
-
+import BrittanieDabney from './assets/images/speakers/BrittanieDabney.jpg'
+import NaghamAlsamari from './assets/images/speakers/NaghamAlsamari.webp'
+import ChericeCaldwellWilliams from './assets/images/speakers/ChericeCaldwell-Williams.webp'
+import DrEmilyJacobs from './assets/images/speakers/DrEmilyJacobs.webp'
 // New 2026 Speaker Headshots
 import BandhanKaur from './assets/images/speakers/BandhanKaur.jpg'
 import BryneBerry from './assets/images/speakers/BryneBerry.jpg'
@@ -49,7 +52,6 @@ import EberechiOgbuaku from './assets/images/speakers/EberechiOgbuaku.jpeg'
 import RamonaFellmy from './assets/images/speakers/RamonaFellmy.png'
 import RishirajSarkar from './assets/images/speakers/RishirajSarkar.webp'
 import DavidCardozo from './assets/images/speakers/DavidCardozo.webp'
-import AnnyStaten from './assets/images/speakers/AnnyStaten.jpeg'
 import MackHendricks from './assets/images/speakers/MackHendricks.jpeg'
 import BryantDumas from './assets/images/speakers/BryantDumas.jpg'
 import MaridyMazaira from './assets/images/speakers/MaridyMazaira.jpeg'
@@ -193,6 +195,7 @@ const rawSpeakersData = [
     isWTM: true,
     isGDE: false,
   },
+
   {
     id: 7,
     name: 'Angela Richardson',
@@ -289,32 +292,8 @@ const rawSpeakersData = [
     isWTM: true,
     isGDE: false,
   },
-
-  // ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   {
-    id: 3,
-    name: 'Anny Staten',
-    avatar: AnnyStaten,
-    bio: 'Anny Staten is a leader, creator, and community builder who believes growth happens best when people feel seen, supported, and challenged. With seventeen years of experience leading teams, mentoring creatives, and supporting learners in tech and education spaces, Anny brings both heart and strategy to everything she does.As Assistant Director at the Apple Developer Academy-Detroit, I support program leadership and operations. I teach learners coding, business, and design through app development using Apple ecosystem tools. Before stepping into broader leadership, Anny served as a classroom teacher, Dean of Students, and Assistant Principal. She remains a passionate lover of education, grounded in the belief that learning changes lives.She’s driven by authenticity, curiosity, and intentional living, and is deeply committed to creating spaces where the next generation of leaders can thrive. When she’s not leading or building, Anny enjoys investing in her family, being a mother, planning new adventures, and turning purpose into action.',
-    linkedIn: 'http://www.linkedin.com/in/anny-staten-mba-a6a1aa25',
-    organization: 'Apple Developer Academy Detroit',
-    position: 'Assistant Director',
-    session: {
-      title: 'Session details coming soon',
-      abstract: 'Detailed session information will be published soon.',
-      description:
-        "This speaker is confirmed for the Detroit International Women's Day Innovation Summit. Session details are being finalized.",
-      tags: ['In-person', 'TBA'],
-      track: 'Level Up',
-      time: 'TBA',
-      room: 'TBA',
-      sessionDuration: 45,
-    },
-    isWTM: true,
-    isGDE: false,
-  },
-  {
-    id: 4,
+    id: 11,
     name: 'Mack Hendricks',
     avatar: MackHendricks,
     bio: 'I have been involved in technology since my dad decided to purchase me a Commodore Vic 20 in 1984 - I was hooked! In particular, Ive always been interested in telecommunications. I remember my first modem. It was a Commodore Hayes 300 Baud Modem.I have been in few different technical positions, but I have spent the last 15 years at Sun Microsystems and Oracle primarily focused on positioning and architecting enterprise level middleware solutions for Fortune 500 companies.In parallel, Ive been a technical advisor for a few different projects and companies with a focus on OpenSource VoIP technologies such as Asterisk, FreeSwitch, A2Billing, Vicidial and Kamailio.',
@@ -336,7 +315,7 @@ const rawSpeakersData = [
     isGDE: false,
   },
   {
-    id: 5,
+    id: 12,
     name: 'Bryant Dumas',
     avatar: BryantDumas,
     bio: 'Bryant Dumas Jr. is a cloud strategist, who leads the DevOps Detroit Cloud Pathways Program. He has a background in network engineering, and has witnessed the critical role networking plays in both small and large-scale environments. Including on-prem and hybrid infrastructures.',
@@ -358,30 +337,7 @@ const rawSpeakersData = [
     isGDE: false,
   },
   {
-    id: 5,
-    name: 'Maridy Mazaira',
-    avatar: MaridyMazaira,
-    bio: 'Maridy Mazaira is a passionate community leader and advocate for STEM education, dedicated to empowering students and underrepresented communities to pursue meaningful careers in engineering and technology. As President of the Society of Hispanic Professional Engineers (SHPE) Detroit Chapter, she leads initiatives that bridge the gap between students and industry by creating opportunities for mentorship, networking, and professional growth.With a background from the University of Michigan-Dearborn, where she was recognized as a “Difference Maker,” Maridy has demonstrated a strong commitment to leadership, service, and community impact. She has played a key role in organizing large-scale events such as college fairs, STEM workshops, and professional development programs that connect students with real-world opportunities.Maridy is driven by a mission to create inclusive spaces where individuals feel supported, represented, and empowered to succeed. She believes that access to resources, guidance, and strong professional networks can transform lives. Through her work, she continues to inspire and uplift others, helping them build confidence and navigate their academic and career journeys with purpose.',
-    linkedIn: 'https://www.linkedin.com/in/maridy-mazaira',
-    organization: 'SHPE Detroit Professional',
-    position: 'President',
-    session: {
-      title:
-        'Breaking The Pattern: Navigating and Scaling in Tech as a Black Founder',
-      abstract: 'Navigating and scaling in tech as a Black founder.',
-      description:
-        'Maridy shares her journey navigating and scaling in tech as a Black founder, offering insights on breaking patterns, overcoming challenges, and creating inclusive spaces in the tech industry.',
-      tags: ['In-person', 'Innovation'],
-      track: 'Innovation',
-      time: '14:30',
-      room: 'The Family Theatre',
-      sessionDuration: 30,
-    },
-    isWTM: true,
-    isGDE: false,
-  },
-  {
-    id: 4,
+    id: 13,
     name: 'Ida Byrd-Hill',
     avatar: IdaByrdHill,
     bio: 'Ida is the CEO of Automation Workz, a workforce development organization that has trained thousands of Detroiters in emerging technologies. She is a nationally recognized thought leader in STEAM education and economic mobility.',
@@ -389,68 +345,22 @@ const rawSpeakersData = [
     organization: 'Automation Workz',
     position: 'CEO & Founder',
     session: {
-      title: 'Closing the Digital Divide Through STEAM Education',
+      title: 'AI - Your Career Strategist',
       abstract:
-        'Building pathways to tech careers for underserved communities.',
+        'This session teaches women in tech to utilize AI as a career strategist for clarifying professional direction and strengthening personal branding. Attendees gain actionable strategies and repeatable frameworks to increase visibility and navigate growth within the evolving technology landscape.',
       description:
-        "Ida shares the Automation Workz model for creating accessible on-ramps to tech careers — from self-driving car training programs to AI literacy bootcamps. This talk examines what works, what doesn't, and why Detroit is ground zero for the future of inclusive tech education.",
-      tags: ['In-person', 'Leadership'],
-      track: 'Leadership',
-      time: '10:00',
-      room: 'WCB 275',
-      sessionDuration: 60,
-    },
-    isWTM: false,
-    isGDE: false,
-  },
-  {
-    id: 5,
-    name: 'Jenna Ritten',
-    avatar: JennaRitten,
-    bio: 'Jenna is a full-stack developer and open-source contributor who maintains several popular React libraries. She teaches web development at University of Michigan-Dearborn.',
-    linkedIn: 'https://www.linkedin.com/in/jennaritten',
-    organization: 'University of Michigan-Dearborn',
-    position: 'Adjunct Professor & Developer',
-    session: {
-      title: 'Modern React Patterns That Actually Scale',
-      abstract:
-        'Server components, suspense boundaries, and the patterns teams actually need.',
-      description:
-        'The React ecosystem moves fast. Jenna cuts through the hype to focus on patterns that have proven themselves in production: strategic code splitting, composition over prop drilling, and server component architecture. Live coding included.',
-      tags: ['In-person', 'Build with AI'],
-      track: 'Build with AI',
-      time: '11:00',
-      room: 'SB 120',
-      sessionDuration: 45,
-    },
-    isWTM: true,
-    isGDE: false,
-  },
-  {
-    id: 6,
-    name: 'Jeseekia Vaughn',
-    avatar: JeseekiaVaughn,
-    bio: 'Jeseekia is a community organizer and tech educator who bridges the gap between grassroots activism and digital tools. She runs coding workshops for women and non-binary individuals across Metro Detroit.',
-    linkedIn: 'https://www.linkedin.com/in/jeseekiavaughn',
-    organization: 'Code313',
-    position: 'Community Director',
-    session: {
-      title: 'Tech as a Tool for Community Power',
-      abstract:
-        'When communities own their digital infrastructure, everything changes.',
-      description:
-        'Jeseekia explores how Detroit neighborhoods are using open-source tools, civic tech, and AI to solve real problems — from tracking vacant lots to building mutual aid networks. This is tech in service of people, not the other way around.',
+        'AI isn’t just reshaping technology—it’s reshaping how careers are built. In this session, women in tech will learn how to use AI as a practical career strategist to clarify direction, strengthen their professional brand, and position themselves for new opportunities. Through real-world use cases and guided prompts, attendees will leave with actionable strategies to navigate career growth, increase visibility, and make more confident decisions in a rapidly evolving tech landscape. LEARNING OBJECTIVES: • Apply AI tools to clarify career goals and identify growth opportunities • Use AI to strengthen personal branding and professional communication • Leverage AI for interview preparation, networking, and career advancement • Develop a repeatable approach to using AI as an ongoing career strategy tool.',
       tags: ['In-person', 'Level Up'],
       track: 'Level Up',
       time: '10:00',
-      room: 'Town Square',
-      sessionDuration: 45,
+      room: 'Pizza Treat',
+      sessionDuration: 30,
     },
     isWTM: false,
     isGDE: false,
   },
   {
-    id: 10,
+    id: 14,
     name: 'Marilyn Nash',
     avatar: MarilynNash,
     bio: 'Marilyn is a serial entrepreneur who has founded three tech startups, two of which were acquired. She now advises early-stage founders on go-to-market strategy.',
@@ -458,133 +368,46 @@ const rawSpeakersData = [
     organization: 'Nash Ventures',
     position: 'Founder & Advisor',
     session: {
-      title: 'The First 100 Customers: What Nobody Tells You',
+      title:
+        'Demystifying Intellectual Property Protection: What Founders Should Know Now, Not Later',
       abstract: 'Forget scale — get your first 100 customers right.',
       description:
-        'Marilyn breaks down the strategies that actually work for early customer acquisition in B2B and B2C tech. No growth hacking gimmicks — just the unglamorous, repeatable tactics that got her three startups to product-market fit.',
-      tags: ['In-person', 'Leadership'],
-      track: 'Leadership',
-      time: '11:00',
-      room: 'WCB 275',
-      sessionDuration: 45,
+        'In this session you will hear from the United States Patent and Trademark Office (USPTO) about the basics of patents, trademarks, copyrights and trade secrets, collectively known as intellectual property (IP), and potential ways to protect your innovations as you transition from idea to product. We will also discuss the value of federal registration, how to avoid common mistakes, and considerations for start-ups. Attendees will be provided with free resources for legal and technical assistance.',
+      tags: ['In-person', 'Innovation'],
+      track: 'Innovation',
+      time: '14:00',
+      room: 'The Family Theatre',
+      sessionDuration: 60,
     },
     isWTM: false,
     isGDE: false,
   },
   {
-    id: 11,
-    name: 'Tatiana Jackson',
-    avatar: TatianaJackson,
-    bio: 'Tatiana is a machine learning engineer focused on computer vision applications in healthcare. She volunteers as a mentor for AI bootcamp students.',
-    linkedIn: 'https://www.linkedin.com/in/tatianajackson',
-    organization: 'Blue Cross Blue Shield of Michigan',
-    position: 'ML Engineer',
-    session: {
-      title: 'Computer Vision in Healthcare: Saving Lives with Pixels',
-      abstract: 'How medical imaging AI is changing patient outcomes.',
-      description:
-        'Tatiana shares real-world case studies of computer vision models detecting cancer earlier, predicting complications, and reducing diagnostic errors. She also addresses the unique challenges of deploying AI in HIPAA-regulated environments.',
-      tags: ['In-person', 'Build with AI'],
-      track: 'Build with AI',
-      time: '2:00',
-      room: 'SB 120',
-      sessionDuration: 45,
-    },
-    isWTM: true,
-    isGDE: false,
-  },
-  {
-    id: 13,
-    name: 'Tracie Hightower',
-    avatar: TracieHightower,
-    bio: 'Tracie is a startup attorney turned tech CEO. She advises founders on IP strategy, fundraising, and building diverse founding teams.',
-    linkedIn: 'https://www.linkedin.com/in/traciehightower',
-    organization: 'Hightower Legal Tech',
+    id: 15,
+    name: 'Brittanie Dabney',
+    avatar: BrittanieDabney,
+    bio: `Brittanie Dabney is the Founder and CEO of Ecosphere Organics, a Detroit-based sustainable materials company transforming food and agricultural by-products into manufacturing-ready raw materials. Her work sits at the intersection of climate, supply chains, and material innovation, helping manufacturers transition toward more resilient and circular systems.
+
+With a background in environmental science and urban sustainability, Brittanie has led pilots and partnerships across manufacturing, food systems, design, and mobility sectors to reimagine how organic waste can function as a scalable input for production. She is also a Ph.D. candidate in Biology and Urban Sustainability and teaches climate and earth science at the College for Creative Studies.
+
+Through her work, Brittanie is building the infrastructure layer for circular manufacturing, bridging the gap between waste streams and industrial supply chains.`,
+    organization: 'Ecosphere Organics',
     position: 'CEO',
     session: {
-      title: 'Legal Landmines Every Founder Should Avoid',
-      abstract: "The mistakes that kill startups aren't always technical.",
-      description:
-        'Tracie has seen hundreds of startups stumble on legal basics — from IP ownership disputes to cofounding agreement catastrophes. This session covers the top 10 legal mistakes tech founders make and the simple steps to avoid them.',
+      title: 'Who Controls Materials, Controls the Future',
+      abstract: 'Who controls materials, controls the future.',
+      description: `We talk about AI and software as shaping the future. But every one of those systems depends on physical infrastructure and that infrastructure depends on materials. If we don’t rethink the materials layer, we’re just optimizing systems built on unstable foundations. This talk explores a critical but often overlooked question: who actually controls the inputs that power innovation? As supply chains become more unstable and sustainability requirements reshape industries, materials are emerging as a new point of leverage. Yet most professionals, even in tech, are building on top of systems they didn’t design and don’t control. Drawing from real-world work in circular manufacturing and waste-to-material systems, this session reframes waste as an untapped supply chain and introduces a new way of thinking about infrastructure, decentralization, and local production. Attendees will gain a clearer understanding of how materials shape cost, speed, compliance, and long-term resilience. More importantly, this talk challenges participants to think beyond building products and instead consider how they can influence the systems those products depend on. Because the future isn’t just about what we build. It’s about what we build it from.`,
       tags: ['In-person', 'Leadership'],
       track: 'Leadership',
-      time: '1:00',
-      room: 'WCB 278',
-      sessionDuration: 45,
+      time: '14:30',
+      room: 'Reserve-n-Ready',
+      sessionDuration: 30,
     },
     isWTM: false,
     isGDE: false,
   },
   {
-    id: 14,
-    name: 'Yana Grant',
-    avatar: YanaGrant,
-    bio: 'Yana is a frontend developer and design systems architect who has built component libraries used by thousands of developers. She is passionate about bridging design and engineering.',
-    linkedIn: 'https://www.linkedin.com/in/yanagrant',
-    organization: 'Dell Technologies',
-    position: 'Design Systems Lead',
-    session: {
-      title: "Design Systems That Don't Suck",
-      abstract: 'Building component libraries developers actually adopt.',
-      description:
-        "Yana shares the hard lessons from building Dell's internal design system — from token architecture to documentation that developers read. Learn why most design systems fail at adoption and the counterintuitive strategies that drive usage.",
-      tags: ['In-person', 'Level Up'],
-      track: 'Level Up',
-      time: '1:00',
-      room: 'Town Square',
-      sessionDuration: 45,
-    },
-    isWTM: true,
-    isGDE: false,
-  },
-  {
-    id: 18,
-    name: 'Umelo Onyejiaka',
-    avatar: UmeloOnyejiaka,
-    bio: 'Umelo is a solutions architect specializing in event-driven systems and microservices. He has led migrations from monolith to microservices at multiple Fortune 500 companies.',
-    linkedIn: 'https://www.linkedin.com/in/umeloonyejiaka',
-    organization: 'DTE Energy',
-    position: 'Solutions Architect',
-    session: {
-      title: 'Event-Driven Architecture: Beyond the Buzzword',
-      abstract:
-        "When events make sense, when they don't, and how to tell the difference.",
-      description:
-        'Umelo shares practical lessons from building event-driven systems at DTE Energy — including the hidden complexity of eventual consistency, schema evolution strategies, and the observability tooling that makes event-driven systems manageable.',
-      tags: ['In-person', 'Level Up'],
-      track: 'Level Up',
-      time: '2:00',
-      room: 'Town Square',
-      sessionDuration: 45,
-    },
-    isWTM: false,
-    isGDE: false,
-  },
-  {
-    id: 24,
-    name: 'Tabice Ward',
-    avatar: TabiceWard,
-    bio: 'Tabice is a QA automation lead who has transformed testing cultures at multiple organizations. She is a vocal advocate for shifting quality left in the development process.',
-    linkedIn: 'https://www.linkedin.com/in/tabiceward',
-    organization: 'Little Caesars',
-    position: 'QA Automation Lead',
-    session: {
-      title: 'Shift Left, Ship Right: Modern Testing Strategies',
-      abstract:
-        "The fastest code is the code you don't have to fix in production.",
-      description:
-        "Tabice shares how Little Caesars' engineering team reduced production incidents by 60% through strategic test automation. Covers contract testing, visual regression, and the testing pyramid that actually works for modern web applications.",
-      tags: ['In-person', 'Level Up'],
-      track: 'Level Up',
-      time: '4:00',
-      room: 'Town Square',
-      sessionDuration: 45,
-    },
-    isWTM: false,
-    isGDE: false,
-  },
-  {
-    id: 47,
+    id: 16,
     name: 'David Cardozo',
     email: null,
     avatar: DavidCardozo,
@@ -601,106 +424,38 @@ const rawSpeakersData = [
       tags: ['In-person', 'Build with AI'],
       track: 'Build with AI',
       time: '14:00',
-      room: 'SB 120',
+      room: 'Pizza Pizza',
       sessionDuration: 120,
     },
     isWTM: false,
     isGDE: false,
     mastodon: null,
   },
-
   {
-    id: 25,
-    name: 'Aditya Joshi',
-    avatar: null,
-    bio: 'Senior Software Engineer at Walmart',
+    id: 18,
+    name: 'Hoda Solati',
+    avatar: HodaSolati,
+    bio: 'UX/UI Designer at BraunAbility',
     linkedIn: '',
-    organization: 'Walmart',
-    position: 'Senior Software Engineer',
-    session: {
-      title: 'Session details coming soon',
-      abstract: 'Details coming soon.',
-      description:
-        "This speaker is confirmed for the Detroit International Women's Day Innovation Summit. Session details are being finalized.",
-      tags: ['In-person', 'TBA'],
-      track: 'Innovation',
-      time: 'TBA',
-      room: 'TBA',
-      sessionDuration: 45,
-    },
-    isWTM: false,
-    isGDE: false,
-  },
-  {
-    id: 26,
-    name: 'Afia Phillips',
-    avatar: null,
-    bio: 'VP of Cybersecurity at Little Caesars Enterprises',
-    linkedIn: '',
-    organization: 'Little Caesars Enterprises',
-    position: 'VP of Cybersecurity',
-    session: {
-      title: 'Session details coming soon',
-      abstract: 'Details coming soon.',
-      description:
-        "This speaker is confirmed for the Detroit International Women's Day Innovation Summit. Session details are being finalized.",
-      tags: ['In-person', 'TBA'],
-      track: 'Innovation',
-      time: 'TBA',
-      room: 'TBA',
-      sessionDuration: 45,
-    },
-    isWTM: false,
-    isGDE: false,
-  },
-  {
-    id: 27,
-    name: 'Bandhan Kaur',
-    avatar: BandhanKaur,
-    bio: 'Data and AI Architect at Slalom',
-    linkedIn: '',
-    organization: 'Slalom',
-    position: 'Data and AI Architect',
+    organization: 'BraunAbility',
+    position: 'UX/UI Designer',
     session: {
       title:
-        'Innovation Ecosystem Panel: The Power of Mentorship, Sponsorship and Coaching',
-      abstract:
-        'Exploring the power of mentorship, sponsorship, and coaching in the innovation ecosystem.',
+        'Experience Innovation: Designing for Engagement in Immersive Environments',
+      abstract: 'Bridging human experience and emerging technologies.',
       description:
-        'Bandhan Kaur leads a discussion on the critical role of mentorship, sponsorship, and coaching in building a thriving innovation ecosystem, sharing practical strategies for career growth.',
-      tags: ['In-person', 'Level Up'],
-      track: 'Level Up',
-      time: '11:30',
-      room: 'Pizza Treat',
+        'Design is no longer just about aesthetics or usability, it’s about crafting memorable and meaningful experiences. As immersive technologies like AR and VR evolve, designers are challenged to think beyond screens and start shaping how people feel within digital spaces. This session introduces the concept of Experience Innovation, a mindset that blends creativity, empathy, and strategy to design experiences that are not only functional but emotionally engaging and deeply human. We’ll explore the core principles of experience innovation and how they can transform the way we design for immersive environments. Attendees will learn how to use these principles to create interactions that feel natural, intuitive, and inspiring, while balancing novelty with user comfort.',
+      tags: ['In-person', 'Innovation'],
+      track: 'Innovation',
+      time: '10:30',
+      room: 'The Family Theatre',
       sessionDuration: 30,
     },
     isWTM: false,
-    isGDE: false,
+    isGDE: true,
   },
   {
-    id: 28,
-    name: 'Bryne Berry',
-    avatar: BryneBerry,
-    bio: 'MSc Mechanical Engineer, Founder and President at Black Girls Do Science®',
-    linkedIn: '',
-    organization: 'Black Girls Do Science®',
-    position: 'MSc Mechanical Engineer, Founder and President',
-    session: {
-      title: 'Session details coming soon',
-      abstract: 'Details coming soon.',
-      description:
-        "This speaker is confirmed for the Detroit International Women's Day Innovation Summit. Session details are being finalized.",
-      tags: ['In-person', 'TBA'],
-      track: 'Level Up',
-      time: 'TBA',
-      room: 'TBA',
-      sessionDuration: 45,
-    },
-    isWTM: false,
-    isGDE: false,
-  },
-  {
-    id: 30,
+    id: 19,
     name: 'Dichondra Johnson',
     avatar: DichondraJohnson,
     bio: 'CEO/Founder | Doctoral Research Associate at DRJ & Associates | University of Michigan',
@@ -723,7 +478,7 @@ const rawSpeakersData = [
     isGDE: false,
   },
   {
-    id: 31,
+    id: 20,
     name: 'Donna Bell',
     avatar: DonnaBell,
     bio: 'Chief Product Officer | Founder - The Executive Table at Dunamis Charge',
@@ -747,51 +502,57 @@ const rawSpeakersData = [
     isGDE: false,
   },
   {
-    id: 32,
+    id: 21,
     name: 'Dr. Emily Jacobs',
-    avatar: null,
+    avatar: DrEmilyJacobs,
     bio: 'Founder at Empowered Moms',
     linkedIn: '',
     organization: 'Empowered Moms',
     position: 'Founder',
     session: {
-      title: 'Session details coming soon',
+      title: 'Say Yes to Less',
       abstract: 'Details coming soon.',
       description:
-        "This speaker is confirmed for the Detroit International Women's Day Innovation Summit. Session details are being finalized.",
-      tags: ['In-person', 'TBA'],
-      track: 'Innovation',
-      time: 'TBA',
-      room: 'TBA',
-      sessionDuration: 45,
-    },
-    isWTM: false,
-    isGDE: false,
-  },
-  {
-    id: 34,
-    name: 'Hoda Solati',
-    avatar: HodaSolati,
-    bio: 'UX/UI Designer at BraunAbility',
-    linkedIn: '',
-    organization: 'BraunAbility',
-    position: 'UX/UI Designer',
-    session: {
-      title: 'Leveraging Product-Led User Experiences and Data to Scale',
-      abstract: 'Leveraging product-led user experiences and data to scale.',
-      description:
-        'Hoda Solati shares strategies for leveraging product-led user experiences and data-driven insights to scale products and grow businesses effectively.',
-      tags: ['In-person', 'Careers'],
-      track: 'Careers',
-      time: '14:30',
-      room: 'Value Conference Room',
+        'In “Say Yes to Less,” Dr. Emily Jacobs challenges the cultural belief that constant self-sacrifice and overperforming are the price of success. She reveals how people-pleasing quietly drains our energy, confidence, and creativity and why boundaries are not barriers, but a profound act of self-respect. Through a powerful blend of science, storytelling, and lived experience, she offers a bold framework for reclaiming vitality, clarity, and purpose. This talk invites us to stop seeking permission to rest and begin honoring our limits as the path to authentic fulfillment and personal power.',
+      tags: ['In-person', 'Level Up'],
+      track: 'Level Up',
+      time: '11:30',
+      room: 'Pizza Treat',
       sessionDuration: 30,
     },
     isWTM: false,
     isGDE: false,
   },
   {
-    id: 35,
+    id: 22,
+    name: 'Yana Grant',
+    avatar: YanaGrant,
+    bio: `Yana Grant is a product data operations analyst at Meta, where she helps power the next generation of artificial intelligence and machine learning through high-quality data annotation, labeling, and quality assurance. A proud Long Beach, California native, Yana brings a unique perspective shaped by her West Coast roots and a passion for community empowerment.
+
+Before joining Meta, Yana was a Missile & Fire Control SAP Software DevOps Analyst at Lockheed Martin. She then moved to Detroit to work at LinkedIn in Trust and Safety.
+
+Yana credits her abilities and professional growth to her formative IT internships at the Congressional Budget Office and at NBCUniversal, where she supported operations and systems administration.
+
+In addition to her work at Meta, Yana is the founder of Hustle and Brand, a coaching platform dedicated to helping high school and college students turn their career dreams into reality. Through Hustle and Brand, she provides early college-to-career coaching, resume and LinkedIn building tips, and access to internships, scholarships, and leadership opportunities. Yana is known for her ability to inspire confidence, deliver actionable advice, and help others build their personal brand and professional hustle.`,
+    linkedIn: 'https://www.linkedin.com/in/yana-grant',
+    organization: 'Meta',
+    position: 'Data Labeling Analyst',
+    session: {
+      title:
+        'Get Paid to Train AI: Your Work-From-Home Side Hustle Starts Today',
+      abstract: 'Leveraging product-led user experiences and data to scale.',
+      description: `What if your next paycheck came from teaching an AI how to think? Sounds futuristic — but it's already happening, and regular people are cashing in from their living rooms. In this session, Bryanna Grant, a member of Meta's Product Data Operations team, pulls back the curtain on the human side of AI. Drawing from her real-world experience in data labeling, annotation, and quality assurance, Bryanna will show you how this behind-the-scenes work fuels the technology billions of people use every day — and how you can get paid to be part of it. From beginner-friendly platforms paying $5–$15/hr to expert-level opportunities clearing $40–$200/hr, you'll walk away with a clear, actionable roadmap to launching your AI annotation side gig — starting today.`,
+      tags: ['In-person', 'Level Up'],
+      track: 'Level Up',
+      time: '14:30',
+      room: 'Pizza Treat',
+      sessionDuration: 30,
+    },
+    isWTM: false,
+    isGDE: false,
+  },
+  {
+    id: 23,
     name: 'Jahsiah Kidd',
     avatar: JahsiahKidd,
     bio: 'Digital Transformation Project Manager at General Motors',
@@ -813,7 +574,36 @@ const rawSpeakersData = [
     isGDE: false,
   },
   {
-    id: 36,
+    id: 24,
+    name: 'Cherice Caldwell-Williams',
+    avatar: ChericeCaldwellWilliams,
+    bio: `Cherice brings more than 36 years of dedicated service to DTE Energy, with the last twenty five years focused on strengthening the company’s cybersecurity capabilities. She currently serves as the Acting Director of Cybersecurity Operations, where she leads teams responsible for protecting critical systems and ensuring operational resilience.
+
+A committed cybersecurity professional, Cherice holds three of the industry’s most respected certifications: CISSP, CRISC, and CISM. Her leadership and impact were nationally recognized in 2019 when she received the Women of Color – Technology Leader Award. Throughout her career, she has guided major security initiatives across DTE Energy, helping the organization navigate an evolving threat landscape with confidence and clarity.
+
+Beyond her professional achievements, Cherice is deeply committed to service. She volunteers with organizations that support women and children, extending her passion for empowerment and community beyond the workplace. She and her husband of 18 years enjoy life as proud empty nesters, with a blended family of four adult children. In her free time, Cherice loves attending sporting events, watching classic films, and traveling.
+
+Cherice lives by a simple guiding principle: be kind, courteous, and respectful to everyone you meet. This philosophy shapes her leadership style, her relationships, and her commitment to fostering peace and understanding wherever she goes.`,
+    linkedIn:
+      'https://www.linkedin.com/in/cherice-caldwell-williams-cissp-crisc-cism-2172037',
+    organization: 'DTE Energy',
+    position: 'Acting Director – Cybersecurity Operations',
+    session: {
+      title:
+        'Nobody Handed Us a Map: How We Navigated Bias, Built Our Circles, and Made It to the Top on Our Own Terms',
+      abstract: "AI is not the future — it's the new advantage.",
+      description: `Nobody Handed Us a Map: How We Navigated Bias, Built Our Circles, and Made It to the Top on Our Own Terms A Keynote Fireside Chat Three women. Three very different paths. And more in common than you'd expect. This keynote is not a list of tips. It is not a framework. It is something rarer — three women who have climbed to the highest levels of their fields in energy, technology, and enterprise pulling back the curtain on what the journey actually looked like. The moments that shaped them. The people who showed up — and the ones who didn't. The decisions that required courage they hadn't yet built. And the quiet, determined way they kept moving anyway. Together, they will explore what it means to build a personal board of advisors — the trusted circle that gives honest counsel at 1 o'clock in the morning when a career decision can't wait. They'll talk about what real sponsorship looks like beyond a title or a favor — and what happens when those relationships shift. They'll speak to the experience of being one of the few women of color in the room, and how they learned to navigate hierarchy, bias, and expectations without losing themselves in the process. This is a conversation about courage — speaking up for yourself, speaking up for others, and recognizing the moments when your voice is exactly what someone else needed to hear. You'll leave this session with more than inspiration. You'll leave with a clearer picture of who you are building around you — and who you are becoming for someone else.`,
+      tags: ['In-person', 'Level Up'],
+      track: 'Level Up',
+      time: '13:00',
+      room: 'Pizza Treat',
+      sessionDuration: 60,
+    },
+    isWTM: false,
+    isGDE: false,
+  },
+  {
+    id: 25,
     name: 'Julea Ferrara',
     avatar: null,
     bio: 'CEO / Founder at J. Ferrara Consulting Solutions',
@@ -837,31 +627,30 @@ const rawSpeakersData = [
     isGDE: false,
   },
   {
-    id: 37,
+    id: 26,
     name: 'Kendall Braxton',
     avatar: KendallBraxton,
-    bio: 'CEO at Braxton Management',
-    linkedIn: '',
+    bio: 'Braxton is a proud Detroit Native. She brings over ten years of administration and operations management experience. She earned her BBA from Eastern Michigan University and MBA at Wayne State University. She is an alumna of the Goldman Sachs One Million Black Women: Black in Business Program. She founded her first business in 2014 and operated it for ten years. She is the CEO of Braxton Management, a firm specializing in administration and operations management. She is the CEO & Chef of Kenny’s 622 Trowbridge, a love story to her family and Detroit which offers personal chef services and cooking classes. Regardless of industry, all her pursuits are rooted in servant leadership. Braxton published her first novel The Don In Heels: the Inner Thoughts of thee Minnie Mogul in 2024. Outside of business pursuits, Braxton is a Christian minister and serves as assistant to the pastor of Christ Restoration Ministries. She is also a music enthusiast.',
+    linkedIn: 'https://www.linkedin.com/in/ktbraxton',
     organization: 'Braxton Management',
     position: 'CEO',
     session: {
-      title:
-        'Confidence and Competence: Bridging the Gap in a Developing Career',
+      title: 'Holistic Leadership',
       abstract:
         'Bridging the gap between confidence and competence in a developing career.',
       description:
-        'Kendall Braxton shares practical strategies for bridging the gap between confidence and competence, helping attendees navigate the early stages of their careers with purpose.',
-      tags: ['In-person', 'Careers'],
-      track: 'Careers',
-      time: '11:30',
-      room: 'Value Conference Room',
+        'In a wold of cutting-edge technology and constant transformation, mere management is not enough. Holistic leadership focuses on the humans behind the world, ensuring that investment does not stop at minimal professional development but goes further to support the people. Holistic leadership encompasses collaborative development, ongoing training, wellness, and adaptability. This workshop dives into what it means to be a holistic leader and what it looks like to lead by example.',
+      tags: ['In-person', 'Leadership'],
+      track: 'Leadership',
+      time: '15:00',
+      room: 'Reserve-n-Ready',
       sessionDuration: 30,
     },
     isWTM: false,
     isGDE: false,
   },
   {
-    id: 38,
+    id: 27,
     name: 'Lilah Kole',
     avatar: LilahKole1,
     bio: 'Power Platform Developer + Project Manager at Agree Realty',
@@ -884,7 +673,7 @@ const rawSpeakersData = [
     isGDE: false,
   },
   {
-    id: 39,
+    id: 28,
     name: 'Marcela Billingslea Durini',
     avatar: null,
     bio: 'Messenger Gen AI Creations Team, Software Engineering Intern at Meta Platforms Inc',
@@ -897,39 +686,61 @@ const rawSpeakersData = [
         "A Latina founder's story of building for the world you come from.",
       description:
         'Marcela Billingslea Durini shares her personal journey as a Latina founder, exploring how cultural identity shapes innovation and the importance of building solutions for the communities you come from.',
-      tags: ['In-person', 'Innovation'],
-      track: 'Innovation',
+      tags: ['In-person', 'Leadership'],
+      track: 'Leadership',
       time: '10:30',
-      room: 'The Family Theatre',
+      room: 'Reserve-n-Ready',
       sessionDuration: 30,
     },
     isWTM: false,
     isGDE: false,
   },
   {
-    id: 40,
+    id: 29,
     name: 'Nagham Alsamari',
-    avatar: null,
+    avatar: NaghamAlsamari,
     bio: 'Resilience and Leadership Trainer at Imkan Leadership Development',
     linkedIn: '',
     organization: 'Imkan Leadership Development',
     position: 'Resilience and Leadership Trainer',
     session: {
-      title: 'Session details coming soon',
+      title:
+        'Train Your Resilience Muscle™: Breaking the Reactor Pattern in Tech Leadership',
       abstract: 'Details coming soon.',
-      description:
-        "This speaker is confirmed for the Detroit International Women's Day Innovation Summit. Session details are being finalized.",
-      tags: ['In-person', 'TBA'],
-      track: 'Innovation',
-      time: 'TBA',
-      room: 'TBA',
-      sessionDuration: 45,
+      description: `You're in a meeting. You look calm. Laptop open, notes ready, nodding at the right moments. What nobody knows is that your chest is tight, you haven't slept properly in days, and the version of you sitting in that chair is running entirely on adrenaline and willpower. You're not resilient. You're surviving. And you've gotten so good at surviving that you've convinced yourself they're the same thing. This interactive session challenges the pattern that keeps high-performing women in tech stuck in ""Resilience Reactor"" mode, always managing, always one step behind their own nervous system, burning capacity faster than they can rebuild it. Instead of another ""self-care"" talk, you'll learn to train resilience like a muscle: as a repeatable, measurable skill that works under real pressure. Guided by the ""Break the Pattern"" theme, this session addresses how women in tech can dismantle the reactive survival patterns that traditional career advice reinforces, hustle harder, be tougher, push through, and build a sustainable resilience system instead. You'll walk away with: - A 60-second reset you can use before your next hard conversation or after a triggering Slack message - Two core resilience pillars (Self-Awareness and Decision Integrity) with reflection prompts to build your personal resilience plan - The Manager Resilience Scorecard to identify your exact growth levers This isn't motivation. It's training. Expect hands-on activities, Mentimeter polls, and a signature mirror exercise that will shift how you see pressure, and yourself, in 60 seconds. Why this matters for Michigan's tech ecosystem: Women in tech face compounding pressures, imposter syndrome, being the only woman in the room, constant context-switching, always-on culture. Building resilience as a trainable skill isn't just personal development, it's how we retain talent, close leadership gaps, and create sustainable paths to innovation.`,
+      tags: ['In-person', 'Leadership'],
+      track: 'Leadership',
+      time: '11:30',
+      room: 'Reserve-n-Ready',
+      sessionDuration: 30,
     },
     isWTM: false,
     isGDE: false,
   },
   {
-    id: 41,
+    id: 30,
+    name: 'Tracie Hightower',
+    avatar: TracieHightower,
+    bio: 'Tracie Hightower is a strategic innovation consultant and facilitator focused on helping community-facing organizations build stamina for problem-solving, adaptive strategy, and future-ready decision-making. Her work blends innovation methods with practical tools, dashboards, and workshops which support leaders navigating complexity and rapid technological change. She is especially committed to strengthening Detroit’s social-impact ecosystem through learning experiences that convert ideas into measurable action.',
+    linkedIn: 'https://www.linkedin.com/in/traciehightower',
+    organization: 'Collective Flow Learning, LLC',
+    position: 'Chief Strategy and Innovation Coach',
+    session: {
+      title: 'Afrofuture Design Lab: Women, AI & the Future of Thriving',
+      abstract: 'Afrofuture Design Lab: Women, AI & the Future of Thriving',
+      description:
+        'What becomes possible when women help design the future instead of simply adapting to it? This dynamic Afrofuture Design Lab invites women into a creative, thought-provoking experience where innovation, AI, and imagination meet lived experience. Together, participants will explore bold new futures for leadership, wellness, entrepreneurship, community, and belonging while designing ideas that center dignity, opportunity, and collective thriving. Come ready to create and shape what comes next.',
+      tags: ['In-person', 'Innovation'],
+      track: 'Innovation',
+      time: '11:00',
+      room: 'The Family Theatre',
+      sessionDuration: 60,
+    },
+    isWTM: false,
+    isGDE: false,
+  },
+  {
+    id: 31,
     name: 'Onorio Catenacci',
     avatar: OnorioCatenacci,
     bio: 'Technical Trainer II at TEKSystem',
@@ -937,23 +748,21 @@ const rawSpeakersData = [
     organization: 'TEKSystem',
     position: 'Technical Trainer II',
     session: {
-      title:
-        "Breaking the Pattern: Finding the courage to take up space where your identity isn't the norm",
+      title: 'NuShell - Bringing New Programming Language Ideas To The Shell',
       abstract:
-        "Finding the courage to take up space where your identity isn't the norm.",
-      description:
-        "Onorio Catenacci shares insights and strategies for finding the courage to take up space in environments where your identity isn't the norm, encouraging authenticity and resilience.",
-      tags: ['In-person', 'Careers'],
-      track: 'Careers',
-      time: '11:00',
-      room: 'Value Conference Room',
+        'A shell scripting language that takes several of the advances of the last few decades in software development and brings them to the shell.',
+      description: `If you've ever had to create a batch file or automate a process on Windows or Linux then chances are you've thought to yourself--"This is why I stay in Python! This is the pits!" Well here's hope for you--a shell scripting language that takes several of the advances of the last few decades in software development and brings them to the shell. (More about NuShell here: https://www.nushell.sh)`,
+      tags: ['In-person', 'Build with AI'],
+      track: 'Build with AI',
+      time: '11:30',
+      room: 'Pizza Pizza',
       sessionDuration: 30,
     },
     isWTM: false,
     isGDE: false,
   },
   {
-    id: 42,
+    id: 32,
     name: 'Rania Hoteit',
     avatar: RaniaHoteit,
     bio: 'Multi-award-winning Entrepreneur, Impact Leader, and Executive Advisor at ID4A Technologies, Watson Institute, Electus Global Education',
@@ -978,7 +787,7 @@ const rawSpeakersData = [
     isGDE: false,
   },
   {
-    id: 43,
+    id: 33,
     name: 'Rasheda Williams',
     avatar: RashedaWilliams,
     bio: 'Founder & CEO at Inspired Life Professionals',
@@ -1001,7 +810,7 @@ const rawSpeakersData = [
     isGDE: false,
   },
   {
-    id: 44,
+    id: 34,
     name: 'Robin Kinnie',
     avatar: RobinKinnie,
     bio: 'President at Audio Engineers of Detroit',
@@ -1010,21 +819,20 @@ const rawSpeakersData = [
     position: 'President',
     session: {
       title:
-        'Harnessing Human Talent in the Era of AI: Strategies for Modern Workforce Integration',
+        'Visualize, Cultivate, Leverage: How to Build Relationships in Business',
       abstract: 'Strategies for modern workforce integration in the era of AI.',
-      description:
-        'Robin Kinnie explores strategies for harnessing human talent alongside AI, sharing approaches for modern workforce integration that value both technological and human capabilities.',
-      tags: ['In-person', 'Careers'],
-      track: 'Careers',
-      time: '10:30',
-      room: 'Value Conference Room',
+      description: `Success in business isn’t just about what you know—it’s about who you grow with. This session is designed for those who want to build authentic, mutually beneficial relationships that support both personal values and professional goals. Participants will learn how to visualize the right connections for their next level, cultivate relationships with intention and trust, and leverage their networks without guilt, self-doubt, or burnout. Through real-world examples and actionable strategies, this session breaks down how women can navigate networking, collaboration, and influence while staying aligned, confident, and true to themselves. Whether you’re grow`,
+      tags: ['In-person', 'Level Up'],
+      track: 'Level Up',
+      time: '2:00',
+      room: 'Pizza Treat',
       sessionDuration: 30,
     },
     isWTM: false,
     isGDE: false,
   },
   {
-    id: 45,
+    id: 35,
     name: 'Shalonda Owens',
     avatar: ShalondaOwens,
     bio: 'Principal at Livonia Public Schools',
@@ -1046,7 +854,7 @@ const rawSpeakersData = [
     isGDE: false,
   },
   {
-    id: 46,
+    id: 36,
     name: 'Sheneelia Logan',
     avatar: SheneeliaLogan,
     bio: 'Founder/Owner at Detroit Edge',
@@ -1069,7 +877,7 @@ const rawSpeakersData = [
     isGDE: false,
   },
   {
-    id: 47,
+    id: 37,
     name: 'Shima Solati',
     avatar: ShimaSolati,
     bio: 'UX/UI Designer at BraunAbility',
@@ -1092,53 +900,7 @@ const rawSpeakersData = [
     isGDE: false,
   },
   {
-    id: 49,
-    name: 'Talona Johnson, MBA, PMP, CMQ/OE',
-    avatar: TalonaJohnson,
-    bio: 'International Product Manager at General Motors',
-    linkedIn: '',
-    organization: 'General Motors',
-    position: 'International Product Manager',
-    session: {
-      title: 'Is AI Biased or Is It Just Data?',
-      abstract:
-        'Examining whether AI bias is a technology problem or a data problem.',
-      description:
-        'Talona Johnson examines the relationship between AI bias and the data that feeds it, exploring whether the issue lies in the technology itself or in the data we use to train it.',
-      tags: ['In-person', 'Innovation'],
-      track: 'Innovation',
-      time: '14:00',
-      room: 'The Family Theatre',
-      sessionDuration: 30,
-    },
-    isWTM: false,
-    isGDE: false,
-  },
-  {
-    id: 50,
-    name: 'Vital Anne',
-    avatar: VitalAnne,
-    bio: 'Program Director at Siemens Industries Software',
-    linkedIn: '',
-    organization: 'Siemens Industries Software',
-    position: 'Program Director',
-    session: {
-      title:
-        'Mastering User-Centered Design: Strategies for Effective Communication & Design Excellence',
-      abstract: 'Strategies for effective communication and design excellence.',
-      description:
-        'Vital Anne shares strategies for mastering user-centered design, covering effective communication techniques and design principles that lead to exceptional user experiences.',
-      tags: ['In-person', 'AI Foundations'],
-      track: 'AI Foundations',
-      time: '11:00',
-      room: 'Hot-n-Ready',
-      sessionDuration: 30,
-    },
-    isWTM: false,
-    isGDE: false,
-  },
-  {
-    id: 51,
+    id: 38,
     name: 'Yesha Patel',
     avatar: YeshaPatel,
     bio: 'Senior Solution Architect & eCommerce SME at IBM',
@@ -1162,7 +924,7 @@ const rawSpeakersData = [
     isGDE: false,
   },
   {
-    id: 52,
+    id: 39,
     name: 'Yukti Goyal',
     avatar: YuktiGoyal,
     bio: 'Lead Software Engineer at Kforce',
@@ -1186,7 +948,7 @@ const rawSpeakersData = [
     isGDE: false,
   },
   {
-    id: 54,
+    id: 40,
     name: 'Lilah Kole (Alt)',
     avatar: LilahKole2,
     bio: 'Power Platform Developer + Project Manager at Agree Realty',
@@ -1209,7 +971,34 @@ const rawSpeakersData = [
     isGDE: false,
   },
   {
-    id: 99,
+    id: 41,
+    name: 'Tatiana Jackson',
+    avatar: TatianaJackson,
+    bio: `Tatiana Simone is a Detroit-based Chief Culture Strategist, Executive Producer, and ADDY Award–winning marketing leader dedicated to helping women break patterns and build powerful, revenue-generating brands. As the founder of Real Culture, a Black woman–owned media company, she blends storytelling, AI, and strategy to help entrepreneurs show up with clarity, confidence, and consistency.
+
+With over 250 event productions and more than 100 million impressions generated across campaigns, content, and media, Tatiana has supported both global brands and local founders in turning visibility into real growth.
+
+Following a full-capacity workshop at Compass Detroit, she continues to equip women with accessible frameworks—like her P.R.O.F.I.T Method™—designed to move from uncertainty to execution. In alignment with this year’s theme, Break the Pattern, Tatiana empowers women to challenge outdated ways of thinking, embrace technology with intention, and create new pathways for success in Detroit and beyond.`,
+    linkedIn: ' https://www.linkedin.com/in/tatiana-simone-jackson',
+    organization: 'Real Culture',
+    position: 'Founder',
+    session: {
+      title:
+        'Prompt, Plan & Profit: Build AI-Powered Marketing Campaigns That Convert',
+      abstract:
+        'This workshop features Tatiana Simone guiding women entrepreneurs to replace inconsistent business growth with the structured P.R.O.F.I.T Method™. Participants learn to leverage AI with intention to build repeatable marketing systems that amplify their expertise and generate purposeful revenue.',
+      description: `For many women entrepreneurs, the challenge isn’t lack of talent—it’s lack of clarity, structure, and support. Too often, we rely on inconsistent marketing, word-of-mouth, and guesswork to grow businesses that deserve far more visibility and revenue. In this empowering, hands-on workshop, Tatiana Simone—Chief Culture Strategist and ADDY Award–winning marketing leader—guides women through a new way of building. Rooted in her signature P.R.O.F.I.T Method™, this session shows how to use AI not as a shortcut, but as a tool for clarity, confidence, and control. Participants will learn how to position their ideas, connect with their audience, and create marketing that reflects both their voice and their vision. More importantly, they will walk away with a structured, repeatable system to turn what they know into campaigns that generate real results. Aligned with the spirit of breaking patterns and building new pathways, this workshop is designed for women who are ready to move differently—leveraging technology with intention, owning their expertise, and creating businesses that grow with purpose.`,
+      tags: ['In-person', 'AI Foundations'],
+      track: 'AI Foundations',
+      time: '11:00',
+      room: 'Hot-n-Ready',
+      sessionDuration: 60,
+    },
+    isWTM: false,
+    isGDE: false,
+  },
+  {
+    id: 42,
     name: 'Eberechi Ogbuaku',
     avatar: EberechiOgbuaku,
     bio: 'Eberechi Ogbuaku is an Attorney that does work in probate, estate planning, family, and juvenile law. She’s worked in BigLaw and Public Accounting. Eberechi is also the host of the Young Professional African Collective (YPAC) podcast where she talks to people doing work on the African continent or work pertaining to the African continent. She enjoys spending time with family, traveling, and dancing.',
@@ -1231,7 +1020,7 @@ const rawSpeakersData = [
     isGDE: false,
   },
   {
-    id: 100,
+    id: 43,
     name: 'Ramona Fellmy',
     avatar: RamonaFellmy,
     bio: 'Ramona Fellmy is a technology founder, SaaS strategist, and enterprise solutions leader at Dapp Detroit. Her work focuses on building low-code, AI-driven systems for complex, compliance-heavy industries. She operates at the intersection of InsurTech, FinTech, and ethical AI. She was recently recognized as one of the Top Women in Tech in the U.S. (2026).',
@@ -1240,11 +1029,11 @@ const rawSpeakersData = [
     position: 'Founder, CTO',
     session: {
       title:
-        'Build Systems with low-code platforms and AI technologies across highly regulated industries',
+        'Breaking the Pattern: Ethical AI, Low-Code Systems, and the Future of Inclusive Innovation',
       abstract:
         'Building systems with low-code platforms and AI across regulated industries.',
       description:
-        'Ramona Fellmy shares how to build systems with low-code platforms and AI technologies across highly regulated industries, drawing on her experience in InsurTech and FinTech.',
+        'Artificial intelligence is rapidly transforming how systems are built and scaled—but the real challenge is no longer speed. It’s responsibility. This session explores how low-code platforms and AI technologies are changing the way organizations design and deploy solutions in highly regulated industries, while also opening new opportunities in education and community impact. Drawing from her work at Dapp Detroit, Ramona will share practical examples of how tools across the Google ecosystem—including Vertex AI, Google Workspace, and related technologies—can be used to build systems that are not only scalable, but also ethical, transparent, and accessible. A key focus of the session is how these same tools can support neurodiverse and 2e individuals by enabling more adaptive and personalized approaches to learning and problem-solving. Key Takeaways: - A practical approach to building ethical AI systems in real-world environments - Examples of how low-code and AI are being applied across enterprise and education Strategies for leveraging Google tools to support inclusive innovation A new perspective on how AI can be used not just to optimize systems, but to expand how people think, build, and contribute.',
       tags: ['In-person', 'Innovation'],
       track: 'Innovation',
       time: '15:00',
@@ -1254,25 +1043,81 @@ const rawSpeakersData = [
     isWTM: false,
     isGDE: false,
   },
-]
+  {
+    id: 44,
+    name: 'Tabice Ward',
+    avatar: TabiceWard,
+    bio: `Tabice Ward serves as the Chief Information Officer at Walker-Miller Energy Services where she leads the strategic direction of the IT organization. As a technology executive, she focuses on helping organizations develop innovative and transformative technology strategies that drive business enablement, enhance security, and reduce cyber risk.
 
-const TRACK_ROTATION = [
-  'Level Up',
-  'Build with AI',
-  'AI Foundations',
-  'Leadership',
-  'Innovation',
-  'Careers',
+With 35+ years of experience in the energy sector, she possesses deep expertise in technology management, cybersecurity operations, cyber risk management, physical security, business continuity, regulatory compliance, and security policy. She shares her knowledge as an adjunct lecturer at the University of Detroit Mercy, helping develop the next generation of technology leaders. Additionally, she is an Executive Advisor for Hush, a cyber tech startup.
+
+Tabice has held key leadership positions, including Executive Technology Strategist at ChoiceTel, Area Vice President of Enterprise Security at Xcel Energy and IT Director/CISO at DTE Energy, where she led the strategic direction and transformation of cybersecurity programs. In these roles, she partnered with business leaders to develop and execute comprehensive technology and cybersecurity strategies across IT and ICS/OT environments.`,
+    linkedIn: 'https://www.linkedin.com/in/tabiceward',
+    organization: 'Walker-Miller Energy Services',
+    position: 'Chief Information Officer',
+    session: {
+      title:
+        'Nobody Handed Us a Map: How We Navigated Bias, Built Our Circles, and Made It to the Top on Our Own Terms',
+      abstract: "AI is not the future — it's the new advantage.",
+      description: `Nobody Handed Us a Map: How We Navigated Bias, Built Our Circles, and Made It to the Top on Our Own Terms A Keynote Fireside Chat Three women. Three very different paths. And more in common than you'd expect. This keynote is not a list of tips. It is not a framework. It is something rarer — three women who have climbed to the highest levels of their fields in energy, technology, and enterprise pulling back the curtain on what the journey actually looked like. The moments that shaped them. The people who showed up — and the ones who didn't. The decisions that required courage they hadn't yet built. And the quiet, determined way they kept moving anyway. Together, they will explore what it means to build a personal board of advisors — the trusted circle that gives honest counsel at 1 o'clock in the morning when a career decision can't wait. They'll talk about what real sponsorship looks like beyond a title or a favor — and what happens when those relationships shift. They'll speak to the experience of being one of the few women of color in the room, and how they learned to navigate hierarchy, bias, and expectations without losing themselves in the process. This is a conversation about courage — speaking up for yourself, speaking up for others, and recognizing the moments when your voice is exactly what someone else needed to hear. You'll leave this session with more than inspiration. You'll leave with a clearer picture of who you are building around you — and who you are becoming for someone else.`,
+      tags: ['In-person', 'Level Up'],
+      track: 'Level Up',
+      time: '13:00',
+      room: 'Pizza Treat',
+      sessionDuration: 60,
+    },
+    isWTM: false,
+    isGDE: false,
+  },
+  {
+    id: 45,
+    name: 'Jenna Ritten',
+    avatar: JennaRitten,
+    bio: 'Jenna is the visionary behind Detroits Innovation Summit series and Founding Executive Director of Compass (Collective of Minority Professionals and STEAM Societies), the organization bringing together Michigans diverse tech talent to combat brain drain and create local opportunities. As Chief Developer Advocate & Architect at IBM Research, she leads IBMs technical community while scaling their global developer ecosystem from 2 million to 9 million members.A cornerstone of Michigans tech renaissance, Jenna serves as Co-Leader of Google Developer Group Detroit, lead organizer of Michigan DevFest (1,000+ attendees), and board member of Automation Workz. As a local leader in Michigans tech ecosystem since 2018, she pioneered hackathon culture in the region by introducing the first hackathons to both the AfroTech Conference in 2023 and Michigan DevFest in 2025, creating hands-on opportunities for developers to showcase their skills and solve real-world challenges.Through Compass partnerships with NSBE Detroit, SHPE Detroit, IBM, Google, DTE Energy, and other leading organizations, Jenna is building bridges between corporate innovation and community empowerment. Her mission: ensuring Michigans next generation of Black technologists not only have opportunities to excel but can do so without leaving the state they call home.Connect with Jenna to learn how Compass is transforming Michigans tech ecosystem, one community at a time.',
+    linkedIn: 'https://www.linkedin.com/in/jennaritten',
+    organization: 'IBM Research',
+    position: 'Chief Developer Advocate & Architect',
+    session: {
+      title:
+        'Nobody Handed Us a Map: How We Navigated Bias, Built Our Circles, and Made It to the Top on Our Own Terms',
+      abstract: "AI is not the future — it's the new advantage.",
+      description: `Nobody Handed Us a Map: How We Navigated Bias, Built Our Circles, and Made It to the Top on Our Own Terms A Keynote Fireside Chat Three women. Three very different paths. And more in common than you'd expect. This keynote is not a list of tips. It is not a framework. It is something rarer — three women who have climbed to the highest levels of their fields in energy, technology, and enterprise pulling back the curtain on what the journey actually looked like. The moments that shaped them. The people who showed up — and the ones who didn't. The decisions that required courage they hadn't yet built. And the quiet, determined way they kept moving anyway. Together, they will explore what it means to build a personal board of advisors — the trusted circle that gives honest counsel at 1 o'clock in the morning when a career decision can't wait. They'll talk about what real sponsorship looks like beyond a title or a favor — and what happens when those relationships shift. They'll speak to the experience of being one of the few women of color in the room, and how they learned to navigate hierarchy, bias, and expectations without losing themselves in the process. This is a conversation about courage — speaking up for yourself, speaking up for others, and recognizing the moments when your voice is exactly what someone else needed to hear. You'll leave this session with more than inspiration. You'll leave with a clearer picture of who you are building around you — and who you are becoming for someone else.`,
+      tags: ['In-person', 'Level Up'],
+      track: 'Level Up',
+      time: '13:00',
+      room: 'Pizza Treat',
+      sessionDuration: 60,
+    },
+    isWTM: true,
+    isGDE: false,
+  },
+  {
+    id: 50,
+    name: 'Bandhan Kaur',
+    avatar: BandhanKaur,
+    bio: 'Data and AI Architect at Slalom',
+    linkedIn: '',
+    organization: 'Slalom',
+    position: 'Data and AI Architect',
+    session: {
+      title:
+        'Innovation Summit Panel Discussion: Who Designs the System? Women Defining the Future of Tech',
+      abstract:
+        'This panel explores how real impact in technology extends beyond execution into influence where decisions about funding, hiring, and strategic direction are made, featuring women leaders across manufacturing, aerospace, AI, enterprise software, and STEM education, and highlighting the shift from delivering results to shaping organizational and industry futures, while providing attendees with practical insights on navigating influence, expanding their presence in decision making spaces, and intentionally positioning themselves for transformative impact in tech.',
+      description:
+        'True impact in tech - the kind that changes industries like energy, healthcare, and manufacturing -doesn’t just happen at the keyboard. It is nurtured in the spaces where funding is allocated, rears itself where hiring standards are set, and leaves deep marks as credit, attribution, or kudos are given. Most of us know how to deliver. We lead projects, solve problems, maintain critical systems, and get results. But we don’t always ask: Who is actually deciding what gets built? Who is in the room when funding gets allocated? Who is shaping the future vectors for organizations and industries? Join us for a panel featuring four women working across manufacturing, aerospace, enterprise software, AI, and STEM education who have navigated with influence inside complex organizations. Enter a practical discussion that arcs from delivering results to shaping direction and what that shift actually requires from a twenty-first century woman in tech. You’ll leave seeing your own environment differently and better equipped to move with intention and belonging where transformational decisions are being made. Moderator: Angela Richardson, CAE: Governance & Council Engagement Director, SEMA Panelists: Talona Johnson, MBA, PMP, CMQ/OE, International Product Manager, General Motors Vital Anne, Program Director, Siemens Industries Software Bryne Berry, MSc Mechanical Engineer, Founder and President of Black Girls Do Science® Bandhan Kaur, Data and AI Architect at Slalom',
+      tags: ['In-person', 'Level Up'],
+      track: 'Level Up',
+      time: '09:10',
+      room: 'Pizza Treat',
+      sessionDuration: 50,
+    },
+    isWTM: true,
+    isGDE: false,
+  },
 ]
 
 const EVENT_PAGE_SPEAKERS = [
-  {
-    name: 'Afia Phillips',
-    organization: 'Little Caesars Enterprises',
-    position: 'VP of Cybersecurity',
-    avatar:
-      'https://res.cloudinary.com/startup-grind/image/upload/c_fill,dpr_2,f_auto,g_face,h_400,q_auto:good,w_400/v1/gcs/platform-data-goog/events/AfiaPhillips%2520%25281%2529.jpg',
-  },
   {
     name: 'Angela Richardson',
     organization: 'Specialty Equipment Marketing Association (SEMA)',
@@ -1281,18 +1126,17 @@ const EVENT_PAGE_SPEAKERS = [
       'https://res.cloudinary.com/startup-grind/image/upload/c_fill,dpr_2,f_auto,g_face,h_200,q_auto:good,w_200/v1/gcs/platform-data-goog/events/AngelaRichardson_14ofaIm.png',
   },
   {
-    name: 'Anny Staten',
-    organization: 'Apple Developer Academy Detroit',
-    position: 'Assistant Director',
-    avatar:
-      'https://res.cloudinary.com/startup-grind/image/upload/c_fill,dpr_2,f_auto,g_face,h_200,q_auto:good,w_200/v1/gcs/platform-data-goog/events/AnnyStaten_1xgUfzu.jpeg',
-  },
-  {
     name: 'Bandhan Kaur',
     organization: 'Slalom',
     position: 'Data and AI Architect',
     avatar:
       'https://res.cloudinary.com/startup-grind/image/upload/c_fill,dpr_2,f_auto,g_face,h_200,q_auto:good,w_200/v1/gcs/platform-data-goog/events/BandhanKaur_RqGeed5.JPG',
+  },
+  {
+    name: 'Brittanie Dabney',
+    organization: 'Ecosphere Organics',
+    position: 'CEO',
+    avatar: BrittanieDabney,
   },
   {
     name: 'Bryant Dumas',
@@ -1587,23 +1431,11 @@ const eventSpeakerByKey = new Map(
   ])
 )
 
-const createPlaceholderSession = (index) => ({
-  title: 'Session details coming soon',
-  abstract: 'Detailed session information will be published soon.',
-  description:
-    'This speaker is confirmed for the Detroit International Women’s Day Innovation Summit. Session details are being finalized.',
-  tags: ['In-person', 'TBA'],
-  track: TRACK_ROTATION[index % TRACK_ROTATION.length],
-  time: 'TBA',
-  room: 'TBA',
-  sessionDuration: 45,
-})
-
 const enrichedExisting = rawSpeakersData
   .filter((speaker) =>
     eventSpeakerByKey.has(normalizeSpeakerName(speaker.name))
   )
-  .map((speaker, index) => {
+  .map((speaker) => {
     const eventMeta = eventSpeakerByKey.get(normalizeSpeakerName(speaker.name))
     return {
       ...speaker,
@@ -1614,35 +1446,8 @@ const enrichedExisting = rawSpeakersData
       bio:
         speaker.bio ||
         `${eventMeta.name} is a confirmed speaker for the Detroit International Women’s Day Innovation Summit.`,
-      session:
-        speaker.session && speaker.session.title
-          ? speaker.session
-          : createPlaceholderSession(index),
+      session: speaker.session,
     }
   })
 
-const existingKeys = new Set(
-  enrichedExisting.map((speaker) => normalizeSpeakerName(speaker.name))
-)
-
-const startingId = rawSpeakersData.reduce(
-  (maxId, speaker) => Math.max(maxId, Number(speaker.id) || 0),
-  0
-)
-
-const missingFromEventPage = EVENT_PAGE_SPEAKERS.filter(
-  (speaker) => !existingKeys.has(normalizeSpeakerName(speaker.name))
-).map((speaker, index) => ({
-  id: startingId + index + 1,
-  name: speaker.name,
-  avatar: speaker.avatar,
-  bio: `${speaker.name} is a confirmed speaker for the Detroit International Women’s Day Innovation Summit.`,
-  linkedIn: '',
-  organization: speaker.organization,
-  position: speaker.position || 'Speaker',
-  session: createPlaceholderSession(index),
-  isWTM: false,
-  isGDE: false,
-}))
-
-export const SpeakersData = [...enrichedExisting, ...missingFromEventPage]
+export const SpeakersData = enrichedExisting
