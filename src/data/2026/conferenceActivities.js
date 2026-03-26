@@ -21,7 +21,7 @@ export const conferenceActivities = [
     title: 'Resume Review & Mock Interviews',
     content: 'Sign Up Here:',
     cta: {
-      url: 'https://bit.ly/iwd-26-signup',
+      url: 'https://bit.ly/iwd-26-careers-signup',
       text: 'Get an appointment with a professional',
       ariaLabel:
         'Sign up for resume review and mock interviews -- Link opens in new tab',
@@ -36,7 +36,7 @@ export const conferenceActivities = [
     title: 'Resume Review & Mock Interviews',
     content: 'Sign Up Here:',
     cta: {
-      url: 'https://bit.ly/iwd-26-signup',
+      url: 'https://bit.ly/iwd-26-careers-signup',
       text: 'Get an appointment with a professional',
       ariaLabel:
         'Sign up for resume review and mock interviews -- Link opens in new tab',
@@ -51,7 +51,7 @@ export const conferenceActivities = [
     title: 'Career Mentorship',
     content: 'Sign Up Here:',
     cta: {
-      url: 'https://bit.ly/iwd-26-signup',
+      url: 'https://bit.ly/iwd-26-careers-signup',
       text: 'Get an appointment with a mentor',
       ariaLabel: 'Sign up for mentorship -- Link opens in new tab',
     },
@@ -65,7 +65,7 @@ export const conferenceActivities = [
     title: 'Career Mentorship',
     content: 'Sign Up Here:',
     cta: {
-      url: 'https://bit.ly/iwd-26-signup',
+      url: 'https://bit.ly/iwd-26-careers-signup',
       text: 'Get an appointment with a mentor',
       ariaLabel: 'Sign up for a mentor session -- Link opens in new tab',
     },

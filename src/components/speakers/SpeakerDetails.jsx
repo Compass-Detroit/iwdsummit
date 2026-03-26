@@ -163,6 +163,7 @@ function SpeakerDetails({
   organization,
   position,
   sessionTitle,
+  sessionSpeakers,
   sessionDescription,
   tags,
   track,
@@ -287,7 +288,7 @@ function SpeakerDetails({
     : sessionDescription
 
   return (
-    <div className="relative max-h-[90vh] w-full max-w-4xl overflow-y-auto rounded-3xl bg-iwd-surface-raised dark:bg-iwd-black-950 shadow-2xl ring-1 ring-white/10">
+    <div className="bg-iwd-surface-raised relative max-h-[90vh] w-full max-w-4xl overflow-y-auto rounded-3xl shadow-2xl ring-1 ring-white/10 dark:bg-iwd-black-950">
       <div className="relative px-8 py-12 text-white" style={heroStyle}>
         <div className="absolute inset-0 bg-gradient-to-b from-white/20 via-white/10 to-transparent mix-blend-soft-light"></div>
         <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/20 to-transparent"></div>
@@ -468,21 +469,41 @@ function SpeakerDetails({
           {sessionTitle && (
             <div className="lg:col-span-2">
               <div
-                className="rounded-2xl bg-iwd-surface-raised dark:bg-iwd-black-900 p-6"
+                className="bg-iwd-surface-raised rounded-2xl p-6 dark:bg-iwd-black-900"
                 style={{ border: `3px solid ${trackTheme.focusColor}` }}
               >
                 <h4 className="mb-4 text-xl font-semibold uppercase text-white">
                   Session
                 </h4>
 
-                <div className="mb-4 rounded-xl bg-iwd-surface-raised dark:bg-iwd-black-950 p-4 shadow-sm">
+                <div className="bg-iwd-surface-raised mb-4 rounded-xl p-4 shadow-sm dark:bg-iwd-black-950">
                   <h3 className="text-base font-semibold leading-relaxed text-white">
                     {sessionTitle}
                   </h3>
+                  {sessionSpeakers && sessionSpeakers.length > 1 && (
+                    <div className="mt-3 border-t border-white/10 pt-3">
+                      <p className="mb-2 text-[10px] font-black uppercase tracking-widest text-iwd-gold-400/80">
+                        Presenters
+                      </p>
+                      <div className="flex flex-wrap gap-2 text-sm text-gray-300">
+                        {sessionSpeakers.map((sName, idx) => (
+                          <span
+                            key={idx}
+                            className={
+                              sName === name ? 'font-bold text-white' : ''
+                            }
+                          >
+                            {sName}
+                            {idx < sessionSpeakers.length - 1 ? ' • ' : ''}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
                 </div>
 
                 {sessionDescription && (
-                  <div className="rounded-xl bg-iwd-surface-raised dark:bg-iwd-black-950 p-4 shadow-sm">
+                  <div className="bg-iwd-surface-raised rounded-xl p-4 shadow-sm dark:bg-iwd-black-950">
                     <h5 className="mb-2 text-sm font-bold uppercase tracking-wide text-gray-400">
                       Description
                     </h5>
@@ -519,19 +540,19 @@ function SpeakerDetails({
 
         <div className="mt-8 flex items-center justify-center space-x-6 text-sm text-gray-500">
           <div className="flex items-center space-x-2">
-            <kbd className="inline-flex items-center rounded bg-iwd-surface-raised dark:bg-iwd-black-900 px-2 py-1 text-xs font-bold text-gray-300">
+            <kbd className="bg-iwd-surface-raised inline-flex items-center rounded px-2 py-1 text-xs font-bold text-gray-300 dark:bg-iwd-black-900">
               ←
             </kbd>
             <span className="text-gray-400">Previous</span>
           </div>
           <div className="flex items-center space-x-2">
-            <kbd className="inline-flex items-center rounded bg-iwd-surface-raised dark:bg-iwd-black-900 px-2 py-1 text-xs font-bold text-gray-300">
+            <kbd className="bg-iwd-surface-raised inline-flex items-center rounded px-2 py-1 text-xs font-bold text-gray-300 dark:bg-iwd-black-900">
               →
             </kbd>
             <span className="text-gray-400">Next</span>
           </div>
           <div className="flex items-center space-x-2">
-            <kbd className="inline-flex items-center rounded bg-iwd-surface-raised dark:bg-iwd-black-900 px-2 py-1 text-xs font-bold text-gray-300">
+            <kbd className="bg-iwd-surface-raised inline-flex items-center rounded px-2 py-1 text-xs font-bold text-gray-300 dark:bg-iwd-black-900">
               Esc
             </kbd>
             <span className="text-gray-400">Close</span>
@@ -541,7 +562,7 @@ function SpeakerDetails({
 
       <button
         onClick={goToPreviousSpeaker}
-        className="absolute left-4 top-1/2 z-20 -translate-y-1/2 rounded-full bg-iwd-surface-raised dark:bg-iwd-black-950 p-3 shadow-lg ring-1 ring-white/10 transition-all hover:scale-110 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-focus-ring focus:ring-offset-2"
+        className="bg-iwd-surface-raised absolute left-4 top-1/2 z-20 -translate-y-1/2 rounded-full p-3 shadow-lg ring-1 ring-white/10 transition-all hover:scale-110 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-focus-ring focus:ring-offset-2 dark:bg-iwd-black-950"
         aria-label="Previous speaker"
       >
         <IoChevronBack className="size-6 text-gray-300" aria-hidden="true" />
@@ -549,7 +570,7 @@ function SpeakerDetails({
 
       <button
         onClick={goToNextSpeaker}
-        className="absolute right-4 top-1/2 z-20 -translate-y-1/2 rounded-full bg-iwd-surface-raised dark:bg-iwd-black-950 p-3 shadow-lg ring-1 ring-white/10 transition-all hover:scale-110 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-focus-ring focus:ring-offset-2"
+        className="bg-iwd-surface-raised absolute right-4 top-1/2 z-20 -translate-y-1/2 rounded-full p-3 shadow-lg ring-1 ring-white/10 transition-all hover:scale-110 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-focus-ring focus:ring-offset-2 dark:bg-iwd-black-950"
         aria-label="Next speaker"
       >
         <IoChevronForward className="size-6 text-gray-300" aria-hidden="true" />
@@ -575,6 +596,7 @@ SpeakerDetails.propTypes = {
   organization: PropTypes.string,
   position: PropTypes.string,
   sessionTitle: PropTypes.string,
+  sessionSpeakers: PropTypes.arrayOf(PropTypes.string),
   sessionDescription: PropTypes.string,
   track: PropTypes.string,
   tags: PropTypes.arrayOf(PropTypes.string),

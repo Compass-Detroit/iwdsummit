@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import {
   FaMapPin,
   FaClock,
@@ -6,60 +6,84 @@ import {
   FaMap,
   FaChevronLeft,
   FaChevronRight,
+  FaPlay,
+  FaPause,
 } from 'react-icons/fa6'
 import SectionSkipLink from '@/components/ui/SectionSkipLink'
 
-// Import all images
-import hqExterior from '@/assets/images/location/venue-exterior.jpg'
-import hqFacade from '@/assets/images/location/venue-facade.jpg'
-import hqInside from '@/assets/images/location/venue-interior.jpg'
-import hqNight from '@/assets/images/location/hq-night.png'
-import foxTheatre from '@/assets/images/location/fox-theatre.png'
+// Venue images
+import lcHqFacade from '@/assets/images/location/lc_hq_facade.jpg'
+import lcHqLobby from '@/assets/images/location/lc_hq_lobby.jpg'
+import lcHqBlueRed from '@/assets/images/location/lc_hq_blue_red.jpg'
+import lcHqFacade2 from '@/assets/images/location/lc_hq_facade_2.jpg'
+import lcHqFox from '@/assets/images/location/lc_hq_fox.jpg'
 
 const VENUE_IMAGES = [
   {
-    src: hqExterior,
-    alt: 'Little Caesars Global Resource Center Exterior',
-    label: 'Main Entrance · Woodward Ave',
+    src: lcHqFacade,
+    alt: 'Little Caesars HQ Main Entrance',
+    label: 'Main Entrance & Facade',
   },
   {
-    src: hqFacade,
-    alt: 'Modern Glass Facade of Little Caesars HQ',
-    label: 'Architectural Detail · SmithGroup',
+    src: lcHqLobby,
+    alt: 'Little Caesars HQ Lobby',
+    label: 'Lobby & Atrium',
   },
   {
-    src: hqInside,
-    alt: 'Little Caesars HQ Lobby Interior',
-    label: 'Modern Interior & Check-in',
+    src: lcHqBlueRed,
+    alt: 'Little Caesars HQ Night Illumination',
+    label: 'Nighttime Illumination',
   },
   {
-    src: hqNight,
-    alt: 'Little Caesars HQ at Night',
-    label: 'District Detroit Skyline',
+    src: lcHqFacade2,
+    alt: 'Little Caesars HQ Architectural Detail',
+    label: 'Architectural Details',
   },
   {
-    src: foxTheatre,
-    alt: 'Historic Fox Theatre nearby',
-    label: 'Historic Fox Theatre neighborhood',
+    src: lcHqFox,
+    alt: 'Historic Fox Theatre Neighborhood',
+    label: 'Historic Fox Theatre',
   },
 ]
 
+const AUTOPLAY_INTERVAL = 5000
+
 function LocationSection() {
   const [activeImg, setActiveImg] = useState(0)
+  const [isPlaying, setIsPlaying] = useState(true)
+  const [progressKey, setProgressKey] = useState(0)
+
+  const nextImg = useCallback(
+    () => setActiveImg((prev) => (prev + 1) % VENUE_IMAGES.length),
+    []
+  )
+  const prevImg = useCallback(
+    () =>
+      setActiveImg(
+        (prev) => (prev - 1 + VENUE_IMAGES.length) % VENUE_IMAGES.length
+      ),
+    []
+  )
 
   // Auto-advance carousel
   useEffect(() => {
-    const timer = setInterval(() => {
-      setActiveImg((prev) => (prev + 1) % VENUE_IMAGES.length)
-    }, 5000)
+    if (!isPlaying) return
+    const timer = setInterval(nextImg, AUTOPLAY_INTERVAL)
     return () => clearInterval(timer)
-  }, [])
+  }, [isPlaying, nextImg])
 
-  const nextImg = () => setActiveImg((prev) => (prev + 1) % VENUE_IMAGES.length)
-  const prevImg = () =>
-    setActiveImg(
-      (prev) => (prev - 1 + VENUE_IMAGES.length) % VENUE_IMAGES.length
-    )
+  // Reset progress animation on slide change
+  useEffect(() => {
+    setProgressKey((k) => k + 1)
+  }, [activeImg])
+
+  const goToSlide = (i) => {
+    setActiveImg(i)
+  }
+
+  const togglePlayback = () => {
+    setIsPlaying((p) => !p)
+  }
 
   return (
     <section
@@ -151,11 +175,11 @@ function LocationSection() {
           </div>
         </div>
 
-        {/* Visual Content: Full-Width Carousel & Map Stack */}
-        <div className="flex flex-col gap-12">
-          {/* 1. Full-Width Carousel Row */}
-          <div className="w-full">
-            <div className="bg-iwd-surface-raised group relative aspect-[21/9] w-full overflow-hidden rounded-3xl border border-white/[0.08] shadow-2xl transition-all duration-500 hover:border-iwd-gold-400/30 dark:bg-iwd-black-950/50">
+        {/* Visual Content: Side-by-Side Carousel & Map */}
+        <div className="flex flex-col gap-8 lg:flex-row">
+          {/* 1. Carousel - Left Side */}
+          <div className="w-full lg:w-1/2">
+            <div className="bg-iwd-surface-raised group relative aspect-[4/3] w-full overflow-hidden rounded-3xl border border-white/[0.08] shadow-2xl transition-all duration-500 hover:border-iwd-gold-400/30 dark:bg-iwd-black-950/50">
               {/* Carousel Content */}
               {VENUE_IMAGES.map((img, idx) => (
                 <div
@@ -169,78 +193,125 @@ function LocationSection() {
                     alt={img.alt}
                     className="size-full object-cover transition-transform duration-[10000ms] group-hover:scale-110"
                   />
-                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-                  <div className="absolute left-8 top-8 flex items-start justify-start gap-4">
-                    <div className="bg-iwd-surface-raised flex flex-col gap-1 rounded-md px-4 py-2 backdrop-blur-md dark:bg-iwd-black-950/50">
-                      <span className="text-sm font-black uppercase tracking-[0.2em] text-iwd-gold-400">
-                        Venue Gallery
-                      </span>
-                      <span className="text-2xl font-bold text-white drop-shadow-md ">
-                        {img.label}
-                      </span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      {VENUE_IMAGES.map((_, i) => (
-                        <button
-                          key={i}
-                          onClick={(e) => {
-                            e.stopPropagation()
-                            setActiveImg(i)
-                          }}
-                          className={`relative h-2 rounded-full transition-all duration-500 ${
-                            i === activeImg
-                              ? 'w-12 bg-black/50'
-                              : 'w-6 bg-black/40 hover:bg-black/70'
-                          }`}
-                          aria-label={`Go to image ${i + 1}`}
-                        >
-                          <span
-                            className={`absolute left-0 top-0 h-2 rounded-full bg-iwd-gold-400`}
-                            style={
-                              i === activeImg
-                                ? {
-                                    animation:
-                                      'fillProgress 5000ms linear forwards',
-                                  }
-                                : { width: 0 }
-                            }
-                          />
-                        </button>
-                      ))}
-                    </div>
+                  {/* Vignettes for text and control readability */}
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/90 via-black/30 to-transparent to-40%" />
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent to-40%" />
+
+                  {/* Label - Top Left */}
+                  <div className="absolute left-6 top-6 flex flex-col gap-0.5 pr-6 sm:left-8 sm:top-8">
+                    <span className="text-[10px] font-black uppercase tracking-[0.25em] text-iwd-gold-400 drop-shadow-md sm:text-xs">
+                      Venue Gallery
+                    </span>
+                    <span className="text-lg font-bold leading-tight text-white drop-shadow-lg sm:text-xl lg:text-2xl">
+                      {img.label}
+                    </span>
                   </div>
                 </div>
               ))}
 
-              {/* Carousel Controls */}
-              <div className="pointer-events-none absolute inset-x-6 top-1/2 z-20 flex -translate-y-1/2 justify-between">
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation()
-                    prevImg()
-                  }}
-                  className="pointer-events-auto flex size-14 items-center justify-center rounded-full border border-white/10 bg-black/60 text-white opacity-0 backdrop-blur-xl transition-all hover:border-iwd-gold-400/40 hover:bg-iwd-gold-500/20 group-hover:opacity-100 "
-                  aria-label="Previous Image"
-                >
-                  <FaChevronLeft className="size-6" />
-                </button>
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation()
-                    nextImg()
-                  }}
-                  className="pointer-events-auto flex size-14 items-center justify-center rounded-full border border-white/10 bg-black/60 text-white opacity-0 backdrop-blur-xl transition-all hover:border-iwd-gold-400/40 hover:bg-iwd-gold-500/20 group-hover:opacity-100 "
-                  aria-label="Next Image"
-                >
-                  <FaChevronRight className="size-6" />
-                </button>
+              {/* Sleek Control Strip - Bottom */}
+              <div className="absolute inset-x-0 bottom-0 z-20">
+                {/* Progress bar track */}
+                <div className="relative h-0.5 w-full bg-white/10">
+                  <div
+                    key={progressKey}
+                    className="absolute inset-y-0 left-0 bg-gradient-to-r from-iwd-gold-400 via-iwd-gold-300 to-iwd-gold-400 shadow-[0_0_12px_rgba(255,184,0,0.6)]"
+                    style={{
+                      width: `${
+                        ((activeImg + 1) / VENUE_IMAGES.length) * 100
+                      }%`,
+                      transition: 'width 0.5s ease-out',
+                    }}
+                  />
+                  {/* Animated fill for current segment (if playing) */}
+                  {isPlaying && (
+                    <div
+                      key={`fill-${progressKey}`}
+                      className="absolute inset-y-0 bg-iwd-gold-400/40"
+                      style={{
+                        left: `${(activeImg / VENUE_IMAGES.length) * 100}%`,
+                        width: `${100 / VENUE_IMAGES.length}%`,
+                        animation: `fillProgress ${AUTOPLAY_INTERVAL}ms linear forwards`,
+                      }}
+                    />
+                  )}
+                </div>
+
+                {/* Controls row */}
+                <div className="flex items-center justify-between bg-gradient-to-t from-black/80 to-black/40 px-4 py-2.5 backdrop-blur-md sm:px-6">
+                  {/* Left: Prev / Play-Pause / Next */}
+                  <div className="flex items-center gap-1">
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation()
+                        prevImg()
+                      }}
+                      className="flex size-8 items-center justify-center rounded-full text-white/50 transition-all hover:bg-white/10 hover:text-white active:scale-90"
+                      aria-label="Previous image"
+                    >
+                      <FaChevronLeft className="size-3" />
+                    </button>
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation()
+                        togglePlayback()
+                      }}
+                      className="flex size-8 items-center justify-center rounded-full border border-iwd-gold-400/30 bg-iwd-gold-400/10 text-iwd-gold-400 transition-all hover:bg-iwd-gold-400/20 active:scale-90"
+                      aria-label={
+                        isPlaying ? 'Pause slideshow' : 'Play slideshow'
+                      }
+                    >
+                      {isPlaying ? (
+                        <FaPause className="size-2.5" />
+                      ) : (
+                        <FaPlay className="ml-0.5 size-2.5" />
+                      )}
+                    </button>
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation()
+                        nextImg()
+                      }}
+                      className="flex size-8 items-center justify-center rounded-full text-white/50 transition-all hover:bg-white/10 hover:text-white active:scale-90"
+                      aria-label="Next image"
+                    >
+                      <FaChevronRight className="size-3" />
+                    </button>
+                  </div>
+
+                  {/* Center: Segment dots */}
+                  <div className="hidden items-center gap-1.5 sm:flex">
+                    {VENUE_IMAGES.map((_, i) => (
+                      <button
+                        key={i}
+                        onClick={(e) => {
+                          e.stopPropagation()
+                          goToSlide(i)
+                        }}
+                        className={`h-1 rounded-full transition-all duration-300 ${
+                          i === activeImg
+                            ? 'w-6 bg-iwd-gold-400 shadow-[0_0_6px_rgba(255,184,0,0.5)]'
+                            : 'w-1 bg-white/20 hover:bg-white/40'
+                        }`}
+                        aria-label={`Go to image ${i + 1}`}
+                      />
+                    ))}
+                  </div>
+
+                  {/* Right: Counter */}
+                  <span className="font-mono text-[10px] font-bold tracking-widest text-white/40">
+                    {String(activeImg + 1).padStart(2, '0')}
+                    <span className="text-iwd-gold-400/40">/</span>
+                    {String(VENUE_IMAGES.length).padStart(2, '0')}
+                  </span>
+                </div>
               </div>
             </div>
           </div>
 
-          {/* 2. Full-Width Enhanced Map */}
-          <div className="w-full">
-            <div className="bg-iwd-surface-raised relative aspect-[21/9] w-full overflow-hidden rounded-3xl border border-white/[0.1] shadow-2xl dark:bg-iwd-black-950/50">
+          {/* 2. Enhanced Map - Right Side */}
+          <div className="w-full lg:w-1/2">
+            <div className="bg-iwd-surface-raised relative aspect-[4/3] w-full overflow-hidden rounded-3xl border border-white/[0.1] shadow-2xl dark:bg-iwd-black-950/50">
               <div className="absolute right-4 top-4 z-20 rounded-md bg-black/60 px-3 py-1 text-xs font-bold uppercase tracking-widest text-iwd-gold-300">
                 Little Caesars HQ
               </div>
@@ -260,7 +331,7 @@ function LocationSection() {
               />
               <div className="pointer-events-none absolute inset-0 z-10 rounded-3xl ring-1 ring-inset ring-white/10" />
 
-              {/* Pin Overlay for better visualization */}
+              {/* Pin Overlay */}
               <div className="pointer-events-none absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center">
                 <div className="mb-2 rounded-full bg-iwd-gold-400/90 px-3 py-1 text-[10px] font-black uppercase tracking-widest text-iwd-black-950 shadow-2xl">
                   PIZZA PIZZA

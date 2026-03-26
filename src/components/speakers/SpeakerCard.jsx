@@ -19,6 +19,7 @@ const SpeakerCard = ({
   organization,
   position,
   sessionDescription,
+  sessionSpeakers,
   sessionTitle,
   tags,
   track,
@@ -142,6 +143,7 @@ const SpeakerCard = ({
                 onClose={closeModal}
                 position={position}
                 sessionDescription={sessionDescription}
+                sessionSpeakers={sessionSpeakers}
                 sessionTitle={sessionTitle}
                 tags={tags}
                 track={track}
@@ -170,6 +172,7 @@ SpeakerCard.propTypes = {
   organization: PropTypes.string,
   position: PropTypes.string,
   sessionDescription: PropTypes.string,
+  sessionSpeakers: PropTypes.arrayOf(PropTypes.string),
   sessionTitle: PropTypes.string,
   tags: PropTypes.arrayOf(PropTypes.string),
   track: PropTypes.string,

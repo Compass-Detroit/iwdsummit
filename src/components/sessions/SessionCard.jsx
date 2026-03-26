@@ -100,65 +100,30 @@ function SessionCard({
           }
           className="-ml-2 flex flex-1 items-center gap-5 rounded-xl p-2 text-left transition-colors hover:bg-white/[0.02] focus:outline-none focus:ring-2 focus:ring-iwd-gold-400/50"
         >
-          <div
-            style={
-              speakerAvatars?.length > 1
-                ? { '--avatar-count': speakerAvatars.length }
-                : undefined
-            }
-            className={`grid items-center gap-5 text-left lg:min-w-0 lg:flex-1 ${
-              /* 3+ avatars stacked below lg: smaller gap between title and avatars */
-              speakerAvatars?.length > 2 ? 'max-lg:gap-y-2' : ''
-            } ${
-              speakerAvatars?.length > 1
-                ? speakerAvatars.length === 2
-                  ? /* 2 avatars: two columns at md */
-                    'grid-cols-1 md:grid-cols-[calc(120px+80px*var(--avatar-count))_minmax(0,1fr)]'
-                  : `grid-cols-1 lg:grid-cols-[calc(120px+80px*var(--avatar-count))_minmax(0,1fr)] ${
-                      speakerAvatars.length > 3
-                        ? /* 4+ avatars: 360px cap at lg (forces wrap); auto at xl/2xl (no wrap) */
-                          'lg:grid-cols-[min(360px,calc(120px+80px*var(--avatar-count)))_minmax(0,1fr)] xl:grid-cols-[auto_minmax(0,1fr)] 2xl:grid-cols-[auto_minmax(0,1fr)]'
-                        : ''
-                    }`
-                : /* 1 avatar: two columns at 401px (90px), md (120px) */
-                  'grid-cols-1 min-[401px]:grid-cols-[90px_minmax(0,1fr)] md:grid-cols-[120px_minmax(0,1fr)]'
-            }`}
-          >
-            {speakerAvatars?.length && (
+          <div className="flex w-full min-w-0 flex-col items-start gap-5 text-left lg:flex-row lg:items-center">
+            {speakerAvatars?.length > 0 && (
               <div
-                className={`flex min-w-0 flex-wrap overflow-hidden ${
-                  speakerAvatars?.length >= 3 ? 'gap-1' : 'gap-2 rounded-full'
-                } justify-start ${
-                  /* 3+ avatars: content first below lg, avatar first at lg; 1 avatar: avatar below content at xs */
-                  speakerAvatars?.length > 2
-                    ? 'order-2 lg:order-1'
-                    : speakerAvatars?.length === 1
-                      ? 'max-xs:order-2'
-                      : ''
-                } ${
-                  /* 4+ avatars: cap width at lg so avatars wrap */
-                  speakerAvatars?.length > 3 ? 'lg:max-w-[360px]' : ''
+                className={`flex shrink-0 flex-wrap items-center justify-start gap-2 ${
+                  speakerAvatars.length > 2 ? 'order-2 lg:order-1' : ''
                 }`}
               >
                 {speakerAvatars.map((avatar, index) => (
                   <div key={index} className="relative">
-                    <div
-                      className={`rounded-full bg-gradient-to-br from-iwd-gold-300/80 via-iwd-gold-500/60 to-iwd-gold-300/80 p-[3px] shadow-lg shadow-iwd-gold-500/20 ${
-                        speakerAvatars?.length >= 3 ? 'mx-3 my-1' : ''
-                      }`}
-                    >
+                    <div className="rounded-full bg-gradient-to-br from-iwd-gold-300/80 via-iwd-gold-500/60 to-iwd-gold-300/80 p-[3px] shadow-lg shadow-iwd-gold-500/20">
                       <img
                         src={
                           !avatar
-                            ? `https://ui-avatars.com/api/?name=${speakers[index]}&background=random`
+                            ? `https://ui-avatars.com/api/?name=${encodeURIComponent(
+                                speakers[index]
+                              )}&background=random`
                             : avatar
                         }
                         alt={`Headshot of ${speakers[index]}`}
-                        className={`rounded-full ring-2 ring-iwd-black-950 ${
-                          speakerAvatars?.length >= 3
-                            ? 'size-[86px]'
-                            : 'size-[86px] md:size-[116px]'
-                        } object-cover`}
+                        className={`rounded-full object-cover ring-2 ring-iwd-black-950 ${
+                          speakerAvatars.length >= 3
+                            ? 'size-16 sm:size-20'
+                            : 'size-20 sm:size-24 md:size-[116px]'
+                        }`}
                       />
                     </div>
                   </div>
@@ -166,15 +131,8 @@ function SessionCard({
               </div>
             )}
             <div
-              className={`w-full min-w-0 ${
-                !speakerAvatars?.length ? 'col-span-2' : ''
-              } ${
-                /* 3+ avatars: content first below lg; 1 avatar: content first at xs */
-                speakerAvatars?.length > 2
-                  ? 'order-1 lg:order-2'
-                  : speakerAvatars?.length === 1
-                    ? 'max-xs:order-1'
-                    : ''
+              className={`flex w-full min-w-0 flex-1 flex-col justify-center ${
+                speakerAvatars?.length > 2 ? 'order-1 lg:order-2' : ''
               }`}
             >
               {sessionTitle && (

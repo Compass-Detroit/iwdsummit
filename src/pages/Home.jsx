@@ -4,7 +4,6 @@ import LocationSection from '@/layouts/LocationSection'
 import AboutSection from '@/layouts/AboutSection'
 import AttendeeSection from '@/layouts/AttendeeSection'
 import BreakPatternSection from '@/layouts/BreakPatternSection'
-import PastEventsSection from '@/layouts/PastEventsSection'
 import SEOStructuredData from '@/components/ui/SEOStructuredData'
 import SessionsSection from '@/layouts/SessionsSection'
 import SpeakersSection from '@/layouts/SpeakersSection'
@@ -58,7 +57,6 @@ function Home() {
         <MembersSection />
         <AttendeeSection />
         <BreakPatternSection />
-        <PastEventsSection />
 
         <div id="jobboard">
           <JobBoardSection />

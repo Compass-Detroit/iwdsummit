@@ -550,25 +550,36 @@ const SessionsSection = ({
 
                   {savedSessionIds.length > 0 ? (
                     <ul className="flex flex-col gap-4">
-                      {combinedSpeakerData
-                        .filter((s) => savedSessionIds.includes(s.id))
-                        .sort((a, b) =>
-                          normalizeSortTime(a.sessionTime) <
-                          normalizeSortTime(b.sessionTime)
-                            ? -1
-                            : 1
-                        )
+                      {[
+                        ...combinedSpeakerData
+                          .filter((s) => savedSessionIds.includes(s.id))
+                          .map((s) => ({
+                            key: s.id,
+                            time: s.sessionTime,
+                            sortTime: normalizeSortTime(s.sessionTime),
+                            label: s.sessionTitle,
+                          })),
+                        ...conferenceActivities
+                          .filter((a) => savedSessionIds.includes(a.id))
+                          .map((a) => ({
+                            key: a.id,
+                            time: a.time,
+                            sortTime: normalizeSortTime(a.time),
+                            label: a.title,
+                          })),
+                      ]
+                        .sort((a, b) => (a.sortTime < b.sortTime ? -1 : 1))
                         .slice(0, 5) // Preview top 5
-                        .map((s) => (
+                        .map((item) => (
                           <li
-                            key={s.id}
+                            key={item.key}
                             className="group relative flex flex-col gap-1 border-l-2 border-iwd-gold-400/30 pl-4 transition-all hover:border-iwd-gold-400"
                           >
                             <span className="text-[10px] font-black uppercase tracking-wider text-iwd-gold-400/60">
-                              {s.sessionTime}
+                              {item.time}
                             </span>
                             <span className="line-clamp-1 text-xs font-bold text-white transition-colors group-hover:text-iwd-gold-300">
-                              {s.sessionTitle}
+                              {item.label}
                             </span>
                           </li>
                         ))}

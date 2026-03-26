@@ -106,7 +106,7 @@ function CTAButton({
     primary:
       'border border-iwd-gold-400/30 bg-iwd-gold-400/10 text-iwd-gold-300 px-12 shadow-lg font-semibold text-sm uppercase tracking-widest hover:border-iwd-gold-400/50 hover:bg-iwd-gold-400/20 hover:shadow-xl hover:shadow-iwd-gold-500/10',
     secondary:
-      'border border-white/10 bg-white/[0.04] text-gray-200 px-12 py-4 shadow-lg font-semibold text-sm uppercase tracking-widest hover:border-white/20 hover:bg-white/[0.08] hover:text-white hover:shadow-xl',
+      'border border-black/10 bg-black/[0.04] text-gray-600 px-12 py-4 shadow-lg font-semibold text-sm uppercase tracking-widest hover:border-black/20 hover:bg-black/[0.08] hover:text-black hover:shadow-xl dark:border-white/10 dark:bg-white/[0.04] dark:text-gray-200 dark:hover:border-white/20 dark:hover:bg-white/[0.08] dark:hover:text-white',
   }
 
   const baseStyles =

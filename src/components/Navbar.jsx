@@ -423,7 +423,7 @@ function Navbar() {
           aria-label="Go to home page"
         >
           <CompassDetroitLogo
-            textColor={isLightMode ? '#1F2937' : '#FFFFFF'}
+            textColor={isLightMode ? '#374151' : '#FFFFFF'}
             className="h-12 sm:h-16"
           />
         </Link>
@@ -450,15 +450,26 @@ function Navbar() {
             onClick={(e) => {
               e.preventDefault()
               e.stopPropagation()
-              setIsNavVisible((prev) => !prev)
+              const newState = !isNavVisible
+              setIsNavVisible(newState)
+
+              if (newState) {
+                // Focus the first link after menu opens
+                setTimeout(() => {
+                  const firstLink = document.querySelector(
+                    '#mobile-navigation a'
+                  )
+                  if (firstLink) {
+                    firstLink.focus()
+                  }
+                }, 150)
+              }
             }}
-            onTouchStart={(e) => {
-              e.preventDefault()
-            }}
-            onTouchEnd={(e) => {
-              e.preventDefault()
-              e.stopPropagation()
-              setIsNavVisible((prev) => !prev)
+            onKeyDown={(e) => {
+              if (e.key === 'Escape' && isNavVisible) {
+                setIsNavVisible(false)
+                mobileButtonRef.current?.focus()
+              }
             }}
             style={{
               touchAction: 'manipulation',
@@ -487,7 +498,7 @@ function Navbar() {
             className={`nav-menu-expanded block w-full overflow-hidden shadow-lg ${
               activeLink === 'landing' && isHomePage
                 ? 'bg-iwd-surface-raised backdrop-blur-xl dark:bg-iwd-black-950/95'
-                : 'bg-iwd-surface-raised text-white backdrop-blur-xl dark:bg-iwd-black-950/95'
+                : 'bg-iwd-surface-raised text-gray-900 backdrop-blur-xl dark:bg-iwd-black-950/95 dark:text-white'
             }`}
             style={{
               transform: 'translateZ(0)',

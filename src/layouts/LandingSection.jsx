@@ -130,7 +130,7 @@ function LandingSection() {
         {/* Video Play/Pause toggle for accessibility */}
         <button
           onClick={toggleVideoPlayback}
-          className="absolute bottom-6 right-6 z-20 flex size-10 items-center justify-center rounded-full border border-white/30 bg-black/55 text-white backdrop-blur-md transition-all hover:bg-black/70 lg:bottom-12 lg:right-12"
+          className="absolute bottom-6 right-6 z-30 flex size-12 items-center justify-center rounded-full border border-white/40 bg-black/60 text-white shadow-2xl backdrop-blur-lg transition-all hover:scale-110 hover:bg-black/80 lg:bottom-12 lg:right-12"
           aria-label={
             isVideoPlaying ? 'Pause background video' : 'Play background video'
           }
@@ -171,10 +171,12 @@ function LandingSection() {
             style={{ animationDelay: '0.3s' }}
           >
             <span
-              className="block text-2xl font-light uppercase tracking-[0.4em] text-iwd-gold-400/80 sm:text-3xl lg:text-4xl"
+              className="block text-2xl font-light uppercase tracking-[0.4em] text-iwd-gold-300 sm:text-3xl lg:text-4xl"
               style={{
                 letterSpacing: '0.4em',
                 lineHeight: '1.2',
+                filter:
+                  'drop-shadow(0 0 10px rgb(var(--iwd-accent-500) / 0.3))',
               }}
             >
               Detroit

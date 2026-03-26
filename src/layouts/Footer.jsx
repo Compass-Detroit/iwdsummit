@@ -1,10 +1,14 @@
 import { Link } from 'react-router-dom'
 import { sections, pageLinks } from '@/data/2026/navigation'
 import GdgDetroitLogo from '@/assets/images/gdg-detroit-logo-footer.svg'
-import CompassDetroit from '@/assets/images/sponsors/Compass_Detroit_logo.webp'
+import CompassDetroitLogo from '@/components/ui/CompassDetroitLogo'
 import SectionSkipLink from '@/components/ui/SectionSkipLink'
+import useTheme from '@/hooks/useTheme'
 
 function Footer() {
+  const { mode } = useTheme()
+  const isLightMode = mode === 'light'
+
   // Section links always use /#section-id so that smooth scrolling is handled
   // consistently by the Navbar's hash-based useEffect (from any page, including home).
   return (
@@ -79,15 +83,18 @@ function Footer() {
               <img
                 src={GdgDetroitLogo}
                 alt="GDG Detroit Logo"
-                className="logo-halo h-auto w-56 object-contain"
+                className={`logo-halo h-auto w-56 object-contain transition-all duration-500 ${
+                  isLightMode
+                    ? 'opacity-70 brightness-0'
+                    : 'opacity-100 brightness-100'
+                }`}
               />
             </div>
             {/* Compass Detroit */}
             <div className="flex items-center justify-center rounded-2xl border border-white/[0.06] bg-white/[0.02] p-8 backdrop-blur-sm transition-all duration-300 hover:border-white/[0.1] hover:bg-white/[0.04]">
-              <img
-                src={CompassDetroit}
-                alt="Compass Detroit Logo"
-                className="logo-halo h-auto w-56 object-contain"
+              <CompassDetroitLogo
+                textColor={isLightMode ? '#374151' : '#FFFFFF'}
+                className="h-auto w-56"
               />
             </div>
             {/* Description */}

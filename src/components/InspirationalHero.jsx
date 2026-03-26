@@ -781,10 +781,9 @@ export default function InspirationalHero() {
         <button
           onClick={() => setIsPaused((p) => !p)}
           aria-label={isPaused ? 'Play slideshow' : 'Pause slideshow'}
-          className="relative flex size-14 items-center justify-center rounded-full backdrop-blur-md transition-all duration-300 hover:scale-110 active:scale-90 sm:size-16"
+          className="relative flex size-16 items-center justify-center rounded-full border-2 border-white/40 bg-black/50 shadow-2xl backdrop-blur-xl transition-all hover:scale-110 hover:bg-black/70 active:scale-95 sm:size-20"
           style={{
-            background: `${palette[2]}bb`,
-            border: `1px solid ${palette[4]}30`,
+            borderColor: `${palette[4]}40`,
           }}
         >
           {/* Progress ring */}
@@ -847,7 +846,7 @@ export default function InspirationalHero() {
 
       {/* ─── Dot Navigation ─── */}
       <nav
-        className="absolute bottom-6 left-1/2 z-20 flex -translate-x-1/2 items-center gap-1.5 sm:bottom-10 sm:gap-2"
+        className="absolute bottom-6 left-1/2 z-20 flex -translate-x-1/2 items-center gap-3 sm:bottom-10 sm:gap-4"
         aria-label="Quote navigation"
       >
         {quotes.map((_, i) => (
@@ -856,20 +855,24 @@ export default function InspirationalHero() {
             onClick={() => goTo(i)}
             aria-label={`Go to quote ${i + 1} by ${quotes[i].name}`}
             aria-current={i === currentIndex ? 'true' : undefined}
-            className={`rounded-full transition-all duration-500 ${
-              i === currentIndex
-                ? 'h-2.5 w-10 shadow-lg sm:h-3 sm:w-12'
-                : 'size-2 hover:scale-150 sm:size-2.5'
-            }`}
-            style={{
-              background:
+            className={`group relative flex h-6 w-4 items-center justify-center transition-all duration-300 sm:w-6`}
+          >
+            <span
+              className={`rounded-full transition-all duration-500 ${
                 i === currentIndex
-                  ? `linear-gradient(90deg, ${palette[3]}, ${palette[4]})`
-                  : `${palette[4]}40`,
-              boxShadow:
-                i === currentIndex ? `0 0 12px ${palette[3]}60` : 'none',
-            }}
-          />
+                  ? 'h-2.5 w-10 shadow-lg sm:h-3 sm:w-12'
+                  : 'size-2 group-hover:scale-150 sm:size-2.5'
+              }`}
+              style={{
+                background:
+                  i === currentIndex
+                    ? `linear-gradient(90deg, ${palette[3]}, ${palette[4]})`
+                    : `${palette[4]}60`,
+                boxShadow:
+                  i === currentIndex ? `0 0 12px ${palette[3]}80` : 'none',
+              }}
+            />
+          </button>
         ))}
       </nav>
 

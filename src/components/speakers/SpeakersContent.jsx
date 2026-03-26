@@ -90,6 +90,7 @@ const SpeakersContent = ({ year, defaultExpanded }) => {
           position={speaker.position}
           sessionDescription={speaker.session?.description ?? ''}
           sessionTitle={speaker.session?.title ?? ''}
+          sessionSpeakers={speaker.session?.speakers ?? []}
           tags={speaker.session?.tags ?? []}
           track={speaker.session?.track ?? ''}
           twitter={speaker.twitter}
