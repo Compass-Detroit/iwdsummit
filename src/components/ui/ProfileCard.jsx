@@ -78,7 +78,7 @@ const ProfileCard = ({
   const renderBadge = track && (
     <div className="absolute bottom-4 right-4 z-10">
       <span
-        className={`inline-flex items-center gap-2 rounded-xl border border-white/10 ${badgeColor} px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-white shadow-lg backdrop-blur-sm`}
+        className={`inline-flex items-center gap-2 rounded-xl border border-white/10 ${badgeColor} px-3 py-1.5 text-xs font-bold uppercase tracking-wider !text-white shadow-lg backdrop-blur-sm`}
       >
         {track}
         {isGDE && (
