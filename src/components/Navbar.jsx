@@ -396,7 +396,7 @@ function Navbar() {
       aria-label="Main navigation"
       className={`site-header fixed left-0 top-0 z-30 w-screen transition-all duration-500 ${
         activeLink === 'landing' && isHomePage
-          ? 'bg-iwd-surface-raised text-white backdrop-blur-xl dark:bg-iwd-black-950/80'
+          ? 'site-header--dark bg-[rgb(2_6_23/0.88)] text-white backdrop-blur-xl dark:bg-iwd-black-950/80'
           : 'bg-iwd-surface-raised text-gray-100 shadow-lg shadow-black/20 backdrop-blur-xl dark:bg-iwd-black-950/95 dark:text-gray-100'
       }`}
     >
@@ -423,7 +423,11 @@ function Navbar() {
           aria-label="Go to home page"
         >
           <CompassDetroitLogo
-            textColor={isLightMode ? '#374151' : '#FFFFFF'}
+            textColor={
+              isLightMode && !(activeLink === 'landing' && isHomePage)
+                ? '#374151'
+                : '#FFFFFF'
+            }
             className="h-12 sm:h-16"
           />
         </Link>
@@ -497,7 +501,7 @@ function Navbar() {
             aria-labelledby="mobile-menu-button"
             className={`nav-menu-expanded block w-full overflow-hidden shadow-lg ${
               activeLink === 'landing' && isHomePage
-                ? 'bg-iwd-surface-raised backdrop-blur-xl dark:bg-iwd-black-950/95'
+                ? 'site-header--dark bg-[rgb(2_6_23/0.96)] backdrop-blur-xl dark:bg-iwd-black-950/95'
                 : 'bg-iwd-surface-raised text-gray-900 backdrop-blur-xl dark:bg-iwd-black-950/95 dark:text-white'
             }`}
             style={{

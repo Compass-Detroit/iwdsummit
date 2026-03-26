@@ -343,6 +343,106 @@
   color: rgb(var(--iwd-accent-700));
 }
 
+/*
+ * Hero + fixed header over hero: dark canvas in light mode.
+ * Global light-mode remaps (white→charcoal, gold→dark accent) are for light surfaces;
+ * restore the on-dark palette in #hero and .site-header.site-header--dark only.
+ */
+[data-mode='light'] #hero .bg-glass-hero {
+  background: rgb(2 6 23 / 0.22);
+  border-color: rgb(255 255 255 / 0.12);
+}
+[data-mode='light'] :is(#hero, .site-header.site-header--dark) .text-white {
+  color: rgb(255 255 255);
+}
+[data-mode='light'] :is(#hero, .site-header.site-header--dark) .text-white\/80 {
+  color: rgb(255 255 255 / 0.8);
+}
+[data-mode='light'] :is(#hero, .site-header.site-header--dark) .text-gray-100 {
+  color: rgb(243 244 246);
+}
+[data-mode='light'] :is(#hero, .site-header.site-header--dark) .text-gray-200 {
+  color: rgb(229 231 235 / 0.9);
+}
+[data-mode='light'] :is(#hero, .site-header.site-header--dark) .text-gray-300 {
+  color: rgb(209 213 219 / 0.85);
+}
+[data-mode='light'] :is(#hero, .site-header.site-header--dark) .text-gray-600 {
+  color: rgb(229 231 235 / 0.92);
+}
+[data-mode='light'] :is(#hero, .site-header.site-header--dark) .text-iwd-gold-300 {
+  color: rgb(var(--iwd-accent-300) / 1);
+}
+[data-mode='light'] :is(#hero, .site-header.site-header--dark) .text-iwd-gold-300\/50 {
+  color: rgb(var(--iwd-accent-300) / 0.5);
+}
+[data-mode='light'] :is(#hero, .site-header.site-header--dark) .text-iwd-gold-300\/80 {
+  color: rgb(var(--iwd-accent-300) / 0.8);
+}
+[data-mode='light'] :is(#hero, .site-header.site-header--dark) .text-iwd-gold-300\/90 {
+  color: rgb(var(--iwd-accent-300) / 0.9);
+}
+[data-mode='light'] :is(#hero, .site-header.site-header--dark) .text-iwd-gold-400 {
+  color: rgb(var(--iwd-accent-400) / 1);
+}
+[data-mode='light'] :is(#hero, .site-header.site-header--dark) .text-iwd-gold-400\/40 {
+  color: rgb(var(--iwd-accent-400) / 0.4);
+}
+[data-mode='light'] :is(#hero, .site-header.site-header--dark) .text-iwd-gold-400\/45 {
+  color: rgb(var(--iwd-accent-400) / 0.45);
+}
+[data-mode='light'] :is(#hero, .site-header.site-header--dark) .text-iwd-gold-400\/50 {
+  color: rgb(var(--iwd-accent-400) / 0.5);
+}
+[data-mode='light'] :is(#hero, .site-header.site-header--dark) .text-iwd-gold-400\/70 {
+  color: rgb(var(--iwd-accent-400) / 0.7);
+}
+[data-mode='light'] :is(#hero, .site-header.site-header--dark) .text-iwd-gold-400\/80 {
+  color: rgb(var(--iwd-accent-400) / 0.8);
+}
+[data-mode='light'] :is(#hero, .site-header.site-header--dark) .border-iwd-gold-400\/30 {
+  border-color: rgb(var(--iwd-accent-400) / 0.3);
+}
+[data-mode='light'] :is(#hero, .site-header.site-header--dark) .border-iwd-gold-400\/40 {
+  border-color: rgb(var(--iwd-accent-400) / 0.4);
+}
+[data-mode='light'] :is(#hero, .site-header.site-header--dark) .border-iwd-gold-400\/50 {
+  border-color: rgb(var(--iwd-accent-400) / 0.5);
+}
+[data-mode='light'] :is(#hero, .site-header.site-header--dark) .bg-iwd-gold-400\/10 {
+  background-color: rgb(var(--iwd-accent-400) / 0.1);
+}
+[data-mode='light'] :is(#hero, .site-header.site-header--dark) .bg-iwd-gold-400\/15 {
+  background-color: rgb(var(--iwd-accent-400) / 0.15);
+}
+[data-mode='light'] :is(#hero, .site-header.site-header--dark) .bg-iwd-gold-400\/20 {
+  background-color: rgb(var(--iwd-accent-400) / 0.2);
+}
+[data-mode='light'] :is(#hero, .site-header.site-header--dark) .border-white\/\[0\.08\] {
+  border-color: rgb(255 255 255 / 0.08);
+}
+[data-mode='light'] :is(#hero, .site-header.site-header--dark) .hover\:border-iwd-gold-400\/50:hover {
+  border-color: rgb(var(--iwd-accent-400) / 0.5);
+}
+[data-mode='light'] :is(#hero, .site-header.site-header--dark) .hover\:bg-iwd-gold-400\/20:hover {
+  background-color: rgb(var(--iwd-accent-400) / 0.2);
+}
+[data-mode='light'] :is(#hero, .site-header.site-header--dark) .border-black\/10 {
+  border-color: rgb(255 255 255 / 0.14);
+}
+[data-mode='light'] :is(#hero, .site-header.site-header--dark) .bg-black\/\[0\.04\] {
+  background-color: rgb(255 255 255 / 0.06);
+}
+[data-mode='light'] :is(#hero, .site-header.site-header--dark) .hover\:border-black\/20:hover {
+  border-color: rgb(255 255 255 / 0.22);
+}
+[data-mode='light'] :is(#hero, .site-header.site-header--dark) .hover\:bg-black\/\[0\.08\]:hover {
+  background-color: rgb(255 255 255 / 0.1);
+}
+[data-mode='light'] :is(#hero, .site-header.site-header--dark) .hover\:text-black:hover {
+  color: rgb(255 255 255);
+}
+
 /* Light mode: shift accent borders/backgrounds for visibility */
 [data-mode='light'] .border-iwd-gold-400\/30 {
   border-color: rgb(var(--iwd-accent-600) / 0.4);
@@ -384,6 +484,14 @@
 }
 [data-mode='light'] .bg-white\/\[0\.06\] {
   background-color: rgb(243 244 246 / 0.8);
+}
+
+/* Dark header over hero: undo light-mode white-border + light surface remaps */
+[data-mode='light'] .site-header.site-header--dark .border-white\/10 {
+  border-color: rgb(255 255 255 / 0.1);
+}
+[data-mode='light'] .site-header.site-header--dark .bg-iwd-surface-raised {
+  background-color: rgb(2 6 23 / 0.96);
 }
 
 /* Light mode: logo halo + scrollbar track */
