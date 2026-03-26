@@ -32,7 +32,7 @@ const PlaygroundNav = memo(() => {
   ]
 
   return (
-    <nav className="sticky top-0 z-50 border-b border-white/5 bg-iwd-surface-raised dark:bg-iwd-black-950/80 p-4 backdrop-blur-2xl">
+    <nav className="bg-iwd-surface-raised sticky top-0 z-50 border-b border-white/5 p-4 backdrop-blur-2xl dark:bg-iwd-black-950/80">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-8">
         <Link
           to="/playground"
@@ -50,7 +50,7 @@ const PlaygroundNav = memo(() => {
                 className={`whitespace-nowrap rounded-lg px-4 py-2 text-[10px] font-black uppercase tracking-[0.2em] transition-all ${
                   isActive
                     ? 'bg-iwd-gold-400 text-iwd-black-950 shadow-lg shadow-iwd-gold-500/20'
-                    : 'text-gray-900 dark:text-white/40 hover:bg-white/5 hover:text-white dark:text-gray-900'
+                    : 'text-gray-900 hover:bg-white/5 hover:text-white dark:text-white/40'
                 }`}
               >
                 {link.label}
@@ -69,7 +69,7 @@ export default function PlaygroundPage() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <div className="min-h-screen bg-iwd-surface-raised dark:bg-iwd-black-950 text-white">
+    <div className="bg-iwd-surface-raised min-h-screen text-white dark:bg-iwd-black-950">
       <PlaygroundNav />
       <main>
         <Routes>

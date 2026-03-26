@@ -8,8 +8,13 @@ const ScrollProgress = () => {
       const currentScrollY = window.scrollY
       const totalHeight =
         document.documentElement.scrollHeight - window.innerHeight
+      if (totalHeight <= 0) {
+        setScrollProgress(0)
+        return
+      }
       const progress = (currentScrollY / totalHeight) * 100
-      setScrollProgress(progress)
+      const clamped = Math.min(100, Math.max(0, progress))
+      setScrollProgress(clamped)
     }
 
     window.addEventListener('scroll', updateScrollProgress)
