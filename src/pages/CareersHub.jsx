@@ -1,4 +1,4 @@
-import { PageLayout } from '@/layouts/PageLayout'
+import PageLayout from '@/layouts/PageLayout'
 import ForHire from '@/components/careers/ForHire'
 import JobOpen from '@/components/careers/JobOpen'
 

@@ -39,6 +39,9 @@ module.exports = {
       { allowConstantExport: true },
     ],
 
+    // Disable tailwind rule that can throw on certain AST nodes during a11y linting
+    'tailwindcss/no-contradicting-classname': 'off',
+
     // Critical accessibility rules - set to error level
     'jsx-a11y/alt-text': 'error',
     'jsx-a11y/anchor-has-content': 'error',
@@ -74,4 +77,13 @@ module.exports = {
   globals: {
     __dirname: true,
   },
+  overrides: [
+    {
+      files: ['src/components/sessions/VenueMaps.jsx'],
+      rules: {
+        // WCAG: keyboard users must focus the overflow strip; APG scroll regions use tabindex on non-widgets
+        'jsx-a11y/no-noninteractive-tabindex': 'off',
+      },
+    },
+  ],
 }

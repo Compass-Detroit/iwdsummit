@@ -19,70 +19,80 @@ const GenericCard = ({
   }
 
   return (
-    <div className="group relative w-full max-w-sm">
-      <div className="relative h-[27rem] overflow-hidden rounded-2xl bg-white shadow-lg ring-1 ring-gray-200 transition-all duration-300 group-hover:shadow-xl group-hover:ring-gray-300 dark:bg-gray-800 dark:ring-gray-700 dark:group-hover:ring-gray-600">
-        <div className="relative h-24 bg-gradient-to-r from-sky-600 to-blue-900">
-          <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent"></div>
+    <div
+      className={`group relative w-full max-w-sm ${onOpen ? 'cursor-pointer' : ''}`}
+      onClick={onOpen}
+      role={onOpen ? 'button' : undefined}
+      tabIndex={onOpen ? 0 : undefined}
+      onKeyDown={handleKeyDown}
+      aria-label={onOpen ? `View details for ${name}` : undefined}
+    >
+      <div className="relative h-[27rem] overflow-hidden rounded-2xl border border-white/[0.06] bg-white/[0.02] shadow-lg backdrop-blur-sm transition-all duration-300 group-hover:-translate-y-1 group-hover:border-white/[0.12] group-hover:bg-white/[0.04] group-hover:shadow-xl group-hover:shadow-black/20">
+        {/* Gradient header band */}
+        <div className="relative h-24 overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-r from-iwd-gold-600/20 via-transparent to-iwd-gold-600/20" />
+          <div
+            className="absolute inset-0"
+            style={{
+              background: `radial-gradient(ellipse 80% 100% at 50% 0%, rgb(var(--iwd-accent-700) / 0.25), transparent 70%)`,
+            }}
+          />
+          <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-iwd-gold-400/30 to-transparent" />
         </div>
 
         <div className="relative -mt-12 flex justify-center">
           <div className="relative">
-            <div className="size-44 rounded-full bg-white p-1 shadow-lg dark:bg-gray-700">
-              {avatar && (
-                <img
-                  src={avatar}
-                  className="size-full rounded-full object-cover"
-                  alt={`${name || ''} portrait`}
-                  loading="lazy"
-                />
-              )}
-              {twitter && (
-                <div className="absolute inset-x-0 bottom-0">
-                  <TwitterHandle
-                    handle={twitter}
-                    name={name || ''}
-                    variant="avatar"
-                    absolute={false}
+            <div className="rounded-full bg-gradient-to-br from-iwd-gold-300/80 via-iwd-gold-500/60 to-iwd-gold-300/80 p-[3px] shadow-lg shadow-iwd-gold-500/20">
+              <div className="size-[168px] rounded-full bg-iwd-surface-raised dark:bg-iwd-black-950 p-0.5">
+                {avatar && (
+                  <img
+                    src={avatar}
+                    className="size-full rounded-full object-cover"
+                    alt={`${name || ''} portrait`}
+                    loading="lazy"
                   />
-                </div>
-              )}
+                )}
+              </div>
             </div>
+            {twitter && (
+              <div className="absolute inset-x-0 bottom-0">
+                <TwitterHandle
+                  handle={twitter}
+                  name={name || ''}
+                  variant="avatar"
+                  absolute={false}
+                />
+              </div>
+            )}
           </div>
         </div>
 
         <div className="px-6 pb-6 pt-4 text-center">
           {name && (
-            <h3 className="mb-1 line-clamp-2 text-lg font-semibold text-iwd-neutral-900 dark:text-white">
+            <h3 className="mb-1 line-clamp-2 text-lg font-semibold text-white">
               {name}
             </h3>
           )}
 
           {position && (
-            <p className="mb-1 line-clamp-2 text-sm font-medium text-blue-600 dark:text-blue-300">
+            <p className="mb-1 line-clamp-2 text-sm font-medium text-iwd-gold-300/80">
               {position}
             </p>
           )}
 
           {organization && (
-            <p className="mb-4 line-clamp-2 text-xs text-gray-500 dark:text-gray-300">
+            <p className="mb-4 line-clamp-2 text-xs text-gray-400">
               {organization}
             </p>
           )}
 
           {onOpen && (
             <button
-              className={`inline-flex items-center rounded-lg bg-gray-50 px-3 py-2 text-xs font-medium text-gray-700 opacity-0 transition-all duration-200 hover:bg-gray-100 group-hover:opacity-100 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600 ${
-                onOpen &&
-                'cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:scale-[1.025]'
-              }`}
-              onClick={onOpen}
-              onKeyDown={handleKeyDown}
-              role={onOpen ? 'button' : undefined}
-              tabIndex={onOpen ? 0 : undefined}
-              aria-label={onOpen ? `View details for ${name}` : undefined}
+              className="inline-flex items-center gap-1 rounded-lg border border-white/[0.08] bg-white/[0.04] px-4 py-2 text-xs font-medium text-gray-300 opacity-0 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-iwd-gold-400/30 hover:bg-iwd-gold-400/10 hover:text-iwd-gold-300 group-hover:opacity-100"
+              tabIndex={-1}
             >
               View Details
-              <IoChevronForward className="ml-1 size-3" />
+              <IoChevronForward className="size-3" />
             </button>
           )}
         </div>

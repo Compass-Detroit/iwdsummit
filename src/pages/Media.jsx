@@ -1,4 +1,4 @@
-import { PageLayout } from '@/layouts/PageLayout'
+import PageLayout from '@/layouts/PageLayout'
 import Media from '@/components/media/Media'
 
 function MediaPage() {

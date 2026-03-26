@@ -1,25 +1,73 @@
-import GenericCard from '@/components/ui/GenericCard'
-import { organizersData } from '@/data/organizers'
+import DevTeamCard from '@/components/dev/DevTeamCard'
+import { teamData } from '@/data/2026/team'
+
+const organizersData = teamData.filter((m) => m.team === 'compass')
 
 function OrganizersSection() {
   return (
     <section
       id="organizers"
-      className="flex flex-col justify-center bg-sky-100 p-8 sm:px-10 md:px-14 lg:px-16"
+      className="relative flex flex-col justify-center overflow-hidden px-6 py-24 sm:px-10 md:px-14 lg:px-16"
     >
-      <div className="relative flex w-full justify-between pt-0">
-        <h2 className="w-full text-center font-biorhyme text-5xl text-iwd-neutral-900 md:text-5xl lg:text-6xl">
-          Organizers
+      {/* Accent glow */}
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background: `radial-gradient(ellipse 50% 50% at 40% 40%, rgb(var(--iwd-accent-900) / 0.08) 0%, transparent 55%)`,
+        }}
+        aria-hidden="true"
+      />
+      <div className="flex w-full flex-col items-center pt-0">
+        <p className="mb-4 font-body text-xs font-medium uppercase tracking-[0.3em] text-iwd-gold-400/80">
+          Compass Organizers + Developers
+        </p>
+        <h2 className="mb-3 w-full text-center font-heading text-4xl font-bold text-white sm:text-5xl lg:text-6xl">
+          <span className="bg-gradient-to-r from-iwd-gold-300 via-iwd-gold-400 to-iwd-gold-300 bg-clip-text text-transparent">
+            IWD Team
+          </span>
         </h2>
+        <div className="mb-6 h-px w-24 bg-gradient-to-r from-transparent via-iwd-gold-400/50 to-transparent sm:w-32" />
       </div>
-      <div className="my-32 grid grid-cols-1 place-items-center gap-20 sm:grid-cols-2 lg:mt-36">
+      <p className="mx-auto max-w-4xl text-center text-sm text-gray-300">
+        Compass organizers are highlighted first, followed by the engineering
+        team supporting the event website.
+      </p>
+      <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
         {organizersData.map((organizer) => (
-          <GenericCard
-            key={organizer.id}
-            onOpen={() => window.open(organizer.url, '_blank')}
-            {...organizer}
+          <DevTeamCard
+            key={`org-${organizer.id}`}
+            id={organizer.id}
+            name={organizer.name}
+            avatar={organizer.avatar}
+            linkedin={organizer.linkedin}
+            github={organizer.github}
+            organization={organizer.organization}
+            position={organizer.role}
+            university={organizer.university}
+            badge={organizer.team === 'compass' ? 'Organizer' : organizer.team}
           />
         ))}
+      </div>
+
+      {/* Dev team immediately after organizers */}
+      <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+        {teamData
+          .filter((m) => m.team === 'devteam')
+          .sort((a, b) => a.name.localeCompare(b.name))
+          .map((dev) => (
+            <DevTeamCard
+              key={`dev-${dev.id}`}
+              id={dev.id}
+              name={dev.name}
+              avatar={dev.avatar}
+              linkedin={dev.linkedin}
+              github={dev.github}
+              organization={dev.organization}
+              position={dev.role}
+              university={dev.university}
+              badge={dev.team === 'devteam' ? 'Dev' : dev.team}
+            />
+          ))}
       </div>
     </section>
   )

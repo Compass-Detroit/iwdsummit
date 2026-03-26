@@ -19,6 +19,7 @@ const SpeakerCard = ({
   organization,
   position,
   sessionDescription,
+  sessionSpeakers,
   sessionTitle,
   tags,
   track,
@@ -120,6 +121,7 @@ const SpeakerCard = ({
           aria-label="Speaker details modal"
         >
           <button
+            type="button"
             className="absolute inset-0 size-full cursor-default"
             onClick={handleOverlayClick}
             onKeyDown={handleKeyDown}
@@ -141,6 +143,7 @@ const SpeakerCard = ({
                 onClose={closeModal}
                 position={position}
                 sessionDescription={sessionDescription}
+                sessionSpeakers={sessionSpeakers}
                 sessionTitle={sessionTitle}
                 tags={tags}
                 track={track}
@@ -156,7 +159,7 @@ const SpeakerCard = ({
 }
 
 SpeakerCard.propTypes = {
-  avatar: PropTypes.string.isRequired,
+  avatar: PropTypes.string,
   bio: PropTypes.string,
   github: PropTypes.string,
   id: PropTypes.number.isRequired,
@@ -169,6 +172,7 @@ SpeakerCard.propTypes = {
   organization: PropTypes.string,
   position: PropTypes.string,
   sessionDescription: PropTypes.string,
+  sessionSpeakers: PropTypes.arrayOf(PropTypes.string),
   sessionTitle: PropTypes.string,
   tags: PropTypes.arrayOf(PropTypes.string),
   track: PropTypes.string,

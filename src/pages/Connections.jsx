@@ -1,4 +1,4 @@
-import { PageLayout } from '@/layouts/PageLayout'
+import PageLayout from '@/layouts/PageLayout'
 import Connections from '@/components/connections/Connections'
 
 function ConnectionsPage() {

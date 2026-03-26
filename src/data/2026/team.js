@@ -1,22 +1,18 @@
 import DaveKoziol from '@/data/2026/assets/images/team/dav_koziol.webp'
-import GregMiller from '@/data/2026/assets/images/team/greg_miller-x96.webp'
-import HernandoMalabet from '@/data/2026/assets/images/team/hernando_malabet.webp'
-import HodaSolati from '@/data/2026/assets/images/team/hoda_solati.webp'
+import GregMiller from '@/data/2026/assets/images/team/greg_miller.webp'
+import HernandoMalabet from '@/data/2026/assets/images/speakers/HernandoGonzalezMalabet.webp'
+import HodaSolati from '@/data/2026/assets/images/speakers/HodaSolati.jpg'
 import JennaRitten from '@/data/2026/assets/images/team/jenna_ritten.webp'
 import RishirajSarkar from '@/data/2026/assets/images/team/rishiraj_sarkar.webp'
-import ShimaSolati from '@/data/2026/assets/images/team/shima_solati.webp'
-import ShugmiShumunov from '@/data/2026/assets/images/team/shugmi_shumunov-x96.webp'
+import ShimaSolati from '@/data/2026/assets/images/speakers/ShimaSolati.jpg'
+import ShugmiShumunov from '@/data/2026/assets/images/team/shugmi_shumunov.jpeg'
 import SohamMhatre from '@/data/2026/assets/images/team/soham_mhatre.webp'
-import TerrellMcKinney from '@/data/2026/assets/images/team/Terrell_McKinney.webp'
 import IdaByrdHill from '@/data/2026/assets/images/team/IdaByrd-Hill.webp'
 import UmeloOnyejiaka from '@/data/2026/assets/images/team/UmeloOnyejiaka.webp'
-import DeAndre from '@/data/2026/assets/images/team/DeAndre_Boston.jpg'
 import RonaldFrohman from '@/data/2026/assets/images/team/roland_frohman.webp'
 import TylerMcbeath from '@/data/2026/assets/images/team/tyler_mcbeath.webp'
 import JeseekiaVaughn from '@/data/2026/assets/images/team/jeseekia_vaughn.webp'
 import BrandonWelch from '@/data/2026/assets/images/team/brandon_welch.webp'
-import Rehanashri from '@/data/2026/assets/images/team/rehanashri.webp'
-import KateShenton from '@/data/2026/assets/images/team/kate_shenton.webp'
 
 export const teamData = [
   {
@@ -24,7 +20,7 @@ export const teamData = [
     name: 'Jenna Ritten',
     linkedin: 'https://www.linkedin.com/in/jritten/',
     github: 'https://github.com/jritten',
-    devfest: 'compass',
+    team: 'compass',
     star: true,
     university: '',
     organization: 'IBM',
@@ -38,7 +34,7 @@ export const teamData = [
     twitter: 'davekoziol',
     linkedin: 'https://www.linkedin.com/in/davekoziol/',
     github: '',
-    devfest: 'compass',
+    team: 'compass',
     star: true,
     university: '',
     organization: 'Little Caesars',
@@ -51,7 +47,7 @@ export const teamData = [
     name: 'Ida Byrd-Hill',
     linkedin: 'https://www.linkedin.com/in/idabyrdhill/',
     github: '',
-    devfest: 'compass',
+    team: 'compass',
     star: false,
     university: '',
     organization: 'Automation Workz',
@@ -65,7 +61,7 @@ export const teamData = [
     twitter: '',
     linkedin: 'https://www.linkedin.com/in/hoda-solati/',
     github: '',
-    devfest: 'compass',
+    team: 'compass',
     star: false,
     university: '',
     bio: `Hoda Solati is an award-winning UX designer working at BraunAbility blending creativity, technology, and innovation to craft inclusive, user-centered experiences. With advanced degrees in UX Design and Animation, she explores cutting-edge technologies such as VR, AR, and robotics to solve complex design challenges. Recognized at global events including DDX’25 NYC and IEEE Smart Mobility, Hoda is passionate about redefining the future of user experience through innovation and accessibility.`,
@@ -80,7 +76,7 @@ export const teamData = [
     twitter: '',
     linkedin: 'https://www.linkedin.com/in/shima-solati/',
     github: '',
-    devfest: 'compass',
+    team: 'compass',
     star: false,
     university: '',
     bio: `Shima Solati is an award-winning UX/UI designer and researcher at BraunAbility, leading efforts to advance mobility and accessibility through innovative, user-centered design. With a Master’s in User Experience Design from the College for Creative Studies and dual degrees in fashion and textiles, Shima brings a rare multidisciplinary perspective to solving complex challenges. Her expertise spans immersive and assistive technologies, VR, AR, robotics, and her portfolio includes impactful work for KUKA Robotics, the Augmented Reality Center, General Motors, and Ford. Passionate about inclusive design and emerging technologies, Shima is dedicated to creating intuitive, innovative solutions that empower all users.`,
@@ -95,7 +91,7 @@ export const teamData = [
     twitter: '',
     linkedin: 'https://www.linkedin.com/in/rhfrohman3/',
     github: '',
-    devfest: 'compass',
+    team: 'compass',
     star: false,
     university: '',
     organization: 'AFROTECH',
@@ -109,7 +105,7 @@ export const teamData = [
     twitter: '',
     linkedin: 'https://www.linkedin.com/in/risarkar/',
     github: null,
-    devfest: 'compass',
+    team: 'compass',
     star: false,
     university: 'University of Michigan - Dearborn',
     bio: `Cybersecurity graduate student working with AI privacy and network security`,
@@ -124,7 +120,7 @@ export const teamData = [
     twitter: '',
     linkedin: 'https://www.linkedin.com/in/tyler-mcbeath-913b54102/',
     github: '',
-    devfest: 'compass',
+    team: 'compass',
     star: false,
     university: '',
     organization: 'Ford Motor Company',
@@ -138,7 +134,7 @@ export const teamData = [
     twitter: '',
     linkedin: 'https://www.linkedin.com/in/hernando-gonzalez-malabet-baa03625/',
     github: '',
-    devfest: 'compass',
+    team: 'compass',
     star: false,
     university: '',
     organization: 'General Motors',
@@ -152,7 +148,7 @@ export const teamData = [
     twitter: '',
     linkedin: 'https://www.linkedin.com/in/jeseekiavaughn/',
     github: '',
-    devfest: 'compass',
+    team: 'compass',
     star: false,
     university: '',
     organization: 'Detroit Black Tech',
@@ -166,7 +162,7 @@ export const teamData = [
     twitter: '',
     linkedin: 'https://www.linkedin.com/in/umelo-onyejiaka-84213524b/',
     github: '',
-    devfest: 'compass',
+    team: 'compass',
     star: false,
     university: '',
     organization: 'Continental',
@@ -180,7 +176,7 @@ export const teamData = [
     twitter: '',
     linkedin: 'https://www.linkedin.com/in/brandon-welch-179a16338/',
     github: '',
-    devfest: 'compass',
+    team: 'compass',
     star: false,
     university: '',
     organization: 'Why Not Collab Detroit',
@@ -193,15 +189,15 @@ export const teamData = [
     name: 'Greg Miller',
     linkedin: 'https://www.linkedin.com/in/gregraymiller/',
     github: 'https://github.com/shrinkray',
-    devfest: 'devteam',
+    team: 'devteam',
     star: false,
     topContributor: true,
     university: '',
     bio: `
-	  Hello, I am the founder of Shrinkray Interactive, a UX/UI development studio in Toledo, Ohio, leaning-in on accessible, high-performance, and user-friendly web experiences. As a founding member of GDG Toledo, I connect developers and designers through events and hackathons. Collaborating with the devteam, I oversee UX Engineering and redesign for the Michigan DevFest/Detroit Compass websites creating smooth, inclusive experience for speakers, partners, and attendees. If you are seeking a friendly, versitile, and talented developer for your project, let's connect.
+	  Hello, I am the founder of Shrinkray Interactive, a UX/UI development studio in Toledo, Ohio, leaning-in on accessible, high-performance, and user-friendly web experiences. As a founding member of GDG Toledo, I connect developers and designers through events and hackathons. Collaborating with the devteam, I oversee UX Engineering for the Michigan DevFest/Detroit Compass websites creating smooth, inclusive experience for speakers, partners, and attendees. If you are seeking a friendly, versatile, and talented developer for your project, let's connect.
 	`,
     organization: 'Shrinkray Interactive + GDG Toledo + Toledo Codes',
-    role: 'Dev Lead + UX Engineer',
+    role: 'UX Engineer',
     commits: '150',
     avatar: GregMiller,
   },
@@ -211,7 +207,7 @@ export const teamData = [
     twitter: '',
     linkedin: 'https://www.linkedin.com/in/shugmishumunov/',
     github: 'https://github.com/ShugKnight24',
-    devfest: 'devteam',
+    team: 'devteam',
     star: false,
     topContributor: true,
     university: '',
@@ -231,7 +227,7 @@ export const teamData = [
     twitter: '',
     linkedin: null,
     github: 'https://github.com/soham02',
-    devfest: 'devteam',
+    team: 'devteam',
     star: false,
     topContributor: true,
     university: '',
@@ -243,62 +239,17 @@ export const teamData = [
     avatar: SohamMhatre,
   },
   {
-    id: 16,
-    name: 'Rehanashri',
-    twitter: '',
-    linkedin: 'https://www.linkedin.com/in/rehanashri',
-    github: 'https://github.com/Rehanashri',
-    devfest: 'devteam',
-    star: false,
-    topContributor: true,
-    university: 'University of Michigan Dearborn',
-    bio: `Software Engineering graduate student with experience in IT audits, compliance, and risk governance. With a foundation in software systems and web technologies, I bring a technical lens to risk and control processes - bridging the gap between developers and compliance requirements.
-    I actively volunteer at tech events like DevFest and community hackathons, and I enjoy collaborating with diverse teams and learning new technologies and contributing to build secure, inclusive, and well-governed tech solutions.`,
-    organization: null,
-    role: 'Student + GDGC Dearborn',
-    avatar: Rehanashri,
-  },
-  {
-    id: 17,
-    name: 'Kate Shenton',
-    twitter: '',
-    linkedin: 'https://www.linkedin.com/in/kate-shenton/',
-    github: 'https://github.com/kateshent',
-    devfest: 'devteam',
-    star: false,
-    topContributor: true,
-    university: 'University of Michigan Ann Arbor',
-    bio: `Kate is a computer science graduate from the University of Michigan with experience in web development, cloud platforms, and machine learning. She recently built a full-stack web application for SHPE Detroit to streamline college fair raffle management and developed an “HR Agent” personal project using Twilio and an LLM to automate multilingual PTO requests via SMS. She is currently preparing for AWS certification and is seeking a full-time role where she can continue learning and building meaningful technology.`,
-    organization: 'Compass Detroit + SWE Detroit',
-    role: 'Software Developer',
-    avatar: KateShenton,
-  },
-  {
-    id: 18,
-    name: 'Terrell McKinney',
-    twitter: '',
-    linkedin: 'https://www.linkedin.com/in/terrellmckinney/',
-    github: 'https://github.com/Terlam',
-    devfest: 'devteam',
+    id: 20,
+    name: 'Divya Lakshmi',
+    github: 'https://github.com/Divyatech-hub',
+    linkedin: '',
+    team: 'devteam',
     star: false,
     university: '',
-    bio: `Terrell McKinney is a software engineer and educator at Aaron Douglas LLC, and a community builder who helps make complex topics like AI, technical interviews, and modern careers more human and accessible. He contributes to the Compass Detroit dev team and to initiatives like the Black CS Success Summit. His approach centers care, practical skill-building, and the belief that technology should serve people—not the other way around.`,
-    organization: 'Aaron Douglas LLC',
-    role: 'Software Engineer',
-    commits: null,
-    avatar: TerrellMcKinney,
-  },
-  {
-    id: 19,
-    name: 'DeAndre Boston',
-    github: 'https://github.com/dboston528',
-    devfest: 'devteam',
-    star: false,
-    university: 'Southern Illinois University at Carbondale',
-    bio: 'DeAndre Boston is a Full-stack Software Engineer for Aaron Douglas, LLC. With a background in cloud engineering, he is passionate to support community-driven organizations and create tools that make a meaningful impact.',
-    organization: 'Aaron Douglas, LLC ',
+    bio: 'Contributor to IWD Summit schedule and calendar export improvements, focused on reliable iCal workflows and attendee-friendly UX.',
+    organization: 'Compass Detroit',
     role: 'Developer',
     commits: null,
-    avatar: DeAndre,
+    avatar: 'https://github.com/Divyatech-hub.png',
   },
 ]

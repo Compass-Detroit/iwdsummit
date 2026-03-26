@@ -2,21 +2,23 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import { FaBars, FaXmark } from 'react-icons/fa6'
 import { Link, useLocation } from 'react-router-dom'
 import CompassDetroitLogo from './ui/CompassDetroitLogo'
+import ThemeSwitcher from './ui/ThemeSwitcher'
 import { sections } from '@/data/2026/navigation'
+import useTheme from '@/hooks/useTheme'
 
 // Section links have id (anchor); route links have to (full page)
 const navSections = sections.filter((s) => s.id)
 
 function Navbar() {
+  const { mode } = useTheme()
   const location = useLocation()
   const isHomePage = location.pathname === '/'
+  const isLightMode = mode === 'light'
   const [activeLink, setActiveLink] = useState('landing')
   const [isNavVisible, setIsNavVisible] = useState(false)
   const [isManualNavigation, setIsManualNavigation] = useState(false)
   const [isNavigating, setIsNavigating] = useState(false)
-  const [isDarkMode, setIsDarkMode] = useState(
-    window.matchMedia('(prefers-color-scheme: dark)').matches
-  )
+  const [scrollProgress, setScrollProgress] = useState(0)
 
   const navRef = useRef(null)
   const mobileButtonRef = useRef(null)
@@ -266,21 +268,23 @@ function Navbar() {
     }
   }, [])
 
-  // Check if color scheme preference was updated
+  // Track scroll progress for the bottom indicator bar
   useEffect(() => {
-    const colorSchemePref = window.matchMedia('(prefers-color-scheme: dark)')
-    const handleChange = (event) => setIsDarkMode(event.matches)
-
-    colorSchemePref.addEventListener('change', handleChange)
-
-    return () => colorSchemePref.removeEventListener('change', handleChange)
+    const trackProgress = () => {
+      const scrollTop = window.scrollY
+      const docHeight =
+        document.documentElement.scrollHeight - window.innerHeight
+      setScrollProgress(docHeight > 0 ? Math.min(scrollTop / docHeight, 1) : 0)
+    }
+    window.addEventListener('scroll', trackProgress, { passive: true })
+    return () => window.removeEventListener('scroll', trackProgress)
   }, [])
 
   // Desktop Navigation List (section links + route links like Previous Events)
   const desktopNavList = (
     <ul
       role="menubar"
-      className="z-50 flex flex-row flex-nowrap items-baseline justify-end gap-x-5 px-4 py-2"
+      className="z-50 flex flex-row flex-nowrap items-baseline justify-end gap-x-4 px-4 py-2"
     >
       {sections.map((section) => {
         const isRouteLink = !!section.to
@@ -296,11 +300,11 @@ function Navbar() {
                 to={section.to}
                 role="menuitem"
                 aria-current={isActive ? 'page' : undefined}
-                className={`relative px-2 py-4 pb-2 ${
+                className={`relative px-2 py-4 pb-2 text-[13px] font-medium uppercase tracking-[0.12em] transition-colors duration-300 ${
                   isActive
-                    ? 'after:w-full after:opacity-100'
-                    : 'after:w-0 after:opacity-0'
-                } after:absolute after:bottom-0 after:left-0 after:h-1 after:bg-primary-400 after:transition-all after:duration-300 after:ease-in-out`}
+                    ? 'text-white after:w-full after:opacity-100'
+                    : 'text-gray-300 after:w-0 after:opacity-0 hover:text-white'
+                } after:absolute after:bottom-0 after:left-0 after:h-px after:bg-gradient-to-r after:from-transparent after:via-iwd-gold-400 after:to-transparent after:transition-all after:duration-300 after:ease-in-out`}
               >
                 {section.text}
               </Link>
@@ -319,11 +323,11 @@ function Navbar() {
               }
               role="menuitem"
               aria-current={isActive ? 'page' : undefined}
-              className={`relative px-2 py-4 pb-2 ${
+              className={`relative px-2 py-4 pb-2 text-[13px] font-medium uppercase tracking-[0.12em] transition-colors duration-300 ${
                 isActive
-                  ? 'after:w-full after:opacity-100'
-                  : 'after:w-0 after:opacity-0'
-              } after:absolute after:bottom-0 after:left-0 after:h-1 after:bg-primary-400 after:transition-all after:duration-300 after:ease-in-out`}
+                  ? 'text-white after:w-full after:opacity-100'
+                  : 'text-gray-300 after:w-0 after:opacity-0 hover:text-white'
+              } after:absolute after:bottom-0 after:left-0 after:h-px after:bg-gradient-to-r after:from-transparent after:via-iwd-gold-400 after:to-transparent after:transition-all after:duration-300 after:ease-in-out`}
             >
               {section.text}
             </Link>
@@ -335,7 +339,7 @@ function Navbar() {
 
   // Mobile Navigation List (section links + route links like Previous Events)
   const mobileNavList = (
-    <ul className="flex flex-col space-y-2 p-4 dark:bg-gray-700 dark:text-white">
+    <ul className="flex flex-col space-y-2 p-4 text-white">
       {sections.map((section) => {
         const isRouteLink = !!section.to
         const linkKey = section.id || section.to
@@ -349,10 +353,10 @@ function Navbar() {
               <Link
                 to={section.to}
                 aria-current={isActive ? 'page' : undefined}
-                className={`block rounded-lg px-4 py-3 text-center transition-colors hover:bg-gray-100 dark:hover:bg-primary-400 dark:hover:text-gray-900 ${
+                className={`block rounded-lg px-4 py-3 text-center transition-colors hover:bg-iwd-gold-400/10 ${
                   isActive
-                    ? 'bg-primary-100 font-semibold text-primary-700'
-                    : 'text-gray-700 dark:text-white dark:hover:text-gray-900'
+                    ? 'bg-iwd-gold-400/15 font-semibold text-iwd-gold-300'
+                    : 'text-gray-200'
                 }`}
                 onClick={closeMobileNav}
               >
@@ -372,10 +376,10 @@ function Navbar() {
                   : undefined
               }
               aria-current={isActive ? 'page' : undefined}
-              className={`block rounded-lg px-4 py-3 text-center transition-colors hover:bg-gray-100 dark:hover:bg-primary-400 dark:hover:text-gray-900 ${
+              className={`block rounded-lg px-4 py-3 text-center transition-colors hover:bg-iwd-gold-400/10 ${
                 isActive
-                  ? 'bg-primary-100 font-semibold text-primary-700'
-                  : 'text-gray-700 dark:text-white dark:hover:text-gray-900'
+                  ? 'bg-iwd-gold-400/15 font-semibold text-iwd-gold-300'
+                  : 'text-gray-200'
               }`}
             >
               {section.text}
@@ -390,10 +394,10 @@ function Navbar() {
     <nav
       ref={navRef}
       aria-label="Main navigation"
-      className={`site-header fixed left-0 top-0 z-30 w-screen ${
+      className={`site-header fixed left-0 top-0 z-30 w-screen transition-all duration-500 ${
         activeLink === 'landing' && isHomePage
-          ? 'bg-white text-sky-900'
-          : 'bg-white text-gray-700 shadow-lg dark:bg-gray-700 dark:text-gray-100'
+          ? 'bg-iwd-surface-raised text-white backdrop-blur-xl dark:bg-iwd-black-950/80'
+          : 'bg-iwd-surface-raised text-gray-100 shadow-lg shadow-black/20 backdrop-blur-xl dark:bg-iwd-black-950/95 dark:text-gray-100'
       }`}
     >
       {/* Screen Reader Announcements */}
@@ -419,70 +423,82 @@ function Navbar() {
           aria-label="Go to home page"
         >
           <CompassDetroitLogo
-            textColor={
-              isDarkMode && !(activeLink === 'landing' && isHomePage)
-                ? '#FFFFFF'
-                : '#0c4a6e'
-            }
+            textColor={isLightMode ? '#374151' : '#FFFFFF'}
             className="h-12 sm:h-16"
           />
         </Link>
 
-        {/* Mobile NavBar Hamburger Button */}
-        <button
-          ref={mobileButtonRef}
-          id="mobile-menu-button"
-          aria-label={isNavVisible ? 'Close Main Menu' : 'Open Main Menu'}
-          aria-expanded={isNavVisible}
-          aria-controls="mobile-navigation"
-          className={`mr-2 touch-manipulation rounded border-2 p-2 transition-colors sm:px-4 xl:hidden ${
-            activeLink === 'landing' && isHomePage
-              ? 'border-sky-900 hover:bg-primary-300 active:bg-primary-200'
-              : 'border-gray-300 hover:bg-gray-100 active:bg-gray-200 dark:text-gray-100 dark:hover:bg-primary-400'
-          }`}
-          onClick={(e) => {
-            e.preventDefault()
-            e.stopPropagation()
-            setIsNavVisible((prev) => !prev)
-          }}
-          onTouchStart={(e) => {
-            e.preventDefault()
-          }}
-          onTouchEnd={(e) => {
-            e.preventDefault()
-            e.stopPropagation()
-            setIsNavVisible((prev) => !prev)
-          }}
-          style={{
-            touchAction: 'manipulation',
-            WebkitTouchCallout: 'none',
-            WebkitUserSelect: 'none',
-            userSelect: 'none',
-            minHeight: '44px',
-            minWidth: '44px',
-          }}
-        >
-          {isNavVisible ? (
-            <FaXmark className="size-6" />
-          ) : (
-            <FaBars className="size-6" />
-          )}
-        </button>
+        <div className="flex items-center gap-2">
+          {/* Desktop Navigation */}
+          <div className="hidden min-[1500px]:block">{desktopNavList}</div>
 
-        {/* Desktop Navigation */}
-        <div className="hidden xl:block">{desktopNavList}</div>
+          {/* Theme Switcher */}
+          <ThemeSwitcher />
+
+          {/* Mobile NavBar Hamburger Button */}
+          <button
+            ref={mobileButtonRef}
+            id="mobile-menu-button"
+            aria-label={isNavVisible ? 'Close Main Menu' : 'Open Main Menu'}
+            aria-expanded={isNavVisible}
+            aria-controls="mobile-navigation"
+            className={`mr-2 touch-manipulation rounded border-2 p-2 transition-colors max-[1499px]:block sm:px-4 min-[1500px]:hidden ${
+              activeLink === 'landing' && isHomePage
+                ? 'border-iwd-gold-400/40 text-white hover:bg-iwd-gold-400/10 active:bg-iwd-gold-400/20'
+                : 'border-gray-600 text-gray-100 hover:bg-gray-700 active:bg-gray-600 dark:text-gray-100'
+            }`}
+            onClick={(e) => {
+              e.preventDefault()
+              e.stopPropagation()
+              const newState = !isNavVisible
+              setIsNavVisible(newState)
+
+              if (newState) {
+                // Focus the first link after menu opens
+                setTimeout(() => {
+                  const firstLink = document.querySelector(
+                    '#mobile-navigation a'
+                  )
+                  if (firstLink) {
+                    firstLink.focus()
+                  }
+                }, 150)
+              }
+            }}
+            onKeyDown={(e) => {
+              if (e.key === 'Escape' && isNavVisible) {
+                setIsNavVisible(false)
+                mobileButtonRef.current?.focus()
+              }
+            }}
+            style={{
+              touchAction: 'manipulation',
+              WebkitTouchCallout: 'none',
+              WebkitUserSelect: 'none',
+              userSelect: 'none',
+              minHeight: '44px',
+              minWidth: '44px',
+            }}
+          >
+            {isNavVisible ? (
+              <FaXmark className="size-6" />
+            ) : (
+              <FaBars className="size-6" />
+            )}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Navigation */}
-      <div className="w-full max-w-full overflow-hidden xl:hidden">
+      <div className="w-full max-w-full overflow-hidden min-[1500px]:hidden">
         {isNavVisible && (
           <div
             id="mobile-navigation"
             aria-labelledby="mobile-menu-button"
-            className={`nav-menu-expanded block w-full overflow-hidden bg-white shadow-lg ${
+            className={`nav-menu-expanded block w-full overflow-hidden shadow-lg ${
               activeLink === 'landing' && isHomePage
-                ? 'bg-primary-400'
-                : 'bg-white dark:bg-gray-900 dark:text-white'
+                ? 'bg-iwd-surface-raised backdrop-blur-xl dark:bg-iwd-black-950/95'
+                : 'bg-iwd-surface-raised text-gray-900 backdrop-blur-xl dark:bg-iwd-black-950/95 dark:text-white'
             }`}
             style={{
               transform: 'translateZ(0)',
@@ -493,6 +509,18 @@ function Navbar() {
             {mobileNavList}
           </div>
         )}
+      </div>
+
+      {/* Scroll Progress Indicator */}
+      <div className="absolute bottom-0 left-0 h-px w-full" aria-hidden="true">
+        <div
+          className="h-full transition-[width] duration-100 ease-linear"
+          style={{
+            width: `${scrollProgress * 100}%`,
+            background: `linear-gradient(90deg, rgb(var(--iwd-accent-500)), rgb(var(--iwd-accent-400)))`,
+            boxShadow: '0 0 8px rgb(var(--iwd-accent-500) / 0.4)',
+          }}
+        />
       </div>
     </nav>
   )

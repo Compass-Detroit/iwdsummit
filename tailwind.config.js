@@ -2,12 +2,21 @@ import typography from '@tailwindcss/typography'
 
 /** @type {import('tailwindcss').Config} */
 export default {
+  // Match app ThemeContext (data-mode on <html>), not OS prefers-color-scheme
+  darkMode: ['selector', '[data-mode="dark"]'],
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   safelist: [
     'ribbon-organizer',
     'ribbon-facilitator',
     'ribbon-devteam',
     'ribbon-marketing',
+    'font-heading',
+    'font-body',
+    'font-biorhyme',
+    'font-montserrat',
+    'font-asimovian',
+    'font-orbitron',
+    'font-russell',
   ],
   theme: {
     extend: {
@@ -105,6 +114,8 @@ export default {
         },
       },
       fontFamily: {
+        heading: ['var(--iwd-font-heading)', 'serif'],
+        body: ['var(--iwd-font-body)', 'sans-serif'],
         russell: ['Russell', 'cursive'],
         orbitron: ['Orbitron', 'monospace'],
         asimovian: [
@@ -135,6 +146,15 @@ export default {
             '--tw-prose-kbd': 'inherit',
           },
         },
+      },
+      keyframes: {
+        'bounce-subtle': {
+          '0%, 100%': { transform: 'translateY(-5%)' },
+          '50%': { transform: 'translateY(0)' },
+        },
+      },
+      animation: {
+        'bounce-subtle': 'bounce-subtle 3s ease-in-out infinite',
       },
     },
   },
