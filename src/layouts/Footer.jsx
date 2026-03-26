@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { sections, pageLinks } from '@/data/2026/navigation'
-import GdgDetroitLogo from '@/assets/images/gdg-detroit-logo-footer.svg'
+import GdgDetroitLogoDark from '@/assets/images/gdg-detroit-logo-footer.svg'
+import GdgDetroitLogoLight from '@/assets/images/gdg-detroit-logo.svg'
 import CompassDetroitLogo from '@/components/ui/CompassDetroitLogo'
 import SectionSkipLink from '@/components/ui/SectionSkipLink'
 import useTheme from '@/hooks/useTheme'
@@ -81,13 +82,9 @@ function Footer() {
             {/* GDG Detroit */}
             <div className="flex items-center justify-center rounded-2xl border border-white/[0.06] bg-white/[0.02] p-8 backdrop-blur-sm transition-all duration-300 hover:border-white/[0.1] hover:bg-white/[0.04]">
               <img
-                src={GdgDetroitLogo}
+                src={isLightMode ? GdgDetroitLogoLight : GdgDetroitLogoDark}
                 alt="GDG Detroit Logo"
-                className={`logo-halo h-auto w-56 object-contain transition-all duration-500 ${
-                  isLightMode
-                    ? 'opacity-70 brightness-0'
-                    : 'opacity-100 brightness-100'
-                }`}
+                className="logo-halo h-auto w-56 object-contain transition-all duration-500"
               />
             </div>
             {/* Compass Detroit */}
