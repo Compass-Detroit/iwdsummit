@@ -18,7 +18,7 @@ TrackHeader.displayName = 'TrackHeader'
 const CompactSession = memo(({ session }) => (
   <div className="group relative flex flex-col gap-2 rounded-xl border border-white/[0.06] bg-white/[0.02] p-4 transition-all hover:border-white/[0.12] hover:bg-white/[0.05]">
     <div className="flex items-center justify-between gap-2">
-      <span className="font-orbitron text-[10px] font-bold text-iwd-gold-400/70">
+      <span className="text-[10px] font-bold text-iwd-gold-400/70">
         {session.time}
       </span>
       {session.type && (

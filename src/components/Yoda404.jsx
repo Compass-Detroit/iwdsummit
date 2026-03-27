@@ -41,7 +41,7 @@ const Yoda404 = () => {
         <div className="relative mb-6 max-w-md">
           {/* Speech bubble */}
           <div className="rounded-2xl border-2 border-emerald-200 bg-white p-6 shadow-xl">
-            <p className="prose font-asimovian text-xl font-medium italic leading-relaxed text-emerald-800">
+            <p className="prose text-xl font-medium italic leading-relaxed text-emerald-800">
               &quot;{randomQuote}&quot;
             </p>
           </div>

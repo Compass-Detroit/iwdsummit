@@ -47,7 +47,6 @@ import ShimaSolati from './assets/images/speakers/ShimaSolati.jpg'
 import TalonaJohnson from './assets/images/speakers/TalonaJohnson.jpeg'
 import VitalAnne from './assets/images/speakers/VitalAnne.jpg'
 import YeshaPatel from './assets/images/speakers/YeshaPatel.png'
-import YuktiGoyal from './assets/images/speakers/YuktiGoyal.jpg'
 import EberechiOgbuaku from './assets/images/speakers/EberechiOgbuaku.jpeg'
 import RamonaFellmy from './assets/images/speakers/RamonaFellmy.png'
 import RishirajSarkar from './assets/images/speakers/RishirajSarkar.webp'
@@ -376,7 +375,7 @@ const rawSpeakersData = [
         'In this session you will hear from the United States Patent and Trademark Office (USPTO) about the basics of patents, trademarks, copyrights and trade secrets, collectively known as intellectual property (IP), and potential ways to protect your innovations as you transition from idea to product. We will also discuss the value of federal registration, how to avoid common mistakes, and considerations for start-ups. Attendees will be provided with free resources for legal and technical assistance.',
       tags: ['In-person', 'Innovation'],
       track: 'Innovation',
-      time: '14:00',
+      time: '11:00',
       room: 'The Family Theatre',
       sessionDuration: 60,
     },
@@ -620,7 +619,7 @@ Cherice lives by a simple guiding principle: be kind, courteous, and respectful 
         'Julea Ferrara explores RootIntelligence™, a framework for using AI-enabled technology to reconnect identity, community, and innovation, building bridges between cultural heritage and modern tech.',
       tags: ['In-person', 'AI Foundations'],
       track: 'AI Foundations',
-      time: '10:00',
+      time: '15:00',
       room: 'Hot-n-Ready',
       sessionDuration: 60,
     },
@@ -641,11 +640,11 @@ Cherice lives by a simple guiding principle: be kind, courteous, and respectful 
         'Bridging the gap between confidence and competence in a developing career.',
       description:
         'In a world of cutting-edge technology and constant transformation, mere management is not enough. Holistic leadership focuses on the humans behind the world, ensuring that investment does not stop at minimal professional development but goes further to support the people. Holistic leadership encompasses collaborative development, ongoing training, wellness, and adaptability. This workshop dives into what it means to be a holistic leader and what it looks like to lead by example.',
-      tags: ['In-person', 'Leadership'],
-      track: 'Leadership',
+      tags: ['In-person', 'Innovation'],
+      track: 'Innovation',
       time: '15:00',
       room: 'Reserve-n-Ready',
-      sessionDuration: 30,
+      sessionDuration: 60,
     },
     isWTM: false,
     isGDE: false,
@@ -732,8 +731,8 @@ Cherice lives by a simple guiding principle: be kind, courteous, and respectful 
       description:
         'What becomes possible when women help design the future instead of simply adapting to it? This dynamic Afrofuture Design Lab invites women into a creative, thought-provoking experience where innovation, AI, and imagination meet lived experience. Together, participants will explore bold new futures for leadership, wellness, entrepreneurship, community, and belonging while designing ideas that center dignity, opportunity, and collective thriving. Come ready to create and shape what comes next.',
       tags: ['In-person', 'Innovation'],
-      track: 'Innovation',
-      time: '11:00',
+      track: 'AI Foundations',
+      time: '10:00',
       room: 'The Family Theatre',
       sessionDuration: 60,
     },
@@ -925,30 +924,6 @@ Cherice lives by a simple guiding principle: be kind, courteous, and respectful 
     isGDE: false,
   },
   {
-    id: 39,
-    name: 'Yukti Goyal',
-    avatar: YuktiGoyal,
-    bio: 'Lead Software Engineer at Kforce',
-    linkedIn: '',
-    organization: 'Kforce',
-    position: 'Lead Software Engineer',
-    session: {
-      title:
-        'Dive into PHI protection with AI-driven cybersecurity tailored for HIPAA-regulated environments',
-      abstract:
-        'PHI protection with AI-driven cybersecurity for HIPAA-regulated environments.',
-      description:
-        'Yukti Goyal dives into PHI protection strategies using AI-driven cybersecurity, specifically tailored for HIPAA-regulated healthcare environments.',
-      tags: ['In-person', 'AI Foundations'],
-      track: 'AI Foundations',
-      time: '15:00',
-      room: 'Hot-n-Ready',
-      sessionDuration: 60,
-    },
-    isWTM: false,
-    isGDE: false,
-  },
-  {
     id: 40,
     name: 'Lilah Kole (Alt)',
     avatar: LilahKole2,
@@ -1011,9 +986,9 @@ Following a full-capacity workshop at Compass Detroit, she continues to equip wo
       abstract: 'Professional dress presentation and styling.',
       description:
         'Eberechi Ogbuaku leads a professional dress presentation, sharing tips and strategies for presenting yourself with confidence through professional attire.',
-      tags: ['In-person', 'Innovation'],
-      track: 'Innovation',
-      time: '15:30',
+      tags: ['In-person', 'Leadership'],
+      track: 'Leadership',
+      time: '15:00',
       room: 'The Family Theatre',
       sessionDuration: 30,
     },
@@ -1037,9 +1012,9 @@ Following a full-capacity workshop at Compass Detroit, she continues to equip wo
         'Artificial intelligence is rapidly transforming how systems are built and scaled—but the real challenge is no longer speed. It’s responsibility. This session explores how low-code platforms and AI technologies are changing the way organizations design and deploy solutions in highly regulated industries, while also opening new opportunities in education and community impact. Drawing from her work at Dapp Detroit, Ramona will share practical examples of how tools across the Google ecosystem—including Vertex AI, Google Workspace, and related technologies—can be used to build systems that are not only scalable, but also ethical, transparent, and accessible. A key focus of the session is how these same tools can support neurodiverse and 2e individuals by enabling more adaptive and personalized approaches to learning and problem-solving. Key Takeaways: - A practical approach to building ethical AI systems in real-world environments - Examples of how low-code and AI are being applied across enterprise and education Strategies for leveraging Google tools to support inclusive innovation A new perspective on how AI can be used not just to optimize systems, but to expand how people think, build, and contribute.',
       tags: ['In-person', 'Innovation'],
       track: 'Innovation',
-      time: '15:00',
+      time: '14:00',
       room: 'The Family Theatre',
-      sessionDuration: 30,
+      sessionDuration: 60,
     },
     isWTM: false,
     isGDE: false,
@@ -1400,13 +1375,6 @@ const EVENT_PAGE_SPEAKERS = [
     position: 'Senior Solution Architect & eCommerce SME',
     avatar:
       'https://res.cloudinary.com/startup-grind/image/upload/c_fill,dpr_2,f_auto,g_face,h_200,q_auto:good,w_200/v1/gcs/platform-data-goog/events/YeshaPatel_04hTer3.png',
-  },
-  {
-    name: 'Yukti Goyal',
-    organization: 'Kforce',
-    position: 'Lead Software Engineer',
-    avatar:
-      'https://res.cloudinary.com/startup-grind/image/upload/c_fill,dpr_2,f_auto,g_face,h_200,q_auto:good,w_200/v1/gcs/platform-data-goog/events/YuktiGoyal_s605Bkp.jpg',
   },
   {
     name: 'Maridy Mazaira',

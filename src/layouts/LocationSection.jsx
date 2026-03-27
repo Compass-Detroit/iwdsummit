@@ -140,7 +140,7 @@ function LocationSection() {
               </div>
               <h3 className="text-xl font-semibold text-white">When</h3>
             </div>
-            <p className="font-orbitron text-lg font-semibold tracking-wide text-iwd-gold-300">
+            <p className="text-lg font-semibold tracking-wide text-iwd-gold-300">
               March 28, 2026
             </p>
             <p className="mt-2 text-gray-400">
