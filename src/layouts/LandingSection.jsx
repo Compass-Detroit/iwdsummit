@@ -226,7 +226,7 @@ function LandingSection() {
             }}
           >
             <div className="size-1.5 animate-pulse rounded-full bg-iwd-gold-400 shadow-[0_0_8px_rgb(var(--iwd-accent-400))]" />
-            <span className="font-orbitron text-[11px] font-semibold tracking-[0.2em] text-iwd-gold-300/90 sm:text-xs">
+            <span className="text-[11px] font-semibold tracking-[0.2em] text-iwd-gold-300/90 sm:text-xs">
               MARCH 28, 2026 &middot; DETROIT, MI
             </span>
           </div>
@@ -245,7 +245,7 @@ function LandingSection() {
                 { val: countdown.seconds, label: 'Sec' },
               ].map(({ val, label }) => (
                 <div key={label} className="flex flex-col items-center">
-                  <div className="countdown-cell flex size-14 items-center justify-center rounded-xl border border-white/[0.08] bg-white/[0.03] font-orbitron text-xl font-bold tabular-nums text-white backdrop-blur-sm sm:size-[4.5rem] sm:text-2xl">
+                  <div className="countdown-cell flex size-14 items-center justify-center rounded-xl border border-white/[0.08] bg-white/[0.03] text-xl font-bold tabular-nums text-white backdrop-blur-sm sm:size-[4.5rem] sm:text-2xl">
                     {String(val).padStart(2, '0')}
                   </div>
                   <span className="mt-1.5 font-body text-[8px] font-semibold uppercase tracking-[0.25em] text-iwd-gold-400/45 sm:text-[9px]">
@@ -277,7 +277,7 @@ function LandingSection() {
                 key={stat.label}
                 className="flex flex-col items-center px-5 sm:px-8"
               >
-                <span className="font-orbitron text-xl font-bold text-white sm:text-2xl">
+                <span className="text-xl font-bold text-white sm:text-2xl">
                   {animatedStats[i]}
                   {stat.suffix}
                 </span>
