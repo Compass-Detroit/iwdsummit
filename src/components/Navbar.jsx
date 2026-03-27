@@ -339,55 +339,60 @@ function Navbar() {
 
   // Mobile Navigation List (section links + route links like Previous Events)
   const mobileNavList = (
-    <ul className="flex flex-col space-y-2 p-4 text-white">
-      {sections.map((section) => {
-        const isRouteLink = !!section.to
-        const linkKey = section.id || section.to
-        const isActive = isRouteLink
-          ? location.pathname === section.to
-          : activeLink === section.id
+    <div className="flex max-h-[85vh] w-full flex-col overflow-y-auto">
+      <ul className="flex flex-col space-y-2 p-4 text-white">
+        {sections.map((section) => {
+          const isRouteLink = !!section.to
+          const linkKey = section.id || section.to
+          const isActive = isRouteLink
+            ? location.pathname === section.to
+            : activeLink === section.id
 
-        if (isRouteLink) {
+          if (isRouteLink) {
+            return (
+              <li key={linkKey}>
+                <Link
+                  to={section.to}
+                  aria-current={isActive ? 'page' : undefined}
+                  className={`block rounded-lg px-4 py-3 text-center transition-colors hover:bg-iwd-gold-400/10 ${
+                    isActive
+                      ? 'bg-iwd-gold-400/15 font-semibold text-iwd-gold-300'
+                      : 'text-gray-200'
+                  }`}
+                  onClick={closeMobileNav}
+                >
+                  {section.text}
+                </Link>
+              </li>
+            )
+          }
+
           return (
             <li key={linkKey}>
               <Link
-                to={section.to}
+                to={isHomePage ? `#${section.id}` : `/#${section.id}`}
+                onClick={
+                  isHomePage
+                    ? (event) => handleNavigation(event, section.id)
+                    : undefined
+                }
                 aria-current={isActive ? 'page' : undefined}
                 className={`block rounded-lg px-4 py-3 text-center transition-colors hover:bg-iwd-gold-400/10 ${
                   isActive
                     ? 'bg-iwd-gold-400/15 font-semibold text-iwd-gold-300'
                     : 'text-gray-200'
                 }`}
-                onClick={closeMobileNav}
               >
                 {section.text}
               </Link>
             </li>
           )
-        }
-
-        return (
-          <li key={linkKey}>
-            <Link
-              to={isHomePage ? `#${section.id}` : `/#${section.id}`}
-              onClick={
-                isHomePage
-                  ? (event) => handleNavigation(event, section.id)
-                  : undefined
-              }
-              aria-current={isActive ? 'page' : undefined}
-              className={`block rounded-lg px-4 py-3 text-center transition-colors hover:bg-iwd-gold-400/10 ${
-                isActive
-                  ? 'bg-iwd-gold-400/15 font-semibold text-iwd-gold-300'
-                  : 'text-gray-200'
-              }`}
-            >
-              {section.text}
-            </Link>
-          </li>
-        )
-      })}
-    </ul>
+        })}
+      </ul>
+      <div className="flex w-full justify-center border-t border-white/10 p-6 pb-[10vh] md:hidden">
+        <ThemeSwitcher dropdownUp />
+      </div>
+    </div>
   )
 
   return (
@@ -436,8 +441,10 @@ function Navbar() {
           {/* Desktop Navigation */}
           <div className="hidden min-[1500px]:block">{desktopNavList}</div>
 
-          {/* Theme Switcher */}
-          <ThemeSwitcher />
+          {/* Theme Switcher (Hidden on Mobile) */}
+          <div className="hidden md:block">
+            <ThemeSwitcher />
+          </div>
 
           {/* Mobile NavBar Hamburger Button */}
           <button

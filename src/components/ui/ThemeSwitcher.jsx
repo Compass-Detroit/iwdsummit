@@ -1,9 +1,10 @@
 import { useState, useRef, useEffect } from 'react'
+import PropTypes from 'prop-types'
 import { FaPalette, FaSun, FaMoon } from 'react-icons/fa6'
 import useTheme from '@/hooks/useTheme'
 import { THEMES } from '@/constants/ui'
 
-function ThemeSwitcher() {
+function ThemeSwitcher({ dropdownUp = false }) {
   const { theme, setTheme, mode, toggleMode } = useTheme()
   const [open, setOpen] = useState(false)
   const ref = useRef(null)
@@ -53,7 +54,9 @@ function ThemeSwitcher() {
       {/* Swatch dropdown */}
       {open && (
         <div
-          className="bg-iwd-surface-raised absolute right-0 top-full z-50 mt-2 rounded-xl border border-white/10 p-2 shadow-xl shadow-black/40 backdrop-blur-xl dark:bg-iwd-black-950/95"
+          className={`bg-iwd-surface-raised absolute right-0 z-50 rounded-xl border border-white/10 p-2 shadow-xl shadow-black/40 backdrop-blur-xl dark:bg-iwd-black-950/95 ${
+            dropdownUp ? 'bottom-full mb-2' : 'top-full mt-2'
+          }`}
           role="radiogroup"
           aria-label="Theme colors"
         >
@@ -82,6 +85,10 @@ function ThemeSwitcher() {
       )}
     </div>
   )
+}
+
+ThemeSwitcher.propTypes = {
+  dropdownUp: PropTypes.bool,
 }
 
 export default ThemeSwitcher

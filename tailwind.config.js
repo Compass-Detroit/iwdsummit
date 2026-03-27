@@ -15,13 +15,6 @@ export default {
     'ribbon-facilitator',
     'ribbon-devteam',
     'ribbon-marketing',
-    'font-heading',
-    'font-body',
-    'font-biorhyme',
-    'font-montserrat',
-    'font-asimovian',
-    'font-orbitron',
-    'font-russell',
   ],
   theme: {
     extend: {
@@ -122,17 +115,6 @@ export default {
       fontFamily: {
         heading: ['var(--iwd-font-heading)', 'serif'],
         body: ['var(--iwd-font-body)', 'sans-serif'],
-        russell: ['Russell', 'cursive'],
-        orbitron: ['Orbitron', 'monospace'],
-        asimovian: [
-          'Asimovian',
-          'serif',
-          'Georgia',
-          'Times New Roman',
-          'serif',
-        ],
-        montserrat: ['Montserrat', 'sans-serif'],
-        biorhyme: ['BioRhyme', 'serif'],
       },
       typography: {
         DEFAULT: {
