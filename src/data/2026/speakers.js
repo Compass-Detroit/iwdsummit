@@ -62,7 +62,7 @@ const rawSpeakersData = [
     name: 'Jenna Ritten',
     avatar: JennaRitten,
     bio: 'Jenna is the visionary behind Detroits Innovation Summit series and Founding Executive Director of Compass (Collective of Minority Professionals and STEAM Societies), the organization bringing together Michigans diverse tech talent to combat brain drain and create local opportunities. As Chief Developer Advocate & Architect at IBM Research, she leads IBMs technical community while scaling their global developer ecosystem from 2 million to 9 million members.A cornerstone of Michigans tech renaissance, Jenna serves as Co-Leader of Google Developer Group Detroit, lead organizer of Michigan DevFest (1,000+ attendees), and board member of Automation Workz. As a local leader in Michigans tech ecosystem since 2018, she pioneered hackathon culture in the region by introducing the first hackathons to both the AfroTech Conference in 2023 and Michigan DevFest in 2025, creating hands-on opportunities for developers to showcase their skills and solve real-world challenges.Through Compass partnerships with NSBE Detroit, SHPE Detroit, IBM, Google, DTE Energy, and other leading organizations, Jenna is building bridges between corporate innovation and community empowerment. Her mission: ensuring Michigans next generation of Black technologists not only have opportunities to excel but can do so without leaving the state they call home.Connect with Jenna to learn how Compass is transforming Michigans tech ecosystem, one community at a time.',
-    linkedIn: 'https://www.linkedin.com/in/jennaritten',
+    linkedIn: 'https://www.linkedin.com/in/jritten/',
     organization: 'IBM Research',
     position: 'Chief Developer Advocate & Architect',
     session: {
@@ -154,7 +154,7 @@ const rawSpeakersData = [
     name: 'Umelo Onyejiaka',
     avatar: UmeloOnyejiaka,
     bio: 'Umelo Onyejiaka is a cloud and DevOps engineer, community builder, and founder of DevOps Detroit, holding multiple industry certifications including AWS Certified Solutions Architect Professional, AWS Certified DevOps Engineer Professional, Certified Kubernetes Administrator, and Terraform Associate, whose work focuses on how people grow skills in the real world by emphasizing community driven learning, mentorship, and shared exposure over isolation, creating spaces through DevOps Detroit where individuals can build practical technical skills, gain confidence, and discover opportunities by learning alongside others, and advocating that collective growth strengthens the entire ecosystem, while speaking at the Detroit Black History Month Innovation Summit on how community driven learning accelerates skill development, creates opportunity, and transforms individual potential into collective impact.',
-    linkedIn: 'https://www.linkedin.com/in/umeloonyejiaka',
+    linkedIn: 'https://www.linkedin.com/in/umelo-onyejiaka-84213524b/',
     organization: 'DevOps Detroit',
     position: 'DevOps engineer',
     session: {
