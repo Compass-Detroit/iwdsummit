@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 
-import lcgrcMap from '@/assets/images/maps/lcMap.webp'
+// TODO: update back webp
+import lcgrcMap from '@/assets/images/maps/lcMap.png'
 
 function VenueMaps() {
   const scrollRef = useRef(null)
